@@ -54,6 +54,15 @@ rules:
             - course: POLISCI.1
             - course: POLISCI.108A
 
+    rc_A:
+        description: "Reading and Composition Part A Requirement"
+        rule: course_regex
+        args: R/dA$
+    rc_B:
+        description: "Reading and Composition Part B Requirement"
+        rule: course_regex
+        args: R/dB$
+
     university_rc_A:
         description:
         rule: OR
@@ -64,10 +73,13 @@ rules:
         rule: OR
         args:
 
-    university_qu:
-        description:
-        rule: OR
-        args:
+for_lang:
+    description: "Foreign Language Requirement" # can waive
+    rule: OR
+    args: # 2nd semester language
+        - course: AFRICAM.7B
+        - course: AFRICAM.11B
+        - course: AFRICAM.13B
 
     university_for_lang:
         description:
