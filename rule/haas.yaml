@@ -1,0 +1,60 @@
+rules:
+
+    haas_business_administration_major:
+        rule: AND
+        args:
+            - AND: # Pre-Requisites
+                - AND:
+                    - course: UGBA.10
+                    - course: ECON.1 # AP can waive
+                    - OR:
+                        - AND:
+                            - course: STATS.20
+                            - course: STATS.21
+                        - AND:
+                            - course: MATH.1A
+                            - course: MATH.1B
+                        - AND:
+                            - course: MATH.16A
+                            - course: MATH.16B
+                        - AND:
+                            - course: MATH.1B
+                            - course: MATH.53
+            - AND: # Upper-Division
+                - AND: &courses
+                    - course: UGBA.100
+                    - OR:
+                        - course: UGBA.101A
+                        - course: ECON.100A
+                        - course: ECON.101A
+                        - course: IAS.106
+                    - OR:
+                        - course: UGBA.101B
+                        - course: ECON.100B
+                        - course: ECON.101B
+                        - course: IAS.107
+                    - course: UGBA.102A
+                    - course: UGBA.102B
+                    - course: UGBA.103
+                    - course: UGBA.104
+                    - course: UGBA.104
+                    - course: UGBA.105
+                    - course: UGBA.106
+                    - course: UGBA.107
+                - units:
+                    min: 38
+                    courses: *courses
+                - AND: # Electives
+                    - dept: UGBA
+
+        # problems with these rules:
+        # 1. AP can waive some of the math requirements so that you only
+        # have to take one semester of either Math 16B, 1B, 53, or 54
+        # 2. If take UGBA 101A or 101B, no add to elective count, but
+        # if take Econ 100A, 101A, IAS 106; or Econ 100B, 101B, or IAS
+        # 107, then have to make up the units with the electives, thus
+        # more than 38; thus maybe make a conditional rule, like
+        # if course: ECON.100A, then numunits + 4 (idk)
+        # 3. what about study abroad? can fulfill some of these electives
+        # by going abroad, maybe create empty class set
+

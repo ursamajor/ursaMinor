@@ -1,0 +1,34 @@
+ls_breadth_arts:
+    description:
+    rule: OR
+    args:
+
+ls_breadth_bio:
+   description:
+    rule: OR
+    args:
+
+ls_breadth_history:
+    description:
+    rule: OR
+    args:
+
+ls_breadth_international:
+    description:
+    rule: OR
+    args:
+
+ls_breadth_philosophy:
+    description:
+    rule: OR
+    args:
+
+ls_breadth_physical:
+    description:
+    rule: OR
+    args:
+
+ls_breadth_social:
+    description:
+    rule: OR
+    args:

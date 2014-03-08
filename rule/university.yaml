@@ -1,0 +1,75 @@
+rules:
+
+    university_ac:
+        description: "American Cultures"
+        rule: OR
+        args: 
+            - course_regex: ac$
+            - OR: #the ones that don't just end in AC, also xlisted w/ ones don't end in AC
+                - course: AFRICAM.C133A # xlisted w/ Education c181
+                - course: AFRICAM.142B
+                - course: AFRICAM.158A
+                - course: AFRICAM.158B
+                - course: AMERSTD.139AC # xlisted w/ History C139C
+                - course: AMERSTD.C174 # xlisted w/ English C143V, Visual C185A, UGIS C135
+                - course: ASAMST.190AC
+                - course: AMERSTD.C178B # xlisted w/ Architecture C174B
+                - course: ARCH.C174B # xlisted w/ AMERSTD C178B
+                - course: VISUAL.C185A # xlisted w/ UGIS C135, English C143V, AMERSTD C174
+                - course: HISTART.192G
+                - course: DEMOG.145AC #xlisted w/ History C139B
+                - course: EDU.C181 # xlisted w/ AFRICAM.C133A
+                - course: ENG.C143V # xlisted w/ AMERSTD C174, Visual C185A, UGIS C135
+                - course: ESPM.102D
+                - course: HIS.7A
+                - course: HIS.7B
+                - course: HIS.124A
+                - course: HIS.124B
+                - course: HIS.126A
+                - course: HIS.126B
+                - course: HIS.131B
+                - course: HIS.134A
+                - course: HIS.134B
+                - course: HIS.139A
+                - course: HIS.C139B # xlisted w/ DEM 145AC
+                - course: HIS.C139C # x listed w/ AMERSTD 139AC
+                - course: PBHLTH.150E
+                - course: UGIS C135 # x listed w/ Visual C185A, Eng C143V, AMERSTD C174
+
+    university_american_history:
+        description: "American History"
+        rule: OR
+        args:
+            - course: HIS.7A
+            - course: HIS.7B
+            - course: HIS.130B
+            - course: HIS.131A
+            - course: HIS.131B
+            - course: HIS.138
+
+    university_american_institutions:
+        description: "American Institutions"
+        rule: OR
+        args:
+            - course: POLISCI.1
+            - course: POLISCI.108A
+
+    university_rc_A:
+        description:
+        rule: OR
+        args:
+
+    university_rc_B:
+        description:
+        rule: OR
+        args:
+
+    university_qu:
+        description:
+        rule: OR
+        args:
+
+    university_for_lang:
+        description:
+        rule: 
+        args:
