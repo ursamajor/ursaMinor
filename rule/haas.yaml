@@ -3,25 +3,35 @@ rules:
     haas_business_administration_major:
         rule: AND
         args:
+            - set_param:
+                - TODO: exclude-breadth-dept: UGBA
             - AND: # Pre-Requisites
                 - AND:
                     - course: UGBA.10
-                    - course: ECON.1 # AP can waive
+                    - OR: # can waive
+                        - course: ECON.1
+                        - course: ECON.2
                     - OR:
+                        - course: STAT.20
+                        - course: STAT.21
+                        - course: STAT.25
+                    - OR: # can waive 1/2
                         - AND:
-                            - course: STATS.20
-                            - course: STATS.21
+                            - OR:
+                                - course: MATH.1A
+                                - course: MATH.16A
+                            - OR:
+                                - course: MATH.1B
+                                - course: MATH.16B
                         - AND:
-                            - course: MATH.1A
-                            - course: MATH.1B
-                        - AND:
-                            - course: MATH.16A
-                            - course: MATH.16B
-                        - AND:
-                            - course: MATH.1B
-                            - course: MATH.53
+                            - TODO: waive at least one semester 
+                            - OR:
+                                - course: MATH.1B
+                                - course: MATH.16B
+                                - course: MATH.53
+                                - course: MATH.54
             - AND: # Upper-Division
-                - AND: &courses
+                - AND:
                     - course: UGBA.100
                     - OR:
                         - course: UGBA.101A
@@ -43,18 +53,8 @@ rules:
                     - course: UGBA.107
                 - units:
                     min: 38
-                    courses: *courses
-                - AND: # Electives
-                    - dept: UGBA
-
-        # problems with these rules:
-        # 1. AP can waive some of the math requirements so that you only
-        # have to take one semester of either Math 16B, 1B, 53, or 54
-        # 2. If take UGBA 101A or 101B, no add to elective count, but
-        # if take Econ 100A, 101A, IAS 106; or Econ 100B, 101B, or IAS
-        # 107, then have to make up the units with the electives, thus
-        # more than 38; thus maybe make a conditional rule, like
-        # if course: ECON.100A, then numunits + 4 (idk)
-        # 3. what about study abroad? can fulfill some of these electives
-        # by going abroad, maybe create empty class set
-
+                    courses:
+                        - dept: UGBA # electives too
+                - AND: # Breadth/others
+                    - university_all
+                    - ls_all
