@@ -15,7 +15,7 @@ rules:
                 - course: ASAMST.190AC
                 - course: AMERSTD.C178B # xlisted w/ Architecture C174B
                 - course: ARCH.C174B # xlisted w/ AMERSTD C178B
-                - course: VISUAL.C185A # xlisted w/ UGIS C135, English C143V, AMERSTD C174
+                - course: VISSTD.C185A # xlisted w/ UGIS C135, English C143V, AMERSTD C174
                 - course: HISTART.192G
                 - course: DEMOG.145AC #xlisted w/ History C139B
                 - course: EDU.C181 # xlisted w/ AFRICAM.C133A

@@ -58,3 +58,5 @@ rules:
                 - AND: # Breadth/others
                     - university_all
                     - ls_all
+                        - NOT:
+                            - dept: UGBA

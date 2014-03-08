@@ -11,10 +11,10 @@ args:
             - AND: # 10 units (more units)
                 - course: MATH.16A # 3 units
                 - course: MATH.16B # 3 units
-                - course: STATS.2 # 4 units
+                - course: STAT.2 # 4 units
             - AND: # 8 units
                 - course: MATH.1A
-                - course: STATS.2
+                - course: STAT.2
             - AND: # 8 units
                 - course: MATH.10A
                 - course: MATH.10B
@@ -42,13 +42,13 @@ args:
                 - course: MCB.104
                 - course: IB.141
                 - OR:
-                    - course: PMB.C112 # xlisted
+                    - course: PLANTBI.C112 # xlisted
                     - course: MCB.C112 # xlisted
-                - course: PH.162A
+                - course: PBHLTH.162A
                 - OR:
-                    - course: PMB.C112 # xlisted
+                    - course: PLANTBI.C112 # xlisted
                     - course: MCB.C112L # xlisted
-                    - course: PH.162L
+                    - course: PBHLTH.162L
                 - course: NST.110
                 - course: NST.121
                 - course: NST.171
@@ -75,10 +75,10 @@ args:
                 - course: NST.160
                 - course: NST.C196
                 - course: NST.199
-                - course: PH.150A
-                - course: PH.150B
-                - course: PH.170B
+                - course: PBHLTH.150A
+                - course: PBHLTH.150B
+                - course: PBHLTH.170B
                 - course: UGIS.192C
                 - dept: IB
                 - dept: MCB
-                - dept: PMB
+                - dept: PLANTBI
