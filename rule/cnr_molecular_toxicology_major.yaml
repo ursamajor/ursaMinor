@@ -1,84 +1,87 @@
-cnr_molecular_toxicology_major:
-rule: AND
-args:
-    - AND: # Humanities and Social Sciences (22 units)
-        - AND:
-            - course: ENG.R1A
-            - course: ENG.R1B
-            # 14 additional units of course work in AC & Breadth
-    - AND: # Physical Sciences and Math (26 units)
-        - OR:
-            - AND: # 10 units (more units)
-                - course: MATH.16A # 3 units
-                - course: MATH.16B # 3 units
-                - course: STAT.2 # 4 units
-            - AND: # 8 units
-                - course: MATH.1A
-                - course: STAT.2
-            - AND: # 8 units
-                - course: MATH.10A
-                - course: MATH.10B
-        # thus, need 16-18 more, the total unit count is 18 here
-        # need to take at least 2 lab depending on what took above
-        - course: CHEM.1A # 3 units
-        - course: CHEM.1AL # 1 unit
-        - course: CHEM.3A # 3 units
-        - course: CHEM.3AL # 2 units
-        - course: CHEM.3B # 3 units
-        - course: CHEM.3BL # 2 units
-        - course: PHYSICS.8A # 4 units
-    - AND: # Biological and Natural Resource Science (11 units)
-        - OR:
-            - AND:
-                - course: NST.11
-                - course: MCB.32
-                - course: MCB.32L
-                - course: BIO.1A
-                - course: BIO.1AL
-    - AND: # Upper Division Required Courses
-        - units:
-            - numunits: 36
-                - course: MCB.102
-                - course: MCB.104
-                - course: IB.141
-                - OR:
-                    - course: PLANTBI.C112 # xlisted
-                    - course: MCB.C112 # xlisted
-                - course: PBHLTH.162A
-                - OR:
-                    - course: PLANTBI.C112 # xlisted
-                    - course: MCB.C112L # xlisted
-                    - course: PBHLTH.162L
-                - course: NST.110
-                - course: NST.121
-                - course: NST.171
-                - course: NST.193
-    - OR: # Approved Electives List:
-        - units:
-            - numunits: 15
-            - list:
-                - course: CIVENG.114
-                - course: CIVENG.115
-                - course: ESPM.100
-                - course: ESPM.119
-                - course: ESPM.126
-                - course: ESPM.162
-                - course: ESPM.C180
-                - course: IB.117
-                - course: IB.131
-                - course: IB.152
-                - course: NST.103
-                - OR:
-                    - course: NST.C114 # xlisted
-                    - course: ESPM.C148 # xlisted
-                - course: NST.C115
-                - course: NST.160
-                - course: NST.C196
-                - course: NST.199
-                - course: PBHLTH.150A
-                - course: PBHLTH.150B
-                - course: PBHLTH.170B
-                - course: UGIS.192C
-                - dept: IB
-                - dept: MCB
-                - dept: PLANTBI
+rules:
+
+    cnr_molecular_toxicology_major:
+        rule: AND
+        args:
+            - AND: # Humanities and Social Sciences (22 units)
+                - units:
+                    min: 22
+                    courses: 
+                        - university_all
+                        - ls_all
+                            - set_param:
+                                - TODO: exclude-breadth: ls_breadth_physical
+                                - TODO: exclude-breadth: ls_breadth_biological
+            - AND: # Physical Sciences and Math (26 units)
+                - units:
+                    min: 26
+                    courses:
+                        - OR:
+                            - AND:
+                                - course: MATH.16A
+                                - course: MATH.16B
+                                - course: STAT.2
+                            - AND:
+                                - course: MATH.1A
+                                - course: STAT.2
+                            - AND:
+                                - course: MATH.10A
+                                - course: MATH.10B
+                        - course: CHEM.1A
+                        - course: CHEM.1AL
+                        - course: CHEM.3A
+                        - course: CHEM.3AL
+                        - course: CHEM.3B
+                        - course: CHEM.3BL
+                        - course: PHYSICS.8A
+            - AND: # Biological and Natural Resource Science (11 units)
+                - units:
+                    min: 11
+                    courses:
+                        - course: NST.11
+                        - course: MCB.32
+                        - course: MCB.32L
+                        - course: BIO.1A
+                        - course: BIO.1AL
+            - AND: # Upper Division Required Courses
+                - units:
+                    min: 36
+                    courses:
+                        - course: MCB.102
+                        - course: MCB.104
+                        - course: IB.141
+                        - OR:
+                            - course: PLANTBI.C112 # xlisted
+                            - course: MCB.C112 # xlisted
+                        - course: PBHLTH.162A
+                        - OR:
+                            - course: PLANTBI.C112 # xlisted
+                            - course: MCB.C112L # xlisted
+                            - course: PBHLTH.162L
+                        - course: NST.110
+                        - course: NST.121
+                        - course: NST.171
+                        - course: NST.193
+                        - OR: # Approved Electives List: # all upp-div add to 36
+                            - course: CIVENG.114
+                            - course: CIVENG.115
+                            - course: ESPM.100
+                            - course: ESPM.119
+                            - course: ESPM.126
+                            - course: ESPM.162
+                            - course: ESPM.C180
+                            - course: NST.103
+                            - OR:
+                                - course: NST.C114 # xlisted
+                                - course: ESPM.C148 # xlisted
+                            - course: NST.C115
+                            - course: NST.160
+                            - course: NST.C196
+                            - course: NST.199
+                            - course: PBHLTH.150A
+                            - course: PBHLTH.150B
+                            - course: PBHLTH.170B
+                            - course: UGIS.192C
+                            - dept: IB
+                            - dept: MCB
+                            - dept: PLANTBI

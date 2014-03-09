@@ -1,3 +1,60 @@
-cnr_environmental_sciences_major:
-    rule: AND
-    args:
+rules:
+
+	cnr_environmental_sciences_major:
+	    rule: AND
+	    args:
+	    	- AND: # Lower Division 
+	    		- OR:
+		    		- course: MATH.1A
+		    		- course: MATH.16A
+	    		- OR:
+	    			- course: MATH.1B
+	    			- course: MATH.16B
+    			- course: CHEM.1A
+    			- course: CHEM.1AL
+    			- OR:
+    				- AND:
+    					- course: CHEM.3A
+    					- course: CHEM.3AL
+					- course: CHEM.1B
+				- OR:
+					- AND:
+						- course: BIO.1A
+						- course: BIO.1AL
+						- course: BIO.1B
+					- AND:
+						- course: BIO.11
+						- course: BIO.11L
+						- OR:
+							- course: IB.153
+							- course: IB.154
+							- course: ESPM.102A
+							- course: ESPM.111
+							- course: ESPM.113
+							- course: ESPM.114
+							- course: ESPM.115B
+							- course: ESPM.116B
+				- OR:
+					- AND:
+						- course: PHYSICS.7A
+						- course: PHYSICS.7B
+					- course: PHYSICS.8A
+			- AND: # Breadth
+				- OR:
+					- course: ESPM.2
+					- course: ESPM.6
+					- course: ESPM.C10
+					- course: LS.C30V
+					- course: ESPM.15
+				- OR:
+					- course: ESPM.C11
+					- coruse: LS.C30U
+					- course: ESPM.C12
+					- course: ENGLISH.C77
+					- course: ESPM.50AC
+					- course: ESPM.60
+				- OR:
+					- course: ENVECON.C1
+					- course: ECON.C3
+				- OR:
+				
