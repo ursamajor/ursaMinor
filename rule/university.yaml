@@ -15,7 +15,7 @@ rules:
                 - course: ASAMST.190AC
                 - course: AMERSTD.C178B # xlisted w/ Architecture C174B
                 - course: ARCH.C174B # xlisted w/ AMERSTD C178B
-                - course: VISSTD.C185A # xlisted w/ UGIS C135, English C143V, AMERSTD C174
+                - course: VIS STD.C185A # xlisted w/ UGIS C135, English C143V, AMERSTD C174
                 - course: HISTART.192G
                 - course: DEMOG.145AC #xlisted w/ History C139B
                 - course: EDU.C181 # xlisted w/ AFRICAM.C133A
@@ -31,9 +31,9 @@ rules:
                 - course: HISTORY.134A
                 - course: HISTORY.134B
                 - course: HISTORY.139A
-                - course: HIS.C139B # xlisted w/ DEM 145AC
-                - course: HIS.C139C # x listed w/ AMERSTD 139AC
-                - course: PBHLTH.150E
+                - course: HISTORY.C139B # xlisted w/ DEM 145AC
+                - course: HISTORY.C139C # x listed w/ AMERSTD 139AC
+                - course: PB HLTH.150E
                 - course: UGIS C135 # x listed w/ Visual C185A, Eng C143V, AMERSTD C174
 
     university_american_history:
@@ -51,8 +51,8 @@ rules:
         description: "American Institutions"
         rule: OR
         args:
-            - course: POLISCI.1
-            - course: POLISCI.108A
+            - course: POL SCI.1
+            - course: POL SCI.108A
 
     university_rc_A: 
         description: "Reading and Composition Part A Requirement"
@@ -76,9 +76,9 @@ rules:
             - course: CELTIC.10
             - course: CELTIC.85
             - course: CELTIC.86
-            - course: CHIN.1B
-            - course: CHIN.10X
-            - course: CHIN.10Y
+            - course: CHINESE.1B
+            - course: CHINESE.10X
+            - course: CHINESE.10Y
             - course: CUNEIF.100B
             - course: CUNEIF.102B
             - course: CUNEIF.106B
@@ -89,9 +89,9 @@ rules:
             - course: FRENCH.2
             - course: GERMAN.2
             - course: GREEK.2
-            - course: HEWB.1B
-            - course: HINURD.1B
-            - course: HINURD.2B
+            - course: HEWBREW.1B
+            - course: HIN-URD.1B
+            - course: HIN-URD.2B
             - coures: IRANIAN.101A
             - course: ITALIAN.2
             - course: JAPAN.1B
@@ -104,7 +104,7 @@ rules:
             - course: PERSIAN.1B
             - course: PORTUG.12
             - course: PUNJABI.1B
-            - course: SANSK.100B
+            - course: SANSKR.100B
             - course: SCANDIN.1B
             - course: SCANDIN.2B
             - course: SCANDIN.3B
@@ -115,7 +115,7 @@ rules:
             - course: SLAVIC.26B
             - course: SLAVIC.27B
             - course: SLAVIC.28B
-            - course: SSEAN.1B
+            - course: SSEASIAN.1B
             - course: SPANISH.2
             - course: TAGALG.1B
             - course: TAMIL.1B
