@@ -37,24 +37,23 @@ class Rule
 	@@rules = {}
 
 	def self.get_rule(name)
-		raise "rule #{name} does not exist" if not @rules.include?(name)
-		@rules[name]
+		raise "rule #{name} does not exist" if not @@rules.include?(name)
+		@@rules[name]
 	end
 
 	# A decorator that adds a function to the list of rules.
 	# A rule is a function that either matches or doesn't match a plan.
-	def self.add_rule(f, source, name)
-		# name = custom_name ? custom_name : f_name
-		f.name = 
-		@rules[name] = f
+	def self.add_rule(f, f_name, custom_name=nil)
+		name = custom_name ? custom_name : f_name
+		@@rules[name] = f
 	end
 
 	# This is a special thing because most of our rules are course filters.
 	# We need to be able to check whether the course exists in the plan.
 	# A decorator that adds a course filter rule to the list of rules. This
 	# rule is simply whether any course in the plan matches the course filter.
-	def self.add_course_filter(f, name)
-		# name = custom_name ? custom_name : f_name # get the function's name
+	def self.add_course_filter(f, f_name, custom_name=nil)
+		name = custom_name ? custom_name : f_name # get the function's name
 		course_filter_rule = Proc.new do |plan, args|
 			ret_val = false
 			plan.courses.each do |course|
@@ -65,19 +64,17 @@ class Rule
 			end
 			ret_val
 		end
-		@add_rule(course_filter_rule, "course_filter_rule", name)
+		add_rule(course_filter_rule, "course_filter_rule", name)
 	end
 
-	def add_yaml_rule(name, entry)
-		f, args = @parse_rule_entry(entry)
+	def self.add_yaml_rule(name, entry)
+		f, args = parse_entry(entry)
 		yaml_rule = Proc.new { |plan, dummy_args|
 			raise ArgumentError.new("YAML rules should not take arguments, got #{args}") if dummy_args
 			f.call(plan, args)
 		}
-		@add_rule(yaml_rule, 'yaml', name)
+		add_rule(yaml_rule, 'yaml', name)
 	end
-
-
 
 	def self.parse_entry(entry)
 		if entry.instance_of?(String)
@@ -98,32 +95,20 @@ class Rule
 
 	def self.parse_entries(entries)
 		entries.each do |entry|
-			yield parse_rule_entry(entry)
+			yield parse_entry(entry)
 		end
 	end
 
-	def check(plan, rule, args=nil)
-		result = @f.call(plan, args)
+	def self.check(plan, rule, args=nil)
+		result = get_rule(rule).call(plan, args)
 		puts "The plan #{result ? 'PASSES' : 'FAILS'} rule #{rule}."
 	end
 
 end
 
-
-
-
-
-## FORMATTING ##
-# @add_rule
-# def some_rule(plan, args): pass
-# @add_course_filter
-# def some_course_filter(plan, course, args): pass
-
-
-
 and_proc = Proc.new { |plan, entries|
 	ret_val = true
-	parse_rule_entries(entries) { |f, args| 
+	Rule.parse_entries(entries) { |f, args| 
 		if not f.call(plan, args) 
 			ret_val = false
 			break
@@ -131,11 +116,11 @@ and_proc = Proc.new { |plan, entries|
 	}
 	ret_val
 }
-add_rule(and_proc, "AND")
+Rule.add_rule(and_proc, "AND")
 
 or_proc = Proc.new { |plan, entries|
 	ret_val = false
-	parse_rule_entries(entries) { |f, args|
+	Rule.parse_entries(entries) { |f, args|
 		if f.call(plan, args)
 			ret_val = true
 			break
@@ -143,19 +128,19 @@ or_proc = Proc.new { |plan, entries|
 	}
 	ret_val
 }
-add_rule(or_proc, "OR")
+Rule.add_rule(or_proc, "OR")
 
 not_proc = Proc.new { |plan, entry|
-	f, args = parse_rule_entry(entry)
+	f, args = Rule.parse_entry(entry)
 	not f.call(plan, args)
 }
-add_rule(not_proc, "NOT")
+Rule.add_rule(not_proc, "NOT")
 
 # This is ANDcourse. We do not need ORcourse because ANDcourse will change
 # all of its children's plan arguments to a single course.
 same_course = Proc.new { |plan, course, entries|
 	ret_val = true
-	parse_rule_entries(entries) { |f, args| 
+	Rule.parse_entries(entries) { |f, args| 
 		if not f.call(course, args)
 			ret_val = false
 			break
@@ -163,26 +148,46 @@ same_course = Proc.new { |plan, course, entries|
 	}
 	ret_val
 }
-add_course_filter(same_course, "same_course")
+Rule.add_course_filter(same_course, "same_course")
 
 course_regex = Proc.new { |plan, course, regex|
 	Regexp.new(regex, "i").match(course.name)
 }
-add_course_filter(course_regex, "course_regex")
+Rule.add_course_filter(course_regex, "course_regex")
 
 course = Proc.new { |plan, course, name|
 	course.name.lower() == name.lower()
 }
-add_course_filter(course, "course")
+Rule.add_course_filter(course, "course")
 
 pnp = Proc.new { |plan, course, name|
 	course.ispnp
 }
-add_course_filter(pnp, "pnp")
+Rule.add_course_filter(pnp, "pnp")
 
 course_number_range = Proc.new { |plan, course, range|
 	min = range[0]
 	max = range.length > 1 ? range[1] : Float::INFINITY
 	course.number >= min and course.number <= max
 }
-add_course_filter(course_number_range, "course_number_range")
+Rule.add_course_filter(course_number_range, "course_number_range")
+
+data = YAML.load_file("Planner-reqs-draft3.yaml")
+data['rules'].keys.each do |rule|
+ 	Rule.add_yaml_rule(rule, data['rules'][rule])
+end
+
+my_plan = Plan.new([
+	Course.new('SOMETHING SOMETHING AC', number=50),
+	Course.new('CS.61C', number=61),
+	Course.new('CS.188', number=188),
+	Course.new('CS.170', number=170),
+	Course.new('GERMAN.R5A', number=5),
+	Course.new('MCELLB.61', number=61, ispnp=true),
+])
+
+Rule.check(my_plan, 'ac')
+Rule.check(my_plan, 'dumb_way_to_match_ac')
+Rule.check(my_plan, 'rcb')
+Rule.check(my_plan, 'upperdiv')
+Rule.check(my_plan, 'pnp_lowerdiv')
