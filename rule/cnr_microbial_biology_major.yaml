@@ -1,3 +1,89 @@
-cnr_microbial_biology_major:
-    rule: AND
-    args:
+rules:
+
+	cnr_microbial_biology_major:
+	    rule: AND
+	    args:
+	    	- AND: # lower division
+	    		- AND: # math
+		    		- OR: 
+		    			- course: MATH.1A
+		    			- course: MATH.16A
+	    			- OR:
+	    				- course: MATH.1B
+	    				- course: MATH.16B
+				- AND: # chemistry
+					- course: CHEM.1A
+					- course: CHEM.1AL
+					- course: CHEM.3A
+					- course: CHEM.3AL
+					- course: CHEM.3B
+					- course: CHEM.3BL
+				- AND: # statistics
+					- OR:
+						- course: STAT.2 
+						- course: STAT.20
+						- course: STAT.131A
+				- AND: # biology
+					- course: BIOLOGY.1A
+					- course: BIOLOGY.1AL
+					- course: BIOLOGY.1B
+				- AND: # physics
+					- course: PHYSICS.8A
+				- AND: # humanities & social sciences
+					- units:
+						min: 15
+						courses:
+							- ls_breadth_arts
+							- ls_breadth_history
+							- ls_breadth_international
+							- ls_breadth_philosophy
+							- ls_breadth_social
+						max: 6
+							- university_for_lang
+		- AND: # upper div core
+			- OR:
+				- course: MCELLBI.C100A
+				- course: MCELLBI.100B
+				- course: MCELLBI.102
+				- course: MCELLBI.110
+			- course: PLANTBI.C112
+			- course: PLANTBI.C112L
+			- course: PLANTBI.148
+		- AND: # upper division core electives
+			- units:
+				min: 5
+				courses:
+					- course: PLANTBI.104L
+					- OR:
+						- course: PLANTBI.C103
+						- course: INTEGBI.118
+						- course: PB HLTH.162A
+					- AND:
+						- course: PLANTBI.110
+						- course: PLANTBI.110L
+					- course: PLANTBI.113
+					- course: PLANTBI.C114
+					- course: PLANTBI.C116
+					- AND:
+						- course: PLANTBI.120
+						- course: PLANTBI.120L
+					- course: BIO ENG.135
+					- course: ESPM.112
+					- course: ESPM.131
+		- AND: # microbial biology tracks
+
+
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+			- course: 
+
+

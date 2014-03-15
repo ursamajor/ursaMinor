@@ -1,3 +1,67 @@
-cnr_conservation_and_resource_studies_major:
-    rule: AND
-    args:
+rules:
+
+	cnr_conservation_and_resource_studies_major:
+	    rule: AND
+	    args:
+	    	- AND: # Lower-Div
+				- OR: # espm enviromental science core
+					- course: ESPM.2
+					- course: ESPM.6
+					- course: ESPM.C10
+					- course: "L&S".C30V
+					- course: ESPM.15
+				- OR: # espm social science core
+					- course: ESPM.C11
+					- course: "L&S".C30U
+					- course: ESPM.C12
+					- course: ESPM.50AC
+					- course: ESPM.60
+				- OR:
+					- AND:
+						- course: BIOLOGY.1A
+						- course: BIOLOGY.1AL
+					- AND:
+						- course: BIOLOGY.1B
+						- course: BIOLOGY.1BL
+					- AND:
+						- course: BIOLOGY.11
+						- course: BIOLOGY.11L
+				- AND:
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_arts
+							- ls_breadth_history
+							- ls_breadth_philosophy
+				- OR:
+					- ls_breadth_social
+					- ls_breadth_international
+				- ls_breadth_physical # other reqs don't count
+				- OR: #can waive
+					- course: MATH.16A
+					- course: MATH.16B
+					- course: MATH.1A
+					- course: MATH.1B
+					- course: STAT.2
+					- course: STAT.20
+					- course: STAT.25
+					- course: STAT.131A
+					- course: PB HLTH.142A
+				- course: ESPM.90
+			- AND: # upper div
+				- course: ESPM.100
+				- course: ESPM.194A
+			- AND: # area of interest courses.... self-designed
+			# 6-8 lower div
+			# 24 upper div
+			# includes: marine resource management, sustainable agriculture
+			# in the developing world, environmental justice and education,
+			# population & conservation policy, etc...
+				- OR:
+					- dept: ENVECON
+					- dept: ENV SCI
+					- dept: ESPM
+					- dept: NUSCITX
+					- dept: PLANTBI
+					- units:
+						min: 15

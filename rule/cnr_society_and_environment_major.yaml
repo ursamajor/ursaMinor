@@ -1,3 +1,27 @@
-cnr_society_and_environment_major:
-    rule: AND
-    args: 
+rule:
+
+	cnr_society_and_environment_major:
+	    rule: AND
+	    args: 
+	    	- AND: # lower division
+				- OR: # espm environmental science core
+					- course: ESPM.2
+					- course: ESPM.6
+					- course: ESPM.C10
+					- course: "L&S".C30V
+					- course: ESPM.15
+				- OR: # espm social science core
+					- course: ESPM.C11
+					- coruse: "L&S".C30U
+					- course: ESPM.C12
+					- course: ENGLISH.C77
+					- course: ESPM.50AC
+					- course: ESPM.60
+				- ls_breadth_social
+				- ls_breadth_international
+				- ls_breadth_physical
+				- OR:
+					- ls_breadth_arts
+					- ls_breadth_history
+					- ls_breadth_philosophy
+				- ls_breadth_biological

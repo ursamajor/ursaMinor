@@ -51,12 +51,12 @@ rules:
                         - course: MCELLBI.104
                         - course: INTEGBI.141
                         - OR:
-                            - course: PLANTBI.C112 # xlisted
-                            - course: MCELLBI.C112 # xlisted
+                            - course: PLANTBI.C112
+                            - course: MCELLBI.C112
                         - course: PB HLTH.162A
                         - OR:
-                            - course: PLANTBI.C112 # xlisted
-                            - course: MCELLBI.C112L # xlisted
+                            - course: PLANTBI.C112
+                            - course: MCELLBI.C112L
                             - course: PB HLTH.162L
                         - course: NUSCTX.110
                         - course: NUSCTX.121
@@ -72,8 +72,8 @@ rules:
                             - course: ESPM.C180
                             - course: NUSCTX.103
                             - OR:
-                                - course: NUSCTX.C114 # xlisted
-                                - course: ESPM.C148 # xlisted
+                                - course: NUSCTX.C114
+                                - course: ESPM.C148
                             - course: NUSCTX.C115
                             - course: NUSCTX.160
                             - course: NUSCTX.C196
