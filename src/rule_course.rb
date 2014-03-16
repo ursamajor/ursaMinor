@@ -1,7 +1,7 @@
 require './rule_coursefilter'
 
 class CourseRegexRule < CourseFilter
-	name :course_regex
+	set_name :course_regex
 
 	def check(plan, course, regex)
 		Regexp.new(regex, "i").match(course.name)
@@ -9,7 +9,7 @@ class CourseRegexRule < CourseFilter
 
 end
 CourseRegexRule.new
-# Rule.add(CourseRegexRule.new)
+Rule.add(CourseRegexRule.new)
 
 # class CourseRule < CourseFilter
 # 	name :course

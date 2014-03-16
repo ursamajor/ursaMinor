@@ -3,7 +3,9 @@ require './rule'
 class CourseFilter < Rule
   @@source = :course_filter
 
-  abstract CourseFilter
+  def abstract?
+    self.class == CourseFilter
+  end
 
   def check(plan, args)
     raise ArgumentError.
