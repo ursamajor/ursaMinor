@@ -1,5 +1,8 @@
 # run in command line with 'ruby Planner-reqs-draft3.rb'
 
+require './ursarule'
+require 'yaml'
+
 data = YAML.load_file("Planner-reqs-draft3.yaml")
 data['rules'].keys.each do |rule|
  	add_yaml_rule(rule, data['rules'][rule])

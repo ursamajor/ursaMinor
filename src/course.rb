@@ -1,5 +1,7 @@
+
+
 class Course
-	attr_accessor :name, :number, :ispnp
+	attr_reader :name, :number, :ispnp
 
 	def initialize(name, number=nil, ispnp=false)
 		@name = name

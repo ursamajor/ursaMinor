@@ -1,3 +1,5 @@
+
+
 class Plan
 	attr_accessor :courses
 
