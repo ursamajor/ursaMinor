@@ -4,15 +4,16 @@ rules: # two options
 		    rule: AND
 		    args:
 				- AND: # Breadth requirements
+					- university_all
 					- OR: # espm environmental science core
 						- course: ESPM.2
 						- course: ESPM.6
 						- course: ESPM.C10
-						- course: "L&S".C30V
+						- course: LNS.C30V
 						- course: ESPM.15
 					- OR: # espm social science core
 						- course: ESPM.C11
-						- coruse: "L&S".C30U
+						- coruse: LNS.C30U
 						- course: ESPM.C12
 						- course: ENGLISH.C77
 						- course: ESPM.50AC
@@ -188,7 +189,7 @@ rules: # two options
 							- course: INTEGBI.106A
 							- course: LD ARCH.120
 							- course: LD ARCHC.188
-							- course: "L&S".170AC
+							- course: LNS.170AC
 							- course: MATH.121A
 							- course: MATH.121B
 							- course: MEC ENG.106
@@ -625,7 +626,7 @@ rules: # two options
 							- course: GEOG.183
 							- course: HISTORY.120AC
 							- course: LD ARCH.120
-							- course: "L&S".170AC
+							- course: LNS.170AC
 							- course: MATH.121A
 							- course: MATH.121B
 							- course: MEC ENG.106
@@ -888,7 +889,7 @@ rules: # two options
 								- course: INTEGBI.175
 								- course: INTEGBI.175L
 							- course: LD ARCH.120
-							- course: "L&S".170AC
+							- course: LNS.170AC
 							- course: MATH.121A
 							- course: MATH.121B
 							- course: MEC ENG.106
@@ -971,11 +972,11 @@ rules: # two options
 					- course: ESPM.2
 					- course: ESPM.6
 					- course: ESPM.C10
-					- course: "L&S".C30V
+					- course: LNS.C30V
 					- course: ESPM.15
 				- OR: # espm social science core
 					- course: ESPM.C11
-					- coruse: "L&S".C30U
+					- coruse: LNS.C30U
 					- course: ESPM.C12
 					- course: ENGLISH.C77
 					- course: ESPM.50AC

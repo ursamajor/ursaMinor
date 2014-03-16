@@ -3,6 +3,7 @@ rules:
 	cnr_microbial_biology_major:
 	    rule: AND
 	    args:
+	    	- university_all
 	    	- AND: # lower division
 	    		- AND: # math
 		    		- OR: 

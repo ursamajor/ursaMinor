@@ -3,15 +3,15 @@ rules:
     cnr_molecular_toxicology_major:
         rule: AND
         args:
+            - university_all
             - AND: # Humanities and Social Sciences (22 units)
                 - units:
                     min: 22
                     courses: 
-                        - university_all
                         - ls_all
                             - set_param:
                                 - TODO: exclude-breadth: ls_breadth_physical
-                                - TODO: exclude-breadth: ls_breadth_biological
+                                - TODO: exclude-breadth: ls_breadth_bio
             - AND: # Physical Sciences and Math (26 units)
                 - units:
                     min: 26

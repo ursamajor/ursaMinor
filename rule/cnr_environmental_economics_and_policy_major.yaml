@@ -3,6 +3,7 @@ rules:
 	cnr_environmental_economics_and_policy_major:
 	    rule: AND
 	    args:
+	    	- university_all
 	    	- AND: # Lower div
 	    		- OR: # prinicples of micro-economics
 	    			- course: ENVECON.1

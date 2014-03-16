@@ -3,12 +3,13 @@ rules:
 	cnr_forestry_and_natural_resources_major:
 	    rule: AND
 	    args:
+	    	- university_all
 	    	- AND: # Lower-Div
 				- OR:
 					- course: ESPM.2
 					- course: ESPM.6
 					- course: ESPM.C10
-					- course: "L&S".C30V
+					- course: LNS.C30V
 					- course: ESPM.15
 				- OR:
 					- ls_breadth_social
@@ -16,7 +17,7 @@ rules:
 				- OR:
 					- ls_breadth_arts
 					- ls_breadth_history
-					- ls_breadth_philsophy
+					- ls_breadth_philosophy
 			- AND: # upper div
 				- OR:
 					- AND:
@@ -82,7 +83,7 @@ rules:
 					- OR: # natural sciences specialization
 						- AND: # Ecology subject category
 							- units:
-								min: 6
+								numcourses: 2
 								courses:
 									- course: ESPM.108A
 									- course: ESPM.108B
@@ -106,7 +107,7 @@ rules:
 									- course: INTEGBI.1
 						- AND: # Monitory & measurement subject category
 							- units:
-								min: 6
+								numcourses: 2
 								courses:
 									- course: ESPM.172
 									- course: ESPM.174

@@ -1,18 +1,23 @@
 rules:
-
+# things to do:
+# eight student designed area of interest classes for min
+# of 24 units
+# ap credit of breadth / requirements
+# v
 	cnr_conservation_and_resource_studies_major:
 	    rule: AND
 	    args:
+	    	- university_all
 	    	- AND: # Lower-Div
 				- OR: # espm enviromental science core
 					- course: ESPM.2
 					- course: ESPM.6
 					- course: ESPM.C10
-					- course: "L&S".C30V
+					- course: LNS.C30V
 					- course: ESPM.15
 				- OR: # espm social science core
 					- course: ESPM.C11
-					- course: "L&S".C30U
+					- course: LNS.C30U
 					- course: ESPM.C12
 					- course: ESPM.50AC
 					- course: ESPM.60
@@ -26,17 +31,14 @@ rules:
 					- AND:
 						- course: BIOLOGY.11
 						- course: BIOLOGY.11L
-				- AND:
-					- units:
-						min: 3
-						courses:
-							- ls_breadth_arts
-							- ls_breadth_history
-							- ls_breadth_philosophy
+				- OR:
+					- ls_breadth_arts
+					- ls_breadth_history
+					- ls_breadth_philosophy
 				- OR:
 					- ls_breadth_social
 					- ls_breadth_international
-				- ls_breadth_physical # other reqs don't count
+				- ls_breadth_physical
 				- OR: #can waive
 					- course: MATH.16A
 					- course: MATH.16B
@@ -58,10 +60,11 @@ rules:
 			# in the developing world, environmental justice and education,
 			# population & conservation policy, etc...
 				- OR:
-					- dept: ENVECON
-					- dept: ENV SCI
-					- dept: ESPM
-					- dept: NUSCITX
-					- dept: PLANTBI
 					- units:
 						min: 15
+						dept:
+							- dept: ENVECON
+							- dept: ENV SCI
+							- dept: ESPM
+							- dept: NUSCITX
+							- dept: PLANTBI

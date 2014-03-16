@@ -1,0 +1,26 @@
+
+
+cnr_espm_environmental_science_core
+    description: "ESPM Environmental Science Core"
+    rule: OR
+    args:
+		- course: ESPM.2
+		- course: ESPM.6
+		- course: ESPM.C10
+		- course: LNS.C30V
+		- course: ESPM.15
+
+
+cnr_espm_social_science_core
+    description: "ESPM Social Science Core"
+    rule: OR
+    args:
+		- course: ESPM.C11
+		- course: LNS.C30U
+		- course: ESPM.C12
+		- course: ESPM.50AC
+		- course: ESPM.60
+
+
+cnr_breadth_arts_history_philosophy
+

@@ -3,6 +3,7 @@ rules:
 	cnr_genetics_and_plant_biology_major:
 	    rule: AND
 	    args:
+	    	- university_all
 	    	- AND: # lower division
 	    		- AND: # math
 		    		- OR: 
