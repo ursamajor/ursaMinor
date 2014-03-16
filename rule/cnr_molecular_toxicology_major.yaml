@@ -7,6 +7,7 @@ rules:
         rule: AND
         args:
             - AND:
+                - upper_div
                 - units:
                     min: 15
                     dept:
@@ -19,7 +20,9 @@ rules:
                 - units:
                     min: 22
                     courses: 
-                        - university_all
+                        - university_ac
+                        - university_rc_A
+                        - university_rc_B
                         - ls_all
                             - set_param:
                                 - TODO: exclude-breadth: ls_breadth_physical

@@ -9,6 +9,7 @@ rules:
 	    	- university_all
 	    	- ls_breadth_all
             - AND:
+            	- upper_div
                 - units:
                     min: 15
                     dept:

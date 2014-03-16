@@ -9,6 +9,7 @@ rules:
 	    args:
 	    	- university_all
             - AND:
+            	- upper_div
                 - units:
                     min: 15
                     dept:
