@@ -6,16 +6,7 @@ rules:
     cnr_molecular_toxicology_major:
         rule: AND
         args:
-            - AND:
-                - upper_div
-                - units:
-                    min: 15
-                    dept:
-                        - dept: AGR CHM
-                        - dept: ENE,RES
-                        - dept: ESPM
-                        - dept: NUSCTX
-                        - dept: PLANTBI
+            - cnr_upper_division
             - AND: # Humanities and Social Sciences (22 units)
                 - units:
                     min: 22
@@ -23,10 +14,8 @@ rules:
                         - university_ac
                         - university_rc_A
                         - university_rc_B
-                        - ls_all
-                            - set_param:
-                                - TODO: exclude-breadth: ls_breadth_physical
-                                - TODO: exclude-breadth: ls_breadth_bio
+                        - cnr_breadth_arts_history_philosophy
+                        - cnr_breadth_social_international
             - AND: # Physical Sciences and Math (26 units)
                 - units:
                     min: 26

@@ -8,16 +8,7 @@ rules:
 	    args:
 	    	- university_all
 	    	- ls_breadth_all
-            - AND:
-            	- upper_div
-                - units:
-                    min: 15
-                    dept:
-                        - dept: AGR CHM
-                        - dept: ENE,RES
-                        - dept: ESPM
-                        - dept: NUSCTX
-                        - dept: PLANTBI
+	    	- cnr_upper_division
 	    	- AND: # Lower div
 	    		- OR: # prinicples of micro-economics
 	    			- course: ENVECON.1

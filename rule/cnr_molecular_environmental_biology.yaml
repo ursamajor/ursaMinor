@@ -1,45 +1,15 @@
 rules:
-    
-    cnr_molecular_environmental_biology_major
+
+    cnr_molecular_environmental_biology_major:
         rule: AND
         args:
 	    	- university_all
-            - upper_div
-            - AND:
-                - units:
-                    min: 15
-                    dept:
-                        - dept: AGR CHM
-                        - dept: ENE,RES
-                        - dept: ESPM
-                        - dept: NUSCTX
-                        - dept: PLANTBI
-	    	- AND: # lower division
-                - OR: # espm enviromental science core
-                    - course: ESPM.2
-                    - course: ESPM.6
-                    - course: ESPM.C10
-                    - course: LNS.C30V
-                    - course: ESPM.15
-                - OR: # espm social science core
-                    - course: ESPM.C11
-                    - course: LNS.C30U
-                    - course: ESPM.C12
-                    - course: ESPM.50AC
-                    - course: ESPM.60
-                - OR:
-                    - units:
-                        min: 3
-                        courses:
-                            - ls_breadth_arts
-                            - ls_breadth_history
-                            - ls_breadth_philosophy
-                - OR:
-                    - units:
-                        min: 3
-                        courses:
-                            - ls_breadth_social
-                            - ls_breadth_international
+            - cnr_upper_division
+            - AND: # Lower-Div
+                - cnr_espm_environmental_science_core
+                - cnr_espm_social_science_core
+                - cnr_breadth_arts_history_philosophy
+                - cnr_breadth_social_international
                 - course: CHEM.1A
                 - course: CHEM.1AL
                 - course: CHEM.3A

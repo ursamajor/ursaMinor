@@ -6,16 +6,7 @@ rules:
 	cnr_nutritional_science_major:
 	    rule: AND
 	    args:
-	    	- upper_div
-            - AND:
-                - units:
-                    min: 15
-                    dept:
-                        - dept: AGR CHM
-                        - dept: ENE,RES
-                        - dept: ESPM
-                        - dept: NUSCTX
-                        - dept: PLANTBI
+	    	- cnr_upper_division
             - AND: # dietics track
 	            - AND: # lower-div
 	            	- units:
@@ -34,11 +25,8 @@ rules:
 	        					- course: PSYCH.2
 	        					- course: SOCIOL.3
 	        					- course: SOCIOL.3AC
-        					- ls_breadth_arts
-        					- ls_breadth_history
-        					- ls_breadth_international
-        					- ls_breadth_social
-        					- ls_breadth_philosophy
+							- cnr_breadth_arts_history_philosophy
+							- cnr_breadth_social_international
         					- university_ac
 	    					# i guessed
 				- AND: # physical sciences and math
@@ -91,12 +79,9 @@ rules:
 						min: 14
 						courses:
 							- university_ac
-							- ls_breadth_arts
-							- ls_breadth_history
-							- ls_breadth_international
-							- ls_breadth_philosophy
-							- ls_breadth_social
 							- university_for_lang
+							- cnr_breadth_arts_history_philosophy
+							- cnr_breadth_social_international
 				- AND: # physical sciences and math
 					- OR: # math
 						- AND:
