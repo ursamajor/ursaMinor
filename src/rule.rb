@@ -4,9 +4,9 @@ class Rule
   attr_accessor :name, :source
 
   @@source = :raw
+  @@rules = {}
 
   def initialize
-    super
     raise 'abstract' if abstract?
   end
 
@@ -16,26 +16,24 @@ class Rule
 
   def self.set_name name
     @@name = name
+    define_method(:name) do ; @@name ; end
   end
 
-  def name
-    @name or @@name
+  def self.check_type name, obj, expected_class
+    unless obj.is_a? expected_class
+      raise TypeError.new "#{name}: expected #{expected_class} but got #{name.class}"
+    end
   end
 
-  @@rules = {}
   def self.get(name)
-    raise TypeError.new "name must be string" if not name.is_a? String
+    check_type 'name', name, String
     raise "rule #{name} does not exist" if not @@rules.include? name
     @@rules[name]
   end
   def self.add(rule)
-    raise TypeError.new "rule of wrong type" unless rule.is_a? Rule
-    puts "#{rule.name}\n"
-    puts "#{rule.name.class}\n"
-    puts
-    STDOUT.flush
-    raise TypeError.new "name must be symbol" unless rule.name.is_a? Symbol
-    @@rules[name] = rule.name
+    check_type 'rule', rule, Rule
+    check_type 'rule.name', rule.name, Symbol
+    @@rules[rule.name] = rule
   end
 
   def self.parse_entry(entry)
