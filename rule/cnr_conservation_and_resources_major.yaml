@@ -3,11 +3,20 @@ rules:
 # eight student designed area of interest classes for min
 # of 24 units
 # ap credit of breadth / requirements
-# v
+# not sure if requirements can count as breadth
 	cnr_conservation_and_resource_studies_major:
 	    rule: AND
 	    args:
 	    	- university_all
+            - AND:
+                - units:
+                    min: 15
+                    dept:
+                        - dept: AGR CHM
+                        - dept: ENE,RES
+                        - dept: ESPM
+                        - dept: NUSCTX
+                        - dept: PLANTBI
 	    	- AND: # Lower-Div
 				- OR: # espm enviromental science core
 					- course: ESPM.2
@@ -32,13 +41,23 @@ rules:
 						- course: BIOLOGY.11
 						- course: BIOLOGY.11L
 				- OR:
-					- ls_breadth_arts
-					- ls_breadth_history
-					- ls_breadth_philosophy
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_arts
+							- ls_breadth_history
+							- ls_breadth_philosophy
 				- OR:
-					- ls_breadth_social
-					- ls_breadth_international
-				- ls_breadth_physical
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_social
+							- ls_breadth_international
+				- OR:
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_physical
 				- OR: #can waive
 					- course: MATH.16A
 					- course: MATH.16B

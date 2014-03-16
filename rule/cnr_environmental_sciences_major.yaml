@@ -1,10 +1,22 @@
 rules: # two options
 
+# ap credit of breadth / requirements
+# not sure if requirements can count as breadth
+
 	cnr_environmental_sciences_major:
 		    rule: AND
 		    args:
+				- university_all
+	            - AND:
+	                - units:
+	                    min: 15
+	                    dept:
+	                        - dept: AGR CHM
+	                        - dept: ENE,RES
+	                        - dept: ESPM
+	                        - dept: NUSCTX
+	                        - dept: PLANTBI
 				- AND: # Breadth requirements
-					- university_all
 					- OR: # espm environmental science core
 						- course: ESPM.2
 						- course: ESPM.6
@@ -22,12 +34,18 @@ rules: # two options
 						- course: ENVECON.C1
 						- course: ECON.C3
 					- OR:
-						- ls_breadth_arts
-						- ls_breadth_history
-						- ls_breadth_philosophy
+						- units:
+							min: 3
+							courses:
+								- ls_breadth_arts
+								- ls_breadth_history
+								- ls_breadth_philosophy
 					- OR:
-						- ls_breadth_social
-						- ls_breadth_international
+						- units:
+							min: 3
+							courses:
+								- ls_breadth_social
+								- ls_breadth_international
 				- AND: # upper-div
 					- OR: # statistics
 						- course: STAT.131A

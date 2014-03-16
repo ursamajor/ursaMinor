@@ -4,6 +4,15 @@ rule:
 	    rule: AND
 	    args: 
 	    	- university_all
+            - AND:
+                - units:
+                    min: 15
+                    dept:
+                        - dept: AGR CHM
+                        - dept: ENE,RES
+                        - dept: ESPM
+                        - dept: NUSCTX
+                        - dept: PLANTBI
 	    	- AND: # lower division
 				- OR: # espm environmental science core
 					- course: ESPM.2
@@ -18,11 +27,35 @@ rule:
 					- course: ENGLISH.C77
 					- course: ESPM.50AC
 					- course: ESPM.60
-				- ls_breadth_social
-				- ls_breadth_international
-				- ls_breadth_physical
+				- OR: # math
+					- course: MATH.1A
+					- course: MATH.10A
+					- course: 
+			- AND: # Five Course Breadth
 				- OR:
-					- ls_breadth_arts
-					- ls_breadth_history
-					- ls_breadth_philosophy
-				- ls_breadth_bio
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_social
+				- OR:
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_international
+				- OR:
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_physical
+				- OR:
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_arts
+							- ls_breadth_history
+							- ls_breadth_philosophy
+				- OR:
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_biological

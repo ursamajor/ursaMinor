@@ -1,13 +1,25 @@
 rules:
 
+# ap credit of breadth / requirements
+# not sure if requirements can count as breadth
+
     cnr_molecular_toxicology_major:
         rule: AND
         args:
-            - university_all
+            - AND:
+                - units:
+                    min: 15
+                    dept:
+                        - dept: AGR CHM
+                        - dept: ENE,RES
+                        - dept: ESPM
+                        - dept: NUSCTX
+                        - dept: PLANTBI
             - AND: # Humanities and Social Sciences (22 units)
                 - units:
                     min: 22
                     courses: 
+                        - university_all
                         - ls_all
                             - set_param:
                                 - TODO: exclude-breadth: ls_breadth_physical

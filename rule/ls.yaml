@@ -2996,6 +2996,10 @@ ls_breadth_social:
         - course: ARCH.179AC
         - course: HISTART.R108
         - course: HISTART.N142
+
+
+
+
         - dept: ART
             - NOT:
                 - course: ART.C178

@@ -1,9 +1,21 @@
 rules:
 
+# ap credit of breadth / requirements
+# not sure if requirements can count as breadth
+
 	cnr_forestry_and_natural_resources_major:
 	    rule: AND
 	    args:
 	    	- university_all
+            - AND:
+                - units:
+                    min: 15
+                    dept:
+                        - dept: AGR CHM
+                        - dept: ENE,RES
+                        - dept: ESPM
+                        - dept: NUSCTX
+                        - dept: PLANTBI
 	    	- AND: # Lower-Div
 				- OR:
 					- course: ESPM.2
@@ -12,12 +24,18 @@ rules:
 					- course: LNS.C30V
 					- course: ESPM.15
 				- OR:
-					- ls_breadth_social
-					- ls_breadth_international
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_arts
+							- ls_breadth_history
+							- ls_breadth_philosophy
 				- OR:
-					- ls_breadth_arts
-					- ls_breadth_history
-					- ls_breadth_philosophy
+					- units:
+						min: 3
+						courses:
+							- ls_breadth_social
+							- ls_breadth_international
 			- AND: # upper div
 				- OR:
 					- AND:
@@ -82,8 +100,8 @@ rules:
 								- course: GEOG.140A
 					- OR: # natural sciences specialization
 						- AND: # Ecology subject category
-							- units:
-								numcourses: 2
+							- numcourses:
+								min:
 								courses:
 									- course: ESPM.108A
 									- course: ESPM.108B
@@ -106,8 +124,8 @@ rules:
 									- course: INTEGBI.157LF
 									- course: INTEGBI.1
 						- AND: # Monitory & measurement subject category
-							- units:
-								numcourses: 2
+							- numcourses:
+								min: 2
 								courses:
 									- course: ESPM.172
 									- course: ESPM.174
@@ -119,8 +137,8 @@ rules:
 									- course: LD ARCH.110
 									- course: LD ARCH.C188
 						- AND: # Physical environment subject category
-							- units:
-								min: 3
+							- numcourses:
+								min: 1
 								courses:
 									- course: ESPM.120
 									- course: ESPM.121
@@ -129,8 +147,8 @@ rules:
 									- course: EPS.117
 									- course: GEOG.140A
 						- AND: # Management & policy subject category
-							- units:
-								min: 3
+							- numcourses:
+								min: 1
 								courses:
 									- course: ESPM.155
 									- course: ESPM.165
@@ -166,13 +184,13 @@ rules:
 						- course: ECON.C3
 						- course: UGBA.10
 				- AND: # electives
-					- units:
-						min: 18 # but 6 classes...?
+					- numcourses:
+						min: 6
 						courses:
 							- AND:
 								- AND: # Ecology subject category
-									- units:
-										min: 3
+									- numcourses:
+										min: 1
 										courses:
 											- course: ESPM.108A
 											- course: ESPM.108B
@@ -195,8 +213,8 @@ rules:
 											- course: INTEGBI.157LF
 											- course: INTEGBI.1
 								- AND: # Monitoring & managment subject category
-									- units:
-										min: 3
+									- numcourses:
+										min: 1
 										courses:
 											- course: ESPM.172
 											- course: ESPM.174
@@ -208,8 +226,8 @@ rules:
 											- course: LD ARCH.110
 											- course: LD ARCH.C188
 								- AND: # Physical environment subject category
-									- units: 
-										min: 3
+									- numcourses: 
+										min: 1
 										courses:
 											- course: ESPM.120
 											- course: ESPM.121
@@ -218,8 +236,8 @@ rules:
 											- course: EPS.117
 											- course: GEOG.140A
 								- AND: # Management & policy subject category
-									- units:
-										min: 3
+									- numcourses:
+										min: 1
 										courses:
 											- course: ESPM.155
 											- course: ESPM.165

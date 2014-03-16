@@ -1,9 +1,22 @@
 rules:
+# upper divs electives?
+# ap credit of breadth / requirements
+# not sure if requirements can count as breadth
 
 	cnr_environmental_economics_and_policy_major:
 	    rule: AND
 	    args:
 	    	- university_all
+	    	- ls_breadth_all
+            - AND:
+                - units:
+                    min: 15
+                    dept:
+                        - dept: AGR CHM
+                        - dept: ENE,RES
+                        - dept: ESPM
+                        - dept: NUSCTX
+                        - dept: PLANTBI
 	    	- AND: # Lower div
 	    		- OR: # prinicples of micro-economics
 	    			- course: ENVECON.1

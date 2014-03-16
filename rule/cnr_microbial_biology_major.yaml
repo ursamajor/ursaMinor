@@ -1,5 +1,8 @@
 rules:
 
+# ap credit of breadth / requirements
+# not sure if requirements can count as breadth
+
 	cnr_microbial_biology_major:
 	    rule: AND
 	    args:
@@ -72,19 +75,159 @@ rules:
 					- course: ESPM.112
 					- course: ESPM.131
 		- AND: # microbial biology tracks
-
-
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-			- course: 
-
-
+			- OR:
+				- AND: # Host-Pathogen Interactions Track
+					- numcourses:
+						min: 4
+						courses:
+							- OR: 
+								- course: BIO ENG.100
+								- course: ESPM.162
+							- OR:
+								- AND:
+									- course: PLANTBI.135
+									- course: PLANTBI.135L
+								- course: MCELLBI.150
+							- OR:
+								- AND:
+									- course: PLANTBI.150
+									- course: PLANTBI.150L
+								- course: MCELLBI.104
+							- course: PB HLTH.150A
+							- course: PB HLTH.150B
+							- OR:
+								- AND:
+									- course: PLANTBI.160
+									- course: PLANTBI.160L
+								- course: MCELLBI.140
+							- course: PLANTBI.185
+							- AND:
+								- course: PLANTBI.H196
+								- course: PLANTBI.199
+				- AND: # Ecology & Environmental Microbiology Track
+					- numcourses:
+						min: 4
+						courses:
+							- OR: 
+								- course: BIO ENG.100
+								- course: ESPM.162
+							- course: BIO ENG.135
+							- course: ESPM.134
+							- course: ESPM.192
+							- OR:
+								- course: INTEGBI.153
+								- course: INTEGBI.153LF
+							- course: INTEGBI.161
+							- course: INTEGBI.162
+							- course: INTEGBI.166
+							- course: MCELLBI.137
+							- AND:
+								- course: PLANTBI.H196
+								- course: PLANTBI.199
+				- AND: # Evolution/Computational Geonomics Tracks
+					- numcourses:
+						min: 4
+						courses:
+							- OR:
+								- course: BIO ENG.C131
+								- course: COMPSCI.61A
+								- course: COMPSCI.61B
+							- course: BIO ENG.135
+							- OR:
+								- course: BIO ENG.143
+								- course: MATH.127
+							- course: INTEGBI.160
+							- course: INTEGBI.161
+							- course: INTEGBI.166
+							- course: MCELLBI.111
+							- course: MCELLBI.140
+							- course: MCELLBI.143
+							- AND:
+								- course: PLANTBI.C144
+								- course: PLANTBI.C144L
+							- AND:
+								- course: PLANTBI.H196
+								- course: PLANTBI.199
+				- AND: # Microbial Biotechnology Track
+					- numcourses:
+						min: 4
+						courses:
+							- OR: 
+								- course: BIO ENG.100
+								- course: ESPM.162
+							- AND:
+								- course: BIO ENG.C22
+								- course: BIO ENG.C22L
+							- course: BIO ENG.135
+							- course: ESPM.192
+							- course: MCELLBI.111
+							- course: MCELLBI.137
+							- course: MCELLBI.140
+							- course: PLANTBI.C124
+							- OR:
+								- AND:
+									- course: PLANTBI.150
+									- course: PLANTBI.150L
+								- course: MCELLBI.104
+							- course: PLANTBI.170
+							- AND:
+								- course: PLANTBI.H196
+								- course: PLANTBI.199
+				- AND: # General Microbiology Track
+					- numcourses:
+						min: 4
+						courses:
+							- AND:
+								- course: BIO ENG.C22
+								- course: BIO ENG.C22L
+							- OR: 
+								- course: BIO ENG.100
+								- course: ESPM.162
+							- OR:
+								- course: BIO ENG.C131
+								- course: COMPSCI.61A
+								- course: COMPSCI.61B
+							- course: BIO ENG.135
+							- OR:
+								- course: BIO ENG.143
+								- course: MATH.127
+							- course: ESPM.134
+							- course: ESPM.192
+							- OR:
+								- course: INTEGBI.153
+								- course: INTEGBI.153LF
+							- course: INTEGBI.160
+							- course: INTEGBI.161
+							- course: INTEGBI.162
+							- course: INTEGBI.166
+							- course: MCELLBI.111
+							- course: MCELLBI.137
+							- OR:
+								- AND:
+									- course: PLANTBI.135
+									- course: PLANTBI.135L
+								- course: MCELLBI.150
+							- course: MCELLBI.140
+							- course: MCELLBI.143
+							- AND:
+								- course: PLANTBI.C144
+								- course: PLANTBI.C144L
+							- OR:
+								- AND:
+									- course: PLANTBI.150
+									- course: PLANTBI.150L
+								- course: MCELLBI.104
+							- course: PB HLTH.150A
+							- course: PB HLTH.150B
+							- course: MCELLBI.137
+							- course: PLANTBI.C124
+							- OR:
+								- AND:
+									- course: PLANTBI.160
+									- course: PLANTBI.160L
+								- course: MCELLBI.140
+							- course: PLANTBI.170
+							- course: PLANTBI.185
+							- AND:
+								- course: PLANTBI.H196
+								- course: PLANTBI.199

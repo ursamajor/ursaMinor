@@ -1,9 +1,21 @@
 rules:
 
+# ap credit of breadth / requirements
+# not sure if requirements can count as breadth
+
 	cnr_genetics_and_plant_biology_major:
 	    rule: AND
 	    args:
 	    	- university_all
+            - AND:
+                - units:
+                    min: 15
+                    dept:
+                        - dept: AGR CHM
+                        - dept: ENE,RES
+                        - dept: ESPM
+                        - dept: NUSCTX
+                        - dept: PLANTBI
 	    	- AND: # lower division
 	    		- AND: # math
 		    		- OR: 
@@ -48,8 +60,8 @@ rules:
 		- AND: # plant biology tracks
 			- OR:
 				- AND: # Biotechnology and bioenergy tracks
-					- units:
-						min: 15
+					- numcourses:
+						min: 5
 						courses:
 							- course: ENE,RES.C100
 							- course: ESPM.108A
@@ -80,8 +92,8 @@ rules:
 								- course: PLANTBI.H196
 								- course: PLANTBI.199
 				- AND: # plant genetics, genomics, and bioinformatics track
-					- units:
-						min: 15
+					- numcourses:
+						min: 5
 						courses:
 							- course: BIO ENG.131
 							- course: BIO ENG.143
@@ -104,8 +116,8 @@ rules:
 								- course: PLANTBI.H196
 								- course: PLANTBI.199
 				- AND: # plant diversity and evolution track
-					- units:
-						min: 15
+					- numcourses:
+						min: 5
 						courses:
 							- course: ESPM.108A
 							- course: ESPM.108B
@@ -143,8 +155,8 @@ rules:
 								- course: PLANTBI.H196
 								- course: PLANTBI.199
 				- AND: # plant microbe interactions track
-					- units:
-						min: 15
+					- numcourses:
+						min: 5
 						courses:
 							- course: ESPM.131
 							- course: MCELLBI.102
@@ -175,8 +187,8 @@ rules:
 								- course: PLANTBI.H196
 								- course: PLANTBI.199
 				- AND: # experimental plant biology track
-					- units:
-						min: 15
+					- numcourses:
+						min: 5
 						courses:
 							- course: BIO ENG.131
 							- course: BIO ENG.143
