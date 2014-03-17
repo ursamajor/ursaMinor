@@ -16,7 +16,7 @@ my_plan = Plan.new([
   Course.new('CS.188', 188),
   Course.new('CS.170', 170),
   Course.new('GERMAN.R5A', 5),
-  Course.new('MCELLB.61', 61, pnp=true)
+  Course.new('MCELLB.61', 61, true)
 ])
 
 Rule.get(:ac).check_print(my_plan, nil)
