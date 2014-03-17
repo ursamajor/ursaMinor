@@ -1,0 +1,27 @@
+
+coe_humanities_and_social_sciences:
+    description: "COE Humanities and Social Sciences Requirement"
+    args:
+        - units:
+            min: 3
+            courses:
+                - ls
+
+
+English first:
+    - Minimum of six
+    - At least 3 units
+    - courses:
+        - 2 for R&C
+        - 4 on the HSSREQ list
+            - at least two must be upper div
+            - at least two must be from the same dept, one of 
+            two has to be upper div
+            - one must be ac
+            - NO IEOR, CE, ETC except
+                - course: BIO ENG.100
+                - course: COMPSCI.C79
+                - course: ENGIN.125
+                - course: ENGIN.130AC
+                - course: MEC ENG.191AC
+            - can fulfill multiple breadths

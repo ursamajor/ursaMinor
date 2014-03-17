@@ -58,6 +58,8 @@ rules:
         description: "Reading and Composition Part A Requirement"
         rule: course_regex
         args: R/dA$
+            - AND:
+                - COLWRIT.R1A
 
     university_rc_B:
         description: "Reading and Composition Part B Requirement"
