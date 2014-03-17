@@ -3,6 +3,10 @@ require './rule'
 class YamlRule < Rule
   @source = :yaml
 
+  def source
+    self.class.source
+  end
+
   def initialize(name, entry)
     @name = name.to_sym
     @entry = entry

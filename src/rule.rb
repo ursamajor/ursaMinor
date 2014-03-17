@@ -1,8 +1,16 @@
 class Rule
-  attr_accessor :name, :source, :rules
+  attr_accessor :name
 
   @source = :raw
   @rules = {}
+
+  class << self
+    attr_accessor :source, :rules
+    alias_method :all, :rules
+    def source
+      @source || superclass.source
+    end
+  end
 
   def initialize(name = nil)
     @name = name
@@ -39,7 +47,6 @@ class Rule
     check_type 'rule.name', rule.name, Symbol
     @rules[rule.name] = rule
   end
-  alias_method :all, :rules
 
   def self.parse_entry(entry, allow_implicit = true)
     if entry.is_a? String
