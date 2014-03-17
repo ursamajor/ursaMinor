@@ -2,7 +2,7 @@ require './rule_coursefilter'
 
 class CourseRegexRule < CourseFilter
   def check_course(plan, course, regex)
-    Regexp.new(regex, "i").match(course.name)
+    Regexp.new(regex, 'i').match(course.name)
   end
 end
 Rule.add(CourseRegexRule.new :course_regex)
@@ -26,7 +26,7 @@ class CourseNumberRangeRule < CourseFilter
   def check_course(plan, course, range)
     min = range[0]
     max = range.length > 1 ? range[1] : Float::INFINITY
-    course.number >= min and course.number <= max
+    course.number >= min && course.number <= max
   end
 end
 Rule.add(CourseNumberRangeRule.new :course_number_range)

@@ -1,7 +1,7 @@
 require './rule'
 
 class YamlRule < Rule
-  @@source = :yaml
+  @source = :yaml
 
   def initialize(name, entry)
     @name = name.to_sym
@@ -10,8 +10,8 @@ class YamlRule < Rule
   end
 
   def check(plan, args)
-    raise ArgumentError.new "YAML rules should not take arguments, got #{args}" unless args.nil?
+    fail ArgumentError,
+      "YAML rules should not take arguments, got #{args.inspect}" unless args.nil?
     @rule.check plan, @args
   end
-
 end

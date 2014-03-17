@@ -3,7 +3,7 @@ require './rule'
 class AndRule < Rule
 	def check(plan, entries)
 		Rule.parse_entries(entries).each do |rule, args|
-			return false if not rule.check plan, args
+			return false unless rule.check plan, args
 		end
 		true
 	end
@@ -23,7 +23,7 @@ Rule.add(OrRule.new :or)
 class NotRule < Rule
 	def check(plan, entry)
 		rule, args = parse_entry entry
-		not rule.check plan, args
+		!rule.check plan, args
 	end
 end
 Rule.add(NotRule.new :not)
@@ -72,7 +72,7 @@ Rule.add(SeriesRule.new :series)
 class SameCourseRule < CourseFilter
 	def check_course(plan, course, entries)
 		Rule.parse_entries(entries).each do |rule, args|
-			return false if not rule.check course, args
+			return false unless rule.check course, args
 		end
 		true
 	end

@@ -1,7 +1,8 @@
 class Course
-	attr_reader :name, :number, :units
+	attr_reader :name, :number, :pnp, :units
+  alias_method :pnp?, :pnp
 
-	def initialize(name, number=nil, pnp=false, units=0)
+	def initialize(name, number = nil, pnp = false, units = 0)
 		@name = name
 		@number = number
 		@pnp = pnp
