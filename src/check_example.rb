@@ -3,7 +3,7 @@ require 'yaml'
 
 data = YAML.load_file("test-rules.yaml")
 data['rules'].keys.each do |rule|
-	Rule.add YamlRule.new rule, data['rules'][rule]
+  Rule.add YamlRule.new rule, data['rules'][rule]
 end
 
 my_plan = Plan.new([
