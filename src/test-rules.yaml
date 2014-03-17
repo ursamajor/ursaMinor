@@ -61,6 +61,18 @@ rules:
               - rule: upperdiv
             - ac
 
+    four_units_ac:
+        rule: units
+        args:
+            - numunits: 4
+            - ac
+
+    four_cs_courses:
+        rule: courses
+        args:
+            - numcourses: 4
+            - dept: cs
+
     university:
     # this rule doesn't work because rules that we haven't built yet
         rule: AND
@@ -69,6 +81,24 @@ rules:
             - rc
             - writing
             - amhist
+
+    lowerdiv_units:
+        rule: units
+        args:
+            - numunits: 20
+            - OR:
+                - course: CS.61A
+                - course: CS.61B
+                - course: CS.61C
+                - course: EL ENG.20
+                - course: EL ENG.40
+
+    series:
+        rule: series
+        args:
+            - AND:
+                - rule: lowerdiv
+                - rule: upperdiv
 
     molecular_toxicology_major:
     # this rule doesn't work because it requires a lot of data and rules that we haven't built yet
@@ -104,25 +134,25 @@ rules:
                 - course: MCB.32L
                 - course: BIO.1AL
             - AND: # Upper Division Required Courses
-                - MCB.102
-                - MCB.104
-                - IB.141
+                - course: MCB.102
+                - course: MCB.104
+                - course: IB.141
                 - OR:
-                    - PMB.C112 # xlisted
-                    - MCB.C112 # xlisted
-                - PH.162A
+                    - course: PMB.C112 # xlisted
+                    - course: MCB.C112 # xlisted
+                - course: PH.162A
                 - OR:
-                    - PMB.C112 # xlisted
-                    - MCB.C112L # xlisted
-                    - PH.162L
-                - NST.110
-                - NST.121
-                - NST.171
-                - NST.193
+                    - course: PMB.C112 # xlisted
+                    - course: MCB.C112L # xlisted
+                    - course: PH.162L
+                - course: NST.110
+                - course: NST.121
+                - course: NST.171
+                - course: NST.193
             - OR: # Approved Electives List:
                 - units:
                     - numunits: 36
-                    - list:
+                    - OR:
                         - course: CIVENG.114
                         - course: CIVENG.115
                         - course: ESPM.100
@@ -134,9 +164,8 @@ rules:
                         - course: IB.131
                         - course: IB.152
                         - course: NST.103
-                        - OR:
-                            - course: NST.C114 # xlisted
-                            - course: ESPM.C148 # xlisted
+                        - course: NST.C114 # xlisted
+                        - course: ESPM.C148 # xlisted
                         - course: NST.C115
                         - course: NST.160
                         - course: NST.C196
@@ -148,3 +177,55 @@ rules:
                         - dept: IB
                         - dept: MCB
                         - dept: PMB
+
+    haas_business_administration_major:
+        rule: AND
+        args:
+            - AND: # Pre-Requisites
+                - AND:
+                    - course: UGBA.10
+                    - OR: # can waive
+                        - course: ECON.1
+                        - course: ECON.2
+                    - OR:
+                        - course: STAT.20
+                        - course: STAT.21
+                        - course: STAT.25
+                    - OR: # can waive 1/2
+                        - AND:
+                            - OR:
+                                - course: MATH.1A
+                                - course: MATH.16A
+                            - OR:
+                                - course: MATH.1B
+                                - course: MATH.16B
+                        - AND:
+                            - OR:
+                                - course: MATH.1B
+                                - course: MATH.16B
+                                - course: MATH.53
+                                - course: MATH.54
+            - AND: # Upper-Division
+                - AND:
+                    - course: UGBA.100
+                    - OR:
+                        - course: UGBA.101A
+                        - course: ECON.100A
+                        - course: ECON.101A
+                        - course: IAS.106
+                    - OR:
+                        - course: UGBA.101B
+                        - course: ECON.100B
+                        - course: ECON.101B
+                        - course: IAS.107
+                    - course: UGBA.102A
+                    - course: UGBA.102B
+                    - course: UGBA.103
+                    - course: UGBA.104
+                    - course: UGBA.104
+                    - course: UGBA.105
+                    - course: UGBA.106
+                    - course: UGBA.107
+                - units:
+                    - numunits: 38
+                    - dept: UGBA

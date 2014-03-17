@@ -6,10 +6,11 @@ class CourseRegexRule < CourseFilter
   end
 end
 Rule.add(CourseRegexRule.new :course_regex)
+Rule.add(CourseRegexRule.new :dept)
 
 class CourseRule < CourseFilter
   def check_course(plan, course, name)
-    course.name.lower() == name.lower()
+    course.name.downcase == name.downcase
   end
 end
 Rule.add(CourseRule.new :course)

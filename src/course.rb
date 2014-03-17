@@ -1,12 +1,11 @@
-
-
 class Course
-	attr_reader :name, :number
+	attr_reader :name, :number, :units
 
-	def initialize(name, number=nil, pnp=false)
+	def initialize(name, number=nil, pnp=false, units=0)
 		@name = name
 		@number = number
 		@pnp = pnp
+		@units = units
 	end
 
 	def pnp?
@@ -18,4 +17,5 @@ class Course
 	def courses
 		[self]
 	end
+
 end

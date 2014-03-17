@@ -8,7 +8,7 @@ class CourseFilter < Rule
   end
 
   def check(plan, args)
-    for course in plan.courses.each
+    plan.courses.each do |course|
       return true if check_course(plan, course, args)
     end
     false
