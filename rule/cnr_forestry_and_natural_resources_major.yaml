@@ -7,35 +7,12 @@ rules:
 	    rule: AND
 	    args:
 	    	- university_all
-            - AND:
-                - units:
-                    min: 15
-                    dept:
-                        - dept: AGR CHM
-                        - dept: ENE,RES
-                        - dept: ESPM
-                        - dept: NUSCTX
-                        - dept: PLANTBI
+	    	- cnr_upper_division
 	    	- AND: # Lower-Div
-				- OR:
-					- course: ESPM.2
-					- course: ESPM.6
-					- course: ESPM.C10
-					- course: LNS.C30V
-					- course: ESPM.15
-				- OR:
-					- units:
-						min: 3
-						courses:
-							- ls_breadth_arts
-							- ls_breadth_history
-							- ls_breadth_philosophy
-				- OR:
-					- units:
-						min: 3
-						courses:
-							- ls_breadth_social
-							- ls_breadth_international
+				- cnr_espm_environmental_science_core
+				- cnr_espm_social_science_core
+				- cnr_breadth_arts_history_philosophy
+				- cnr_breadth_social_international
 			- AND: # upper div
 				- OR:
 					- AND:
@@ -101,67 +78,17 @@ rules:
 					- OR: # natural sciences specialization
 						- AND: # Ecology subject category
 							- numcourses:
-								min:
+								min: 2
 								courses:
-									- course: ESPM.108A
-									- course: ESPM.108B
-									- course: ESPM.111
-									- course: ESPM.112
-									- course: ESPM.113
-									- course: ESPM.114
-									- course: ESPM.115B
-									- course: ESPM.115C
-									- course: ESPM.116A
-									- course: ESPM.116B
-									- course: ESPM.116C
-									- course: ESPM.134
-									- course: ESPM.135
-									- course: ESPM.187
-									- course: INTEGBI.102
-									- course: INTEGBI.102LF
-									- course: INTEGBI.153
-									- course: INTEGBI.154
-									- course: INTEGBI.157LF
-									- course: INTEGBI.1
-						- AND: # Monitory & measurement subject category
+									- cnr_forestry_and_natural_resources_subject_ecology
+						- AND: # Monitoring & measurement subject category
 							- numcourses:
 								min: 2
 								courses:
-									- course: ESPM.172
-									- course: ESPM.174
-									- course: ANTHRO.169A
-									- course: ANTHRO.169B
-									- course: ARCH.110
-									- course: EPS.C120
-									- course: GEOG.187
-									- course: LD ARCH.110
-									- course: LD ARCH.C188
-						- AND: # Physical environment subject category
-							- numcourses:
-								min: 1
-								courses:
-									- course: ESPM.120
-									- course: ESPM.121
-									- course: ESPM.C128
-									- course: ESPM.C129
-									- course: EPS.117
-									- course: GEOG.140A
-						- AND: # Management & policy subject category
-							- numcourses:
-								min: 1
-								courses:
-									- course: ESPM.155
-									- course: ESPM.165
-									- course: ESPM.168
-									- course: ESPM.169
-									- course: ESPM.181A
-									- course: ESPM.182
-									- course: ESPM.183
-									- course: ESPM.184
-									- course: ESPM.185
-									- course: ESPM.186
-									- course: ESPM.188
-									- course: CY PLAN.112A
+									- cnr_forestry_and_natural_resources_subject_monitoring_and_management
+						- AND:
+							- cnr_forestry_and_natural_resources_subject_physical_environment
+							- cnr_forestry_and_natural_resources_subject_management_and_policy
 			- OR: # human dimensions of natural resources concentration
 				- AND: # lower div
 					- ls_breadth_physical
@@ -192,65 +119,19 @@ rules:
 									- numcourses:
 										min: 1
 										courses:
-											- course: ESPM.108A
-											- course: ESPM.108B
-											- course: ESPM.111
-											- course: ESPM.112
-											- course: ESPM.113
-											- course: ESPM.114
-											- course: ESPM.115B
-											- course: ESPM.115C
-											- course: ESPM.116A
-											- course: ESPM.116B
-											- course: ESPM.116C
-											- course: ESPM.134
-											- course: ESPM.135
-											- course: ESPM.187
-											- course: INTEGBI.102
-											- course: INTEGBI.102LF
-											- course: INTEGBI.153
-											- course: INTEGBI.154
-											- course: INTEGBI.157LF
-											- course: INTEGBI.1
+											- cnr_forestry_and_natural_resources_subject_ecology
 								- AND: # Monitoring & managment subject category
 									- numcourses:
 										min: 1
 										courses:
-											- course: ESPM.172
-											- course: ESPM.174
-											- course: ANTHRO.169A
-											- course: ANTHRO.169B
-											- course: ARCH.110
-											- course: EPS.C120
-											- course: GEOG.187
-											- course: LD ARCH.110
-											- course: LD ARCH.C188
+											- cnr_forestry_and_natural_resources_subject_monitoring_and_management
 								- AND: # Physical environment subject category
 									- numcourses: 
 										min: 1
 										courses:
-											- course: ESPM.120
-											- course: ESPM.121
-											- course: ESPM.C128
-											- course: ESPM.C129
-											- course: EPS.117
-											- course: GEOG.140A
+											- cnr_forestry_and_natural_resources_subject_physical_environment
 								- AND: # Management & policy subject category
 									- numcourses:
 										min: 1
 										courses:
-											- course: ESPM.155
-											- course: ESPM.165
-											- course: ESPM.168
-											- course: ESPM.169
-											- course: ESPM.181A
-											- course: ESPM.182
-											- course: ESPM.183
-											- course: ESPM.184
-											- course: ESPM.185
-											- course: ESPM.186
-											- course: ESPM.188
-											- course: CY PLAN.112A
-				- AND: # 6 from E, PE, MM, and MP, one from each
-
-
+											- cnr_forestry_and_natural_resources_subject_management_and_policy
