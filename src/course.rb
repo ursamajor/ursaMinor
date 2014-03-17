@@ -1,12 +1,16 @@
 
 
 class Course
-	attr_reader :name, :number, :ispnp
+	attr_reader :name, :number
 
-	def initialize(name, number=nil, ispnp=false)
+	def initialize(name, number=nil, pnp=false)
 		@name = name
 		@number = number
-		@ispnp = ispnp
+		@pnp = pnp
+	end
+
+	def pnp?
+		@pnp
 	end
 
 	# Returns an array with the course as the only item.

@@ -8,20 +8,14 @@ class CourseFilter < Rule
   end
 
   def check(plan, args)
-    raise ArgumentError.new("YAML rules should not take arguments, got #{args}") if dummy_args
-
-    ret_val = false
-    plan.courses.each do |course|
-      if rule.check_course(plan, course, args)
-        ret_val = true
-        break
-      end
+    for course in plan.courses.each
+      return true if check_course(plan, course, args)
     end
-    ret_val
+    false
   end
 
   def check_course(plan, course, args)
-    raise NotImplementedError.new("<Rule '#{name}'>.check_course")
+    raise NotImplementedError.new "<Rule '#{name}'>.check_course"
   end
 
 end

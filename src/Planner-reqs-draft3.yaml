@@ -1,0 +1,150 @@
+# Okay, here's how this works!
+# There are two types of rules: native rules and list-based rules.
+#
+# Native rules are written in Ruby and will not be in the YAML file.
+# I'm including snippets of what they could be. They're in Python
+# simply because I'm not fluent in Ruby yet. They should be in Ruby.
+# Hopefully we will need less than a dozen native rules.
+#
+# List-based rules contain boolean logic. These exist to reduce the
+# amount of code that needs to be written. In addition, the bulk of
+# rules will be list-based, for easier management.
+#
+# The outermost nesting has the rule-args syntax because 
+# we can only have one outermost filter and I think that's the 
+# standard way to do it.
+#
+# Native rules will be loaded before list-based rules. Native rules
+# and list-based rules are treated the same after they are loaded.
+# In YAML, rules can be referred to as "$rule_name".
+# 
+
+rules:
+
+    ac:
+        description: "American Cultures"
+        rule: course_regex
+        args: ac$
+
+    rca:
+        description: "R&C A"
+        rule: course_regex
+        args: R\dA$
+
+    rcb:
+        description: "R&C B"
+        rule: course_regex
+        args: R\dB$
+
+    lowerdiv:
+        description: "Lower Division"
+        rule: course_number_range
+        args: [ 0, 99 ]
+
+    upperdiv:
+        description: "Upper Division"
+        rule: course_number_range
+        args: [ 100 ] # max is implicity infinity if omitted
+
+    pnp_lowerdiv:
+        description: "Pass/No Pass and Lower Division"
+        rule: same_course # aka ANDcourse
+        args:
+            - rule: lowerdiv
+            - rule: pnp
+
+    dumb_way_to_match_ac: # to illustrate how to use OR for single course
+        rule: same_course
+        args:
+            - OR:
+              - rule: lowerdiv
+              - rule: upperdiv
+            - ac
+
+    university:
+    # this rule doesn't work because rules that we haven't built yet
+        rule: AND
+        args:
+            - ac
+            - rc
+            - writing
+            - amhist
+
+    molecular_toxicology_major:
+    # this rule doesn't work because it requires a lot of data and rules that we haven't built yet
+        rule: AND
+        args:
+            - AND: # Humanities and Social Sciences (22 units)
+                - AND:
+                    - course: ENG.R1A
+                    - course: ENG.R1B
+                    # - # 14 additional units of course work in AC & Breadth
+            - AND: # Physical Sciences and Math (26-28 units)
+                - OR:
+                    - AND:
+                        - course: MATH.16A
+                        - course: MATH.16B
+                        - course: STATS.2
+                    - AND:
+                        - course: MATH.10A
+                        - course: STATS.2
+                    - AND:
+                        - course: MATH.10A
+                        - course: MATH.10B
+                - course: CHEM.1A
+                - course: CHEM.3A
+                - course: CHEM.1AL
+                - course: CHEM.3AL
+                - course: CHEM.1B
+                - course: CHEM.3BL
+                - course: PHYSICS.8A
+            - AND: # Biological and Natural Resource Science (11-13 units)
+                - course: NST.11
+                - course: MCB.32
+                - course: MCB.32L
+                - course: BIO.1AL
+            - AND: # Upper Division Required Courses
+                - MCB.102
+                - MCB.104
+                - IB.141
+                - OR:
+                    - PMB.C112 # xlisted
+                    - MCB.C112 # xlisted
+                - PH.162A
+                - OR:
+                    - PMB.C112 # xlisted
+                    - MCB.C112L # xlisted
+                    - PH.162L
+                - NST.110
+                - NST.121
+                - NST.171
+                - NST.193
+            - OR: # Approved Electives List:
+                - units:
+                    - numunits: 36
+                    - list:
+                        - course: CIVENG.114
+                        - course: CIVENG.115
+                        - course: ESPM.100
+                        - course: ESPM.119
+                        - course: ESPM.126
+                        - course: ESPM.162
+                        - course: ESPM.C180
+                        - course: IB.117
+                        - course: IB.131
+                        - course: IB.152
+                        - course: NST.103
+                        - OR:
+                            - course: NST.C114 # xlisted
+                            - course: ESPM.C148 # xlisted
+                        - course: NST.C115
+                        - course: NST.160
+                        - course: NST.C196
+                        - course: NST.199
+                        - course: PH.150A
+                        - course: PH.150B
+                        - course: PH.170B
+                        - course: UGIS.192C
+                        - dept: IB
+                        - dept: MCB
+                        - dept: PMB

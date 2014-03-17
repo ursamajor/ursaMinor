@@ -1,44 +1,31 @@
 require './rule_coursefilter'
 
 class CourseRegexRule < CourseFilter
-  set_name :course_regex
-
-  def check(plan, course, regex)
+  def check_course(plan, course, regex)
     Regexp.new(regex, "i").match(course.name)
   end
-
 end
-CourseRegexRule.new
-Rule.add(CourseRegexRule.new)
+Rule.add(CourseRegexRule.new :course_regex)
 
 class CourseRule < CourseFilter
-  set_name :course
-
-  def check(plan, course, name)
+  def check_course(plan, course, name)
     course.name.lower() == name.lower()
   end
-
 end
-Rule.add(CourseRule.new)
+Rule.add(CourseRule.new :course)
 
 class PnpRule < CourseFilter
-  set_name :pnp
-
-  def check(plan, course, name)
-    course.ispnp
+  def check_course(plan, course, name)
+    course.pnp?
   end
-
 end
-Rule.add(PnpRule.new)
+Rule.add(PnpRule.new :pnp)
 
 class CourseNumberRangeRule < CourseFilter
-  set_name :course_number_range
-
-  def check(plan, course, range)
+  def check_course(plan, course, range)
     min = range[0]
     max = range.length > 1 ? range[1] : Float::INFINITY
     course.number >= min and course.number <= max
   end
-
 end
-Rule.add(CourseNumberRangeRule.new)
+Rule.add(CourseNumberRangeRule.new :course_number_range)

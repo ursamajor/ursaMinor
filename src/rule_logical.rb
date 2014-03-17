@@ -1,61 +1,41 @@
 require './rule'
 
 class AndRule < Rule
-	set_name :AND
-
 	def check(plan, entries)
-		ret_val = true
-		parse_entries(entries).each do |rule, args|
-			unless rule.check(plan, args) 
-				ret_val = false
-				break
-			end
+		for rule, args in Rule.parse_entries(entries).each
+			return false if not rule.check(plan, args) 
 		end
-		ret_val
+		true
 	end
 end
-Rule.add(AndRule.new)
+Rule.add(AndRule.new :and)
 
 class OrRule < Rule
-	set_name :OR
-
 	def check(plan, entries)
-		ret_val = false
-		parse_entries(entries).each do |rule, args|
-			if rule.check(plan, args) 
-				ret_val = true
-				break
-			end
+		for rule, args in Rule.parse_entries(entries).each
+			return true if rule.check(plan, args) 
 		end
-		ret_val
+		false
 	end
 end
-Rule.add(OrRule.new)
+Rule.add(OrRule.new :or)
 
 class NotRule < Rule
-	set_name :NOT
-
 	def check(plan, entry)
 		rule, args = parse_entry(entry)
 		not rule.check(plan, args)
 	end
 end
-Rule.add(NotRule.new)
+Rule.add(NotRule.new :not)
 
 # This is ANDcourse. We do not need ORcourse because ANDcourse will change
 # all of its children's plan arguments to a single course.
-class SameCourseRule < Rule
-	set_name :same_course
-
-	def check(plan, course, entries)
-		ret_val = true
-		parse_entries(entries).each do |rule, args|
-			unless rule.check(course, args)
-				ret_val = false
-				break
-			end
+class SameCourseRule < CourseFilter
+	def check_course(plan, course, entries)
+		for rule, args in Rule.parse_entries(entries).each
+			return false if not rule.check(course, args)
 		end
-		ret_val
+		true
 	end
 end
-Rule.add(SameCourseRule.new)
+Rule.add(SameCourseRule.new :same_course)
