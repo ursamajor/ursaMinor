@@ -13,9 +13,14 @@ coe_joint_materials_science_and_nuclear_engineering_major.yaml
 coe_joint_mechanical_engineering_and_nuclear_engineering_major.yaml
 
 
-rules:
-
-    coe_bioenineering_major:
+    coe_bioengineering_major:
         rule: AND
         args:
-            - university_all
+            - AND: # HSS
+            	- university_rc_A
+            	- university_rc_B
+            	- university_AC
+            	- numcourses:
+            		min: 4
+            		courses:
+            			- coe_humanities_and_social_sciences

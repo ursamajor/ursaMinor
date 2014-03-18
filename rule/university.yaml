@@ -59,12 +59,17 @@ rules:
         rule: course_regex
         args: R/dA$
             - AND:
-                - COLWRIT.R1A
+                - course: COLWRIT.R1A
+                - course: CLASSIC.R44
+                - course: LNS.R44
 
     university_rc_B:
         description: "Reading and Composition Part B Requirement"
         rule: course_regex
         args: R/dB$
+            - AND:
+                - course: CLASSIC.R44
+                - course: LNS.R44
 
     university_for_lang:
         description: "Foreign Language Requirement" # can waive
