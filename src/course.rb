@@ -9,10 +9,6 @@ class Course
     @units = units
   end
 
-  def pnp?
-    @pnp
-  end
-
   # Returns an array with the course as the only item.
   # This is so that a course can be used as a plan for rules.
   def courses
