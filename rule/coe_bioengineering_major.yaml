@@ -1,0 +1,7 @@
+rules:
+
+    coe_bioenineering_major:
+        rule: AND
+        args:
+            - university_ac
+            
