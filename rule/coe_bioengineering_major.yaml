@@ -1,7 +1,22 @@
 rules:
 
-    coe_bioenineering_major:
+    coe_bioengineering_major:
         rule: AND
         args:
-            - university_ac
-            
+        	- AND: # Techincal electives
+        		- course: BIOLOGY.1B
+        		- course: CHEM.3B
+        		- course: CHEM.120A
+            - AND: # HSS
+            	- university_rc_A
+            	- university_rc_B
+            	- university_AC
+            	- numcourses:
+            		min: 4
+            		courses:
+            			- coe_humanities_and_social_sciences
+
+42 of upper division, in engin, chem, physics, ib, mcb, math, or stats
+	22 must be in bio eng
+	all these classes must be in the curriculum
+45 of engineering units, either in bioengineering or engineering topics
