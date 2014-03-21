@@ -1,0 +1,106 @@
+rules:
+
+    ced_urban_studies_major:
+    rules: AND
+    args:
+        - university_all
+        - ls_breadth_all
+            - NOT:
+                - # courses used to satisfy non-urban upper div
+                - # courses used to satisfy upper div
+        - AND: # lower division
+            - ced_lower_division_environmental_design
+            - OR:
+                - course: ECON.1
+                - course: ECON.2
+                - course: ECON.C3
+                - course: ENVECON.C3
+            - OR:
+                - course: MATH.16A
+                - course: MATH.1A
+                # or higher
+            - OR:
+                - course: STAT.2
+                - course: STAT.20
+                - course: STAT.21
+                - course: STAT.25
+                - course: STAT.131A
+                # or higher
+           - numcourses:
+                min: 2
+                courses:
+                    - course: ENV DES.11A
+                    - course: ENV DES.11B
+                    - course: ENV DES.C169A
+                    - course: ENV DES.C169B
+                    - course: ENV DES.170
+                    - course: ARCH.110AC
+                    - course: ARCH.111
+                    - course: CY PLAN.111
+                    - course: ARCH.130
+                    - course: ARCH.170A
+                    - course: ARCH.170B
+                    - course: LD ARCH.170
+                    - course: CY PLAN.116
+                    - course: CY PLAN.140
+        - AND: # upper division core
+            - course: ENV DES.100
+            - course: CY PLAN.110
+            - numcourses:
+                min: 4
+                courses:
+                    - course: CY PLAN.
+                    - course: CY PLAN.
+                    - course: CY PLAN.
+                    - course: CY PLAN.
+                    - course: CY PLAN.
+                    - course: CY PLAN.
+                    - course: CY PLAN.
+                    - course: CY PLAN.
+                    - course: CY PLAN.
+                    - course: 
+                    - course: 
+                    - course: 
+                    - course: 
+                    - course: 
+                    - course: 
+                    - course: 
+                    - course: 
+                    - course: 
+                    - course: 
+
+        - AND: # area requirements
+            - OR:
+                - AND:
+                    - ced_sustainable_environmental_design_economics_area
+                    - ced_sustainable_environemental_design_society_area
+                    - ced_sustainable_environmental_design_resources_area
+                    - ced_sustainable_environmental_design_design_area
+                - OR:
+                    - numcourses:
+                        min: 4
+                        courses:
+                            - OR:
+                                - numcourses:
+                                    min: 2
+                                    courses:
+                                        - ced_sustainable_environmental_design_economics_area
+                                - numcourses:
+                                    min: 2
+                                    courses:
+                                        - ced_sustainable_environmental_design_society_area
+                                - numcourses:
+                                    min: 2
+                                    courses:
+                                        - ced_sustainable_environmental_design_design_area
+                                -  numcourses:
+                                    min: 2
+                                    courses:
+                                        - ced_sustainable_environmental_design_resources_area
+                    - # 2 courses from two of the areas
+        - AND: # outside sustainable
+            - numcourses:
+                min: 3
+                courses:
+                    - NOT:
+                        - # classes used for upper div
