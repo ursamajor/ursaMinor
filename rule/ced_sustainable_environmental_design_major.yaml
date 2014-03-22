@@ -67,9 +67,3 @@ rules:
                                     courses:
                                         - ced_sustainable_environmental_design_resources_area
                     - # 2 courses from two of the areas
-        - AND: # outside sustainable
-            - numcourses:
-                min: 3
-                courses:
-                    - NOT:
-                        - # classes used for upper div

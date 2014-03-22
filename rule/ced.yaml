@@ -89,25 +89,38 @@ ced_sustainable_environmental_design_design_area:
         - course: GEOG.125
         - course: INFO.146
 
+ced_urban_studies_electives_international:
+    description: "Urban Studies International Content Courses"
+    rules: OR
+    args:
+        - course: ANTHRO.139
+        - course: DEMOG.145AC
+        - course: ECON.115
+        - course: EDUC.186AC
+        - course: ESPM.165
+        - course: ESPM.169
+        - course: ETH STD.159AC
+        - course: GEOG.110
+        - course: GEOG.111
+        - course: GEOG.123
+        - course: GEOG.130
+        - course: GEOG.C152
+        - course: GEOG.159AC
+        - course: GEOG.164
+        - course: HISTORY.134
+        - course: HISTORY.134A
+        - course: HISTORY.160
+        - course: HISTORY.C176
+        - course: IAS.115
+        - course: CY PLAN.115
+        - course: IAS.C145
+        - course: GEOG.C152
+        - course: HISTORY.C176
+        - course: PACS.127
+        - course: PACS.149
+        - course: POLECON.100
+        - course: POLECON.101
+        - course: SOCIOL.127
+        - course: SOCIOL.180I
+        - course: UGBA.165S
 
-Majors:
--architecture
--landscape architecture & enviro planning
--urban design
--sustainable enviro design
-
-Campus:
--university_all
-
-College:
--seven course breadth
-    - up to two CED courses/cross-listed can complete # ???
-    - ls_breadth_all
-    - only lower division major requirements can simultenously fulfill, but only two
-
-CED departments
--architecture (ARCH) --> arts, history, phil, social
--cy planning (CY PLAN) --> history, international (115), phil
--enviro design(ENV DES) --> social
--land arch/enviro planning (LD ARCH) --> bio, history, phil
--visual studies (VIS STD)
