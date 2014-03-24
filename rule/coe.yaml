@@ -51,17 +51,107 @@ coe_bioengineering_topics_bioengineering:
         - course: BIO ENG.190H
 
 
-
-
 coe_bioengineering_topics_engineering:
     description: "Engineering Topics"
     rule: OR
     args:
         - coe_bioengineering_topics_bioengineering
-        - course:
+        - course: BIO ENG.192
+        - course: BIO ENG.H194
+        - course: CHM ENG.140
+        - course: CHM ENG.141
+        - course: CHM ENG.150A
+        - course: CHM ENG.150B
+        - course: CHM ENG.170A
+        - course: CHM ENG.170B
+        - course: CHM ENG.170L
+        - course: CHM ENG.171
+        - course: CHM ENG.C178
+        - course: CIV ENG.C30
+        - course: CIV ENG.130N
+        - course: COMPSCI.61A
+        - course: COMPSCI.61B
+        - course: COMPSCI.61BL
+        - course: COMPSCI.170
+        - course: COMPSCI.186
+        - course: COMPSCI.C191
+        - course: ENGIN.7
+        - course: ENGIN.45
+        - course: ENGIN.115
+        - course: ENGIN.170
+        - course: EL ENG.20N
+        - course: EL ENG.40
+        - course: EL ENG.100
+        - course: EL ENG.100
+        - course: EL ENG.105
+        - course: EL ENG.117
+        - course: EL ENG.120
+        - course: EL ENG.126
+        - course: EL ENG.129
+        - course: EL ENG.142
+        - course: EL ENG.143
+        - course: EL ENG.192
+        - course: IND ENG.162
+        - course: MEC ENG.C85
+        - course: MEC ENG.102B
+        - course: MEC ENG.104
+        - course: MEC ENG.106
+        - course: MEC ENG.109
+        - course: MEC ENG.118
+        - course: MEC ENG.119
+        - course: MEC ENG.128
+        - course: MEC ENG.132
+        - course: MEC ENG.133
+        - course: MEC ENG.167
+        - course: MEC ENG.185
+        - course: MAT SCI.102
+        - course: MAT SCI.104
+        - course: MAT SCI.111
+        - course: MAT SCI.113
+        - course: MAT SCI.151
+        - course: NUC ENG.101
+        - course: NUC ENG.107
+        - course: NUC ENG.170B
 
 
-
+coe_bioengineering_upper_division_biology
+    description: "COE Bioengineering Upper Division Biology"
+    rule: OR
+    args:
+        - course: INTEGBI.115
+        - OR:
+            - course: INTEGBI.127
+            - course: INTEGBI.127L
+        - course: INTEGBI.131
+        - course: INTEGBI.132
+        - course: INTEGBI.135
+        - course: INTEGBI.148
+        - course: INTEGBI.163
+        - course: CHEM.C130
+        - course: CHEM.135
+        - course: MCELLBI.C100A
+        - course: MCELLBI.100B
+        - course: MCELLBI.102
+        - course: MCELLBI.110
+        - course: MCELLBI.111
+        - course: MCELLBI.C112
+        - course: MCELLBI.130A
+        - course: MCELLBI.132
+        - course: MCELLBI.133L
+        - course: MCELLBI.136
+        - course: MCELLBI.140
+        - course: MCELLBI.140L
+        - course: MCELLBI.C145
+        - course: MCELLBI.C148
+        - course: MCELLBI.150
+        - course: MCELLBI.C160
+        - course: NEUROSC.C160
+        - course: MCELLBI.160L
+        - course: MCELLBI.166
+        - course: PLANTBI.185
+        - course: PLANTBI.C112
+        - course: PLANTBI.C145
+        - course: PLANTBI.C148
 
 
 coe_humanities_and_social_sciences:
@@ -75,21 +165,27 @@ coe_humanities_and_social_sciences:
                 - ls_breadth_arts
                 - ls_breadth_history
                 - ls_breadth_philosophy
+                    - NOT:
+                        - course: ENGIN.124
                 - ls_breadth_international
                 - ls_breadth_social
+                    - NOT:
+                        - course: IND ENG.172
+                        - course: IND ENG.171
+                        - course: IND ENG.170
+                        - course: IND ENG.166
+                        - course: IND ENG.39A
+                        - course: IND ENG.39
+                        - course: CIV ENG.167
+                        - course: CIV ENG.151
+                        - course: CIV ENG.
+                        - course: ENGIN.39D
+                        - course: ENGIN.49
+                        - course: ENGIN.120
+                        - course: MEC ENG.39B
+                        - course: NUC ENG.170
                 - university_rc_A
                 - university_rc_B
-                - NOT:
-                    - dept: IND ENG
-                    - dept: BIO ENG
-                    - dept: CIV ENG
-                    - dept: EL ENG
-                    - dept: MAT SCI
-                    - dept: MEC ENG
-                    - dept: NUC ENG
-                    - dept: ENGIN
-                    # but can accept BIO ENG.100, COMPSCI.C79, ENGIN.125
-                    # ENGIN.130AC, and MEC ENG.191AC
                 - coe_foreign_language
 
 

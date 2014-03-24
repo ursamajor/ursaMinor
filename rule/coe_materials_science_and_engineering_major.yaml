@@ -1,0 +1,62 @@
+rules:
+
+    coe_materials_science_and_engineering_major:
+        rule: AND
+        args:
+            - OR:
+                - AND:
+                    - course: CHEM.1A
+                    - course: CHEM.1AL
+                - course: CHEM.4A
+            - OR:
+                - course: CHEM.1B
+                - course: CHEM.4B
+            - course: ENGIN.7
+            - course: MATH.1A
+            - course: MATH.1B
+            - course: MATH.53
+            - course: MATH.54
+            - course: PHYSICS.7A
+            - course: PHYSICS.7B
+            - course: PHYSICS.7C
+            - course: ENGIN.45
+            - course: MEC ENG.C85
+            - 
+            
+            - AND: # HSS
+            	- university_rc_A
+            	- university_rc_B
+            	- university_AC
+            	- numcourses:
+            		min: 4
+            		courses:
+            			- coe_humanities_and_social_sciences
+                            - numcourses:
+                                min: 2
+                                rule: upper_division
+                            - numcorses:
+                                min: 2
+                                rule: same_department # 1 up, 1 low
+
+
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
+        - course: 
