@@ -30,7 +30,7 @@ rules:
                 - course: IND ENG.172
                 - course: STAT.134
             - course: IND ENG.131
-            - course: IND ENG>180
+            - course: IND ENG.180
             - AND: # ieor electives
                 - numcourses:
                     min: 6
