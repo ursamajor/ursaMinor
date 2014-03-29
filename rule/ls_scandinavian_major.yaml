@@ -1,0 +1,44 @@
+rules:
+
+    ls_major:
+    rule: AND
+    args:
+        - university_all
+        - ls_breadth_all
+        - OR: # lower division
+            - AND: # swedish
+                - course: SCANDIN.1A
+                - course: SCANDIN.1B
+            - AND: # finnish
+                - course: SCANDIN.2A
+                - course: SCANDIN.2B
+            - AND: # norwegian
+                - course: SCANDIN.3A
+                - course: SCANDIN.3B
+            - AND: # danish
+                - course: SCANDIN.4A
+                - course: SCANDIN.4B
+        - AND: # upper division
+            - OR: # language
+                - AND: # swedish
+                    - course: SCANDIN.
+                    - course: SCANDIN.
+                - AND: # finnish
+                    - course: SCANDIN.102A
+                    - course: SCANDIN.102B
+                - AND: # norwegian
+                    - course: SCANDIN.
+                    - course: SCANDIN.
+                - AND: # danish
+                    - course: SCANDIN.
+                    - course: SCANDIN.
+            - AND: # two courses w 149
+            - AND: # two history
+            
+                - course: SCANDIN.
+                - course: SCANDIN.
+
+
+
+
+
