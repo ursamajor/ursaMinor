@@ -114,7 +114,7 @@ coe_bioengineering_topics_engineering:
         - course: NUC ENG.170B
 
 
-coe_bioengineering_upper_division_biology
+coe_bioengineering_upper_division_biology:
     description: "COE Bioengineering Upper Division Biology"
     rule: OR
     args:

@@ -1,6 +1,6 @@
 rules:
 
-    ls_major:
+    ls_scandinavian_major:
     rule: AND
     args:
         - university_all
@@ -19,24 +19,50 @@ rules:
                 - course: SCANDIN.4A
                 - course: SCANDIN.4B
         - AND: # upper division
-            - OR: # language
-                - AND: # swedish
-                    - course: SCANDIN.
-                    - course: SCANDIN.
+            - OR:
+                - AND: # slavic linguistics
+                    - course: SCANDIN.100A
+                    - course: SCANDIN.100B
                 - AND: # finnish
                     - course: SCANDIN.102A
                     - course: SCANDIN.102B
-                - AND: # norwegian
-                    - course: SCANDIN.
-                    - course: SCANDIN.
-                - AND: # danish
-                    - course: SCANDIN.
-                    - course: SCANDIN.
-            - AND: # two courses w 149
-            - AND: # two history
-            
-                - course: SCANDIN.
-                - course: SCANDIN.
+            - AND: # major studies
+                - course: SCANDIN.149
+                - numcourses:
+                    min: 2
+                    courses:
+                        - course: SCANDIN.C107
+                        - course: SCANDIN.C108
+                        - course: SCANDIN.115
+                        - course: SCANDIN.116
+                        - course: SCANDIN.117
+                        - course: SCANDIN.120
+                        - course: SCANDIN.165
+            - AND: # history
+                - numcourses:
+                    min: 2
+                    courses:
+                        - course: SCANDIN.123
+                        - course: SCANDIN.127
+                        - course: SCANDIN.128
+            - AND: # five courses in literature, culture, or folklore (doesn't include above)...??
+                - numcourses:
+                    min: 5
+                    courses:
+                        - course: SCANDIN.106
+                        - course: SCANDIN.C107
+                        - course: SCANDIN.C108
+                        - course: SCANDIN.115
+                        - course: SCANDIN.116
+                        - course: SCANDIN.120
+                        - course: SCANDIN.123
+                        - course: SCANDIN.125
+                        - course: SCANDIN.132
+                        - course: SCANDIN.150
+                        - course: SCANDIN.C160
+                        - course: RELIGST.C108
+                        - course: SCANDIN.165
+                        - course: SCANDIN.170
 
 
 

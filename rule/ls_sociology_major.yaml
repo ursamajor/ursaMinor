@@ -1,6 +1,6 @@
 rules:
 
-    ls_major:
+    ls_sociology_major:
     rule: AND
     args:
         - university_all
