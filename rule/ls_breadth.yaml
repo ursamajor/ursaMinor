@@ -588,56 +588,56 @@ ls_breadth_arts:
         - course: NATAMST.156
         - course: NATAMST.158
         - course: NATAMST.182
-        - course: NE STD.15
-        - course: NE STD.C16
-        - course: NE STD.18
-        - course: NE STD.23
-        - course: NE STD.25
-        - course: NE STD.32
-        - course: NE STD.34
-        - course: NE STD.80
-        - course: NE STD.C92
-        - course: NE STD.102A
-        - course: NE STD.102B
-        - course: NE STD.105A
-        - course: NE STD.105B
-        - course: NE STD.106A
-        - course: NE STD.106B
-        - course: NE STD.107
-        - course: NE STD.110
-        - course: NE STD.113
-        - course: NE STD.C120A
-        - course: NE STD.C120B
-        - course: NE STD.C121A
-        - course: NE STD.C121B
-        - course: NE STD.122A
-        - course: NE STD.122B
-        - course: NE STD.123
-        - course: NE STD.123A
-        - course: NE STD.123B
-        - course: NE STD.124
-        - course: NE STD.124A
-        - course: NE STD.124B
-        - course: NE STD.125
-        - course: NE STD.126
-        - course: NE STD.127
-        - course: NE STD.128
-        - course: NE STD.C129
-        - course: NE STD.132
-        - course: NE STD.138
-        - course: NE STD.139
-        - course: NE STD.150A
-        - course: NE STD.150B
-        - course: NE STD.151
-        - course: NE STD.152
-        - course: NE STD.153
-        - course: NE STD.154
-        - course: NE STD.155
-        - course: NE STD.162A
-        - course: NE STD.162B
-        - course: NE STD.165
-        - course: NE STD.170A
-        - course: NE STD.170B
+        - course: NE STUD.15
+        - course: NE STUD.C16
+        - course: NE STUD.18
+        - course: NE STUD.23
+        - course: NE STUD.25
+        - course: NE STUD.32
+        - course: NE STUD.34
+        - course: NE STUD.80
+        - course: NE STUD.C92
+        - course: NE STUD.102A
+        - course: NE STUD.102B
+        - course: NE STUD.105A
+        - course: NE STUD.105B
+        - course: NE STUD.106A
+        - course: NE STUD.106B
+        - course: NE STUD.107
+        - course: NE STUD.110
+        - course: NE STUD.113
+        - course: NE STUD.C120A
+        - course: NE STUD.C120B
+        - course: NE STUD.C121A
+        - course: NE STUD.C121B
+        - course: NE STUD.122A
+        - course: NE STUD.122B
+        - course: NE STUD.123
+        - course: NE STUD.123A
+        - course: NE STUD.123B
+        - course: NE STUD.124
+        - course: NE STUD.124A
+        - course: NE STUD.124B
+        - course: NE STUD.125
+        - course: NE STUD.126
+        - course: NE STUD.127
+        - course: NE STUD.128
+        - course: NE STUD.C129
+        - course: NE STUD.132
+        - course: NE STUD.138
+        - course: NE STUD.139
+        - course: NE STUD.150A
+        - course: NE STUD.150B
+        - course: NE STUD.151
+        - course: NE STUD.152
+        - course: NE STUD.153
+        - course: NE STUD.154
+        - course: NE STUD.155
+        - course: NE STUD.162A
+        - course: NE STUD.162B
+        - course: NE STUD.165
+        - course: NE STUD.170A
+        - course: NE STUD.170B
         - course: PERSIAN.101A
         - course: PERSIAN.101B
         - course: PERSIAN.102A
@@ -1244,7 +1244,7 @@ ls_breadth_history:
         - course: COMPSCI.39E
         - course: COMPSCI.39K
         - course: DEMOG.145AC
-        - course: DEVP.C100
+        - course: DEV STD.C100
         - course: DUTCH.39A
         - course: DUTCH.C170
         - course: DUTCH.171AC
@@ -1484,62 +1484,62 @@ ls_breadth_history:
         - course: NATAMST.177
         - course: NATAMST.178
         - course: NAV SCI.2
-        - course: NE STD.15
-        - course: NE STD.18
-        - course: NE STD.20
-        - course: NE STD.C26
-        - course: NE STD.101A
-        - course: NE STD.101B
-        - course: NE STD.102A
-        - course: NE STD.102B
-        - course: NE STD.105A
-        - course: NE STD.105B
-        - course: NE STD.106A
-        - course: NE STD.106B
-        - course: NE STD.107
-        - course: NE STD.109
-        - course: NE STD.110
-        - course: NE STD.112
-        - course: NE STD.C120A
-        - course: NE STD.C120B
-        - course: NE STD.122
-        - course: NE STD.122A
-        - course: NE STD.122B
-        - course: NE STD.123
-        - course: NE STD.123A
-        - course: NE STD.123B
-        - course: NE STD.124
-        - course: NE STD.124A
-        - course: NE STD.124B
-        - course: NE STD.125
-        - course: NE STD.126
-        - course: NE STD.128
-        - course: NE STD.C129
-        - course: NE STD.130A
-        - course: NE STD.130B
-        - course: NE STD.131
-        - course: NE STD.C133
-        - course: NE STD.134
-        - course: NE STD.C135
-        - course: NE STD.136
-        - course: NE STD.137
-        - course: NE STD.140
-        - course: NE STD.141
-        - course: NE STD.143A
-        - course: NE STD.143B
-        - course: NE STD.144
-        - course: NE STD.146A
-        - course: NE STD.146B
-        - course: NE STD.147    
-        - course: NE STD.150A
-        - course: NE STD.150B
-        - course: NE STD.160
-        - course: NE STD.162A
-        - course: NE STD.162B
-        - course: NE STD.171
-        - course: NE STD.173A
-        - course: NE STD.173B
-        - course: NE STD.175
+        - course: NE STUD.15
+        - course: NE STUD.18
+        - course: NE STUD.20
+        - course: NE STUD.C26
+        - course: NE STUD.101A
+        - course: NE STUD.101B
+        - course: NE STUD.102A
+        - course: NE STUD.102B
+        - course: NE STUD.105A
+        - course: NE STUD.105B
+        - course: NE STUD.106A
+        - course: NE STUD.106B
+        - course: NE STUD.107
+        - course: NE STUD.109
+        - course: NE STUD.110
+        - course: NE STUD.112
+        - course: NE STUD.C120A
+        - course: NE STUD.C120B
+        - course: NE STUD.122
+        - course: NE STUD.122A
+        - course: NE STUD.122B
+        - course: NE STUD.123
+        - course: NE STUD.123A
+        - course: NE STUD.123B
+        - course: NE STUD.124
+        - course: NE STUD.124A
+        - course: NE STUD.124B
+        - course: NE STUD.125
+        - course: NE STUD.126
+        - course: NE STUD.128
+        - course: NE STUD.C129
+        - course: NE STUD.130A
+        - course: NE STUD.130B
+        - course: NE STUD.131
+        - course: NE STUD.C133
+        - course: NE STUD.134
+        - course: NE STUD.C135
+        - course: NE STUD.136
+        - course: NE STUD.137
+        - course: NE STUD.140
+        - course: NE STUD.141
+        - course: NE STUD.143A
+        - course: NE STUD.143B
+        - course: NE STUD.144
+        - course: NE STUD.146A
+        - course: NE STUD.146B
+        - course: NE STUD.147    
+        - course: NE STUD.150A
+        - course: NE STUD.150B
+        - course: NE STUD.160
+        - course: NE STUD.162A
+        - course: NE STUD.162B
+        - course: NE STUD.171
+        - course: NE STUD.173A
+        - course: NE STUD.173B
+        - course: NE STUD.175
         - course: PACS.125AC
         - course: PACS.161
         - course: PHILOS.9
@@ -1764,9 +1764,9 @@ ls_breadth_international:
         - course: DEMOG.140
         - course: DEMOG.C165
         - course: DEMOG.C175
-        - course: DEVP.140
-        - course: DEVP.C165
-        - course: DEVP.C175
+        - course: DEV STD.140
+        - course: DEV STD.C165
+        - course: DEV STD.C175
         - course: DUTCH.110
         - course: DUTCH.125
         - course: DUTCH.C170
@@ -1937,12 +1937,12 @@ ls_breadth_international:
         - course: MUSIC.135A
         - course: MUSIC.136
         - course: MUSIC.139
-        - course: NE STD.10
-        - course: NE STD.C26
-        - course: NE STD.127
-        - course: NE STD.154
-        - course: NE STD.165
-        - course: NE STD.175
+        - course: NE STUD.10
+        - course: NE STUD.C26
+        - course: NE STUD.127
+        - course: NE STUD.154
+        - course: NE STUD.165
+        - course: NE STUD.175
         - course: OPTOM.39B
         - course: PACS.124
         - course: PACS.126
@@ -2303,28 +2303,28 @@ ls_breadth_philosophy:
         - course: NATAMST.151
         - course: NAT RES.39E
         - course: NAV SCI.3
-        - course: NE STD.30
-        - course: NE STD.34
-        - course: NE STD.40
-        - course: NE STD.42
-        - course: NE STD.C92
-        - course: NE STD.101B
-        - course: NE STD.102A
-        - course: NE STD.102B
-        - course: NE STD.C103
-        - course: NE STD.C104
-        - course: NE STD.105A
-        - course: NE STD.105B
-        - course: NE STD.131
-        - course: NE STD.C133
-        - course: NE STD.134
-        - course: NE STD.C135
-        - course: NE STD.137
-        - course: NE STD.142
-        - course: NE STD.144
-        - course: NE STD.146A
-        - course: NE STD.146B
-        - course: NE STD.160
+        - course: NE STUD.30
+        - course: NE STUD.34
+        - course: NE STUD.40
+        - course: NE STUD.42
+        - course: NE STUD.C92
+        - course: NE STUD.101B
+        - course: NE STUD.102A
+        - course: NE STUD.102B
+        - course: NE STUD.C103
+        - course: NE STUD.C104
+        - course: NE STUD.105A
+        - course: NE STUD.105B
+        - course: NE STUD.131
+        - course: NE STUD.C133
+        - course: NE STUD.134
+        - course: NE STUD.C135
+        - course: NE STUD.137
+        - course: NE STUD.142
+        - course: NE STUD.144
+        - course: NE STUD.146A
+        - course: NE STUD.146B
+        - course: NE STUD.160
         - course: OPTOM.39A
         - course: PACS.100
         - course: PACS.126
