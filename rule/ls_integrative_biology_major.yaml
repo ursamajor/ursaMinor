@@ -1,0 +1,31 @@
+rules:
+
+    ls_major:
+    rule: AND
+    args:
+        - university_all
+        - ls_breadth_all
+        - AND: # lower division
+        - AND: # upper division
+
+
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
