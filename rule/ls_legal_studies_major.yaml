@@ -102,33 +102,62 @@ rules:
                                     min: 2
                                     courses:
                                         - ls_legal_studies_distribution_area_I
-                                - 
+                                - numcourses:
+                                    min: 2
+                                    courses: # one in two of the below areas
+                                        - ls_legal_studies_distribution_area_II
+                                        - ls_legal_studies_distribution_area_III
+                                        - ls_legal_studies_distribution_area_IV
+                                        - ls_legal_studies_distribution_area_V
+                            - AND: # area II
+                                - numcourses:
+                                    min: 2
+                                    courses:
+                                        - ls_legal_studies_distribution_area_II
+                                - numcourses:
+                                    min: 2
+                                    courses: # one in two of the below areas
+                                        - ls_legal_studies_distribution_area_I
+                                        - ls_legal_studies_distribution_area_III
+                                        - ls_legal_studies_distribution_area_IV
+                                        - ls_legal_studies_distribution_area_V
+                            - AND: # area III
+                                - numcourses:
+                                    min: 2
+                                    courses:
+                                        - ls_legal_studies_distribution_area_III
+                                - numcourses:
+                                    min: 2
+                                    courses: # one in two of the below areas
+                                        - ls_legal_studies_distribution_area_I
+                                        - ls_legal_studies_distribution_area_II
+                                        - ls_legal_studies_distribution_area_IV
+                                        - ls_legal_studies_distribution_area_V
+                            - AND: # area IV
+                                - numcourses:
+                                    min: 2
+                                    courses:
+                                        - ls_legal_studies_distribution_area_IV
+                                - numcourses:
+                                    min: 2
+                                    courses: # one in two of the below areas
+                                        - ls_legal_studies_distribution_area_I
+                                        - ls_legal_studies_distribution_area_II
+                                        - ls_legal_studies_distribution_area_III
+                                        - ls_legal_studies_distribution_area_V
+                            - AND: # area V
+                                - numcourses:
+                                    min: 2
+                                    courses:
+                                        - ls_legal_studies_distribution_area_V
+                                - numcourses:
+                                    min: 2
+                                    courses: # one in two of the below areas
+                                        - ls_legal_studies_distribution_area_I
+                                        - ls_legal_studies_distribution_area_II
+                                        - ls_legal_studies_distribution_area_III
+                                        - ls_legal_studies_distribution_area_IV
                         - dept: LEGALST # others, or something to fulfill major
                         - OR: # maybe, optional, sustitute one course
                             - course: LEGALST.H195B
                             - course: LEGALST.199
-
-
-
-
-
-                        - course: LEGALST.
-                        - course: LEGALST.
-                        - course: LEGALST.
-                        - course: LEGALST.
-                        - course: LEGALST.
-                        - course: LEGALST.
-
-                - course: 
-                - course: 
-                - course: 
-                - course: 
-                - course: 
-                - course: 
-                - course: 
-                - course: 
-                - course: 
-                - course: 
-                - course: 
-
-
