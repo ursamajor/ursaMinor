@@ -1,5 +1,16 @@
 rules:
 
+    ls_ethnic_studies_core:
+        description: "Ethnic Studies Department Core"
+        rule: AND
+        args:
+            - course: ETH STD.10AC
+            - course: ETH STD.11AC
+            - course: ETH STD.101A
+            - course: ETH STD.101B
+
+
+
     ls_rhetoric_concentration_history:
         description: "Rhetoric Concentration: History & Theory of Rhetoric"
         rule: OR
