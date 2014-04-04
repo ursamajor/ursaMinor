@@ -5,24 +5,16 @@ rules:
     args:
         - university_all
         - ls_breadth_all
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
-                    - course: 
+
+
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+    - course: 
+
+
 
 
