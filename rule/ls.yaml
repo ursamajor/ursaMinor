@@ -953,14 +953,23 @@ rules:
             - course: LEGALST.182
 
 
-
-            - course: 
-            - course: 
-            - course: 
-            - course: 
-            - course: 
-            - course: 
-
+    ls_molecular_cell_biology_lower_division:
+        description: "Molecular Cell Biology Lower Division Requirements"
+        rule: AND
+        args:
+            - OR:
+                - course: MATH.10A
+                - course: MATH.10B
+            - OR:
+                - course: MATH.1A
+                - course: MATH.1B
+            - course: CHEM.1A
+            - course: CHEM.1AL
+            - course: BIOLOGY.1A
+            - course: BIOLOGY.1AL
+            - course: BIOLOGY.1B
+            - course: PHYSICS.8A
+            - course: PHYSICS.8B
 
 
 
