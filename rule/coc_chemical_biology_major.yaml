@@ -1,6 +1,6 @@
 rules:
 
-    coc_chemistry_major:
+    coc_chemical_biology_major:
     rule: AND
     args:
         - university_rc_A
@@ -23,6 +23,11 @@ rules:
         - AND: # physics
             - course: PHYSICS.7A
             - course: PHYSICS.7B
+        - AND: # biology
+            - course: BIOLOGY.1A
+            - course: BIOLOGY.1AL
+            - course: MCELLBI.110
+            - course: MCELLBI.110L
         - AND: # chemistry
             - course: CHEM.4A
             - course: CHEM.4B
@@ -31,17 +36,15 @@ rules:
             - course: CHEM.112B
             - course: CHEM.120A
             - course: CHEM.120B
-            - course: CHEM.104A
-            - course: CHEM.104B
-            - course: CHEM.125
+            - course: CHEM.103
+            - course: CHEM.135
             - OR:
                 - course: CHEM.105
-                - course: CHEM.108
-                - course: CHEM.115
-                - course: CHEM.146
+                - course: CHEM.125
+                - course: CHEM.C170L
         - AND: # allied subjects
             - units:
-                min: 15
+                min: 7
                 courses:
                     - dept: CHEM
                     - coc_allied_subjects
