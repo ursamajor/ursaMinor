@@ -1,0 +1,47 @@
+rules:
+
+    coe_bioengineering_minor:
+        rule: AND
+        args:
+            - OR: # bioeng fundamentals
+                - course: BIO ENG.101
+                - course: BIO ENG.102
+                - course: BIO ENG.104
+                - course: BIO ENG.110
+                - course: BIO ENG.116
+                - course: BIO ENG.131
+                - course: BIO ENG.150
+            - OR: # engineering topics
+                - coe_bioengineering_topics_engineering
+            - AMD: # bioengineering topics
+                - numcourses:
+                    min: 2
+                    courses:
+                        - coe_bioengineering_topics_bioengineering
+            - OR: # technical electives
+                - course: CHEM.120A
+                - course: CHEM.120B
+                - course: CHEM.C130
+                - course: CHEM.130B
+                - course: IND ENG.172
+                - course: STAT.134
+                - course: MATH.110
+                - course: MATH.118
+                - course: MATH.127
+                - course: MATH.128A
+                - course: MATH.170
+                - course: MCELLBI.C100A
+                - course: NUSCTX.121
+                - course: PHYSICS.7C
+                - course: PHYSICS.110A
+                - course: PHYSICS.112
+                - course: PHYSICS.137A
+                - course: PHYSICS.177
+                - course: PHYSICS.C191
+                - course: PB HLTH.143
+                - course: STAT.133
+                - course: STAT.135
+                - course: STAT.150
+                - coe_bioengineering_topics_bioengineering
+                - coe_bioengineering_topics_engineering
+                - coe_bioengineering_upper_division_biology
