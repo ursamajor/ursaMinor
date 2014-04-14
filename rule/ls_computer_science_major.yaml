@@ -142,7 +142,6 @@ rules:
                         - dept: ENGIN
                             - NOT:
                                 - course: ENGIN.102
-                        - course: ESPM.173
                         - course: FILM.140
                         - course: GEOG.C188
                         - course: EPS.104
