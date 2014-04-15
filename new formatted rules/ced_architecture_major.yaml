@@ -2,27 +2,21 @@ rules:
 
     ced_architecture_major:
         description: "Architecture Major"
-        rules: AND
+        rule: AND
         args:
             - university_all
             - ced_breadth_all
-                - NOT: 
-                    - ced_upperdiv_architecture
-            - ced_lower_division_environmental_design
-            - ced_lowerdiv_architecture
+            - ced_lowerdiv_environmental_design
+            - ced_lowerdiv_architecture_requirements
+            - ced_upperdiv_architecture_requirements
+            - ced_upperdiv_non_architecture_requirements
             - units_total
-# R&C
-# seven course breadth, up to two CED courses can use this
-# lower div enviro design
-# upper div ced outside arch
-# lower div arch major
-# upper div arch major
-# 120 units total
 
 
-    ced_lowerdiv_architecture:
+    # to define architecture major
+    ced_lowerdiv_architecture_requirements:
         description: "Lower Division Architecture Requirements"
-        rules: AND
+        rule: AND
         args:
             - course: ENV DES.11A
             - course: ENV DES.11B
@@ -32,18 +26,12 @@ rules:
             - OR:
                 - course: PHYSICS.7A
                 - course: PHYSICS.8A
+            - course: ARCH.98BC
 
-
-
-    ced_architecture_major:
-    rules: AND
-    args:
-        - university_all
-        - ced_breadth_all
-            - NOT:
-                - dept: ARCH # upper div reqs cannot simultaneously count for breadth
-                - # courses you used to satisfy non-arch upper divs
-        - AND: # upper division
+    ced_upperdiv_architecture_requirements: # cannot be used to fulfil breadth
+        description: "Upper Division Architecture Requirements"
+        rule: AND
+        args:
             - course: ARCH.100A
             - course: ARCH.100B
             - course: ARCH.170A
@@ -65,10 +53,17 @@ rules:
                     - OR:
                         - course: ARCH.140
                         - course: ARCH.160
-                    - ARCH.150
-            - AND: # outside architecture
-                - numcourses:
-                    min: 3
-                    courses:
-                        - NOT:
-                            - dept: ARCH
+                    - course: ARCH.150
+
+    ced_upperdiv_non_architecture_requirements: # cannot be used to fulfill breadth
+        description: "Upper Division Non-Architecture Requirements"
+        rule: units
+        args:
+            - numunits: 9
+                - OR:
+                    - rule: ced_upperdiv_landscape_architecture
+                    - rule: ced_upperdiv_environmental_design
+                    - rule: ced_upperdiv_city_planning
+                    - rule: ced_upperdiv_vision_studies
+
+

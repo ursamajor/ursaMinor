@@ -55,27 +55,29 @@ rules:
 
     university_american_history:
         description: "American History"
-        rule: OR
+        rule: same_course
         args:
-            - course: HISTORY.7A
-            - course: HISTORY.7B
-            - course: HISTORY.130B
-            - course: HISTORY.131A
-            - course: HISTORY.131B
-            - course: HISTORY.138
+            - OR:
+                - course: HISTORY.7A
+                - course: HISTORY.7B
+                - course: HISTORY.130B
+                - course: HISTORY.131A
+                - course: HISTORY.131B
+                - course: HISTORY.138
 
     university_american_institutions:
         description: "American Institutions"
-        rule: OR
+        rule: same_course
         args:
-            - course: POL SCI.1
-            - course: POL SCI.108A
+            - OR:
+                - course: POL SCI.1
+                - course: POL SCI.108A
 
     university_rc_A: 
         description: "Reading and Composition Part A Requirement"
         rule: course_regex
         args: R/dA$
-            - AND:
+            - OR:
                 - course: COLWRIT.R1A
                 - course: CLASSIC.R44
                 - course: LNS.R44
@@ -84,68 +86,70 @@ rules:
         description: "Reading and Composition Part B Requirement"
         rule: course_regex
         args: R/dB$
-            - AND:
+            - OR:
                 - course: CLASSIC.R44
                 - course: LNS.R44
 
     university_for_lang:
         description: "Foreign Language Requirement" # can waive
+        rule: same_course
         args: # 2nd semester language, something to ask about, not positive
-            - course: AFRICAM.7B
-            - course: AFRICAM.11B
-            - course: AFRICAM.13B
-            - course: AFRICAM.30B
-            - course: ARABIC.1B
-            - course: BANGLA.1B
-            - course: CELTIC.10
-            - course: CELTIC.85
-            - course: CELTIC.86
-            - course: CHINESE.1B
-            - course: CHINESE.10X
-            - course: CHINESE.10Y
-            - course: CUNEIF.100B
-            - course: CUNEIF.102B
-            - course: CUNEIF.106B
-            - course: DUTCH.2
-            - course: EGYPT.100B
-            - course: EURAST.1B
-            - course: FILIPN.1B
-            - course: FRENCH.2
-            - course: GERMAN.2
-            - course: GREEK.2
-            - course: HEWBREW.1B
-            - course: HIN-URD.1B
-            - course: HIN-URD.2B
-            - coures: IRANIAN.101A
-            - course: ITALIAN.2
-            - course: JAPAN.1B
-            - course: KHMER.1B
-            - course: KOREAN.1B
-            - course: KOREAN.1BX
-            - course: LATIN.2
-            - course: LINGUIS.1B
-            - course: MALAY.1B
-            - course: PERSIAN.1B
-            - course: PORTUG.12
-            - course: PUNJABI.1B
-            - course: SANSKR.100B
-            - course: SCANDIN.1B
-            - course: SCANDIN.2B
-            - course: SCANDIN.3B
-            - course: SCANDIN.4B
-            - course: SEMITIC.100B
-            - course: SLAVIC.2
-            - course: SLAVIC.25B
-            - course: SLAVIC.26B
-            - course: SLAVIC.27B
-            - course: SLAVIC.28B
-            - course: SSEASIAN.1B
-            - course: SPANISH.2
-            - course: TAGALG.1B
-            - course: TAMIL.1B
-            - course: TELUGU.1B
-            - course: THAI.1B
-            - course: TIBETAN.1B
-            - course: TURKISH.1B
-            - course: VIETNMS.1B
-            - course: YIDDISH.102
+            - OR:
+                - course: AFRICAM.7B
+                - course: AFRICAM.11B
+                - course: AFRICAM.13B
+                - course: AFRICAM.30B
+                - course: ARABIC.1B
+                - course: BANGLA.1B
+                - course: CELTIC.10
+                - course: CELTIC.85
+                - course: CELTIC.86
+                - course: CHINESE.1B
+                - course: CHINESE.10X
+                - course: CHINESE.10Y
+                - course: CUNEIF.100B
+                - course: CUNEIF.102B
+                - course: CUNEIF.106B
+                - course: DUTCH.2
+                - course: EGYPT.100B
+                - course: EURAST.1B
+                - course: FILIPN.1B
+                - course: FRENCH.2
+                - course: GERMAN.2
+                - course: GREEK.2
+                - course: HEWBREW.1B
+                - course: HIN-URD.1B
+                - course: HIN-URD.2B
+                - coures: IRANIAN.101A
+                - course: ITALIAN.2
+                - course: JAPAN.1B
+                - course: KHMER.1B
+                - course: KOREAN.1B
+                - course: KOREAN.1BX
+                - course: LATIN.2
+                - course: LINGUIS.1B
+                - course: MALAY.1B
+                - course: PERSIAN.1B
+                - course: PORTUG.12
+                - course: PUNJABI.1B
+                - course: SANSKR.100B
+                - course: SCANDIN.1B
+                - course: SCANDIN.2B
+                - course: SCANDIN.3B
+                - course: SCANDIN.4B
+                - course: SEMITIC.100B
+                - course: SLAVIC.2
+                - course: SLAVIC.25B
+                - course: SLAVIC.26B
+                - course: SLAVIC.27B
+                - course: SLAVIC.28B
+                - course: S,SEASIAN.1B
+                - course: SPANISH.2
+                - course: TAGALG.1B
+                - course: TAMIL.1B
+                - course: TELUGU.1B
+                - course: THAI.1B
+                - course: TIBETAN.1B
+                - course: TURKISH.1B
+                - course: VIETNMS.1B
+                - course: YIDDISH.102

@@ -1,0 +1,68 @@
+rules:
+
+    ced_landscape_architecture_major:
+        description: "Landscape Architecture Major"
+        rule: AND
+        args:
+            - university_all
+            - ced_breadth_all
+            - ced_lowerdiv_environmental_design
+            - ced_lowerdiv_landscape_architecture_requriements
+            - ced_upperdiv_landscape_architecture_requirements
+            - units_total
+
+
+
+    # to define landscape architecture major
+    ced_lowerdiv_landscape_architecture_requriements:
+        description: "Lower Division Landscape Architecture Requirements"
+        rule: AND
+        args:
+            - course: ENV DES.11A
+            - course: ENV DES.11B
+            - OR: # physical science
+                - course: EPS.50
+                - course: EPS.80
+                - course: ESPM.15
+                - course: PHYSICS.7A
+                - course: PHYSICS.8A
+                - course: PHYSICS.10
+                - course: PHYSICS.C10
+                - course: LNS.C70V
+            - OR: # biological science
+                - course: BIOLOGY.1B
+                - AND:
+                    - course: BIOLOGY.11
+                    - course: BIOLOGY.11L
+                - AND: PLANTBI.40
+                - course: ESPM.2
+                - course: ESPM.6
+                - course: ESPM.101A
+                - course: LD ARCH.12
+
+    ced_upperdiv_landscape_architecture_requirements: # cannot be used to fulfill breadth
+        description: "Upper Division Landscape Architecture Requirements"
+        rule: AND
+        args:
+            - course: LD ARCH.101
+            - course: LD ARCH.102
+            - course: LD ARCH.103
+            - course: LD ARCH.110
+            - course: LD ARCH.112
+            - course: LD ARCH.120
+            - course: LD ARCH.121
+            - course: LD ARCH.134A
+            - course: LD ARCH.134B
+            - course: LD ARCH.135
+            - course: LD ARCH.170
+
+    ced_upperdiv_non_landscape_architecture_requirements:
+        description: "Upper Division Non-Landscape Architecture Requirements"
+        rule: units
+        args:
+            - numunits: 9
+                - OR:
+                    - rule: ced_upperdiv_architecture
+                    - rule: ced_upperdiv_environmental_design
+                    - rule: ced_upperdiv_city_planning
+                    - rule: ced_upperdiv_vision_studies

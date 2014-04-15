@@ -1,0 +1,49 @@
+rules:
+
+    ced_individual_major:
+        description: "Individual Major in the College of Environmental Design"
+        rule: AND
+        args:
+            - university_all
+            - ced_breadth_all
+            - ced_lower_division_environmental_design
+            - ced_lowerdiv_individual_requirements
+            - ced_upperdiv_individual_requirements
+            - units_total
+
+
+    # to define individual major
+    ced_lowerdiv_individual_requirements:
+        description: "Lower Division Individual Major Requirements"
+        rule: AND
+        args:
+            - course: ENV DES.11A # can be waived??
+            - course: ENV DES.11B # can be waived??
+            - OR:
+                - course: MATH.16A
+                - course: MATH.1A
+                - course: STAT.2
+                - course: STAT.20
+                - course: STAT.21
+                - course: STAT.25
+                - course: STAT.131A
+
+    ced_upperdiv_individual_requirements: # can't be used to fulfill breadth
+        description: "Upper Division Individual Major Requirements"
+        rule: units
+        args:
+            - numunits: 36
+            - same_course:
+                - OR:
+                    - upperdiv
+            - numunits: 30
+            - same_course:
+                - AND:
+                    - rule: ced_upperdiv_architecture
+                    - rule: ced_upperdiv_landscape_architecture
+                    - rule: ced_upperdiv_vision_studies
+                    - rule: ced_upperdiv_environmental_design
+                    - rule: ced_upperdiv_city_planning
+                    - course: ENV DES.195A
+                    - course: ENV DES.195B
+

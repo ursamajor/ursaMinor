@@ -1,0 +1,144 @@
+
+# upper division
+
+ced_upperdiv_architecture:
+    description: "Upper Division Architecture"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: ARCH
+
+ced_upperdiv_landscape_architecture:
+    description: "Upper Division Landscape Architecture"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: LD ARCH
+
+ced_upperdiv_environmental_design:
+    description: "Upper Division Environmental Design"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: ENV DES
+
+ced_upperdiv_vision_studies:
+    description: "Upper Division Vision Studies"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: VIS STD
+
+ced_upperdiv_city_planning:
+    description: "Upper Division City Planning"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: CY PLAN
+
+
+# ced lower div
+ced_lowerdiv_environmental_design:
+    description: "Lower Divison Environmental Design"
+    rule: AND
+    args:
+        - course: ENV DES.1
+        - numcourses: 2
+            - OR:
+                - course: ENV DES.4A
+                - course: ENV DES.4B
+                - course: ENV DES.4C
+
+
+# ced breadth
+ced_breadth_all: # max of 2 CED can count towards this
+    description: "CED Seven Course Breadth"
+    rule: count_courses
+    args:
+    min: 7
+    rule: AND
+    args:
+        - ls_breadth_arts
+        - ls_breadth_bio
+        - ls_breadth_history
+        - ced_breadth_international
+        - ls_breadth_philosophy
+        - ls_breadth_physical
+        - ls_breadth_social
+        - rule: same_dept
+            max: 2
+        - numcourses: 
+            max: 2
+            args:
+                - dept: ENV DES
+                - dept: ARCH
+                - dept: LD ARCH
+                - dept: CY PLAN
+                - dept: VIS STD
+
+ced_breadth_international:
+    description: "CED International Breadth"
+    rule: same_course
+    args:
+        - ls_breadth_international
+        - OR:
+            - course: AFRICAM.7B
+            - course: AFRICAM.11B
+            - course: AFRICAM.13B
+            - course: AFRICAM.30B
+            - course: ARABIC.1B
+            - course: BANGLA.1B
+            - course: CELTIC.10
+            - course: CELTIC.85
+            - course: CELTIC.86
+            - course: CHINESE.1B
+            - course: CHINESE.10X
+            - course: CHINESE.10Y
+            - course: CUNEIF.100B
+            - course: CUNEIF.102B
+            - course: CUNEIF.106B
+            - course: DUTCH.2
+            - course: EGYPT.100B
+            - course: EURAST.1B
+            - course: FILIPN.1B
+            - course: FRENCH.2
+            - course: GERMAN.2
+            - course: GREEK.2
+            - course: HEWBREW.1B
+            - course: HIN-URD.1B
+            - course: HIN-URD.2B
+            - coures: IRANIAN.101A
+            - course: ITALIAN.2
+            - course: JAPAN.1B
+            - course: KHMER.1B
+            - course: KOREAN.1B
+            - course: KOREAN.1BX
+            - course: LATIN.2
+            - course: LINGUIS.1B
+            - course: MALAY.1B
+            - course: PERSIAN.1B
+            - course: PORTUG.12
+            - course: PUNJABI.1B
+            - course: SANSKR.100B
+            - course: SCANDIN.1B
+            - course: SCANDIN.2B
+            - course: SCANDIN.3B
+            - course: SCANDIN.4B
+            - course: SEMITIC.100B
+            - course: SLAVIC.2
+            - course: SLAVIC.25B
+            - course: SLAVIC.26B
+            - course: SLAVIC.27B
+            - course: SLAVIC.28B
+            - course: S,SEASIAN.1B
+            - course: SPANISH.2
+            - course: TAGALG.1B
+            - course: TAMIL.1B
+            - course: TELUGU.1B
+            - course: THAI.1B
+            - course: TIBETAN.1B
+            - course: TURKISH.1B
+            - course: VIETNMS.1B
+            - course: YIDDISH.102
+
+
