@@ -1,0 +1,97 @@
+rules:
+
+    cnr_molecular_toxicology_major:
+        description: "Molecular Toxicology Major"
+        rule: AND
+        args:
+            - university_all
+            - cnr_lowerdiv_molecular_toxicology_requirements
+            - cnr_upperdiv_molecular_toxicology_requirements
+            - cnr_units_upperdiv
+            - units_upperdiv
+            - units_total
+
+
+    cnr_lowerdiv_molecular_toxicology_requirements:
+        description: "Lower Division Molecular Toxicology Requirements"
+        rule: AND
+        args:
+            - units: # hss
+                - numunits: 22
+                - OR:
+                    - rule: cnr_breadth_all
+                    - rule: university_all
+            - units: # physical sciences and math
+                - numunits: 26
+                - OR:
+                    - OR:
+                        - AND:
+                            - course: MATH.16A
+                            - course: MATH.16B
+                            - course: STAT.2
+                        - AND:
+                            - course: MATH.1A
+                            - course: STAT.2
+                        - AND:
+                            - course: MATH.10A
+                            - course: MATH.10B
+                    - course: CHEM.1A
+                    - course: CHEM.1AL
+                    - course: CHEM.3A
+                    - course: CHEM.3AL
+                    - course: CHEM.3B
+                    - course: CHEM.3BL
+                    - course: PHYSICS.8A
+            - units: # biological and nautral resource science
+                - numunits: 11
+                - OR:
+                    - course: NUSCTX.11
+                    - course: MCELLBI.32
+                    - course: MCELLBI.32L
+                    - course: BIOLOGY.1A
+                    - course: BIOLOGY.1AL
+
+    cnr_upperdiv_molecular_toxicology_requirements:
+        description: "Upper Division Molecular Toxicology Requirements"
+        rule: AND
+        args:
+            - course: MCELLBI.102
+            - course: MCELLBI.104
+            - course: INTEGBI.141
+            - OR:
+                - course: PLANTBI.C112
+                - course: MCELLBI.C112
+            - course: PB HLTH.162A
+            - OR:
+                - course: PLANTBI.C112
+                - course: MCELLBI.C112L
+                - course: PB HLTH.162L
+            - course: NUSCTX.110
+            - course: NUSCTX.121
+            - course: NUSCTX.171
+            - course: NUSCTX.193
+            - units:
+                - numunits: 36
+                - OR: # Approved Electives List
+                    - course: CIV ENG.114
+                    - course: CIV ENG.115
+                    - course: ESPM.100
+                    - course: ESPM.119
+                    - course: ESPM.126
+                    - course: ESPM.162
+                    - course: ESPM.C180
+                    - course: NUSCTX.103
+                    - OR:
+                        - course: NUSCTX.C114
+                        - course: ESPM.C148
+                    - course: NUSCTX.C115
+                    - course: NUSCTX.160
+                    - course: NUSCTX.C196
+                    - course: NUSCTX.199
+                    - course: PB HLTH.150A
+                    - course: PB HLTH.150B
+                    - course: PB HLTH.170B
+                    - course: UGIS.192C
+                    - dept: INTEGBI
+                    - dept: MCELLBI
+                    - dept: PLANTBI

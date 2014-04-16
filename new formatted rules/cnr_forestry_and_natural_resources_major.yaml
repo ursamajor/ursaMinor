@@ -1,5 +1,6 @@
 rules: # not sure if I should combine lower/upper div into one concentration
 
+
     cnr_forestry_and_natural_resources_major:
         description: "Forestry and Natural Resources Major"
         rule: AND
@@ -17,12 +18,14 @@ rules: # not sure if I should combine lower/upper div into one concentration
 
     cnr_lowerdiv_forestry_requirements:
         description: "Lower Division Forestry and Natural Resources Requirements"
-        rule: AND
+        rule: count_courses
         args:
-            - rule: cnr_espm_environmental_science_core
-            - rule: cnr_espm_social_science_core
-            - rule: cnr_breadth_arts_history_philosophy
-            - rule: cnr_breadth_social_international
+            - numcourses: 4
+            - AND:
+                - rule: cnr_espm_environmental_science_core
+                - rule: cnr_espm_social_science_core
+                - rule: cnr_breadth_arts_history_philosophy
+                - rule: cnr_breadth_social_international
 
     cnr_core_upperdiv_forestry_requirements:
         description: "Core Upper Division Forestry and Natural Resources Requirements"
@@ -51,97 +54,118 @@ rules: # not sure if I should combine lower/upper div into one concentration
         description: "Forestry and Natural Resources Concentrations: Forestry and Natural Sciences, and Human Dimensions of Natural Resources"
         rule: OR
         args:
-            - AND: # forestry and natural sciences
-                - AND: # lower division
-                    - AND: # chemistry
-                        - course: CHEM.1A
-                        - course: CHEM.1AL
-                    - AND: # biology
-                        - course: BIOLOGY.1B
-                    - OR: # calculus
-                        - AND:
-                            - course: MATH.1A
-                            - course: MATH.16A
-                        - AND:
-                            - course: MATH.1B
-                            - course: MATH.16B
-                    - OR: # statistics
-                        - course: STAT.2
-                        - course: STAT.20
-                    - OR: # economics
-                        - course: ENVECON.C1
-                        - course: ECON.1
-                        - course: ECON.2
-                        - course: ECON.C3
-                    - OR: # physical science
-                        - course: EPS.50
-                        - course: GEOG.1
-                        - course: GEOG.40
-                - OR: # electives by concentration
-                    - OR: # forestry and natural sciences concentration
-                        - AND: # Professional forestry specialization
-                            - AND:
-                                - course: ESPM.108A
-                                - course: ESPM.134
-                                - course: ESPM.182
-                                - course: ESPM.183
-                                - course: ESPM.185
-                                - OR:
-                                    - course: ESPM.172
-                                    - course: ESPM.174
-                                    - course: ANTHRO.169A
-                                    - course: ANTHRO.169B
-                                    - course: ARCH.110
-                                    - course: EPS.C120
-                                    - course: GEOG.187
-                                    - course: LD ARCH.110
-                                    - course: LD ARCH.C188
-                                    - course: ESPM.120
-                                    - course: ESPM.121
-                                    - course: ESPM.C128
-                                    - course: ESPM.C129
-                                    - course: EPS.117
-                                    - course: GEOG.140A
-                                - OR:
-                                    - rule: cnr_subject_forestry_physical_environment
-                                    - rule: cnr_subject_forestry_monitoring_and_measurement
-                        - AND: # natural sciences specialization
-                            - numcourses: 2
-                                - OR:
-                                    - rule: cnr_subject_forestry_ecology
-                            - numcourses: 2
-                                - OR:
-                                    - rule: cnr_subject_forestry_monitoring_and_measurement
-                            - rule: cnr_subject_forestry_physical_environment
-                            - rule: cnr_subject_forestry_management_and_policy
-                    - AND: # human dimensions of natural resources concentration
-                        - AND: # lower division
-                            - rule: ls_breadth_physical
-                            - OR: # biology
-                                - course: BIOLOGY.1B
-                                - course: BIOLOGY.11
-                            - OR: # math
-                                - course: MATH.16A
-                                - course: MATH.1A
-                                - course: MATH.32
-                            - OR: # statistics
-                                - course: STAT.2
-                                - course: STAT.20
-                                - course: POL SCI.3
-                                - course: SOCIOL.5
-                            - OR: # economics
-                                - course: ENVECON.C1
-                                - course: ECON.1
-                                - course: ECON.2
-                                - course: ECON.C3
-                                - course: UGBA.10
-                        - AND: # electives
-                            - numcourses: 6
-                                - AND:
-                                    - rule: cnr_subject_forestry_ecology
-                                    - rule: cnr_subject_forestry_physical_environment
-                                    - rule: cnr_subject_forestry_monitoring_and_measurement
-                                    - rule: cnr_subject_forestry_management_and_policy
+            - rule: cnr_concentration_forestry_natural_sciences
+            - rule: cnr_concentration_forestry_human_dimensions
+
+
+    cnr_concentration_forestry_natural_sciences:
+        description: "Forestry and Natural Resources Concentration: Forestry and Natural Sciences"
+        rule: AND
+        args:
+            - AND: # lower division
+                - AND: # chemistry
+                    - course: CHEM.1A
+                    - course: CHEM.1AL
+                - AND: # biology
+                    - course: BIOLOGY.1B
+                - OR: # calculus
+                    - AND:
+                        - course: MATH.1A
+                        - course: MATH.16A
+                    - AND:
+                        - course: MATH.1B
+                        - course: MATH.16B
+                - OR: # statistics
+                    - course: STAT.2
+                    - course: STAT.20
+                - OR: # economics
+                    - course: ENVECON.C1
+                    - course: ECON.1
+                    - course: ECON.2
+                    - course: ECON.C3
+                - OR: # physical science
+                    - course: EPS.50
+                    - course: GEOG.1
+                    - course: GEOG.40
+                - OR: # specialization
+                    - rule: cnr_concentration_forestry_natural_sciences_specialization_professional_forestry
+                    - rule: cnr_concentration_forestry_natural_sciences_specialization_natural_sciences
+
+
+    cnr_concentration_forestry_natural_sciences_specialization_professional_forestry:
+        description: "Forestry and Natural Resources Concentration, Forestry and Natural Sciences Specialization: Professional Forestry"
+        rule: AND
+        args:
+            - course: ESPM.108A
+            - course: ESPM.134
+            - course: ESPM.182
+            - course: ESPM.183
+            - course: ESPM.185
+            - OR:
+                - course: ESPM.172
+                - course: ESPM.174
+                - course: ANTHRO.169A
+                - course: ANTHRO.169B
+                - course: ARCH.110
+                - course: EPS.C120
+                - course: GEOG.187
+                - course: LD ARCH.110
+                - course: LD ARCH.C188
+                - course: ESPM.120
+                - course: ESPM.121
+                - course: ESPM.C128
+                - course: ESPM.C129
+                - course: EPS.117
+                - course: GEOG.140A
+            - OR:
+                - rule: cnr_subject_forestry_physical_environment
+                - rule: cnr_subject_forestry_monitoring_and_measurement
+
+    cnr_concentration_forestry_natural_sciences_specialization_natural_sciences:
+        description: "Forestry and Natural Resources Concentration, Forestry and Natural Sciences Specialization: Natural Sciences"
+        rule: AND
+        args:
+            - numcourses: 2
+                - OR:
+                    - rule: cnr_subject_forestry_ecology
+            - numcourses: 2
+                - OR:
+                    - rule: cnr_subject_forestry_monitoring_and_measurement
+            - rule: cnr_subject_forestry_physical_environment
+            - rule: cnr_subject_forestry_management_and_policy
+
+
+    cnr_concentration_forestry_human_dimensions:
+        description: "Forestry and Natural Resources Concentration: Human Dimensions of Natural Resources"
+        rule: AND
+        args:
+            - AND: # lower division
+                - rule: ls_breadth_physical
+                - OR: # biology
+                    - course: BIOLOGY.1B
+                    - course: BIOLOGY.11
+                - OR: # math
+                    - course: MATH.16A
+                    - course: MATH.1A
+                    - course: MATH.32
+                - OR: # statistics
+                    - course: STAT.2
+                    - course: STAT.20
+                    - course: POL SCI.3
+                    - course: SOCIOL.5
+                - OR: # economics
+                    - course: ENVECON.C1
+                    - course: ECON.1
+                    - course: ECON.2
+                    - course: ECON.C3
+                    - course: UGBA.10
+            - AND: # electives
+                - numcourses: 6
+                    - AND:
+                        - rule: cnr_subject_forestry_ecology
+                        - rule: cnr_subject_forestry_physical_environment
+                        - rule: cnr_subject_forestry_monitoring_and_measurement
+                        - rule: cnr_subject_forestry_management_and_policy
 
 
     cnr_subject_forestry_ecology:

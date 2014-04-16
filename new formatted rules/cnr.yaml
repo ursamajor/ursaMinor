@@ -6,12 +6,12 @@ cnr_units_upperdiv:
     rule: count_courses
     args:
         - numcourses: 5
-            - OR:
-                - rule: ced_upperdiv_environmental_economics_and_policy
-                - rule: ced_upperdiv_environmental_science
-                - rule: ced_upperdiv_environmental_sciences_policy_management
-                - rule: ced_upperdiv_nutritional_science
-                - rule: ced_upperdiv_plant_biology
+        - OR:
+            - rule: ced_upperdiv_environmental_economics_and_policy
+            - rule: ced_upperdiv_environmental_science
+            - rule: ced_upperdiv_environmental_sciences_policy_management
+            - rule: ced_upperdiv_nutritional_science
+            - rule: ced_upperdiv_plant_biology
 
 
 ced_upperdiv_environmental_economics_and_policy:
@@ -80,16 +80,17 @@ cnr_breadth_arts_history_philosophy:
     rule: units
     args:
         - numunits: 3
-            - OR:
-                - rule: ls_breadth_history
-                - rule: ls_breadth_philosophy
-                - rule: ls_breadth_arts
+        - OR:
+            - rule: ls_breadth_history
+            - rule: ls_breadth_philosophy
+            - rule: ls_breadth_arts
 
 cnr_breadth_social_international:
     description: "Social or International Breadth"
     rule: units
     args:
         - numunits: 3
+        - OR:
             - rule: ls_breadth_social
             - rule: ls_breadth_international
 

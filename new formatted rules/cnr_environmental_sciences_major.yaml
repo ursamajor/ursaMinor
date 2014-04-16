@@ -19,10 +19,13 @@ rules: # not sure if I should combine lower/upper div into one concentration
         description: "Environmental Sciences Breadth Requirement"
         rule: AND
         args:
-            - rule: cnr_breadth_arts_history_philosophy
-            - rule: cnr_breadth_social_international
-            - rule: cnr_espm_environmental_science_core
-            - rule: cnr_espm_social_science_core
+            - numcourses:
+                - numcourses: 4
+                - AND:
+                    - rule: cnr_breadth_arts_history_philosophy
+                    - rule: cnr_breadth_social_international
+                    - rule: cnr_espm_environmental_science_core
+                    - rule: cnr_espm_social_science_core
             - OR: # environmental economics
                 - course: ENVECON.C1
                 - course: ECON.C3
@@ -83,102 +86,119 @@ rules: # not sure if I should combine lower/upper div into one concentration
         description: "Environmental Sciences Concentrations: Physical, Biological, and Social Science"
         rule: OR
         args:
-            - AND: # physical science
-                - AND: # lower division
-                    - course: MATH.1A
-                    - course: MATH.1B
-                    - course: CHEM.1A
-                    - course: CHEM.1AL
-                    - OR:
-                        - AND:
-                            - course: BIOLOGY.1A
-                            - course: BIOLOGY.1AL
-                            - course: BIOLOGY.1B
-                        - AND:
-                            - course: BIOLOGY.11
-                            - course: BIOLOGY.11L
-                            - OR:
-                                - course: INTEGBI.153
-                                - course: INTEGBI.154
-                                - course: ESPM.102A
-                                - course: ESPM.111
-                                - course: ESPM.113
-                                - course: ESPM.114
-                                - course: ESPM.115B
-                                - course: ESPM.116B
-                    - course: PHYSICS.7A
-                    - course: PHYSICS.7B
-                - AND: # upper division
-                    - rule: cnr_electives_environmental_sciences_physical
-                    - OR: # outside concentration
-                        - rule: cnr_electives_environmental_sciences_social
-                        - rule: cnr_electives_environmental_sciences_biological
-            - AND: # biological science
-                - AND: # lower division
-                    - OR:
-                        - AND:
-                            - course: MATH.1A
-                            - course: MATH.16A
-                        - AND:
-                            - course: MATH.1B
-                            - course: MATH.16B
-                    - course: CHEM.1A
-                    - course: CHEM.1AL
-                    - course: CHEM.3A
-                    - course: CHEM.3AL
-                    - course: BIOLOGY.1A
-                    - course: BIOLOGY.1AL
-                    - course: BIOLOGY.1B
-                    - course: PHYSICS.8A
-                - AND: # upper division
-                    - rule: cnr_electives_environmental_sciences_biological
-                    - OR: # outside concentration
-                        - rule: cnr_electives_environmental_sciences_social
-                        - rule: cnr_electives_environmental_sciences_physical
-            - AND: # social science
-                - AND: # lower div
-                    - OR:
-                        - AND:
-                            - course: MATH.1A
-                            - course: MATH.16A
-                        - AND:
-                            - course: MATH.1B
-                            - course: MATH.16B
-                    - course: CHEM.1A
-                    - course: CHEM.1AL
-                    - OR:
-                        - AND:
-                            - course: CHEM.3A
-                            - course: CHEM.3AL
-                        - course: CHEM.1B
-                    - OR:
-                        - AND:
-                            - course: BIOLOGY.1A
-                            - course: BIOLOGY.1AL
-                            - course: BIOLOGY.1B
-                        - AND:
-                            - course: BIOLOGY.11
-                            - course: BIOLOGY.11L
-                            - OR:
-                                - course: INTEGBI.153
-                                - course: INTEGBI.154
-                                - course: ESPM.102A
-                                - course: ESPM.111
-                                - course: ESPM.113
-                                - course: ESPM.114
-                                - course: ESPM.115B
-                                - course: ESPM.116B
-                    - course: PHYSICS.8A
-                - AND: # upper div
-                    - rule: cnr_electives_environmental_sciences_social
-                    - OR: # outside concentration
-                        - rule: cnr_electives_environmental_sciences_physical
-                        - rule: cnr_electives_environmental_sciences_biological
+            - rule: cnr_concentration_environmental_sciences_physical
+            - rule: cnr_concentration_environmental_sciences_biological
+            - rule: cnr_concentration_environmental_sciences_social
 
+
+    cnr_concentration_environmental_sciences_physical:
+        description: "Environmental Sciences Concentration: Physical Science"
+        rule: AND
+        args:
+            - AND: # lower division
+                - course: MATH.1A
+                - course: MATH.1B
+                - course: CHEM.1A
+                - course: CHEM.1AL
+                - OR:
+                    - AND:
+                        - course: BIOLOGY.1A
+                        - course: BIOLOGY.1AL
+                        - course: BIOLOGY.1B
+                    - AND:
+                        - course: BIOLOGY.11
+                        - course: BIOLOGY.11L
+                        - OR:
+                            - course: INTEGBI.153
+                            - course: INTEGBI.154
+                            - course: ESPM.102A
+                            - course: ESPM.111
+                            - course: ESPM.113
+                            - course: ESPM.114
+                            - course: ESPM.115B
+                            - course: ESPM.116B
+                - course: PHYSICS.7A
+                - course: PHYSICS.7B
+            - AND: # upper division
+                - rule: cnr_electives_environmental_sciences_physical
+                - OR: # outside concentration
+                    - rule: cnr_electives_environmental_sciences_social
+                    - rule: cnr_electives_environmental_sciences_biological
+
+
+    cnr_concentration_environmental_sciences_biological:
+        description: "Environmental Sciences Concentration: Biological Science"
+        rule: AND
+        args:
+            - AND: # lower division
+                - OR:
+                    - AND:
+                        - course: MATH.1A
+                        - course: MATH.16A
+                    - AND:
+                        - course: MATH.1B
+                        - course: MATH.16B
+                - course: CHEM.1A
+                - course: CHEM.1AL
+                - course: CHEM.3A
+                - course: CHEM.3AL
+                - course: BIOLOGY.1A
+                - course: BIOLOGY.1AL
+                - course: BIOLOGY.1B
+                - course: PHYSICS.8A
+            - AND: # upper division
+                - rule: cnr_electives_environmental_sciences_biological
+                - OR: # outside concentration
+                    - rule: cnr_electives_environmental_sciences_social
+                    - rule: cnr_electives_environmental_sciences_physical
+
+
+    cnr_concentration_environmental_sciences_social:
+        description: "Environmental Sciences Concentration: Social Science"
+        rule: AND
+        args:
+            - AND: # lower div
+                - OR:
+                    - AND:
+                        - course: MATH.1A
+                        - course: MATH.16A
+                    - AND:
+                        - course: MATH.1B
+                        - course: MATH.16B
+                - course: CHEM.1A
+                - course: CHEM.1AL
+                - OR:
+                    - AND:
+                        - course: CHEM.3A
+                        - course: CHEM.3AL
+                    - course: CHEM.1B
+                - OR:
+                    - AND:
+                        - course: BIOLOGY.1A
+                        - course: BIOLOGY.1AL
+                        - course: BIOLOGY.1B
+                    - AND:
+                        - course: BIOLOGY.11
+                        - course: BIOLOGY.11L
+                        - OR:
+                            - course: INTEGBI.153
+                            - course: INTEGBI.154
+                            - course: ESPM.102A
+                            - course: ESPM.111
+                            - course: ESPM.113
+                            - course: ESPM.114
+                            - course: ESPM.115B
+                            - course: ESPM.116B
+                - course: PHYSICS.8A
+            - AND: # upper div
+                - rule: cnr_electives_environmental_sciences_social
+                - OR: # outside concentration
+                    - rule: cnr_electives_environmental_sciences_physical
+                    - rule: cnr_electives_environmental_sciences_biological
 
 
     cnr_electives_environmental_sciences_biological:
-        description: "Environmental Sciences Biological Science Concentration"
+        description: "Environmental Sciences Biological Science Concentration Electives"
         rule: OR
         args:
             - course: CHEM.103
@@ -334,7 +354,7 @@ rules: # not sure if I should combine lower/upper div into one concentration
             - course: PB HLTH.C170B
 
     cnr_electives_environmental_sciences_social:
-        description: "Environmental Sciences Social Science Concentration"
+        description: "Environmental Sciences Social Science Concentration Electives"
         rule: OR
         args:
             - course: CIV ENG.107
@@ -393,7 +413,7 @@ rules: # not sure if I should combine lower/upper div into one concentration
             - course: SOCIOL.128AC
 
     cnr_electives_environmental_sciences_physical:
-        description: "Environmental Sciences Physical Science Concentration"
+        description: "Environmental Sciences Physical Science Concentration Electives"
         rule: OR
         args:
             - course: ARCH.140

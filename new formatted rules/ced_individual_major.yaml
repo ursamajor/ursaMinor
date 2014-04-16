@@ -30,20 +30,18 @@ rules:
 
     ced_upperdiv_individual_requirements: # can't be used to fulfill breadth
         description: "Upper Division Individual Major Requirements"
-        rule: units
+        rule: AND
         args:
-            - numunits: 36
-            - same_course:
+            - course: ENV DES.195A
+            - course: ENV DES.195B
+            - units:
+                - numunits: 30
                 - OR:
-                    - upperdiv
-            - numunits: 30
-            - same_course:
-                - AND:
                     - rule: ced_upperdiv_architecture
                     - rule: ced_upperdiv_landscape_architecture
                     - rule: ced_upperdiv_vision_studies
                     - rule: ced_upperdiv_environmental_design
                     - rule: ced_upperdiv_city_planning
-                    - course: ENV DES.195A
-                    - course: ENV DES.195B
+                - upperdiv # max of 6 non-CED
+
 

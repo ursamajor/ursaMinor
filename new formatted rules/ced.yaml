@@ -58,13 +58,13 @@ ced_breadth_all: # max of 2 CED can count towards this
     min: 7
     rule: AND
     args:
-        - ls_breadth_arts
-        - ls_breadth_bio
-        - ls_breadth_history
-        - ced_breadth_international
-        - ls_breadth_philosophy
-        - ls_breadth_physical
-        - ls_breadth_social
+        - rule: ls_breadth_arts
+        - rule: ls_breadth_bio
+        - rule: ls_breadth_history
+        - rule: ced_breadth_international
+        - rule: ls_breadth_philosophy
+        - rule: ls_breadth_physical
+        - rule: ls_breadth_social
         - rule: same_dept
             max: 2
         - numcourses: 
@@ -80,7 +80,7 @@ ced_breadth_international:
     description: "CED International Breadth"
     rule: same_course
     args:
-        - ls_breadth_international
+        - rule: ls_breadth_international
         - OR:
             - course: AFRICAM.7B
             - course: AFRICAM.11B

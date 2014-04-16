@@ -60,10 +60,10 @@ rules:
         rule: units
         args:
             - numunits: 9
-                - OR:
-                    - rule: ced_upperdiv_landscape_architecture
-                    - rule: ced_upperdiv_environmental_design
-                    - rule: ced_upperdiv_city_planning
-                    - rule: ced_upperdiv_vision_studies
+            - OR:
+                - rule: ced_upperdiv_landscape_architecture
+                - rule: ced_upperdiv_environmental_design
+                - rule: ced_upperdiv_city_planning
+                - rule: ced_upperdiv_vision_studies
 
 

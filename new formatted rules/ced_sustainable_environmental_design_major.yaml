@@ -54,7 +54,7 @@ rules:
     ced_area_upperdiv_sustainable_environmental_design_requirements: # don't fulfill breadth
         description: "Sustainable Environmental Design Area Requirements"
         rule: count_courses
-        args:
+        args: # unsure of rule structure here
             - numcourses: 4
                 - OR:
                     - AND:
