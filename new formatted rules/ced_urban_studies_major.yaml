@@ -10,7 +10,7 @@ rules:
             - ced_lowerdiv_urban_studies_requirements
             - ced_core_upperdiv_urban_studies_requirements
             - ced_upperdiv_non_ced_requirements
-            - ced_urban_studies_electives_international
+            - ced_electives_urban_studies_international
             - ced_upperdiv_capstone_requirement
             - untis_total
 
@@ -150,7 +150,7 @@ rules:
                     - course: UGBA.180
                     - course: UGBA.192P
 
-    ced_urban_studies_electives_international: # cannot use breadth
+    ced_electives_electives_international: # cannot use breadth
         description: "Urban Studies International Content Courses"
         rules: same_course
         args:

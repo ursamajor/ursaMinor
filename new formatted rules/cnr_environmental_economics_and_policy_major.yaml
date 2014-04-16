@@ -1,0 +1,65 @@
+rules:
+
+
+    cnr_environmental_economics_and_policy_major:
+        description: "Environmental Economics and Policy Major"
+        rule: AND
+        args:
+            - university_all
+            - univeristy_for_lang
+            - ls_breadth_all # or could be cnr, not sure
+            - cnr_lowerdiv_environmental_economics_and_policy_requirement
+            - cnr_upperdiv_environmental_economics_and_policy_requirement
+            - cnr_upperdiv_elective_environmental_economics_and_policy_requirement
+            - cnr_units_upperdiv
+            - units_upperdiv
+            - units_total
+
+
+
+    cnr_lowerdiv_environmental_economics_and_policy_requirement:
+        description: "Lower Division Environmental Economics and Policy"
+        rule: AND
+        args:
+            - OR: # prinicples of micro-economics
+                - course: ENVECON.1
+                - course: ECON.1
+                - course: ECON.2
+                - course: ECON.3
+            - AND: # calculus
+                - OR:
+                    - course: MATH.1A
+                    - course: MATH.16A
+                - OR:
+                    - course: MATH.1B
+                    - course: MATH.16B
+            - OR: # statistics
+                - course: STAT.20
+                - course: STAT.21
+                - course: STAT.25
+
+    cnr_upperdiv_environmental_economics_and_policy_requirement:
+        description: "Upper Division Environmental Economics and Policy"
+        rule: AND
+        args:
+            - OR: # intermediate micro-economics
+                - course: ENVECON.100
+                - course: ECON.100A
+                - course: ECON.101A
+            - OR: # environmental or natural resource economics
+                - course: ENVECON.C101
+                - course: ENVECON.C102
+            - OR: # quantitative methods
+                - course: ENVECON.C115
+                - course: ENVECON.C118
+                - # other
+
+    cnr_upperdiv_elective_environmental_economics_and_policy_requirement:
+        description: "Upper Division Electives Environmental Economics and Policy"
+        rule: count_courses
+        args:
+            - numcourses: 5 # 2 from other departments
+            - numcourses: 3
+                - OR:
+                    - rule: ced_upperdiv_environmental_economics_and_policy
+

@@ -16,6 +16,14 @@ rules:
         args:
             - numunits: 120
 
+    units_upperdiv:
+        description: "36 Upper Division Units"
+        rule: units
+        args:
+            - numunits: 36
+                - OR:
+                    - rule: upperdiv
+
 
     university_ac:
         description: "American Cultures"
