@@ -1,35 +1,35 @@
 
 # upper division
 
-ced_upperdiv_architecture:
+upperdiv_architecture:
     description: "Upper Division Architecture"
     rule: same_course
     args:
         - upperdiv
         - dept: ARCH
 
-ced_upperdiv_landscape_architecture:
+upperdiv_landscape_architecture:
     description: "Upper Division Landscape Architecture"
     rule: same_course
     args:
         - upperdiv
         - dept: LD ARCH
 
-ced_upperdiv_environmental_design:
+upperdiv_environmental_design:
     description: "Upper Division Environmental Design"
     rule: same_course
     args:
         - upperdiv
         - dept: ENV DES
 
-ced_upperdiv_vision_studies:
+upperdiv_vision_studies:
     description: "Upper Division Vision Studies"
     rule: same_course
     args:
         - upperdiv
         - dept: VIS STD
 
-ced_upperdiv_city_planning:
+upperdiv_city_planning:
     description: "Upper Division City Planning"
     rule: same_course
     args:

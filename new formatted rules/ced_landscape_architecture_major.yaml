@@ -62,7 +62,7 @@ rules:
         args:
             - numunits: 9
             - OR:
-                - rule: ced_upperdiv_architecture
-                - rule: ced_upperdiv_environmental_design
-                - rule: ced_upperdiv_city_planning
-                - rule: ced_upperdiv_vision_studies
+                - rule: upperdiv_architecture
+                - rule: upperdiv_environmental_design
+                - rule: upperdiv_city_planning
+                - rule: upperdiv_vision_studies

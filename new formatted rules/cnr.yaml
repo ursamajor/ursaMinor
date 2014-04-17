@@ -7,42 +7,42 @@ cnr_units_upperdiv:
     args:
         - numcourses: 5
         - OR:
-            - rule: ced_upperdiv_environmental_economics_and_policy
-            - rule: ced_upperdiv_environmental_science
-            - rule: ced_upperdiv_environmental_sciences_policy_management
-            - rule: ced_upperdiv_nutritional_science
-            - rule: ced_upperdiv_plant_biology
+            - rule: upperdiv_environmental_economics_and_policy
+            - rule: upperdiv_environmental_science
+            - rule: upperdiv_environmental_sciences_policy_management
+            - rule: upperdiv_nutritional_science
+            - rule: upperdiv_plant_biology
 
 
-ced_upperdiv_environmental_economics_and_policy:
+upperdiv_environmental_economics_and_policy:
     description: "Upper Division Environmental Economics and Policy"
     rule: same_course
     args:
         - upperdiv
         - dept: ENVECON
 
-ced_upperdiv_environmental_science:
+upperdiv_environmental_science:
     description: "Upper Division Environmental Science"
     rule: same_course
     args:
         - upperdiv
         - dept: ENV SCI
 
-ced_upperdiv_environmental_sciences_policy_management:
+upperdiv_environmental_sciences_policy_management:
     description: "Upper Division Environmental Sciences, Policy and Management"
     rule: same_course
     args:
         - upperdiv
         - dept: ESPM
 
-ced_upperdiv_nutritional_science:
+upperdiv_nutritional_science:
     description: "Upper Division Nutritional Science & Toxicology"
     rule: same_course
     args:
         - upperdiv
         - dept: NUSCTX
 
-ced_upperdiv_plant_biology:
+upperdiv_plant_biology:
     description: "Upper Division Plant Biology"
     rule: same_course
     args:

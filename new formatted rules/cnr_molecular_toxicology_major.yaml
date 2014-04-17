@@ -92,6 +92,6 @@ rules:
                     - course: PB HLTH.150B
                     - course: PB HLTH.170B
                     - course: UGIS.192C
-                    - dept: INTEGBI
-                    - dept: MCELLBI
-                    - dept: PLANTBI
+                    - upperdiv_integrative_biology
+                    - upperdiv_molecular_cell_biology
+                    - upperdiv_plant_biology

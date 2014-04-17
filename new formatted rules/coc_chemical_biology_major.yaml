@@ -1,0 +1,77 @@
+rules:
+
+
+
+    coc_chemical_biology_major:
+        description: "Chemical Biology Major"
+        rule: AND
+        args:
+            - coc_lowerdiv_chemical_biology_requirements
+            - coc_upperdiv_chemical_biology_requirements
+            - units_upperdiv
+            - units_total
+
+
+
+
+    coc_lowerdiv_chemical_biology_requirements:
+        description: "Lower Division Chemical Biology Requirements"
+        rule: AND
+        args:
+            - university_rc_A
+            - university_rc_B
+            - numcourses:
+                - numcourses: 2
+                - OR:
+                    - rule: coc_foreign_language
+            - numcourses:
+                - numcourses: 2
+                - OR:
+                    - rule: coc_breadth_humanities_and_social_sciences # 2 diff depts
+            - course: CHEM.96
+            - AND: # chemistry
+                - course: CHEM.4A
+                - course: CHEM.4B
+                - course: CHEM.112A
+                - course: CHEM.112B
+            - AND: # math
+                - course: MATH.1A
+                - course: MATH.1B
+                - course: MATH.53
+                - course: MATH.54
+            - OR: # PHYSICS
+                - AND:
+                    - course: PHYSICS.7A
+                    - course: PHYSICS.7B
+                - AND:
+                    - course: PHYSICS.8A
+                    - course: PHYSICS.8B
+            - AND: # biology
+                - course: BIOLOGY.1A
+                - course: BIOLOGY.1AL
+
+    coc_upperdiv_chemical_biology_requirements:
+        description: "Upper Division Chemical Biology Requirements"
+        rule: AND
+        args:
+            - course: CHEM.120A
+            - course: CHEM.120B
+            - course: CHEM.103
+            - course: CHEM.135
+            - OR:
+                - course: CHEM.105
+                - course: CHEM.125
+                - course: CHEM.C170L
+                - course: CHEM.C182
+            - course: MCELLBI.110
+            - course: MCELLBI.110L
+            - units:
+                - numunits: 7
+                - OR:
+                    - rule: coc_allied_subjects
+                    - rule: upperdiv_chemistry # don't include above
+
+
+
+
+
