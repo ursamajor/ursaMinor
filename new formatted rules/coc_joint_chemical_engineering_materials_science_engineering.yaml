@@ -14,11 +14,12 @@ rules:
         rule: AND
         args:
             - OR:
-                - rule: university_rc_A
-                - rule: university_rc_B
+                - university_rc_A
+                - university_rc_B
             - units:
-                - numunits: 15
-                - OR:
+                min: 15
+                rule: OR
+                args:
                     - rule: coc_breadth_humanities_and_social_sciences
 
     coc_joint_chemical_engineering_materials_science_engineering_requirements:

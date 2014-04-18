@@ -20,13 +20,6 @@ rules: # not sure if I should combine lower/upper div into one concentration, si
         description: "Lower Division Molecular Environmental Biology Requirements"
         rule: AND
         args:
-            - numcourses:
-                - numcourses: 4
-                - AND:
-                    - rule: cnr_espm_environmental_science_core
-                    - rule: cnr_espm_social_science_core
-                    - rule: cnr_breadth_arts_history_philosophy
-                    - rule: cnr_breadth_social_international
             - course: CHEM.1A
             - course: CHEM.1AL
             - course: CHEM.3A
@@ -37,176 +30,187 @@ rules: # not sure if I should combine lower/upper div into one concentration, si
             - course: BIOLOGY.1AL
             - course: BIOLOGY.1B
             - course: PHYSICS.8A
+            - numcourses:
+                min: 4
+                rule: AND
+                args:
+                    - cnr_espm_environmental_science_core
+                    - cnr_espm_social_science_core
+                    - cnr_breadth_arts_history_philosophy
+                    - cnr_breadth_social_international
 
 
     cnr_biological_core_molecular_environmental_requirements:
         description: "Biological Core Molecular Environmenal Biology Requirements"
         rule: count_courses
         args:
-        min: 7
-        rule: AND
-        args:
-            - OR: # biochemistry
-                - course: MCELLBI.102
-                - course: CHEM.135
-                - course: MCELLBI.110
-            - OR: # molecular biology/genetics
-                - course: INTEGBI.141
-                - course: INTEGBI.161
-                - course: INTEGBI.162
-                - course: INTEGBI.164
-                - course: MCELLBI.104
-                - course: MCELLBI.110
-                - course: MCELLBI.140
-                - course: PLANTBI.160
-            - OR: # cell & development biology
-                - course: MCELLBI.130
-                - course: MCELLBI.130A
-                - course: MCELLBI.133L
-                - course: MCELLBI.135E
-                - course: MCELLBI.137
-                - course: MCELLBI.141
-                - AND:
-                    - OR:                      
-                        - course: PLANTBI.C112
-                        - course: MCELLBI.C112
-                    - course: PLANTBI.C112L
-                - course: PB HLTH.162A
-            - OR: # organismal physiology
-                - course: ESPM.144
-                - course: INTEGBI.132
-                - course: INTEGBI.140
-                - course: INTEGBI.148
-                - course: MCELLBI.136
-                - course: NUSCTX.103
-                - course: PLANTBI.C116
-                - course: MCELLBI.C116
-                - course: PLANTBI.135
-            - OR: # organismal diversity
-                - course: ESPM.106
-                - course: ESPM.108A
-                - course: ESPM.115B
-                - course: ESPM.132
-                - course: ESPM.C138
-                - course: PLANTBI.C114
-                - course: MCELLBI.C114
-                - AND:
-                    - OR:                      
-                        - course: PLANTBI.C112
-                        - course: MCELLBI.C112
-                    - course: PLANTBI.C112L
-                - course: ESPM.140
-                - AND:
-                    - course: INTEGBI.101
-                    - course: INTEGBI.101L
-                - AND:
-                    - course: INTEGBI.102
-                    - course: INTEGBI.102L
-                - AND:
-                    - course: INTEGBI.103
-                    - course: INTEGBI.103L
-                - AND:
-                    - course: INTEGBI.104
-                    - course: INTEGBI.104L
-                - AND:
-                    - course: INTEGBI.168
-                    - course: INTEGBI.168L
-                - AND:
-                    - course: PLANTBI.C102
-                    - course: PLANTBI.C102L
-                - AND:
-                    - course: PLANTBI.110
-                    - course: PLANTBI.110L
-                - course: PLANTBI.113
-                - course: PLANTBI.C116
-                - course: MCELLBI.C116
-                - AND:
-                    - course: PLANTBI.120
-                    - course: PLANTBI.120L
-            - OR: # ecology
-                - course: ESPM.102A
-                - course: ESPM.110
-                - course: ESPM.111
-                - course: ESPM.112
-                - course: ESPM.113
-                - course: ESPM.114
-                - course: ESPM.115C
-                - OR:
-                    - course: ESPM.116A
-                    - course: ESPM.116B
-                    - course: ESPM.116C
-                - course: ESPM.119
-                - course: ESPM.131
-                - course: ESPM.C149
-                - course: INTEGBI.C149
-                - course: INTEGBI.153
-                - AND:
-                    - course: INTEGBI.154
-                    - course: INTEGBI.154L
-            - OR: # senior seminar
-                - course: ESPM.192
-                - course: PLANTBI.170
+            min: 7
+            rule: AND
+            args:
+                - OR: # biochemistry
+                    - course: MCELLBI.102
+                    - course: CHEM.135
+                    - course: MCELLBI.110
+                - OR: # molecular biology/genetics
+                    - course: INTEGBI.141
+                    - course: INTEGBI.161
+                    - course: INTEGBI.162
+                    - course: INTEGBI.164
+                    - course: MCELLBI.104
+                    - course: MCELLBI.110
+                    - course: MCELLBI.140
+                    - course: PLANTBI.160
+                - OR: # cell & development biology
+                    - course: MCELLBI.130
+                    - course: MCELLBI.130A
+                    - course: MCELLBI.133L
+                    - course: MCELLBI.135E
+                    - course: MCELLBI.137
+                    - course: MCELLBI.141
+                    - AND:
+                        - OR:                      
+                            - course: PLANTBI.C112
+                            - course: MCELLBI.C112
+                        - course: PLANTBI.C112L
+                    - course: PB HLTH.162A
+                - OR: # organismal physiology
+                    - course: ESPM.144
+                    - course: INTEGBI.132
+                    - course: INTEGBI.140
+                    - course: INTEGBI.148
+                    - course: MCELLBI.136
+                    - course: NUSCTX.103
+                    - course: PLANTBI.C116
+                    - course: MCELLBI.C116
+                    - course: PLANTBI.135
+                - OR: # organismal diversity
+                    - course: ESPM.106
+                    - course: ESPM.108A
+                    - course: ESPM.115B
+                    - course: ESPM.132
+                    - course: ESPM.C138
+                    - course: PLANTBI.C114
+                    - course: MCELLBI.C114
+                    - AND:
+                        - OR:                      
+                            - course: PLANTBI.C112
+                            - course: MCELLBI.C112
+                        - course: PLANTBI.C112L
+                    - course: ESPM.140
+                    - AND:
+                        - course: INTEGBI.101
+                        - course: INTEGBI.101L
+                    - AND:
+                        - course: INTEGBI.102
+                        - course: INTEGBI.102L
+                    - AND:
+                        - course: INTEGBI.103
+                        - course: INTEGBI.103L
+                    - AND:
+                        - course: INTEGBI.104
+                        - course: INTEGBI.104L
+                    - AND:
+                        - course: INTEGBI.168
+                        - course: INTEGBI.168L
+                    - AND:
+                        - course: PLANTBI.C102
+                        - course: PLANTBI.C102L
+                    - AND:
+                        - course: PLANTBI.110
+                        - course: PLANTBI.110L
+                    - course: PLANTBI.113
+                    - course: PLANTBI.C116
+                    - course: MCELLBI.C116
+                    - AND:
+                        - course: PLANTBI.120
+                        - course: PLANTBI.120L
+                - OR: # ecology
+                    - course: ESPM.102A
+                    - course: ESPM.110
+                    - course: ESPM.111
+                    - course: ESPM.112
+                    - course: ESPM.113
+                    - course: ESPM.114
+                    - course: ESPM.115C
+                    - OR:
+                        - course: ESPM.116A
+                        - course: ESPM.116B
+                        - course: ESPM.116C
+                    - course: ESPM.119
+                    - course: ESPM.131
+                    - course: ESPM.C149
+                    - course: INTEGBI.C149
+                    - course: INTEGBI.153
+                    - AND:
+                        - course: INTEGBI.154
+                        - course: INTEGBI.154L
+                - OR: # senior seminar
+                    - course: ESPM.192
+                    - course: PLANTBI.170
 
     cnr_lab_molecular_environmental_requirement:
         description: "Molecular Environmental Biology Lab Requirement"
         rule: count_courses
-        min: 2
         args:
-            - course: ANTHRO.135
-            - course: MCELLBI.133L
-            - course: INTEGBI.101L
-            - course: INTEGBI.102L
-            - course: INTEGBI.103L
-            - course: INTEGBI.104L
-            - course: INTEGBI.N116
-            - course: INTEGBI.117L
-            - course: INTEGBI.131L
-            - course: INTEGBI.154L
-            - course: INTEGBI.164
-            - course: INTEGBI.168L
-            - course: INTEGBI.173L
-            - course: INTEGBI.174L
-            - course: INTEGBI.175L
-            - course: INTEGBI.183L
-            - course: INTEGBI.184L
-            - course: PLANTBI.C102L
-            - course: PLANTBI.110L
-            - course: PLANTBI.C112L
-            - course: PLANTBI.113
-            - course: PLANTBI.120L
-            - course: ESPM.102A
-            - course: ESPM.105
-            - course: ESPM.106
-            - course: ESPM.108A
-            - course: ESPM.115C
-            - course: ESPM.117
-            - course: ESPM.132
-            - course: ESPM.140
-            - course: ESPM.146L
-            - course: ESPM.147 # x 3
-            - course: PB HLTH.162L
-            - OR:
-                - course: ESPM.105A
-                - course: ESPM.C107 # 4 only
-                - course: INTEGBI.C158 # 4 only
-                - course: GEOG.C142 # 4 only
-                - course: ESPM.H196
-                - course: ESPM.199
-                - course: NSCTX.H196
-                - course: NSCTX.199
-                - course: PLANTBI.H196
-                - course: PLANTBI.199
+            min: 2
+            rule: OR
+            args:
+                - course: ANTHRO.135
+                - course: MCELLBI.133L
+                - course: INTEGBI.101L
+                - course: INTEGBI.102L
+                - course: INTEGBI.103L
+                - course: INTEGBI.104L
+                - course: INTEGBI.N116
+                - course: INTEGBI.117L
+                - course: INTEGBI.131L
+                - course: INTEGBI.154L
+                - course: INTEGBI.164
+                - course: INTEGBI.168L
+                - course: INTEGBI.173L
+                - course: INTEGBI.174L
+                - course: INTEGBI.175L
+                - course: INTEGBI.183L
+                - course: INTEGBI.184L
+                - course: PLANTBI.C102L
+                - course: PLANTBI.110L
+                - course: PLANTBI.C112L
+                - course: PLANTBI.113
+                - course: PLANTBI.120L
+                - course: ESPM.102A
+                - course: ESPM.105
+                - course: ESPM.106
+                - course: ESPM.108A
+                - course: ESPM.115C
+                - course: ESPM.117
+                - course: ESPM.132
+                - course: ESPM.140
+                - course: ESPM.146L
+                - course: ESPM.147 # x 3
+                - course: PB HLTH.162L
+                - OR:
+                    - course: ESPM.105A
+                    - course: ESPM.C107 # 4 only
+                    - course: INTEGBI.C158 # 4 only
+                    - course: GEOG.C142 # 4 only
+                    - course: ESPM.H196
+                    - course: ESPM.199
+                    - course: NSCTX.H196
+                    - course: NSCTX.199
+                    - course: PLANTBI.H196
+                    - course: PLANTBI.199
 
     cnr_concentration_molecular_environmental_requirement:
         description: "Molecular Environmental Biology Concentrations: Animal Health & Behavior, Biodiversity, Ecology, Environment & Human Health, Insect Biology, and Microbiology"
-        rule: OR
+        rule: same_course
         args:
-            - rule: cnr_concentration_molecular_environmental_animal_health
-            - rule: cnr_concentration_molecular_environmental_biodiversity
-            - rule: cnr_concentration_molecular_environmental_ecology
-            - rule: cnr_concentration_molecular_environmental_environment_human_health
-            - rule: cnr_concentration_molecular_environmental_insect_biology
-            - rule: cnr_concentration_molecular_environmental_microbiology
+            - OR:
+                - cnr_concentration_molecular_environmental_animal_health
+                - cnr_concentration_molecular_environmental_biodiversity
+                - cnr_concentration_molecular_environmental_ecology
+                - cnr_concentration_molecular_environmental_environment_human_health
+                - cnr_concentration_molecular_environmental_insect_biology
+                - cnr_concentration_molecular_environmental_microbiology
 
     cnr_concentration_molecular_environmental_animal_health:
         description: "Molecular Environmental Biology Concentration: Animal Health & Behavior"
@@ -220,8 +224,9 @@ rules: # not sure if I should combine lower/upper div into one concentration, si
                     - course: MATH.1B
                     - course: MATH.16B
             - units:
-                - numunits: 12
-                - OR:
+                min: 12
+                rule: OR
+                args:
                     - course: ANTHRO.135
                     - course: ESPM.C103
                     - course: INTEGBI.C156
@@ -269,8 +274,9 @@ rules: # not sure if I should combine lower/upper div into one concentration, si
                     - course: PB HLTH.142A
                     - course: STAT.131A
             - units:
-                - numunits: 12
-                - OR:
+                min: 12
+                rule: OR
+                args:
                     - AND:
                         - course: ESPM.C103
                         - course: PLANTBI.C156
@@ -339,8 +345,9 @@ rules: # not sure if I should combine lower/upper div into one concentration, si
                     - course: PB HLTH.142A
                     - course: STAT.131A
             - units:
-                - numunits: 12
-                - OR:
+                min: 12
+                rule: OR
+                args:
                     - course: ESPM.105A
                     - course: ESPM.102A
                     - course: ESPM.C103
@@ -397,8 +404,9 @@ rules: # not sure if I should combine lower/upper div into one concentration, si
                     - course: MATH.1B
                     - course: MATH.16B
             - units:
-                - numunits: 12
-                - OR:
+                min: 12
+                rule: OR
+                args:
                     - course: ANTHRO.135
                     - course: ESPM.C126
                     - course: INTEGBI.C144
@@ -462,8 +470,9 @@ rules: # not sure if I should combine lower/upper div into one concentration, si
                     - course: PB HLTH.142A
                     - course: STAT.131A
             - units:
-                - numunits: 8
-                - OR:
+                min: 8
+                rule: OR
+                args:
                     - course: ESPM.105
                     - course: ESPM.113
                     - course: ESPM.115B
@@ -491,8 +500,9 @@ rules: # not sure if I should combine lower/upper div into one concentration, si
                     - course: MATH.1B
                     - course: MATH.16B
             - units:
-                - numunits: 12
-                - OR:
+                min: 12
+                rule: OR
+                args:
                     - course: CHM ENG.114
                     - course: ESPM.112
                     - course: ESPM.131

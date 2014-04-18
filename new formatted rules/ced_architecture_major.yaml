@@ -59,11 +59,12 @@ rules:
         description: "Upper Division Non-Architecture Requirements"
         rule: units
         args:
-            - numunits: 9
-            - OR:
-                - rule: upperdiv_landscape_architecture
-                - rule: upperdiv_environmental_design
-                - rule: upperdiv_city_planning
-                - rule: upperdiv_vision_studies
+            min: 9
+            rule: OR
+            args:
+                - upperdiv_landscape_architecture
+                - upperdiv_environmental_design
+                - upperdiv_city_planning
+                - upperdiv_vision_studies
 
 

@@ -66,13 +66,15 @@ rules:
         description: "Joint Chemical Engineering & Nuclear Engineering Nuclear Electives"
         rule: units
         args:
-        min: 9
-        args:
-            - numcourses:
-                - numcourses: 2
-                - OR:
-                    - course: NUC ENG.120
-                    - course: NUC ENG.124
-                    - course: NUC ENG.161
-            - rule: upperdiv_nuclear_engineering
+            min: 9
+            rule: AND
+            args:
+                - numcourses:
+                    min: 2
+                    rule: OR
+                    args:
+                        - course: NUC ENG.120
+                        - course: NUC ENG.124
+                        - course: NUC ENG.161
+                - upperdiv_nuclear_engineering
 

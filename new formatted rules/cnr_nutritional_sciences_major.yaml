@@ -19,11 +19,11 @@ rules: # same major, tracks COMPLETELY different
         rule: OR
         args:
             - AND: # dietics track
-                - rule: cnr_lowerdiv_nutritional_science_dietics_requirements
-                - rule: cnr_upperdiv_nutritional_science_dietics_requirements
+                - cnr_lowerdiv_nutritional_science_dietics_requirements
+                - cnr_upperdiv_nutritional_science_dietics_requirements
             - AND: # physiology and metabolism track
-                - rule: cnr_lowerdiv_nutritional_science_physiology_requirements
-                - rule: cnr_upperdiv_nutritional_science_physiology_requirements
+                - cnr_lowerdiv_nutritional_science_physiology_requirements
+                - cnr_upperdiv_nutritional_science_physiology_requirements
 
 
     cnr_lowerdiv_nutritional_science_requirements:
@@ -64,8 +64,9 @@ rules: # same major, tracks COMPLETELY different
                 - course: SOCIOL.3
                 - course: SOCIOL.3AC # maybe
             - units: # hss additional
-                - numunits: 5
-                - OR:
+                min: 5
+                rule: OR
+                args:
                     - rule: cnr_breadth_arts_history_philosophy
                     - rule: cnr_breadth_social_international
                     - rule: university_ac
@@ -97,25 +98,26 @@ rules: # same major, tracks COMPLETELY different
         args:
             - AND: # physiology and metabolism track
                 - units:
-                    - numunits: 14
-                    - OR:
+                    min: 14
+                    rule: OR
+                    args:
                         - university_ac
                         - university_for_lang
                         - cnr_breadth_arts_history_philosophy
                         - cnr_breadth_social_international
-                - AND: # physical sciences and math
-                    - OR: # math
-                        - AND:
-                            - course: MATH.16A
-                            - course: MATH.16B
-                            - course: STAT.2
-                        - AND:
-                            - course: MATH.1A
-                            - course: STAT.2
-                        - AND:
-                            - course: MATH.10A
-                            - course: MATH.10B
-                    - course: PHYSICS.8A
+            - AND: # physical sciences and math
+                - OR: # math
+                    - AND:
+                        - course: MATH.16A
+                        - course: MATH.16B
+                        - course: STAT.2
+                    - AND:
+                        - course: MATH.1A
+                        - course: STAT.2
+                    - AND:
+                        - course: MATH.10A
+                        - course: MATH.10B
+                - course: PHYSICS.8A
 
 
     cnr_upperdiv_nutritional_science_requirements:
@@ -151,8 +153,9 @@ rules: # same major, tracks COMPLETELY different
             - course: NUSCTX.170
             - course: NUSCTX.190
             - units:
-                - numunits: 20
-                - OR:
+                min: 20
+                rule: OR
+                args:
                     - course: NUSCTX.104
                     - course: NUSCTX.108A
                     - course: NUSCTX.161A

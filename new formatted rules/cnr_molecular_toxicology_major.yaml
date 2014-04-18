@@ -17,13 +17,15 @@ rules:
         rule: AND
         args:
             - units: # hss
-                - numunits: 22
-                - OR:
-                    - rule: cnr_breadth_all
-                    - rule: university_all
+                min: 22
+                rule: OR
+                args:
+                    - cnr_breadth_all
+                    - university_all
             - units: # physical sciences and math
-                - numunits: 26
-                - OR:
+                min: 26
+                rule: OR
+                args:
                     - OR:
                         - AND:
                             - course: MATH.16A
@@ -43,8 +45,9 @@ rules:
                     - course: CHEM.3BL
                     - course: PHYSICS.8A
             - units: # biological and nautral resource science
-                - numunits: 11
-                - OR:
+                min: 11
+                rule: OR
+                args:
                     - course: NUSCTX.11
                     - course: MCELLBI.32
                     - course: MCELLBI.32L
@@ -71,8 +74,9 @@ rules:
             - course: NUSCTX.171
             - course: NUSCTX.193
             - units:
-                - numunits: 36
-                - OR: # Approved Electives List
+                min: 36
+                rule: OR
+                args:
                     - course: CIV ENG.114
                     - course: CIV ENG.115
                     - course: ESPM.100

@@ -18,12 +18,13 @@ rules:
         rule: AND
         args:
             - OR:
-                - rule: university_rc_A
-                - rule: university_rc_B
+                - university_rc_A
+                - university_rc_B
             - units:
-                - numunits: 15
-                - OR:
-                    - rule: coc_breadth_humanities_and_social_sciences # 2 different depts, one upper div
+                min: 15
+                rule: OR
+                args:
+                    - coc_breadth_humanities_and_social_sciences # 2 different depts, one upper div
             - course: CHEM.C96
             - AND: # chemistry
                 - course: CHEM.4A
@@ -58,30 +59,31 @@ rules:
                 - course: CHM ENG.154
                 - course: CHM ENG.160
                 - course: CHM ENG.162
-            - rule: coc_electives_engineering
+            - coc_electives_engineering
 
     coc_concentration_chemical_engineering_requirement:
         description: "Chemical Engineering Concentrations: Biotechnology, Chemical Processing, Environmental Technology, Materials Science and Technology, Applied Physical Science, and Open Elective Program"
         rule: OR
         args:
-            - rule: coc_concentration_chemical_engineering_biotechnology
-            - rule: coc_concentration_chemical_engineering_chemical_processing
-            - rule: coc_concentration_chemical_engineering_environmental_technology
-            - rule: coc_concentration_chemical_engineering_materials_science
-            - rule: coc_concentration_chemical_engineering_applied_physical_science
-            - rule: coc_concentration_chemical_engineering_open_electives
+            - coc_concentration_chemical_engineering_biotechnology
+            - coc_concentration_chemical_engineering_chemical_processing
+            - coc_concentration_chemical_engineering_environmental_technology
+            - coc_concentration_chemical_engineering_materials_science
+            - coc_concentration_chemical_engineering_applied_physical_science
+            - coc_concentration_chemical_engineering_open_electives
 
 
     coc_concentration_chemical_engineering_open_electives:
         description: "Chemical Engineering Concentration: Open Elective Program"
         rule: AND
         args:
-            - rule: coc_electives_physical_biological_science
-            - rule: upperdiv_chemical_engineering # others exclude
+            - coc_electives_physical_biological_science
+            - upperdiv_chemical_engineering # others exclude
             - units:
-                - numunits: 6
-                - OR:
-                    - rule: coc_electives_engineering
+                min: 6
+                rule: OR
+                args:
+                    - coc_electives_engineering
 
     coc_concentration_chemical_engineering_biotechnology:
         description: "Chemical Engineering Concentration: Biotechnology"
@@ -106,8 +108,9 @@ rules:
                 - course: CHEM.104A
                 - course: CHEM.112B
             - units: # chemical engineering
-                - numunits: 6
-                - OR:
+                min: 6
+                rule: OR
+                args:
                     - course: CHM ENG.170A
                     - course: CHM ENG.170B
                     - course: CHM ENG.C170L
@@ -141,8 +144,9 @@ rules:
                 - course: CHEM.104A
                 - course: CHEM.112B
             - units:
-                - numunits: 6
-                - OR:
+                min: 6
+                rule: OR
+                args:
                     - course: CIV ENG.108
                     - course: CIV ENG.111
                     - course: CIV ENG.113N
@@ -164,8 +168,9 @@ rules:
                 - course: CHM ENG.C178
                 - course: CHM ENG.179
             - units:
-                - numunits: 6
-                - OR:
+                min: 6
+                rule: OR
+                args:
                     - course: CIV ENG.C30
                     - course: EL ENG.130
                     - course: EL ENG.143
@@ -187,8 +192,9 @@ rules:
         args:
             - course: BIOLOGY.1A
             - units: # chem or physics
-                - numunits: 6
-                - OR:
+                min: 6
+                rule: OR
+                args:
                     - rule: upperdiv_physics
                     - rule: upperdiv_chemistry
             - rule: upperdiv_chemical_engineering

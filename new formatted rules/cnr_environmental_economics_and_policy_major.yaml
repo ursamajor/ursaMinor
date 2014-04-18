@@ -58,8 +58,12 @@ rules:
         description: "Upper Division Electives Environmental Economics and Policy"
         rule: count_courses
         args:
-            - numcourses: 5 # 2 from other departments
-            - numcourses: 3
-                - OR:
-                    - rule: upperdiv_environmental_economics_and_policy
+            min: 5
+            rule: OR
+            args:
+                - upperdiv
+                min: 3
+                rule: OR
+                args:
+                    - upperdiv_environmental_economics_and_policy
 

@@ -3,16 +3,16 @@ ls_breadth_all:
     description: "L&S Seven Course Breadth"
     rule: count_courses
     args:
-    min: 7
-    rule: AND
-    args:
-        - ls_breadth_arts
-        - ls_breadth_bio
-        - ls_breadth_history
-        - ls_breadth_international
-        - ls_breadth_philosophy
-        - ls_breadth_physical
-        - ls_breadth_social
+        min: 7
+        rule: AND
+        args:
+            - ls_breadth_arts
+            - ls_breadth_bio
+            - ls_breadth_history
+            - ls_breadth_international
+            - ls_breadth_philosophy
+            - ls_breadth_physical
+            - ls_breadth_social
         - rule: same_dept
             max: 2
 

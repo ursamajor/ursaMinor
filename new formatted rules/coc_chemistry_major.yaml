@@ -19,13 +19,15 @@ rules:
             - university_rc_A
             - university_rc_B
             - numcourses:
-                - numcourses: 2
-                - OR:
-                    - rule: coc_foreign_language
+                min: 2
+                rule: OR
+                args:
+                    - coc_foreign_language
             - numcourses:
-                - numcourses: 2
-                - OR:
-                    - rule: coc_breadth_humanities_and_social_sciences # 2 diff depts
+                min: 2
+                rule: OR
+                args:
+                    - coc_breadth_humanities_and_social_sciences # 2 diff depts
             - course: CHEM.96
             - AND: # chemistry
                 - course: CHEM.4A
@@ -59,10 +61,11 @@ rules:
                 - course: CHEM.115
                 - course: CHEM.146
             - units:
-                - numunits: 15
-                - OR:
-                    - rule: coc_allied_subjects
-                    - rule: upperdiv_chemistry # don't include above
+                min: 16
+                rule: OR
+                args:
+                    - coc_allied_subjects
+                    - upperdiv_chemistry # don't include above
 
 
 

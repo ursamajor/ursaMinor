@@ -35,13 +35,17 @@ rules:
             - course: ENV DES.195A
             - course: ENV DES.195B
             - units:
-                - numunits: 30
-                - OR:
-                    - rule: upperdiv_architecture
-                    - rule: upperdiv_landscape_architecture
-                    - rule: upperdiv_vision_studies
-                    - rule: upperdiv_environmental_design
-                    - rule: upperdiv_city_planning
-                - upperdiv # max of 6 non-CED
+                min: 36
+                rule: OR
+                args:
+                    - upperdiv_architecture
+                    - upperdiv_landscape_architecture
+                    - upperdiv_vision_studies
+                    - upperdiv_environmental_design
+                    - upperdiv_city_planning
+                    max: 6
+                    rule: OR
+                    args:
+                        - upperdiv # max of 6 non-CED
 
 

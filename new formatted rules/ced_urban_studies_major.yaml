@@ -36,8 +36,10 @@ rules:
                 - course: STAT.25
                 - course: STAT.131A
                 # or higher
-           - numcourses: 2
-                - OR:
+            - numcourses:
+                min: 2
+                rule: OR
+                args:
                     - course: ENV DES.11A
                     - course: ENV DES.11B
                     - course: ENV DES.C169A
@@ -59,8 +61,10 @@ rules:
         args:
             - course: ENV DES.100
             - course: CY PLAN.110
-            - numcourses: 4
-                - OR:
+            - numcourses:
+                min: 4
+                rule: OR
+                args:
                     - course: CY PLAN.111
                     - course: ARCH.111
                     - course: CY PLAN.113A
@@ -79,8 +83,10 @@ rules:
         description: "Urban Studies Capstone Requirement"
         rule: count_courses
         args:
-            - numcourses: 2
-                - OR:
+            - numcourses:
+                min: 2
+                rule: OR
+                args:
                     - course: ENV DES.195B
                     - course: CY PLAN.116
                     - course: CY PLAN.190
@@ -90,8 +96,10 @@ rules:
         description: "Upper Division Non-CED Requirements"
         rule: count_courses
         args:
-            - numcourses: 3
-                - OR:
+            - numcourses:
+                min: 3
+                rule: OR
+                args:
                     - rule: ced_urban_studies_electives_international
                     - course: AFRICAM.107
                     - course: AMERSTD.102
