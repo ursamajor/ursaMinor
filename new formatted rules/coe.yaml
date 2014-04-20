@@ -1,5 +1,31 @@
 
+
+    coe_bioengineering_major:
+        description: "Bioengineering Major"
+        rule: AND
+        args:
+            - coe_humanities_and_social_sciences
+            - coe_lowerdiv
+            - coe_upperdiv
+            - units_upperdiv
+            - units_total
+
+
 # upper division
+
+upperdiv_engineering_courses:
+    description: "Upper Division Engineering Courses"
+    rule: same_course
+    args:
+        - upperdiv_bioengineering
+        - upperdiv_civil_engineering
+        - upperdiv_engineering
+        - upperdiv_electrical_engineering
+        - upperdiv_industrial_engineering
+        - upperdiv_mechanical_engineering
+        - upperdiv_nuclear_engineering
+        - upperdiv_materials_science_and_engineering
+
 
 upperdiv_bioengineering:
     description: "Upper Division Biongineering"
@@ -21,6 +47,13 @@ upperdiv_electrical_engineering:
     args:
         - upperdiv
         - dept: EL ENG
+
+upperdiv_engineering:
+    description: "Upper Division Engineering"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: ENGIN
 
 upperdiv_industrial_engineering:
     description: "Upper Division Industrial Engineering and Operations Research"
@@ -51,41 +84,104 @@ upperdiv_nuclear_engineering:
         - dept: NUC ENG
 
 
+coe_engineering_electives:
+    description: "Engineering Electives"
+    rule: same_course
+    args:
+        - OR:
+          - dept: BIO ENG
+                - NOT:
+                    - course: BIO ENG.100
+            - dept: CHM ENG
+                - NOT:
+                    - course: CHM ENG.185
+            - dept: CIV ENG
+            - dept: COMPSCI
+                - NOT:
+                    - course: COMPSCI.194
+                    - course: COMPSCI.195
+                    - course: COMPSCI.C195
+            - dept: EL ENG
+                - NOT:
+                    - course: EL ENG.194
+            - dept: ENGIN
+                - NOT:
+                    - course: ENGIN.100
+                    - course: ENGIN.110
+                    - course: ENGIN.C111
+                    - course: ENGIN.124
+                    - course: ENGIN.130AC
+                    - course: ENGIN.140
+                    - course: ENGIN.191
+                    - course: ENGIN.193
+                    - course: ENGIN.195
+                    - course: ENGIN.196
+            - dept: IND ENG
+                - NOT:
+                    - course: IND ENG.172
+                    - course: IND ENG.190A
+                    - course: IND ENG.190B
+                    - course: IND ENG.190C
+                    - course: IND ENG.190D
+                    - course: IND ENG.190E
+                    - course: IND ENG.190F
+                    - course: IND ENG.190G
+                    - course: IND ENG.190H
+                    - course: IND ENG.190I
+                    - course: IND ENG.190K
+            - dept: MEC ENG
+                - NOT:
+                    - course: MEC ENG.106
+            - dept: MAT SCI
+            - dept: NUC ENG
+
 
 coe_humanities_and_social_sciences:
     description: "COE Humanities and Social Sciences Requirement"
+    rule: count_courses
+    args:
+        min: 7
+        args:
+            rule: same_dept
+            args:
+                rule: AND
+                args:
+                    - same_course:
+                        - upperdiv
+                        - coe_humanities_and_social_sciences_courses
+                    - same_course:
+                        - lowerdiv
+                        - coe_humanities_and_social_sciences_courses
+
+coe_humanities_and_social_sciences_courses:
+    description: "COE Humanities and Social Sciences Courses"
     rule: AND
-    args: # two must be upper division, two must be in the same
-    # department, at least one must be upper division
         - university_rc_A
         - university_rc_B
         - coe_foreign_language
-        - numcourses:
-            min: 4
-            rule: OR
-            args:
-                - ls_breadth_arts
-                - ls_breadth_history
-                - ls_breadth_philosophy
-                    - NOT:
-                        - course: ENGIN.124
-                - ls_breadth_international
-                - ls_breadth_social
-                    - NOT:
-                        - course: IND ENG.172
-                        - course: IND ENG.171
-                        - course: IND ENG.170
-                        - course: IND ENG.166
-                        - course: IND ENG.39A
-                        - course: IND ENG.39
-                        - course: CIV ENG.167
-                        - course: CIV ENG.151
-                        - course: CIV ENG.
-                        - course: ENGIN.39D
-                        - course: ENGIN.49
-                        - course: ENGIN.120
-                        - course: MEC ENG.39B
-                        - course: NUC ENG.170
+        - ls_breadth_arts
+        - ls_breadth_history
+        - ls_breadth_philosophy
+            - NOT:
+                - course: ENGIN.124
+        - ls_breadth_international
+        - ls_breadth_social
+            - NOT:
+                - course: IND ENG.172
+                - course: IND ENG.171
+                - course: IND ENG.170
+                - course: IND ENG.166
+                - course: IND ENG.39A
+                - course: IND ENG.39
+                - course: CIV ENG.167
+                - course: CIV ENG.151
+                - course: CIV ENG.
+                - course: ENGIN.39D
+                - course: ENGIN.49
+                - course: ENGIN.120
+                - course: MEC ENG.39B
+                - course: NUC ENG.170
+
 
 coe_foreign_language:
     description: "COE Foreign Language"
