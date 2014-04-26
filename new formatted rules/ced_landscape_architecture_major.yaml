@@ -4,12 +4,13 @@ rules:
         description: "Landscape Architecture Major"
         rule: AND
         args:
-            - university_all
-            - ced_breadth_all
-            - ced_lowerdiv_environmental_design
-            - ced_lowerdiv_landscape_architecture_requriements
-            - ced_upperdiv_landscape_architecture_requirements
-            - units_total
+            - rule: university_all
+            - rule: ced_breadth_all
+            - rule: ced_lowerdiv_environmental_design
+            - rule: ced_upperdiv_non_landscape_architecture_requirements
+            - rule: ced_lowerdiv_landscape_architecture_requriements
+            - rule: ced_upperdiv_landscape_architecture_requirements
+            - rule: units_total
 
 
 
@@ -18,8 +19,7 @@ rules:
         description: "Lower Division Landscape Architecture Requirements"
         rule: AND
         args:
-            - course: ENV DES.11A
-            - course: ENV DES.11B
+            - course: LD ARCH.1
             - OR: # physical science
                 - course: EPS.50
                 - course: EPS.80
@@ -31,14 +31,21 @@ rules:
                 - course: LNS.C70V
             - OR: # biological science
                 - course: BIOLOGY.1B
-                - AND:
-                    - course: BIOLOGY.11
-                    - course: BIOLOGY.11L
-                - AND: PLANTBI.40
+                - course: PLANTBI.40
                 - course: ESPM.2
                 - course: ESPM.6
                 - course: ESPM.101A
                 - course: LD ARCH.12
+                - course: ESPM.101A
+                - rule: bio11
+
+    bio11:
+        hidden: true
+        rule: AND
+        args:
+            - course: BIOLOGY.11
+            - course: BIOLOGY.11L
+
 
     ced_upperdiv_landscape_architecture_requirements: # cannot be used to fulfill breadth
         description: "Upper Division Landscape Architecture Requirements"
@@ -63,7 +70,7 @@ rules:
             min: 9
             rule: OR
             args:
-                - upperdiv_architecture
-                - upperdiv_environmental_design
-                - upperdiv_city_planning
-                - upperdiv_vision_studies
+                - rule: upperdiv_architecture
+                - rule: upperdiv_environmental_design
+                - rule: upperdiv_city_planning
+                - rule: upperdiv_vision_studies

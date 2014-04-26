@@ -4,12 +4,12 @@ rules:
         description: "Individual Major in the College of Environmental Design"
         rule: AND
         args:
-            - university_all
-            - ced_breadth_all
-            - ced_lower_division_environmental_design
-            - ced_lowerdiv_individual_requirements
-            - ced_upperdiv_individual_requirements
-            - units_total
+            - rule: university_all
+            - rule: ced_breadth_all
+            - rule: ced_lower_division_environmental_design
+            - rule: ced_lowerdiv_individual_requirements
+            - rule: ced_upperdiv_individual_requirements
+            - rule: units_total
 
 
     # to define individual major
@@ -38,11 +38,11 @@ rules:
                 min: 36
                 rule: OR
                 args:
-                    - upperdiv_architecture
-                    - upperdiv_landscape_architecture
-                    - upperdiv_vision_studies
-                    - upperdiv_environmental_design
-                    - upperdiv_city_planning
+                    - rule: upperdiv_architecture
+                    - rule: upperdiv_landscape_architecture
+                    - rule: upperdiv_vision_studies
+                    - rule: upperdiv_environmental_design
+                    - rule: upperdiv_city_planning
                     max: 6
                     rule: OR
                     args:

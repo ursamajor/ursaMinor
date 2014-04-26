@@ -43,31 +43,34 @@ ced_lowerdiv_environmental_design:
     rule: AND
     args:
         - course: ENV DES.1
-        - num_courses: 2
-            min: 2
-            rule: OR
-            args:
-                - course: ENV DES.4A
-                - course: ENV DES.4B
-                - course: ENV DES.4C
+        - rule: cnr_lowerdiv_environmental_design_four_series
+
+cnr_lowerdiv_environmental_design_four_series:
+    hidden: true
+    rule: count_courses
+    args:
+        min: 2
+        rule: OR
+            - course: ENV DES.4A
+            - course: ENV DES.4B
+            - course: ENV DES.4C
 
 
 # ced breadth
 ced_breadth_all: # max of 2 CED can count towards this
     description: "CED Seven Course Breadth"
-    num_courses: 7
-    rule: AND
+    rule: count_courses
     args:
         min: 7
         rule: AND
         args:
-            - ls_breadth_arts
-            - ls_breadth_bio
-            - ls_breadth_history
-            - ced_breadth_international
-            - ls_breadth_philosophy
-            - ls_breadth_physical
-            - ls_breadth_social
+            - rule: ls_breadth_arts
+            - rule: ls_breadth_bio
+            - rule: ls_breadth_history
+            - rule: ced_breadth_international
+            - rule: ls_breadth_philosophy
+            - rule: ls_breadth_physical
+            - rule: ls_breadth_social
             rule: same_dept
             args:
                 max: 2
@@ -84,7 +87,7 @@ ced_breadth_international:
     description: "CED International Breadth"
     rule: same_course
     args:
-        - ls_breadth_international
+        - rule: ls_breadth_international
         - OR:
             - course: AFRICAM.7B
             - course: AFRICAM.11B

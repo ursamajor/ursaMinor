@@ -4,12 +4,12 @@ rules:
         description: "Sustainable Environmental Design Major"
         rule: AND
         args:
-            - university_all
-            - ced_breadth_all
-            - ced_lowerdiv_environmental_design
-            - ced_lowerdiv_sustainable_environmental_design_requirements
-            - ced_core_upperdiv_sustainable_environmental_design_requirements
-            - units_total
+            - rule: university_all
+            - rule: ced_breadth_all
+            - rule: ced_lowerdiv_environmental_design
+            - rule: ced_lowerdiv_sustainable_environmental_design_requirements
+            - rule: ced_core_upperdiv_sustainable_environmental_design_requirements
+            - rule: units_total
 
 
     # to define the major
@@ -61,26 +61,26 @@ rules:
                 min: 4
                 rule: AND
                 args:
-                    - ced_sustainable_environmental_design_economics_area
-                    - ced_sustainable_environemental_design_society_area
-                    - ced_sustainable_environmental_design_resources_area
-                    - ced_sustainable_environmental_design_design_area
+                    - rule: ced_sustainable_environmental_design_economics_area
+                    - rule: ced_sustainable_environemental_design_society_area
+                    - rule: ced_sustainable_environmental_design_resources_area
+                    - rule: ced_sustainable_environmental_design_design_area
                 min: 2
                 rule: OR
                 args:
-                    - ced_sustainable_environmental_design_economics_area
+                    - rule: ced_sustainable_environmental_design_economics_area
                 min: 2
                 rule: OR
                 args:
-                    - ced_sustainable_environmental_design_society_area
+                    - rule: ced_sustainable_environmental_design_society_area
                 min: 2
                 rule: OR
                 args:
-                    - ced_sustainable_environmental_design_design_area
+                    - rule: ced_sustainable_environmental_design_design_area
                 min: 2
                 rule: OR
                 args:
-                    - ced_sustainable_environmental_design_resources_area
+                    - rule: ced_sustainable_environmental_design_resources_area
 
 
     ced_sustainable_environmental_design_economics_area:

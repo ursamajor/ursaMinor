@@ -4,15 +4,15 @@ rules:
         description: "Urban Studies Major"
         rule: AND
         args:
-            - university_all
-            - ced_breadth_all
-            - ced_lowerdiv_environmental_design
-            - ced_lowerdiv_urban_studies_requirements
-            - ced_core_upperdiv_urban_studies_requirements
-            - ced_upperdiv_non_ced_requirements
-            - ced_electives_urban_studies_international
-            - ced_upperdiv_capstone_requirement
-            - untis_total
+            - rule: university_all
+            - rule: ced_breadth_all
+            - rule: ced_lowerdiv_environmental_design
+            - rule: ced_lowerdiv_urban_studies_requirements
+            - rule: ced_core_upperdiv_urban_studies_requirements
+            - rule: ced_upperdiv_non_ced_requirements
+            - rule: ced_electives_urban_studies_international
+            - rule: ced_upperdiv_capstone_requirement
+            - rule: untis_total
 
 
 
@@ -36,7 +36,7 @@ rules:
                 - course: STAT.25
                 - course: STAT.131A
                 # or higher
-            - numcourses:
+            - rule: count_courses
                 min: 2
                 rule: OR
                 args:
@@ -61,7 +61,7 @@ rules:
         args:
             - course: ENV DES.100
             - course: CY PLAN.110
-            - numcourses:
+            - rule: count_courses
                 min: 4
                 rule: OR
                 args:
@@ -83,80 +83,78 @@ rules:
         description: "Urban Studies Capstone Requirement"
         rule: count_courses
         args:
-            - numcourses:
-                min: 2
-                rule: OR
-                args:
-                    - course: ENV DES.195B
-                    - course: CY PLAN.116
-                    - course: CY PLAN.190
-                    - course: CY PLAN.197
+            min: 2
+            rule: OR
+            args:
+                - course: ENV DES.195B
+                - course: CY PLAN.116
+                - course: CY PLAN.190
+                - course: CY PLAN.197
 
     ced_upperdiv_non_ced_requirements: # cannot be used to fulfill breadth
         description: "Upper Division Non-CED Requirements"
         rule: count_courses
         args:
-            - numcourses:
-                min: 3
-                rule: OR
-                args:
-                    - rule: ced_urban_studies_electives_international
-                    - course: AFRICAM.107
-                    - course: AMERSTD.102
-                    - course: ANTHRO.157
-                    - course: ANTHRO.189
-                    - course: ASAMST.150
-                    - course: CIV ENG.156
-                    - course: CIV ENG.167
-                    - course: DEMOG.C126
-                    - course: DEMOG.145AC
-                    - course: ECON.C102
-                    - course: ECON.121
-                    - course: ECON.C125
-                    - course: ECON.131
-                    - course: ECON.C171
-                    - course: ECON.174
-                    - course: ENE,RES.C100
-                    - course: ENE,RES.101
-                    - course: ENE,RES.151
-                    - course: ENE,RES.170
-                    - course: ENVECON.C101
-                    - course: ENVECON.151
-                    - course: ESPM.102D
-                    - course: ESPM.155
-                    - course: ESPM.160AC
-                    - course: ESPM.161
-                    - course: ESPM.163AC
-                    - course: ESPM.168
-                    - course: GEOG.125
-                    - course: GEOG.170
-                    - course: GEOG.181
-                    - course: GEOG.C188
-                    - course: HISTORY.120AC
-                    - course: HISTORY.C139B
-                    - course: LEGALST.182
-                    - course: NUSCTX.166
-                    - course: POL SCI.114A
-                    - course: POL SCI.138F
-                    - course: POL SCI.139D
-                    - course: POL SCI.181
-                    - course: PB HLTH.131AC
-                    - course: PB HLTH.150B
-                    - course: PUB POL.103
-                    - course: PUB POL.156
-                    - course: PUB POL.184
-                    - course: SOCIOL.110
-                    - course: SOCIOL.124
-                    - course: SOCIOL.130
-                    - course: SOCIOL.130AC
-                    - course: SOCIOL.136
-                    - course: SOCIOL.137AC
-                    - course: ESPM.163AC
-                    - course: SOCIOL.145
-                    - course: SOCIOL.186
-                    - course: UGBA.105
-                    - course: UGBA.180
-                    - course: UGBA.192P
+            min: 3
+            rule: OR
+            args:
+                - rule: ced_urban_studies_electives_international
+                - course: AFRICAM.107
+                - course: AMERSTD.102
+                - course: ANTHRO.157
+                - course: ANTHRO.189
+                - course: ASAMST.150
+                - course: CIV ENG.156
+                - course: CIV ENG.167
+                - course: DEMOG.C126
+                - course: DEMOG.145AC
+                - course: ECON.C102
+                - course: ECON.121
+                - course: ECON.C125
+                - course: ECON.131
+                - course: ECON.C171
+                - course: ECON.174
+                - course: ENE,RES.C100
+                - course: ENE,RES.101
+                - course: ENE,RES.151
+                - course: ENE,RES.170
+                - course: ENVECON.C101
+                - course: ENVECON.151
+                - course: ESPM.102D
+                - course: ESPM.155
+                - course: ESPM.160AC
+                - course: ESPM.161
+                - course: ESPM.163AC
+                - course: ESPM.168
+                - course: GEOG.125
+                - course: GEOG.170
+                - course: GEOG.181
+                - course: GEOG.C188
+                - course: HISTORY.120AC
+                - course: HISTORY.C139B
+                - course: LEGALST.182
+                - course: NUSCTX.166
+                - course: POL SCI.114A
+                - course: POL SCI.138F
+                - course: POL SCI.139D
+                - course: POL SCI.181
+                - course: PB HLTH.131AC
+                - course: PB HLTH.150B
+                - course: PUB POL.103
+                - course: PUB POL.156
+                - course: PUB POL.184
+                - course: SOCIOL.110
+                - course: SOCIOL.124
+                - course: SOCIOL.130
+                - course: SOCIOL.130AC
+                - course: SOCIOL.136
+                - course: SOCIOL.137AC
+                - course: ESPM.163AC
+                - course: SOCIOL.145
+                - course: SOCIOL.186
+                - course: UGBA.105
+                - course: UGBA.180
+                - course: UGBA.192P
 
     ced_electives_electives_international: # cannot use breadth
         description: "Urban Studies International Content Courses"
