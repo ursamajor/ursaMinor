@@ -1,14 +1,14 @@
 
 
-    coe_bioengineering_major:
-        description: "Bioengineering Major"
-        rule: AND
-        args:
-            - coe_humanities_and_social_sciences
-            - coe_lowerdiv
-            - coe_upperdiv
-            - units_upperdiv
-            - units_total
+#    coe_bioengineering_major:
+#        description: "Bioengineering Major"
+#        rule: AND
+#        args:
+#            - coe_humanities_and_social_sciences
+#            - coe_lowerdiv
+#            - coe_upperdiv
+#            - units_upperdiv
+#            - units_total
 
 
 # upper division
@@ -89,7 +89,7 @@ coe_engineering_electives:
     rule: same_course
     args:
         - OR:
-          - dept: BIO ENG
+            - dept: BIO ENG
                 - NOT:
                     - course: BIO ENG.100
             - dept: CHM ENG
@@ -97,13 +97,9 @@ coe_engineering_electives:
                     - course: CHM ENG.185
             - dept: CIV ENG
             - dept: COMPSCI
-                - NOT:
-                    - course: COMPSCI.194
                     - course: COMPSCI.195
                     - course: COMPSCI.C195
             - dept: EL ENG
-                - NOT:
-                    - course: EL ENG.194
             - dept: ENGIN
                 - NOT:
                     - course: ENGIN.100

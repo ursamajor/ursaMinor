@@ -6,11 +6,16 @@ rules:
         rule: AND
         args:
             - coe_humanities_and_social_sciences
-            - coe_lowerdiv
+            - coe_lowerdiv_electrical_engineering_requirements
             - coe_upperdiv
             - units_upperdiv
             - units_total
 
+
+
+
+    coe_lowerdiv_electrical_engineering_requirements:
+        description: "Lower Division Electrical Engineering & Computer Science Requirements"
         rule: AND
         args:
             - AND: #natural science
@@ -44,6 +49,9 @@ rules:
                 - course: MATH.53
                 - course: MATH.54
                 - course: COMPSCI.70
+
+
+
             - AND: # technical
                 - units:
                     min: 45

@@ -43,7 +43,7 @@ ced_lowerdiv_environmental_design:
     rule: AND
     args:
         - course: ENV DES.1
-        - numcourses:
+        - num_courses: 2
             min: 2
             rule: OR
             args:
@@ -55,7 +55,8 @@ ced_lowerdiv_environmental_design:
 # ced breadth
 ced_breadth_all: # max of 2 CED can count towards this
     description: "CED Seven Course Breadth"
-    rule: count_courses
+    num_courses: 7
+    rule: AND
     args:
         min: 7
         rule: AND

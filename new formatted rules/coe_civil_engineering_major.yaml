@@ -71,5 +71,7 @@ rules:
                 rule: OR
                 args:
                     - coe_engineering_electives
-
-
+                        - NOT:
+                            - course: CHM ENG.185
+                            - course: COMPSCI.194
+                            - course: EL ENG.194
