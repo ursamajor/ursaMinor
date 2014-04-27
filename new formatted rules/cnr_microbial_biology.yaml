@@ -5,15 +5,15 @@ rules:
         description: "Microbial Biology Major"
         rule: AND
         args:
-            - university_all
-            - cnr_lowerdiv_microbial_requirements
-            - cnr_hss_microbial_requirements
-            - cnr_core_upperdiv_microbial_requirements
-            - cnr_core_electives_microbial_requirements
-            - cnr_track_microbial_requirement
-            - cnr_units_upperdiv
-            - units_upperdiv
-            - units_total
+            - rule: university_all
+            - rule: cnr_lowerdiv_microbial_requirements
+            - rule: cnr_hss_microbial_requirements
+            - rule: cnr_core_upperdiv_microbial_requirements
+            - rule: cnr_core_electives_microbial_requirements
+            - rule: cnr_track_microbial_requirement
+            - rule: cnr_units_upperdiv
+            - rule: units_upperdiv
+            - rule: units_total
 
 
 
@@ -21,31 +21,17 @@ rules:
         description: "Lower Division Microbial Biology Requirements"
         rule: AND
         args:
-            - AND: # math
-                - OR: 
-                    - course: MATH.1A
-                    - course: MATH.16A
-                - OR:
-                    - course: MATH.1B
-                    - course: MATH.16B
-            - AND: # chemistry
-                - course: CHEM.1A
-                - course: CHEM.1AL
-                - course: CHEM.3A
-                - course: CHEM.3AL
-                - course: CHEM.3B
-                - course: CHEM.3BL
-            - AND: # statistics
-                - OR:
-                    - course: STAT.2 
-                    - course: STAT.20
-                    - course: STAT.131A
-            - AND: # biology
-                - course: BIOLOGY.1A
-                - course: BIOLOGY.1AL
-                - course: BIOLOGY.1B
-            - AND: # physics
-                - course: PHYSICS.8A
+            - rule: math_a
+            - rule: math_b
+            - course: CHEM.1A
+            - course: CHEM.1AL
+            - course: CHEM.3A
+            - course: CHEM.3AL
+            - course: CHEM.3B
+            - course: CHEM.3BL
+            - rule: gpb_stat
+            - rule: es_bio1
+            - course: PHYSICS.8A
 
 
     cnr_hss_microbial_requirements:
@@ -55,8 +41,8 @@ rules:
             min: 15
             rule: OR
             args:
-                - cnr_breadth_arts_history_philosophy
-                - cnr_breadth_social_international
+                - rule: cnr_breadth_arts_history_philosophy
+                - rule: cnr_breadth_social_international
             # maximum of six can be foreign language
 
 
@@ -64,14 +50,19 @@ rules:
         description: "Upper Division Core Requirements for Genetics and Plant Biology"
         rule: AND
         args:
-            - OR:
-                - course: MCELLBI.C100A
-                - course: MCELLBI.100B
-                - course: MCELLBI.102
-                - course: MCELLBI.110
+            - rule: mb_microbial
             - course: PLANTBI.C112
             - course: PLANTBI.C112L
             - course: PLANTBI.148
+
+    mb_microbial:
+        hidden: true
+        rule: OR
+        args:
+            - course: MCELLBI.C100A
+            - course: MCELLBI.100B
+            - course: MCELLBI.102
+            - course: MCELLBI.110
 
     cnr_core_electives_microbial_requirements:
         description: "Core Electives for Microbial Biology"

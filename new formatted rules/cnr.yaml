@@ -8,11 +8,11 @@ cnr_units_upperdiv:
         min: 5
         rule: OR
         args:
-            - upperdiv_environmental_economics_and_policy
-            - upperdiv_environmental_science
-            - upperdiv_environmental_sciences_policy_management
-            - upperdiv_nutritional_science
-            - upperdiv_plant_biology
+            - rule: upperdiv_environmental_economics_and_policy
+            - rule: upperdiv_environmental_science
+            - rule: upperdiv_environmental_sciences_policy_management
+            - rule: upperdiv_nutritional_science
+            - rule: upperdiv_plant_biology
 
 
 upperdiv_environmental_economics_and_policy:
@@ -212,7 +212,7 @@ cnr_breadth_physical:
             - course: COMPSCI.61C
             - course: COMPSCI.61CL
             - course: COMPSCI.188
-            - dept:
+            - dept: EPS
                 - NOT:
                     - course: EPS.3
                     - course: EPS.39A
@@ -317,16 +317,16 @@ cnr_breadth_physical:
             - course: GEOG.184
             - course: GEOG.185
             - course: HISTORY.181B
-            - course: IEOR.39A
-            - course: IEOR.130
-            - course: IEOR.131
-            - course: IEOR.140
-            - course: IEOR.150
-            - course: IEOR.161
-            - course: IEOR.162
-            - course: IEOR.164
-            - course: IEOR.165
-            - course: IEOR.180
+            - course: IND ENG.39A
+            - course: IND ENG.130
+            - course: IND ENG.131
+            - course: IND ENG.140
+            - course: IND ENG.150
+            - course: IND ENG.161
+            - course: IND ENG.162
+            - course: IND ENG.164
+            - course: IND ENG.165
+            - course: IND ENG.180
             - course: INTEGBI.39D
             - course: INTEGBI.C82
             - course: INTEGBI.106

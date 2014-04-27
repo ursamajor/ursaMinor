@@ -20,40 +20,32 @@ rules:
         description: "Lower Division Urban Studies Requirements"
         rule: AND
         args:
-            - OR:
-                - course: ECON.1
-                - course: ECON.2
-                - course: ECON.C3
-                - course: ENVECON.C3
-            - OR:
-                - course: MATH.16A
-                - course: MATH.1A
-                # or higher
-            - OR:
-                - course: STAT.2
-                - course: STAT.20
-                - course: STAT.21
-                - course: STAT.25
-                - course: STAT.131A
-                # or higher
-            - rule: count_courses
-                min: 2
-                rule: OR
-                args:
-                    - course: ENV DES.11A
-                    - course: ENV DES.11B
-                    - course: ENV DES.C169A
-                    - course: ENV DES.C169B
-                    - course: ENV DES.170
-                    - course: ARCH.110AC
-                    - course: ARCH.111
-                    - course: CY PLAN.111
-                    - course: ARCH.130
-                    - course: ARCH.170A
-                    - course: ARCH.170B
-                    - course: LD ARCH.170
-                    - course: CY PLAN.116
-                    - course: CY PLAN.140
+            - rule: econ_lowerdiv
+            - rule: math_a # or higher
+            - rule: stat2 # or higher
+            - rule: urban_studies_lower_div
+
+    urban_studies_lower_div:
+        hidden: true
+        rule: count_courses
+        args:
+            min: 2
+            rule: OR
+            args:
+                - course: ENV DES.11A
+                - course: ENV DES.11B
+                - course: ENV DES.C169A
+                - course: ENV DES.C169B
+                - course: ENV DES.170
+                - course: ARCH.110AC
+                - course: ARCH.111
+                - course: CY PLAN.111
+                - course: ARCH.130
+                - course: ARCH.170A
+                - course: ARCH.170B
+                - course: LD ARCH.170
+                - course: CY PLAN.116
+                - course: CY PLAN.140
 
     ced_core_upperdiv_urban_studies_requirements: # cannot use breadth
         description: "Upper Division Core Requirements"
@@ -61,23 +53,28 @@ rules:
         args:
             - course: ENV DES.100
             - course: CY PLAN.110
-            - rule: count_courses
-                min: 4
-                rule: OR
-                args:
-                    - course: CY PLAN.111
-                    - course: ARCH.111
-                    - course: CY PLAN.113A
-                    - course: CY PLAN.113B
-                    - course: CY PLAN.114
-                    - course: CY PLAN.115
-                    - course: CY PLAN.116
-                    - course: CY PLAN.118AC
-                    - course: CY PLAN.119
-                    - course: CY PLAN.120
-                    - course: CY PLAN.C139
-                    - course: CY PLAN.140
-                    - course: CY PLAN.190
+            - rule: urban_core
+
+    urban_core:
+        hidden: true
+        rule: count_courses
+        args:
+            min: 4
+            rule: OR
+            args:
+                - course: CY PLAN.111
+                - course: ARCH.111
+                - course: CY PLAN.113A
+                - course: CY PLAN.113B
+                - course: CY PLAN.114
+                - course: CY PLAN.115
+                - course: CY PLAN.116
+                - course: CY PLAN.118AC
+                - course: CY PLAN.119
+                - course: CY PLAN.120
+                - course: CY PLAN.C139
+                - course: CY PLAN.140
+                - course: CY PLAN.190
 
     ced_upperdiv_capstone_requirement:
         description: "Urban Studies Capstone Requirement"

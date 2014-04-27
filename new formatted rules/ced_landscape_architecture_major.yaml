@@ -20,31 +20,34 @@ rules:
         rule: AND
         args:
             - course: LD ARCH.1
-            - OR: # physical science
-                - course: EPS.50
-                - course: EPS.80
-                - course: ESPM.15
-                - course: PHYSICS.7A
-                - course: PHYSICS.8A
-                - course: PHYSICS.10
-                - course: PHYSICS.C10
-                - course: LNS.C70V
-            - OR: # biological science
-                - course: BIOLOGY.1B
-                - course: PLANTBI.40
-                - course: ESPM.2
-                - course: ESPM.6
-                - course: ESPM.101A
-                - course: LD ARCH.12
-                - course: ESPM.101A
-                - rule: bio11
+            - rule: ld_arch_phys
+            - rule: ld_arch_bio
 
-    bio11:
+    ld_arch_phys:
         hidden: true
-        rule: AND
+        rule: OR
         args:
-            - course: BIOLOGY.11
-            - course: BIOLOGY.11L
+            - course: EPS.50
+            - course: EPS.80
+            - course: ESPM.15
+            - course: PHYSICS.7A
+            - course: PHYSICS.8A
+            - course: PHYSICS.10
+            - course: PHYSICS.C10
+            - course: LNS.C70V
+
+    ld_arch_bio:
+        hidden: true
+        rule: OR
+        args:
+            - course: BIOLOGY.1B
+            - course: PLANTBI.40
+            - course: ESPM.2
+            - course: ESPM.6
+            - course: ESPM.101A
+            - course: LD ARCH.12
+            - course: ESPM.101A
+            - rule: bio11
 
 
     ced_upperdiv_landscape_architecture_requirements: # cannot be used to fulfill breadth

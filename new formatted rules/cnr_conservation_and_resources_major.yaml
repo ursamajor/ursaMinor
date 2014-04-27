@@ -4,14 +4,14 @@ rules:
         description: "Conservation and Resource Studies Major"
         rule: AND
         args:
-            - university_all
-            - cnr_lowerdiv_conservation_requirements
-            - cnr_prepatory_conservation_requirements
-            - cnr_upperdiv_conservation_requirements
-            - cnr_area_conservation_requirements
-            - cnr_units_upperdiv
-            - units_upperdiv
-            - units_total
+            - rule: university_all
+            - rule: cnr_lowerdiv_conservation_requirements
+            - rule: cnr_prepatory_conservation_requirements
+            - rule: cnr_upperdiv_conservation_requirements
+            - rule: cnr_area_conservation_requirements
+            - rule: cnr_units_upperdiv
+            - rule: units_upperdiv
+            - rule: units_total
 
 
 
@@ -19,36 +19,47 @@ rules:
         description: "Lower Division Conservation and Resource Studies Requirement"
         rule: AND
         args:
-            - OR: # biology
-                - AND:
-                    - course: BIOLOGY.1A
-                    - course: BIOLOGY.1AL
-                - AND:
-                    - course: BIOLOGY.1B
-                    - course: BIOLOGY.1BL
-                - AND:
-                    - course: BIOLOGY.11
-                    - course: BIOLOGY.11L
-            - OR: # can waive
-                - course: MATH.16A
-                - course: MATH.16B
-                - course: MATH.1A
-                - course: MATH.1B
-                - course: STAT.2
-                - course: STAT.20
-                - course: STAT.25
-                - course: STAT.131A
-                - course: PB HLTH.142A
+            - rule: crs_bio
+            - rule: crs_math
             - course: ESPM.90
-            - numcourses:
-                min: 5
-                rule: AND
-                args:
-                    - cnr_breadth_arts_history_philosophy
-                    - cnr_breadth_social_international
-                    - cnr_breadth_physical
-                    - cnr_espm_environmental_science_core
-                    - cnr_espm_social_science_core
+            - rule: crs_breadth
+            - rule: crs_breadth
+            - rule: cnr_prepatory_conservation_requirements
+
+    crs_bio:
+        hidden: true
+        rule: OR
+        args:
+            - rule: bio1a
+            - rule: bio1b
+            - rule: bio11
+
+    crs_math:
+        hidden: true
+        rule: OR
+        args:
+            - course: MATH.16A
+            - course: MATH.16B
+            - course: MATH.1A
+            - course: MATH.1B
+            - course: STAT.2
+            - course: STAT.20
+            - course: STAT.25
+            - course: STAT.131A
+            - course: PB HLTH.142A
+
+    crs_breadth:
+        hidden: true
+        rule: count_courses
+        args:
+            min: 5
+            rule: AND
+            args:
+                - rule: cnr_breadth_arts_history_philosophy
+                - rule: cnr_breadth_social_international
+                - rule: cnr_breadth_physical
+                - rule: cnr_espm_environmental_science_core
+                - rule: cnr_espm_social_science_core
 
 
     cnr_prepatory_conservation_requirements: # idk what qualifies

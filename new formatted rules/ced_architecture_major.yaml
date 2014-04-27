@@ -20,12 +20,9 @@ rules:
         args:
             - course: ENV DES.11A
             - course: ENV DES.11B
-            - OR:
-                - course: MATH.1A
-                - course: MATH.16A
-            - OR:
-                - course: PHYSICS.7A
-                - course: PHYSICS.8A
+            - rule: math_a
+            - rule: physics_a
+
 
     ced_upperdiv_architecture_requirements: # cannot be used to fulfil breadth
         description: "Upper Division Architecture Requirements"
@@ -35,10 +32,15 @@ rules:
             - course: ARCH.100B
             - course: ARCH.170A
             - course: ARCH.170B
-            - OR:
+            - rule: arch_110ac_or_130
+            - rule: arch_tracks
+
+    arch_110ac_or_130:
+        hidden: true
+        rule: OR
+        args:
                 - course: ARCH.110AC
                 - course: ARCH.130
-            - rule: arch_tracks
 
     arch_tracks:
         hidden: true
@@ -56,10 +58,17 @@ rules:
             args:
                 - course: ARCH.102A
                 - course: ARCH.102B
-                - OR:
-                    - course: ARCH.140
-                    - course: ARCH.160
+                - rule: arch_140_or_160
         # also included here are three capstone electives, dk where the list is
+
+
+    arch_140_or_160:
+        hidden: true
+        rule: OR
+        args:
+            - course: ARCH.140
+            - course: ARCH.160
+
 
     arch_senior_track:
         hidden: true
