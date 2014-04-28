@@ -1350,11 +1350,7 @@ coc_allied_subjects:
             - course: BIO ENG.C144L
             - course: BIO ENG.150
             - course: BIO ENG.151
-            - OR:
-                - AND:
-                    - course: BIOLOGY.1A
-                    - course: BIOLOGY.1AL
-                - course: BIOLOGY.1B
+            - rule: coc_bio
             - course: CHEM.100
             - course: CHEM.104A
             - course: CHEM.104B
@@ -1551,6 +1547,12 @@ coc_allied_subjects:
             - course: STAT.C141
             - course: STAT.C143
 
+coc_bio:
+      hidden: true
+      rule: OR
+      args:
+            - rule: bio1a
+            - course: BIOLOGY.1B
 
 
 

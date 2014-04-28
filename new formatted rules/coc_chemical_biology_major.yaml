@@ -1,16 +1,14 @@
 rules:
 
 
-
     coc_chemical_biology_major:
         description: "Chemical Biology Major"
         rule: AND
         args:
-            - coc_lowerdiv_chemical_biology_requirements
-            - coc_upperdiv_chemical_biology_requirements
-            - units_upperdiv
-            - units_total
-
+            - rule: coc_lowerdiv_chemical_biology_requirements
+            - rule: coc_upperdiv_chemical_biology_requirements
+            - rule: units_upperdiv
+            - rule: units_total
 
 
 
@@ -18,29 +16,23 @@ rules:
         description: "Lower Division Chemical Biology Requirements"
         rule: AND
         args:
-            - university_rc_A
-            - university_rc_B
+            - rule: university_rc_A
+            - rule: university_rc_B
             - numcourses:
                 min: 2
-                rule: OR
-                args:
-                    - coc_foreign_language
+                rule: coc_foreign_language
             - numcourses:
                 min: 2
-                rule: OR
-                args:
-                    - coc_breadth_humanities_and_social_sciences # 2 diff depts
+                rule: coc_breadth_humanities_and_social_sciences # 2 diff depts
             - course: CHEM.96
-            - AND: # chemistry
-                - course: CHEM.4A
-                - course: CHEM.4B
-                - course: CHEM.112A
-                - course: CHEM.112B
-            - AND: # math
-                - course: MATH.1A
-                - course: MATH.1B
-                - course: MATH.53
-                - course: MATH.54
+            - course: CHEM.4A
+            - course: CHEM.4B
+            - course: CHEM.112A
+            - course: CHEM.112B
+            - course: MATH.1A
+            - course: MATH.1B
+            - course: MATH.53
+            - course: MATH.54
             - OR: # PHYSICS
                 - AND:
                     - course: PHYSICS.7A
@@ -48,9 +40,7 @@ rules:
                 - AND:
                     - course: PHYSICS.8A
                     - course: PHYSICS.8B
-            - AND: # biology
-                - course: BIOLOGY.1A
-                - course: BIOLOGY.1AL
+            - rule: bio1a
 
     coc_upperdiv_chemical_biology_requirements:
         description: "Upper Division Chemical Biology Requirements"

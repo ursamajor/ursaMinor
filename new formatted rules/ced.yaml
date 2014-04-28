@@ -169,6 +169,13 @@ math_a:
         - course: MATH.1A
         - course: MATH.16A
 
+math_b:
+    hidden: true
+    rule: OR
+    args:
+        - course: MATH.1B
+        - course: MATH.16B
+
 physics_a:
     hidden: true
     rule: OR
@@ -210,6 +217,11 @@ stat2:
         - course: STAT.25
         - course: STAT.131A
 
-
+stat_2_20:
+    hidden: true
+    rule: OR
+    args:
+        - course: STAT.2
+        - course: STAT.20
 
 

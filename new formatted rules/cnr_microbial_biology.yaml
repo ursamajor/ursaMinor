@@ -72,22 +72,23 @@ rules:
             rule: OR
             args:
                 - course: PLANTBI.104L
-                - OR:
-                    - course: PLANTBI.C103
-                    - course: INTEGBI.118
-                    - course: PB HLTH.162A
-                - AND:
-                    - course: PLANTBI.110
-                    - course: PLANTBI.110L
+                - rule: mb_core_options
+                - rule: pmb110
                 - course: PLANTBI.113
                 - course: PLANTBI.C114
                 - course: PLANTBI.C116
-                - AND:
-                    - course: PLANTBI.120
-                    - course: PLANTBI.120L
+                - rule: pmb120
                 - course: BIO ENG.135
                 - course: ESPM.112
                 - course: ESPM.131
+
+    mb_core_options:
+        hidden: true
+        rule: OR
+        args:
+            - course: PLANTBI.C103
+            - course: INTEGBI.118
+            - course: PB HLTH.162A
 
 
     cnr_track_microbial_requirement:
@@ -107,30 +108,43 @@ rules:
             min: 4
             rule: OR
             args:
-                - OR: 
-                    - course: BIO ENG.100
-                    - course: ESPM.162
-                - OR:
-                    - AND:
-                        - course: PLANTBI.135
-                        - course: PLANTBI.135L
-                    - course: MCELLBI.150
-                - OR:
-                    - AND:
-                        - course: PLANTBI.150
-                        - course: PLANTBI.150L
-                    - course: MCELLBI.104
+                - rule: bioeng100_espm162
+                - rule: pmb135_mcb150
+                - rule: pmb150_mcb104
                 - course: PB HLTH.150A
                 - course: PB HLTH.150B
-                - OR:
-                    - AND:
-                        - course: PLANTBI.160
-                        - course: PLANTBI.160L
-                    - course: MCELLBI.140
+                - rule: pmb160_mcb140
                 - course: PLANTBI.185
-                - AND:
-                    - course: PLANTBI.H196
-                    - course: PLANTBI.199
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
+
+    bioeng100_espm162:
+        hidden: true
+        rule: OR
+        args:
+            - course: BIO ENG.100
+            - course: ESPM.162
+
+    pmb135_mcb150:
+        hidden: true
+        rule: OR
+        args:
+            - rule: pmb135
+            - course: MCELLBI.150
+
+    pmb150_mcb104:
+        hidden: true
+        rule: OR
+        args:
+            - rule: pmb150
+            - course: MCELLBI.104
+
+    pmb160_mcb140:
+        hidden: true
+        rule: OR
+        args:
+            - rule: pmb160
+            - course: MCELLBI.140
 
     cnr_track_microbial_ecology:
         description: "Microbial Biology Track: Ecology & Environmental Microbiology"
@@ -139,22 +153,17 @@ rules:
             min: 4
             rule: OR
             args:
-                - OR: 
-                    - course: BIO ENG.100
-                    - course: ESPM.162
+                - rule: bioeng100_espm162
                 - course: BIO ENG.135
                 - course: ESPM.134
                 - course: ESPM.192
-                - OR:
-                    - course: INTEGBI.153
-                    - course: INTEGBI.153LF
+                - rule: ib153lf
                 - course: INTEGBI.161
                 - course: INTEGBI.162
                 - course: INTEGBI.166
                 - course: MCELLBI.137
-                - AND:
-                    - course: PLANTBI.H196
-                    - course: PLANTBI.199
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
 
     cnr_track_microbial_evolution:
         description: "Microbial Biology Track: Evolution/Computational Genomics"
@@ -163,26 +172,33 @@ rules:
             min: 4
             rule: OR
             args:
-                - OR:
-                    - course: BIO ENG.C131
-                    - course: COMPSCI.61A
-                    - course: COMPSCI.61B
+                - rule: bioeng_cs
                 - course: BIO ENG.135
-                - OR:
-                    - course: BIO ENG.143
-                    - course: MATH.127
+                - rule: bioeng143_math127
                 - course: INTEGBI.160
                 - course: INTEGBI.161
                 - course: INTEGBI.166
                 - course: MCELLBI.111
                 - course: MCELLBI.140
                 - course: MCELLBI.143
-                - AND:
-                    - course: PLANTBI.C144
-                    - course: PLANTBI.C144L
-                - AND:
-                    - course: PLANTBI.H196
-                    - course: PLANTBI.199
+                - rule: pmbc144
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
+
+    bioeng_cs:
+        hidden: true
+        rule: OR
+        args:
+            - course: BIO ENG.C131
+            - course: COMPSCI.61A
+            - course: COMPSCI.61B
+
+    bioeng143_math127:
+        hidden: true
+        rule: OR
+        args:
+            - course: BIO ENG.143
+            - course: MATH.127
 
     cnr_track_microbial_biotechnology:
         description: "Microbial Biology Track: Biotechnology"
@@ -191,27 +207,18 @@ rules:
             min: 4
             rule: OR
             args:
-                - OR: 
-                    - course: BIO ENG.100
-                    - course: ESPM.162
-                - AND:
-                    - course: BIO ENG.C22
-                    - course: BIO ENG.C22L
+                - rule: bioeng100_espm162
+                - rule: bioengc22
                 - course: BIO ENG.135
                 - course: ESPM.192
                 - course: MCELLBI.111
                 - course: MCELLBI.137
                 - course: MCELLBI.140
                 - course: PLANTBI.C124
-                - OR:
-                    - AND:
-                        - course: PLANTBI.150
-                        - course: PLANTBI.150L
-                    - course: MCELLBI.104
+                - rule: pmb150_mcb104
                 - course: PLANTBI.170
-                - AND:
-                    - course: PLANTBI.H196
-                    - course: PLANTBI.199
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
 
     cnr_track_microbial_general:
         description: "Microbial Biology Track: General Microbiology"
@@ -220,59 +227,33 @@ rules:
             min: 4
             rule: OR
             args:
-                - AND:
-                    - course: BIO ENG.C22
-                    - course: BIO ENG.C22L
-                - OR: 
-                    - course: BIO ENG.100
-                    - course: ESPM.162
-                - OR:
-                    - course: BIO ENG.C131
-                    - course: COMPSCI.61A
-                    - course: COMPSCI.61B
+                - rule: bioengc22
+                - rule: bioeng100_espm162
+                - rule: bioeng_cs
                 - course: BIO ENG.135
-                - OR:
-                    - course: BIO ENG.143
-                    - course: MATH.127
+                - rule: bioeng143_math127
                 - course: ESPM.134
                 - course: ESPM.192
-                - OR:
-                    - course: INTEGBI.153
-                    - course: INTEGBI.153LF
+                - rule: ib153lf
                 - course: INTEGBI.160
                 - course: INTEGBI.161
                 - course: INTEGBI.162
                 - course: INTEGBI.166
                 - course: MCELLBI.111
                 - course: MCELLBI.137
-                - OR:
-                    - AND:
-                        - course: PLANTBI.135
-                        - course: PLANTBI.135L
-                    - course: MCELLBI.150
+                - rule: pmb135_mcb150
                 - course: MCELLBI.140
                 - course: MCELLBI.143
-                - AND:
-                    - course: PLANTBI.C144
-                    - course: PLANTBI.C144L
-                - OR:
-                    - AND:
-                        - course: PLANTBI.150
-                        - course: PLANTBI.150L
-                    - course: MCELLBI.104
+                - rule: pmbc144
+                - rule: pmb150_mcb104
                 - course: PB HLTH.150A
                 - course: PB HLTH.150B
                 - course: MCELLBI.137
                 - course: PLANTBI.C124
-                - OR:
-                    - AND:
-                        - course: PLANTBI.160
-                        - course: PLANTBI.160L
-                    - course: MCELLBI.140
+                - rule: pmb160_mcb140
                 - course: PLANTBI.170
                 - course: PLANTBI.185
-                - AND:
-                    - course: PLANTBI.H196
-                    - course: PLANTBI.199
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
 
 

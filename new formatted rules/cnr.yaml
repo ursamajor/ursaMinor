@@ -428,3 +428,275 @@ cnr_breadth_physical:
             - course: STAT.39B
             - course: UGIS.66
 
+# miscellaneous
+
+bio1a:
+    hidden: true
+    rule: AND
+    args:
+        - course: BIOLOGY.1A
+        - course: BIOLOGY.1AL
+
+bio1b:
+    hidden: true
+    rule: AND
+    args:
+        - course: BIOLOGY.1B
+        - course: BIOLOGY.1BL
+
+stat_20_21_25:
+    hidden: true
+    rule: OR
+    args:
+        - course: STAT.20
+        - course: STAT.21
+        - course: STAT.25
+
+enviro_econ:
+    hidden: true
+    rule: OR
+    args:
+        - course: ENVECON.C1
+        - course: ECON.C3
+
+chem3a:
+    hidden: true
+    rule: AND
+    args:
+        - course: CHEM.3A
+        - course: CHEM.3AL
+
+es_bio:
+    hidden: true
+    rule: OR
+    args:
+        - rule: es_bio1
+        - rule: es_bio11
+
+es_bio1:
+    hidden: true
+    rule: AND
+    args:
+        - course: BIOLOGY.1A
+        - course: BIOLOGY.1AL
+        - course: BIOLOGY.1B
+
+
+# other pop Lab courses
+bioengc22:
+    hidden: true
+    rule: AND
+    args:
+        - course: BIO ENG.C22
+        - course: BIO ENG.C22L
+
+civeng115:
+    hidden: true
+    rule: AND
+    args:
+        - course: CIV ENG.115
+        - course: CIV ENG.115L
+civeng117:
+    hidden: true
+    rule: AND
+    args:
+        - course: CIV ENG.117
+        - course: CIV ENG.117L
+
+espm102B:
+    hidden: true
+    rule: AND
+    args:
+        - course: ESPM.102B
+        - course: ESPM.1O2BL
+
+espm146:
+    hidden: true
+    rule: AND
+    args:
+        - course: ESPM.146
+        - course: ESPM.146L
+
+espm149:
+    hidden: true
+    rule: AND
+    args:
+        - course: ESPM.C149
+        - course: ESPM.C149L
+
+ibc101:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.C101
+        - course: INTEGBI.C101L
+
+ib102:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.102
+        - course: INTEGBI.102L
+
+ib103:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.103
+        - course: INTEGBI.103L
+ib104:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.104
+        - course: INTEGBI.104L
+
+ib117:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.117
+        - course: INTEGBI.117L
+
+ib151:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.151
+        - course: INTEGBI.151L
+
+ib153:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.153
+        - course: INTEGBI.153L
+
+ib153lf:
+    hidden: true
+    rule: OR
+    args:
+        - course: INTEGBI.153
+        - course: INTEGBI.153LF
+ib154:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.154
+        - course: INTEGBI.154L
+
+ib168:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.168
+        - course: INTEGBI.168L
+
+ib173:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.173
+        - course: INTEGBI.173L
+
+ib174:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.174
+        - course: INTEGBI.174L
+
+ib175:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.175
+        - course: INTEGBI.175L
+
+ib184:
+    hidden: true
+    rule: OR
+    args:
+        - course: INTEGBI.184
+        - course: INTEGBI.184L
+
+mcbc112:
+    hidden: true
+    rule: AND
+    args:
+        - course: MCELLBI.C112
+        - course: MCELLBI.C112L
+
+pmbc102:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.C102
+        - course: PLANTBI.C102L
+
+pmb110:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.110
+        - course: PLANTBI.110L
+
+pmbc112:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.C112
+        - course: PLANTBI.C112L
+
+pmb120:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.120
+        - course: PLANTBI.120L
+
+pmb135:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.135
+        - course: PLANTBI.135L
+
+pmb142_c144:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.142
+        - course: PLANTBI.C144L
+
+pmbc144:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.C144
+        - course: PLANTBI.C144L
+
+pmb150:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.150
+        - course: PLANTBI.150L
+
+pmb160:
+    hidden: true
+    rule: AND
+    args:
+        - course: PLANTBI.160
+        - course: PLANTBI.160L
+
+pbhealth162a:
+    hidden: true
+    rule: AND
+    args:
+        - course: PB HLTH.162A
+        - course: PB HLTH.162AL
+
+
+
+

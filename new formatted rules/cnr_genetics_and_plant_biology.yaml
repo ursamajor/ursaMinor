@@ -98,7 +98,8 @@ rules:
                 - course: PLANTBI.170
                 - course: PLANTBI.180
                 - course: PLANTBI.185
-                - rule: pmbh196_199
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
 
 
     cnr_track_genetics_plant_genetics:
@@ -123,7 +124,8 @@ rules:
                 - course: PLANTBI.C148
                 - course: PLANTBI.165
                 - course: PLANTBI.185
-                - rule: pmbh196_199
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
 
     cnr_track_genetics_plant_diversity:
         description: "Plant Biology Track: Plant Diversity and Evolution"
@@ -154,7 +156,8 @@ rules:
                 - rule: pmb142_c144
                 - course: PLANTBI.180
                 - course: PLANTBI.185
-                - rule: pmbh196_199
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
 
     cnr_track_genetics_plant_microbe:
         description: "Plant Biology Track: Plant Microbe Interactions"
@@ -178,7 +181,8 @@ rules:
                 - course: PLANTBI.165
                 - course: PLANTBI.180
                 - course: PLANTBI.185
-                - rule: pmbh196_199
+                - course: PLANTBI.H196
+                - course: PLANTBI.199
 
     cnr_track_genetics_experimental:
         description: "Plant Biology Experimental Track"
