@@ -29,6 +29,13 @@ chem1a:
         - course: CHEM.1A
         - course: CHEM.1AL
 
+chem_a:
+    hidden: true
+    rule: OR
+    args:
+        - course: CHEM.1A
+        - course: CHEM.4A
+
 
 rules:
 
