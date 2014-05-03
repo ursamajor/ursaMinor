@@ -15,16 +15,16 @@
 
 upperdiv_engineering_courses:
     description: "Upper Division Engineering Courses"
-    rule: same_course
+    rule: OR
     args:
-        - upperdiv_bioengineering
-        - upperdiv_civil_engineering
-        - upperdiv_engineering
-        - upperdiv_electrical_engineering
-        - upperdiv_industrial_engineering
-        - upperdiv_mechanical_engineering
-        - upperdiv_nuclear_engineering
-        - upperdiv_materials_science_and_engineering
+        - rule: upperdiv_bioengineering
+        - rule: upperdiv_civil_engineering
+        - rule: upperdiv_engineering
+        - rule: upperdiv_electrical_engineering
+        - rule: upperdiv_industrial_engineering
+        - rule: upperdiv_mechanical_engineering
+        - rule: upperdiv_nuclear_engineering
+        - rule: upperdiv_materials_science_and_engineering
 
 
 upperdiv_bioengineering:
@@ -132,7 +132,7 @@ coe_engineering_electives:
             - dept: NUC ENG
 
 
-coe_humanities_and_social_sciences:
+coe_humanities_and_social_sciences: # idk
     description: "COE Humanities and Social Sciences Requirement"
     rule: count_courses
     args:
@@ -143,25 +143,25 @@ coe_humanities_and_social_sciences:
                 rule: AND
                 args:
                     - same_course:
-                        - upperdiv
-                        - coe_humanities_and_social_sciences_courses
+                        - rule: upperdiv
+                        - rule: coe_humanities_and_social_sciences_courses
                     - same_course:
-                        - lowerdiv
-                        - coe_humanities_and_social_sciences_courses
+                        - rule: lowerdiv
+                        - rule: coe_humanities_and_social_sciences_courses
 
 coe_humanities_and_social_sciences_courses:
     description: "COE Humanities and Social Sciences Courses"
     rule: AND
-        - university_rc_A
-        - university_rc_B
-        - coe_foreign_language
-        - ls_breadth_arts
-        - ls_breadth_history
-        - ls_breadth_philosophy
+        - rule: university_rc_A
+        - rule: university_rc_B
+        - rule: coe_foreign_language
+        - rule: ls_breadth_arts
+        - rule: ls_breadth_history
+        - rule: ls_breadth_philosophy
             - NOT:
                 - course: ENGIN.124
-        - ls_breadth_international
-        - ls_breadth_social
+        - rule: ls_breadth_international
+        - rule: ls_breadth_social
             - NOT:
                 - course: IND ENG.172
                 - course: IND ENG.171
@@ -465,5 +465,52 @@ coe_foreign_language:
             - course: VIETNMS.101B
             - course: YIDDISH.101
             - course: YIDDISH.102
+
+# more rules
+
+bioeng22:
+    hidden: true
+    rule: AND
+    args: 
+        - course: BIO ENG.22
+        - course: BIO ENG.22L
+
+cs61b:
+    hidden: true
+    rule: OR
+    args:
+        - course: COMPSCI.61B
+        - course: COMPSCI.61BL
+
+cs70_math55:
+    hidden: true
+    rule: OR
+    args:
+        - course: COMPSCI.70
+        - course: MATH.55
+
+ieor172_stat134:
+    hidden: true
+    rule: OR
+    args:
+        - course: IND ENG.172
+        - course: STAT.134
+
+e7_cs61a:
+    hidden: true
+    rule: OR
+    args:
+        - course: COMPSCI.61A
+        - course: ENGIN.7
+
+chem1_4a:
+    hidden: true
+    rule: OR
+    args:
+        - rule: chem1a
+        - course: CHEM.4A
+
+
+
 
 

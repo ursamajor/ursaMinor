@@ -22,6 +22,13 @@ upperdiv_physics:
         - upperdiv
         - dept: PHYSICS
 
+chem1a:
+    hidden: true
+    rule: AND
+    args:
+        - course: CHEM.1A
+        - course: CHEM.1AL
+
 
 rules:
 
