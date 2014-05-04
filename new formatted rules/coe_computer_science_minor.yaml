@@ -2,10 +2,12 @@ rules:
 
     coe_computer_science_minor:
         description: "Computer Science Minor"
-        rule: AND
-        args:
-            - rule: computer_science_prereqs
-            - rule: computer_science_upperdiv
+        rule: count_courses
+            min: 7
+            rule: AND
+            args:
+                - rule: computer_science_prereqs
+                - rule: computer_science_upperdiv
 
     computer_science_prereqs:
         description: "Computer Science Pre-requisites"

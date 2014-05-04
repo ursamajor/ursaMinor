@@ -68,6 +68,7 @@ rules:
             rule: coe_engineering_electives
             args:
                 - NOT:
+                    - course: IND ENG.172
                     - course: ENGIN.125
                     - course: MEC ENG.191AC
                     - course: MEC ENG.191K

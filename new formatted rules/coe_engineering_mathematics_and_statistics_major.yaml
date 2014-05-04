@@ -61,6 +61,7 @@ rules:
                 - rule: eng_math_upperdiv_additional
                 - rule: coe_engineering_electives
                     - NOT:
+                        - course: IND ENG.172
                         - course: ENGIN.125
                         - course: MEC ENG.191AC
                         - course: MEC ENG.191K

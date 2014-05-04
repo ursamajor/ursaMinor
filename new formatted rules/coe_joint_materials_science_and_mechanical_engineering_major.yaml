@@ -1,13 +1,20 @@
 rules:
 
     coe_joint_materials_science_and_mechanical_engineering_major:
+        description: "Joint Materials Science and Mechanical Engineering Major"
         rule: AND
         args:
-            - OR:
-                - AND:
-                    - course: CHEM.1A
-                    - course: CHEM.1AL
-                - course: CHEM.4A
+            - rule: coe_humanities_and_social_sciences
+            - rule: coe_lowerdiv_materials_science_mechanical_engineering
+            - rule: coe_upperdiv_materials_science_mechanical_engineering
+            - rule: units_upperdiv
+            - rule: units_total
+
+    coe_lowerdiv_materials_science_mechanical_engineering:
+        description: "Joint Materials Science and Mechanical Engineering Lower Division Requirements"
+        rule: AND
+        args:
+            - rule: chem1_4a
             - course: MATH.1A
             - course: MATH.1B
             - course: MATH.53
@@ -20,6 +27,10 @@ rules:
             - course: ENGIN.45
             - course: MEC ENG.40
             - course: MEC ENG.C85
+
+    coe_upperdiv_materials_science_mechanical_engineering:
+        description: "Joint Materials Science and Mechanical Engineering Upper Division Requirements"
+        rule: AND
             - course: EL ENG.100
             - course: MAT SCI.102
             - course: MAT SCI.103
@@ -33,74 +44,65 @@ rules:
             - course: MEC ENG.107
             - course: MEC ENG.109
             - course: MEC ENG.132
-            - OR:
-                - course: MEC ENG.108
-                - course: MAT SCI.113
-            - AND: # technical electives
-                - OR:
-                    - course: MEC ENG.101
-                    - course: MEC ENG.110
-                    - course: MEC ENG.119
-                    - course: MEC ENG.128
-                    - course: MEC ENG.130
-                    - course: MEC ENG.165
-                - OR:
-                    - course: MAT SCI.120
-                    - course: MAT SCI.121
-                    - course: MAT SCI.122
-                    - course: MAT SCI.123
-                    - course: MAT SCI.125
-                - units:
-                    min: 3
-                    courses:
-                        - dept: MEC ENG # upper division, 3 units other than others
-                - units:
-                    min: 3
-                    courses:
-                        - dept: BIO ENG
-                                - NOT:
-                                    - course: BIO ENG.100
-                            - dept: CHM ENG
-                            - dept: CIV ENG
-                            - dept: COMPSCI
-                                - NOT:
-                                    - course: COMPSCI.195
-                                    - course: COMPSCI.H195
-                            - dept: ENGIN
-                                - NOT:
-                                    - course: ENGIN.125
-                            - dept: IND ENG
-                                - NOT:
-                                    - course: IND ENG.172
-                                    - course: IND ENG.190A
-                                    - course: IND ENG.190B
-                                    - course: IND ENG.190C
-                                    - course: IND ENG.190D
-                                    - course: IND ENG.190E
-                                    - course: IND ENG.190F
-                                    - course: IND ENG.190G
-                                    - course: IND ENG.190H
-                                    - course: IND ENG.190I
-                                    - course: IND ENG.190K
-                            - dept: MEC ENG
-                                - NOT:
-                                    - course: MEC ENG.191AC
-                                    - course: MEC ENG.191K
-                            - dept: MAT SCI
-                            - dept: NUC ENG
-                            - dept: EL ENG
-                            - dept: COMPSCI
-            - AND: # HSS
-            	- university_rc_A
-            	- university_rc_B
-            	- university_AC
-            	- numcourses:
-            		min: 4
-            		courses:
-            			- coe_humanities_and_social_sciences
-                            - numcourses:
-                                min: 2
-                                rule: upper_division
-                            - numcorses:
-                                min: 2
-                                rule: same_department # 1 up, 1 low
+            - rule: mece108_mse113
+            - rule: mece_tech
+            - rule: mse_tech
+            - rule: mece_other
+            - rule: coe_joint_materials_science_mechanical_engineering_other
+
+    mece108_mse113:
+        hidden: true
+        rule: OR
+        args:
+            - course: MEC ENG.108
+            - course: MAT SCI.113
+
+    mece_tech:
+        hidden: true
+        rule: OR
+        args:
+            - course: MEC ENG.101
+            - course: MEC ENG.110
+            - course: MEC ENG.119
+            - course: MEC ENG.128
+            - course: MEC ENG.130
+            - course: MEC ENG.165
+
+    mse_tech:
+        hidden: true
+        rule: OR
+        args:
+            - course: MAT SCI.120
+            - course: MAT SCI.121
+            - course: MAT SCI.122
+            - course: MAT SCI.123
+            - course: MAT SCI.125
+
+    mece_other:
+        hidden: true
+        rule: units
+            min: 3
+            rule: upperdiv_mechanical_engineering # other than above
+
+    coe_joint_materials_science_mechanical_engineering_other:
+        description: "Joint Materials Science and Mechanical Engineering Other Electives"
+        rule: units
+            min: 3
+            rule: coe_engineering_electives
+                - NOT:
+                    - course: ENGIN.125
+                    - course: IND ENG.172
+                    - course: IND ENG.190A
+                    - course: IND ENG.190B
+                    - course: IND ENG.190C
+                    - course: IND ENG.190D
+                    - course: IND ENG.190E
+                    - course: IND ENG.190F
+                    - course: IND ENG.190G
+                    - course: IND ENG.190H
+                    - course: IND ENG.190I
+                    - course: IND ENG.190K
+                    - course: MEC ENG.191AC
+                    - course: MEC ENG.191K
+
+

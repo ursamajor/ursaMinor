@@ -78,6 +78,7 @@ rules:
                     - course: ENGIN.125
                     - course: ENGIN.130AC
                     - course: ENGIN.140
+                    - course: IND ENG.172
                     - course: IND ENG.191
                     - course: MEC ENG.191AC
                     - course: MEC ENG.190K

@@ -1,14 +1,9 @@
 
-
-#    coe_bioengineering_major:
-#        description: "Bioengineering Major"
-#        rule: AND
-#        args:
-#            - coe_humanities_and_social_sciences
-#            - coe_lowerdiv
-#            - coe_upperdiv
-#            - units_upperdiv
-#            - units_total
+#            - rule: coe_humanities_and_social_sciences
+#            - rule: coe_lowerdiv
+#            - rule: coe_upperdiv
+#            - rule: units_upperdiv
+#            - rule: units_total
 
 
 # upper division
@@ -28,7 +23,7 @@ upperdiv_engineering_courses:
 
 
 upperdiv_bioengineering:
-    description: "Upper Division Biongineering"
+    description: "Upper Division Bioengineering"
     rule: same_course
     args:
         - upperdiv
@@ -101,7 +96,6 @@ coe_engineering_electives:
         - rule: upperdiv_engineering
         - rule: upperdiv_industrial_engineering
             - NOT:
-                - course: IND ENG.172
                 - course: IND ENG.190A
                 - course: IND ENG.190B
                 - course: IND ENG.190C
@@ -122,7 +116,7 @@ coe_humanities_and_social_sciences: # idk
     rule: count_courses
     args:
         min: 4
-        rule:
+        rule: AND
         args:
             - rule: university_rc_A
             - rule: university_rc_B
@@ -140,21 +134,43 @@ coe_humanities_and_social_sciences_courses:
         - rule: ls_breadth_international
         - rule: ls_breadth_social
             - NOT:
-                - course: IND ENG.172
-                - course: IND ENG.171
-                - course: IND ENG.170
-                - course: IND ENG.166
-                - course: IND ENG.39A
-                - course: IND ENG.39
-                - course: CIV ENG.167
                 - course: CIV ENG.151
-                - course: CIV ENG.
+                - course: CIV ENG.167
                 - course: ENGIN.39D
                 - course: ENGIN.49
                 - course: ENGIN.120
+                - course: IND ENG.39A
+                - course: IND ENG.39
+                - course: IND ENG.166
+                - course: IND ENG.172
+                - course: IND ENG.171
+                - course: IND ENG.170
                 - course: MEC ENG.39B
                 - course: NUC ENG.170
 
+coe_nuclear_engineering_ethics:
+    description: "Nuclear Engineering Ethics Requirement"
+    rule: OR
+    args:
+        - course: ANTHRO.156B
+        - course: BIO ENG.100
+        - course: ENGIN.125
+        - course: ESPM.161
+        - course: ESPM.162
+        - course: GEOG.31
+        - course: ISF.61
+        - course: ISF.100E
+        - course: IAS.105
+        - course: LEGALST.19AC
+        - course: LEGALST.100A
+        - course: MEC ENG.191AC
+        - course: PHILOS.2
+        - course: PHILOS.104
+        - course: PHILOS.107
+        - course: POL SCI.108A
+        - course: PB HLTH.116 # can't fullfil hss
+        - course: SOCIOL.116
+        - course: SOCIOL.123
 
 coe_foreign_language:
     description: "COE Foreign Language"

@@ -2,10 +2,12 @@ rules:
 
     coe_electrical_engineering_and_computer_science_minor:
         description: "Electrical Engineering and Computer Science Minor"
-        rule: AND
-        args:
-            - rule: coe_electrical_engineering_lower_division_core
-            - rule: coe_electrical_engineering_upperdiv
+        rule: count_courses
+            min: 7
+            rule: AND
+            args:
+                - rule: coe_electrical_engineering_lower_division_core
+                - rule: coe_electrical_engineering_upperdiv
 
     coe_electrical_engineering_lower_division_core:
         description: "Electrical Engineering and Computer Science Lower Division Core"
