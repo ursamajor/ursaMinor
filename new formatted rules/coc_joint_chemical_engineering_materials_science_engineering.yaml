@@ -1,6 +1,5 @@
 rules:
 
-
     coc_joint_chemical_engineering_materials_science_engineering_major:
         description: "Joint Major in Chemical Engineering and Materials Science and Engineering"
         rule: AND

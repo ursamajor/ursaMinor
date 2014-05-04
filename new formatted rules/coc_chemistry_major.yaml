@@ -1,6 +1,5 @@
 rules:
 
-
     coc_chemistry_major:
         description: "Chemistry Major"
         rule: AND

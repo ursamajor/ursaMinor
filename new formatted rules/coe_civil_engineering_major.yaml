@@ -1,6 +1,5 @@
 rules:
 
-
     coe_civil_engineering_major:
         description: "Civil Engineering Major"
         rule: AND
@@ -82,3 +81,17 @@ rules:
                     - course: CHM ENG.185
                     - course: COMPSCI.194
                     - course: EL ENG.194
+                    - course: ENGIN.100
+                    - course: ENGIN.110
+                    - course: ENGIN.C111
+                    - course: ENGIN.124
+                    - course: ENGIN.130AC
+                    - course: ENGIN.140
+                    - course: ENGIN.191
+                    - course: ENGIN.193
+                    - course: ENGIN.195
+                    - course: ENGIN.196
+                    - course: MEC ENG.106
+
+
+

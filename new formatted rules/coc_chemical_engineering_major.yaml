@@ -1,6 +1,5 @@
 rules:
 
-
     coc_chemical_engineering_major:
         description: "Chemical Engineering Major"
         rule: AND

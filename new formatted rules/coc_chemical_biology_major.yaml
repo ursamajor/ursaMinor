@@ -1,6 +1,5 @@
 rules:
 
-
     coc_chemical_biology_major:
         description: "Chemical Biology Major"
         rule: AND
