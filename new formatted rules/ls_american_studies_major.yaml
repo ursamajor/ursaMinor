@@ -7,7 +7,11 @@ rules:
             - rule: university_all
             - rule: ls_breadth_all
             - rule: ls_lowerdiv_american_studies
-            - rule: ls_upperdiv_american_studies
+            - rule: ls_american_core_time
+            - rule: ls_american_core_place
+            - rule: ls_american_concentration
+            - rule: ls_american_thesis
+            - rule: ls_american_historical
             - rule: units_upperdiv
             - rule: units_total
 
@@ -99,16 +103,6 @@ rules:
                 - course: AEROSPC.1B
                 - course: AEROSPC.2A
                 - course: AEROSPC.2B
-
-    ls_upperdiv_american_studies:
-        description: "American Studies Upper Division Requirements"
-        rule: AND
-        args:
-            - rule: ls_american_core_time
-            - rule: ls_american_core_place
-            - rule: ls_american_concentration
-            - rule: ls_american_thesis
-            - rule: ls_american_historical
 
     ls_american_core_time:
         description: "American Studies Core Methods - Time"

@@ -5,24 +5,28 @@ rules:
         rule: AND
         args:
             - rule: coe_humanities_and_social_sciences
-            - rule: coe_lowerdiv_electrical_engineering_requirements
-            - rule: coe_upperdiv_electrical_engineering_requirements
-            - rule: coe_upperdiv
-            - rule: units_upperdiv
-            - rule: units_total
-
-
-
-    coe_lowerdiv_electrical_engineering_requirements:
-        description: "Lower Division Electrical Engineering & Computer Science Requirements"
-        rule: AND
-        args:
             - rule: coe_electrical_engineering_and_computer_science_natural_science
             - course: MATH.1A
             - course: MATH.1B
             - course: MATH.53
             - course: MATH.54
             - course: COMPSCI.70
+            - rule: eecs_technical
+            - rule: eecs_cs
+            - rule: eecs_lowerdiv_core
+            - rule: eecs_eng_ethics
+            - rule: eecs_eng_design
+            - rule: coe_upperdiv
+            - rule: units_upperdiv
+            - rule: units_total
+
+# not sure if we should do it like this or split into lowerdiv/upperdiv
+
+
+    coe_lowerdiv_electrical_engineering_requirements:
+        description: "Lower Division Electrical Engineering & Computer Science Requirements"
+        rule: AND
+        args:
 
     coe_electrical_engineering_and_computer_science_natural_science:
         description: "Electrical Engineering & Computer Science Natural Science Requirements"
@@ -33,7 +37,7 @@ rules:
             - rule: eecs_nat_other
 
     eecs_nat_other:
-        hidden: true
+        description: "Electrical Engineering Other Natural Science Courses"
         rule: OR
         args:
             - rule: chem1a
@@ -62,14 +66,9 @@ rules:
         description: "Upper Division Electrical Engineering & Computer Science Requirements"
         rule: AND
         args:
-            - rule: eecs_technical
-            - rule: eecs_cs
-            - rule: eecs_lowerdiv_core
-            - rule: eecs_eng_ethics
-            - rule: eecs_eng_design
 
     eecs_technical:
-        hidden: true
+        description: "Electrical Engineering Technical Electives"
         rule: units
             min: 45
             rule: coe_engineering_electives
@@ -98,7 +97,7 @@ rules:
                         - course: COMPSCI.C195
 
     eecs_lowerdiv_core: # also count towards technical
-        hidden: true
+        description: "Electrical Engineering Lower Division Core"
         rule: AND
         args:
             - course: EL ENG.20N
@@ -108,7 +107,7 @@ rules:
             - rule: cs61c
 
     eecs_eng_ethics:
-        hidden: true
+        description: "Electrical Engineering: Engineering Ethics"
         rule: OR
         args:
             - course: COMPSCI.195
@@ -119,7 +118,7 @@ rules:
             - course: ISF.100D
 
     eecs_eng_design:
-        hidden: true
+        description: "Electrical Engineering: Engineering Design Requirement"
         rule: OR
         args:
             - course: EL ENG.C125

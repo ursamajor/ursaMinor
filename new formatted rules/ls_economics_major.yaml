@@ -8,6 +8,7 @@ rules:
             - rule: ls_breadth_all
             - rule: ls_lowerdiv_economics
             - rule: ls_upperdiv_economics
+            - rule: ls_economics_electives
             - rule: units_upperdiv
             - rule: units_total
 

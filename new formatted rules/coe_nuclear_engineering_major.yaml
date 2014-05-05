@@ -5,15 +5,6 @@ rules:
         rule: AND
         args:
             - rule: coe_humanities_and_social_sciences
-            - rule: coe_lowerdiv_nuclear_engineering
-            - rule: coe_upperdiv_nuclear_engineering
-            - rule: units_upperdiv
-            - rule: units_total
-
-    coe_lowerdiv_nuclear_engineering:
-        description: "Nuclear Engineering Lower Division Requirements"
-        rule: AND
-        args:
             - rule: chem1_4a
             - course: ENGIN.7
             - course: ENGIN.45
@@ -26,11 +17,6 @@ rules:
             - course: PHYSICS.7B
             - course: PHYSICS.7C
             - course: NUC ENG.92
-
-    coe_upperdiv_nuclear_engineering:
-        description: "Nuclear Engineering Upper Division Requirements"
-        rule: AND
-        args:
             - course: ENGIN.115
             - course: ENGIN.117
             - course: NUC ENG.101
@@ -39,6 +25,20 @@ rules:
             - course: NUC ENG.170A
             - rule: coe_nuclear_engineering_technicals
             - rule: coe_nuclear_engineering_ethics
+            - rule: units_upperdiv
+            - rule: units_total
+
+# not sure if we should do it like this or split into lowerdiv/upperdiv
+
+    coe_lowerdiv_nuclear_engineering:
+        description: "Nuclear Engineering Lower Division Requirements"
+        rule: AND
+        args:
+
+    coe_upperdiv_nuclear_engineering:
+        description: "Nuclear Engineering Upper Division Requirements"
+        rule: AND
+        args:
 
     coe_nuclear_engineering_technical:
         description: "Nuclear Engineering Technical Electives"

@@ -8,6 +8,7 @@ rules:
             - rule: ls_breadth_all
             - rule: ls_lowerdiv_applied_math
             - rule: ls_upperdiv_applied_math
+            - rule: ls_applied_math_cluster
             - rule: units_upperdiv
             - rule: units_total
 
@@ -37,7 +38,6 @@ rules:
             - course: MATH.113
             - course: MATH.128A
             - course: MATH.185
-            - rule: ls_applied_math_cluster
 
     ls_applied_math_cluster:
         description: "Applied Mathematics Cluster Courses"
