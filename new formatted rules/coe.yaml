@@ -1,11 +1,4 @@
 
-#            - rule: coe_humanities_and_social_sciences
-#            - rule: coe_lowerdiv
-#            - rule: coe_upperdiv
-#            - rule: units_upperdiv
-#            - rule: units_total
-
-
 # upper division
 
 upperdiv_engineering_courses:

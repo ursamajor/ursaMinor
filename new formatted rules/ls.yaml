@@ -39,8 +39,16 @@ chem_a:
 chem3a:
     hidden: true
     rule: AND
+    args:
         - course: CHEM.3A
         - course: CHEM.3AL
+
+econ1_2:
+    hidden: true
+    rule: OR
+    args:
+        - course: ECON.1
+        - course: ECON.2
 
 mcb32:
     hidden: true
@@ -49,6 +57,41 @@ mcb32:
         - course: MCELLBI.32
         - course: MCELLBI.32L
 
+math1:
+    hidden: true
+    rule: AND
+    args:
+        - course: MATH.1A
+        - course: MATH.1B
+
+math16:
+    hidden: true
+    rule: AND
+    args:
+        - course: MATH.16A
+        - course: MATH.16B
+
+math1_16:
+    hidden: true
+    rule: OR
+    args:
+        - rule: math1
+        - rule: math16
+
+physics7_8a:
+    hidden: true
+    rule: OR
+    args:
+        - course: PHYSICS.7A
+        - course: PHYSICS.8A
+
+stat20_21_25:
+    hidden: true
+    rule: OR
+    args:
+        - course: STAT.20
+        - course: STAT.21
+        - course: STAT.25
 
 rules:
 
