@@ -22,7 +22,7 @@ rules:
         args:
             - rule: econ_lowerdiv
             - rule: math_a # or higher
-            - rule: stat2 # or higher
+            - rule: stat2_20_21_25_131a # or higher
             - rule: urban_studies_lower_div
 
     urban_studies_lower_div:

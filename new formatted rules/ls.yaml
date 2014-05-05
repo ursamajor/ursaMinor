@@ -1,12 +1,52 @@
 
 
+
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv
+            - rule: ls_upperdiv
+            - rule: units_upperdiv
+            - rule: units_total
+
 # upper div
+upperdiv_:
+    description: "Upper Division "
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: 
+
+
+
+
+
+upperdiv_anthropology:
+    description: "Upper Division Anthropology"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: ANTHRO
+
+upperdiv_biology:
+    description: "Upper Division Biology"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: BIOLOGY
+
 upperdiv_integrative_biology:
     description: "Upper Division Integrative Biology"
     rule: same_course
     args:
         - upperdiv
         - dept: INTEGBI
+
+upperdiv_math:
+    description: "Upper Division Mathematics"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: MAT
 
 upperdiv_molecular_cell_biology:
     description: "Upper Division Molecular & Cell Biology"
@@ -21,6 +61,18 @@ upperdiv_physics:
     args:
         - upperdiv
         - dept: PHYSICS
+
+upperdiv_statistics:
+    description: "Upper Division Statistics"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: STAT
+
+
+
+
+
 
 chem1a:
     hidden: true
@@ -77,6 +129,19 @@ math1_16:
     args:
         - rule: math1
         - rule: math16
+math10:
+    hidden: true
+    rule: AND
+    args:
+        - course: MATH.10A
+        - course: MATH.10B
+
+math1_10:
+    hidden: true
+    rule: OR
+    args:
+        - rule: math1
+        - rule: math10
 
 physics7_8a:
     hidden: true
@@ -84,14 +149,6 @@ physics7_8a:
     args:
         - course: PHYSICS.7A
         - course: PHYSICS.8A
-
-stat20_21_25:
-    hidden: true
-    rule: OR
-    args:
-        - course: STAT.20
-        - course: STAT.21
-        - course: STAT.25
 
 rules:
 
@@ -103,6 +160,23 @@ rules:
             - course: ETH STD.11AC
             - course: ETH STD.101A
             - course: ETH STD.101B
+
+    ls_molecular_cell_biology_lower_division:
+        description: "Molecular Cell Biology Lower Division Requirements"
+        rule: AND
+        args:
+            - rule: math1_10
+            - course: CHEM.1A
+            - course: CHEM.1AL
+            - course: BIOLOGY.1A
+            - course: BIOLOGY.1AL
+            - course: BIOLOGY.1B
+            - course: PHYSICS.8A
+            - course: PHYSICS.8B
+
+
+
+
 
 
 
@@ -1048,23 +1122,7 @@ rules:
             - course: LEGALST.182
 
 
-    ls_molecular_cell_biology_lower_division:
-        description: "Molecular Cell Biology Lower Division Requirements"
-        rule: AND
-        args:
-            - OR:
-                - course: MATH.10A
-                - course: MATH.10B
-            - OR:
-                - course: MATH.1A
-                - course: MATH.1B
-            - course: CHEM.1A
-            - course: CHEM.1AL
-            - course: BIOLOGY.1A
-            - course: BIOLOGY.1AL
-            - course: BIOLOGY.1B
-            - course: PHYSICS.8A
-            - course: PHYSICS.8B
+
 
 
 
