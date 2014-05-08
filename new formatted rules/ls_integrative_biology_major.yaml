@@ -1,17 +1,22 @@
 rules:
 
     ls_integrative_biology_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - AND: # lower division
-            - OR:
-                - course: MATH.1A
-                - course: MATH.10A
-            - OR:
-                - course: MATH.1B
-                - course: MATH.10B
+        description: "Integative Biology Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_integrative_biology
+            - rule: ls_upperdiv_integrative_biology
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_integrative_biology:
+        description: "Integrative Biology Lower Division Major Requirements"
+        rule: AND
+        args:
+            - rule: math1a_10a
+            - rule: math1b_10b
             - course: CHEM.1A
             - course: CHEM.1AL
             - course: CHEM.3A
@@ -21,62 +26,96 @@ rules:
             - course: BIOLOGY.1A
             - course: BIOLOGY.1AL
             - course: BIOLOGY.1B
-            - OR:
-                - course: PHYSICS.8A
-                - course: PHYSICS.7A
-            - OR:
-                - course: PHYSICS.8B
-                - course: PHYSICS.7B
-        - AND: # upper division
-            - AND:
-                - units:
-                    min: 24
-                    courses:
-                        - OR: # evolution & genetics
-                            - course: INTEGBI.141
-                            - course: INTEGBI.160
-                            - course: INTEGBI.161
-                            - course: INTEGBI.162
-                            - course: INTEGBI.163
-                            - course: INTEGBI.164
-                            - course: INTEGBI.167
-                            - course: INTEGBI.169
-                        - OR: # track
-                            - AND: # ecology, evolution & organismal biology
-                                - numcourses:
-                                    min: 2
-                                    courses:
-                                        - ls_integrative_biology_group_B
-                                - ls_integrative_biology_group_C
-                                - AND: # ud lab
-                                    - OR: # field based lab
-                                        - course: INTEGBI.102LF
-                                        - course: INTEGBI.103LF
-                                        - course: INTEGBI.104LF
-                                        - course: INTEGBI.C107LF
-                                        - course: PLANTBI.C107
-                                        - course: INTEGBI.117LF
-                                        - course: INTEGBI.146LF
-                                        - course: INTEGBI.153LF
-                                        - course: INTEGBI.157LF
-                                        - course: INTEGBI.C158LF
-                                        - course: ESPM.C107
-                                        - course: INTEGBI.173LF
-                                        - course: INTEGBI.174LF
-                                        - course: INTEGBI.175LF
-                                    - ls_integrative_biology_lab
-                            - AND: # human biology & health sciences
-                                - ls_integrative_biology_group_B
-                                - numcourses:
-                                    min: 2
-                                    courses:
-                                        - ls_integrative_biology_group_C
-                                - numcourses:
-                                    min: 2
-                                    courses:
-                                        - ls_integrative_biology_lab
+            - rule: physics7_8a
+            - rule: physics7_8b
 
-    ls_integrative_biology_group_B:
+    ls_upperdiv_integrative_biology:
+        description: "Integrative Biology Upper Division Major Requirements"
+        rule: count_courses
+            min: 24
+            rule: OR
+            args:
+                - rule: ls_integrative_biology_track_1
+                - rule: ls_integrative_biology_track_2
+
+    ls_integrative_biology_track_1:
+        description: "Track 1: Ecology, Evolution & Organismal Biology"
+        rule: AND
+        args:
+            - rule: ls_integrative_biology_group_A_courses
+            - rule: ib_group_b_2
+            - rule: ls_integrative_biology_group_C_courses
+            - rule: ls_integrative_biology_lab_track_1
+
+    ib_group_b_2:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: ls_integrative_biology_group_B_courses
+
+    ls_integrative_biology_lab_track_1:
+        description: "Integrative Biology Lab for Track 1"
+        rule: count_courses
+            min: 2
+            rule: AND
+            args:
+                - rule: ls_integrative_biology_lab
+                - rule: ls_integrative_biology_field_lab
+
+    ls_integrative_biology_field_lab:
+        description: "Integrative Biology Field-Based Lab"
+        rule: OR
+        args:
+            - course: INTEGBI.102LF
+            - course: INTEGBI.103LF
+            - course: INTEGBI.104LF
+            - course: INTEGBI.C107LF
+            - course: PLANTBI.C107
+            - course: INTEGBI.117LF
+            - course: INTEGBI.146LF
+            - course: INTEGBI.153LF
+            - course: INTEGBI.157LF
+            - course: INTEGBI.C158LF
+            - course: ESPM.C107
+            - course: INTEGBI.173LF
+            - course: INTEGBI.174LF
+            - course: INTEGBI.175LF
+
+    ls_integrative_biology_track_2:
+        description: "Track 2: Human Biology & Health Sciences"
+        rule: AND
+        args:
+            - rule: ls_integrative_biology_group_A_courses
+            - rule: ls_integrative_biology_group_B_courses
+            - rule: ib_group_c_2
+
+    ib_group_c_2:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: ls_integrative_biology_group_C_courses
+
+    ls_integrative_biology_lab_track_2:
+        description: "Integrative Biology Lab for Track 2"
+        rule: count_courses
+            min: 2
+            rule: ls_integrative_biology_lab
+
+
+    ls_integrative_biology_group_A_courses:
+        description: "Integrative Biology Requirement Group A: Evolution & Genetics"
+        rule: OR
+        args:
+            - course: INTEGBI.141
+            - course: INTEGBI.160
+            - course: INTEGBI.161
+            - course: INTEGBI.162
+            - course: INTEGBI.163
+            - course: INTEGBI.164
+            - course: INTEGBI.167
+            - course: INTEGBI.169
+
+    ls_integrative_biology_group_B_courses:
         description: "Integrative Biology Requirement Group B: Ecology, Behavior & Diversity"
         rule: OR
         args:
@@ -123,7 +162,7 @@ rules:
             - course: ANTHRO.C124C
 
 
-    ls_integrative_biology_group_C:
+    ls_integrative_biology_group_C_courses:
         description: "Integrative Biology Requiremeng Group C: Structure, Function & Human Health"
         rule: OR
         args:
@@ -141,15 +180,9 @@ rules:
             - course: PHYS ED.C129
             - course: INTEGBI.C130
             - course: SOCIOL.118
-            - AND:
-                - course: INTEGBI.131
-                - course: INTEGBI.131L
-            - AND:
-                - course: INTEGBI.132
-                - course: INTEGBI.132L
-            - AND:
-                - course: INTEGBI.C135
-                - course: INTEGBI.C135L
+            - rule: ib131
+            - rule: ib132
+            - rule: ibc135
             - course: INTEGBI.136
             - course: INTEGBI.137
             - course: INTEGBI.138
@@ -162,12 +195,10 @@ rules:
             - course: INTEGBI.C143B
             - course: PSYCH.C116
             - course: INTEGBI.148
-            - AND:
-                - course: INTEGBI.151
-                - course: INTEGBI.151L
+            - rule: ib151
             - course: INTEGBI.184L
 
-    ls_integrative_biology_lab:
+    ls_integrative_biology_lab_courses:
         description: "Integrative Biology Lab Requirement"
         rule: OR
         args:

@@ -1,69 +1,117 @@
 rules:
 
     ls_neurobiology_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - AND: # lower division
-            - ls_molecular_cell_biology_lower_division
+        description: "Neurobiology Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_neurobiology
+            - rule: ls_upperdiv_neurobiology
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_neurobiology:
+        description: "Neurobiology Lower Division Requirements"
+        rule: AND
+        args:
+            - rule: math1_10
+            - course: CHEM.1A
+            - course: CHEM.1AL
             - course: CHEM.3A
             - course: CHEM.3AL
             - course: CHEM.3B
             - course: CHEM.3BL
-        - AND: # core upper div
-            - course: MCELLBI.102
-            - course: MCELLBI.104
-            - course: MCELLBI.C160
-            - OR:
-                - course: MCELLBI.163
-                - course: MCELLBI.160L
-        - AND: # elective
-            - OR:   
-                - AND:
-                    - OR:
-                        - course: BIO ENG.131
-                        - course: BIO ENG.143
-                        - course: COG SCI.C127
-                        - course: MCELLBI.C100
-                        - course: MCELLBI.130A
-                        - course: MCELLBI.132
-                        - course: MCELLBI.135A
-                        - course: MCELLBI.136
-                        - course: MCELLBI.137
-                        - course: MCELLBI.141
-                        - course: MCELLBI.C145
-                        - course: MCELLBI.150
-                        - course: INTEGBI.131
-                        - course: INTEGBI.C139
-                        - course: INTEGBI.C143A
-                        - course: INTEGBI.C143B
-                        - course: INTEGBI.144
-                        - course: MATH.110
-                        - course: MATH.127
-                        - course: MATH.128A
-                        - course: MATH.128B
-                        - course: PHYSICS.112
-                        - course: PHYSICS.132
-                        - course: PSYCH.C112
-                        - course: PSYCH.C113
-                        - course: PSYCH.C116
-                        - course: PSYCH.117
-                        - course: PSYCH.C127
-                        - course: PB HLTH.141
-                        - course: PB HLTH.142
-                        - course: STAT.131A
-                    - OR:
-                        - course: MCELLBI.160L
-                        - course: MCELLBI.163
-                        - course: MCELLBI.165
-                        - course: MCELLBI.166
-                        - course: MCELLBI.167
-                - numcourses:
-                    min: 2
-                    courses:
-                        - course: MCELLBI.160L
-                        - course: MCELLBI.163
-                        - course: MCELLBI.165
-                        - course: MCELLBI.166
-                        - course: MCELLBI.167
+            - course: BIOLOGY.1A
+            - course: BIOLOGY.1AL
+            - course: BIOLOGY.1B
+            - course: PHYSICS.8A
+            - course: PHYSICS.8B
+
+    ls_upperdiv_neurobiology:
+        description: "Neurobiology Upper Division Requirements"
+        rule: count_courses
+            min: 6
+            rule: AND
+            args:
+                - course: MCELLBI.102
+                - course: MCELLBI.104
+                - course: MCELLBI.C160
+                - rule: mcb160l_163
+                - rule: ls_neurobiology_electives
+
+    mcb160l_163:
+        hidden: true
+        rule: OR
+        args:
+            - course: MCELLBI.163
+            - course: MCELLBI.160L
+
+    ls_neurobiology_electives:
+        description: "Neurobiology Electives"
+        rule: count_courses
+            min: 2
+            rule: OR
+                - rule: neuro_a_b
+                - rule: neuro_2b
+
+    neuro_a_b:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: AND
+            args:
+                - rule: ls_neurobiology_elective_list_a
+                - rule: ls_neurobiology_elective_list_b
+
+    neuro_2b:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: ls_neurobiology_elective_list_b
+
+    ls_neurobiology_elective_list_a:
+        description: "Neurobiology Elective List A: Non-Neuroscience Courses"
+        rule: OR
+        args:
+            - course: BIO ENG.131
+            - course: BIO ENG.143
+            - course: COG SCI.C127
+            - course: MCELLBI.C100
+            - course: MCELLBI.130A
+            - course: MCELLBI.132
+            - course: MCELLBI.135A
+            - course: MCELLBI.136
+            - course: MCELLBI.137
+            - course: MCELLBI.141
+            - course: MCELLBI.C145
+            - course: MCELLBI.150
+            - course: INTEGBI.131
+            - course: INTEGBI.C139
+            - course: INTEGBI.C143A
+            - course: INTEGBI.C143B
+            - course: INTEGBI.144
+            - course: MATH.110
+            - course: MATH.127
+            - course: MATH.128A
+            - course: MATH.128B
+            - course: PHYSICS.112
+            - course: PHYSICS.132
+            - course: PSYCH.C112
+            - course: PSYCH.C113
+            - course: PSYCH.C116
+            - course: PSYCH.117
+            - course: PSYCH.C127
+            - course: PB HLTH.141
+            - course: PB HLTH.142
+            - course: STAT.131A
+
+    ls_neurobiology_elective_list_b:
+        description: "Neurobiology Elective B: MCB Neurobiology Elective Courses"
+        rule: OR
+        args:
+            - course: MCELLBI.160L
+            - course: MCELLBI.163
+            - course: MCELLBI.165
+            - course: MCELLBI.166
+            - course: MCELLBI.167

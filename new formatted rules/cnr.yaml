@@ -564,6 +564,28 @@ ib127:
         - course: INTEGBI.127
         - course: INTEGBI.127L
 
+ib131:
+    hidden: true
+    rule: AND
+    args:
+    - AND:
+        - course: INTEGBI.131
+        - course: INTEGBI.131L
+
+ib132:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.132
+        - course: INTEGBI.132L
+
+ibc135:
+    hidden: true
+    rule: AND
+    args:
+        - course: INTEGBI.C135
+        - course: INTEGBI.C135L
+
 ib151:
     hidden: true
     rule: AND

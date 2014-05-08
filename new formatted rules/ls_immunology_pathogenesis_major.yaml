@@ -15,11 +15,18 @@ rules:
         description: "Immunology & Pathogenesis Lower Division Requirements"
         rule: AND
         args:
-            - rule: ls_molecular_cell_biology_lower_division
+            - rule: math1_10
+            - course: CHEM.1A
+            - course: CHEM.1AL
             - course: CHEM.3A
             - course: CHEM.3AL
             - course: CHEM.3B
             - course: CHEM.3BL
+            - course: BIOLOGY.1A
+            - course: BIOLOGY.1AL
+            - course: BIOLOGY.1B
+            - course: PHYSICS.8A
+            - course: PHYSICS.8B
 
     ls_immunology_tracks:
         description: "Immunology Tracks: Immunology & Pathogenesis and Infectious Diseases"

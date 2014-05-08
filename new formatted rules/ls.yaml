@@ -76,12 +76,19 @@ upperdiv_integrative_biology:
         - upperdiv
         - dept: INTEGBI
 
+upperdiv_history:
+    description: "Upper Division History"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: HISTORY
+
 upperdiv_math:
     description: "Upper Division Mathematics"
     rule: same_course
     args:
         - upperdiv
-        - dept: MAT
+        - dept: MATH
 
 upperdiv_molecular_cell_biology:
     description: "Upper Division Molecular & Cell Biology"
@@ -110,11 +117,6 @@ upperdiv_statistics:
     args:
         - upperdiv
         - dept: STAT
-
-
-
-
-
 
 chem1a:
     hidden: true
@@ -185,6 +187,20 @@ math1_10:
         - rule: math1
         - rule: math10
 
+math1a_10a:
+    hidden: true
+    rule: OR
+    args:
+        - course: MATH.1A
+        - course: MATH.10A
+
+math1b_10b:
+    hidden: true
+    rule: OR
+    args:
+        - course: MATH.1B
+        - course: MATH.10B
+
 physics7_8a:
     hidden: true
     rule: OR
@@ -192,8 +208,12 @@ physics7_8a:
         - course: PHYSICS.7A
         - course: PHYSICS.8A
 
-
-
+physics7_8b:
+    hidden: true
+    rule: OR
+    args:
+        - course: PHYSICS.7B
+        - course: PHYSICS.8B
 
 ls_molecular_cell_biology_lower_division:
     description: "Molecular Cell Biology Lower Division Requirements"
@@ -207,9 +227,6 @@ ls_molecular_cell_biology_lower_division:
         - course: BIOLOGY.1B
         - course: PHYSICS.8A
         - course: PHYSICS.8B
-
-
-
 
 
 ls_ias_foreign_language_requirement:

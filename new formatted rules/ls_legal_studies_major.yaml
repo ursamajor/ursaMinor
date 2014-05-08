@@ -1,168 +1,275 @@
 rules:
 
     ls_legal_studies_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - AND: # pre-reqs
-            - OR: # statistics
-                - course: STAT.2
-                - course: STAT.20
-                - course: STAT.21
-                - course: STAT.25
-                - course: STAT.101
-                - course: STAT.102
-            - OR: # philosophy
-                - course: PHILOS.2
-                - course: PHILOS.3
-                - course: PHILOS.4
-                - course: PHILOS.12A
-                - course: PHILOS.12B
-                - course: PHILOS.25A
-                - course: PHILOS.25B
-                - course: PHILOS.104 # either this or social
-                - course: PHILOS.132
-                - course: CLASSIC.36
-                - course: POL SCI.112A
-            - OR: # history
-                - course: HISTORY.4A
-                - course: HISTORY.4B
-                - course: HISTORY.5
-                - course: HISTORY.7A
-                - course: HISTORY.7B
-                - course: HISTORY.C139AC
-                - course: HISTORY.139AC
-                - course: AMERSTD.139AC
-                - course: HISTORY.155A
-                - course: HISTORY.155B
-                - course: HISTORY.157
-                - course: HISTORY.163A
-                - course: HISTORY.163B
-                - course: HISTORY.158A
-                - course: HISTORY.158B
-                - course: HISTORY.158C
-                - course: AFRICAM.117
-                - course: ETH STD.21AC
-                - course: ETH STD.135
-                - course: LNS.R44
-                - course: UGIS.R44
-            - OR: # social/behavioral sciences
-                - course: ECON.1
-                - course: ECON.2
-                - course: ECON.100A
-                - course: ECON.101A
-                - course: ETH STD.21AC
-                - course: ETH STD.135
-                - course: GWS.102
-                - course: PHILOS.104 # either this or philos
-                - course: POL SCI.1
-                - course: POL SCI.2
-                - course: SOCIOL.1
-                - course: SOCIOL.3
-                - course: SOCIOL.3AC
-                - course: SOCIOL.5
-                - course: SOCIOL.101A
-                - course: SOCIOL.101B
-                - course: SOCIOL.131F
-        - AND: # upper division
-            - AND: # core
-                - units:
-                    min: 32
-                    courses:
-                        - numcourses:
-                            min: 4
-                            courses:
-                                - OR: # humanities
-                                    - course: LEGALST.107
-                                    - course: LEGALST.177
-                                    - course: LEGALST.100
-                                    - course: LEGALST.103
-                                    - course: LEGALST.160
-                                - OR: # social sciences
-                                    - course: LEGALST.138
-                                    - course: LEGALST.145
-                                    - course: LEGALST.182
-                                    - course: LEGALST.184
-                                    - course: LEGALST.100
-                                    - course: LEGALST.103
-                                    - course: LEGALST.160
-                                - course: LEGALST.100
-                                - course: LEGALST.103
-                                - course: LEGALST.107
-                                - course: LEGALST.138
-                                - course: LEGALST.145
-                                - course: LEGALST.160
-                                - course: LEGALST.177
-                                - course: LEGALST.182
-                                - course: LEGALST.184
-                        - OR: # distribution
-                            - AND: # area I
-                                - numcourses:
-                                    min: 2
-                                    courses:
-                                        - ls_legal_studies_distribution_area_I
-                                - numcourses:
-                                    min: 2
-                                    courses: # one in two of the below areas
-                                        - ls_legal_studies_distribution_area_II
-                                        - ls_legal_studies_distribution_area_III
-                                        - ls_legal_studies_distribution_area_IV
-                                        - ls_legal_studies_distribution_area_V
-                            - AND: # area II
-                                - numcourses:
-                                    min: 2
-                                    courses:
-                                        - ls_legal_studies_distribution_area_II
-                                - numcourses:
-                                    min: 2
-                                    courses: # one in two of the below areas
-                                        - ls_legal_studies_distribution_area_I
-                                        - ls_legal_studies_distribution_area_III
-                                        - ls_legal_studies_distribution_area_IV
-                                        - ls_legal_studies_distribution_area_V
-                            - AND: # area III
-                                - numcourses:
-                                    min: 2
-                                    courses:
-                                        - ls_legal_studies_distribution_area_III
-                                - numcourses:
-                                    min: 2
-                                    courses: # one in two of the below areas
-                                        - ls_legal_studies_distribution_area_I
-                                        - ls_legal_studies_distribution_area_II
-                                        - ls_legal_studies_distribution_area_IV
-                                        - ls_legal_studies_distribution_area_V
-                            - AND: # area IV
-                                - numcourses:
-                                    min: 2
-                                    courses:
-                                        - ls_legal_studies_distribution_area_IV
-                                - numcourses:
-                                    min: 2
-                                    courses: # one in two of the below areas
-                                        - ls_legal_studies_distribution_area_I
-                                        - ls_legal_studies_distribution_area_II
-                                        - ls_legal_studies_distribution_area_III
-                                        - ls_legal_studies_distribution_area_V
-                            - AND: # area V
-                                - numcourses:
-                                    min: 2
-                                    courses:
-                                        - ls_legal_studies_distribution_area_V
-                                - numcourses:
-                                    min: 2
-                                    courses: # one in two of the below areas
-                                        - ls_legal_studies_distribution_area_I
-                                        - ls_legal_studies_distribution_area_II
-                                        - ls_legal_studies_distribution_area_III
-                                        - ls_legal_studies_distribution_area_IV
-                        - dept: LEGALST # others, or something to fulfill major
-                        - OR: # maybe, optional, sustitute one course
-                            - course: LEGALST.H195B
-                            - course: LEGALST.199
-    ls_legal_studies_distribution_area_I:
-        description: "Legal Studies Distribution Requirement: Area I Crime, Law & Social Control"
+        description: "Legal Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_legal_studies_prereqs
+            - rule: ls_legal_studies_core
+            - rule: ls_legal_studies_distribution
+            - rule: units_upperdiv_legal
+            - rule: units_total
+
+    ls_legal_studies_prereqs:
+        description: "Legal Studies Prerequisites"
+        rule: count_courses
+            min: 4
+            rule: AND
+            args:
+                - rule: ls_legal_studies_statistics
+                - rule: ls_legal_studies_philosophy
+                - rule: ls_legal_studies_history
+                - rule: ls_legal_studies_social
+
+    ls_legal_studies_statistics:
+        description: "Legal Studies Prerequiste: Statistics"
+        rule: OR
+        args:
+            - course: STAT.2
+            - course: STAT.20
+            - course: STAT.21
+            - course: STAT.25
+            - course: STAT.101
+            - course: STAT.102
+
+    ls_legal_studies_philosophy:
+        description: "Legal Studies Prerequiste: Philosophy"
+        rule: OR
+        args:
+            - course: PHILOS.2
+            - course: PHILOS.3
+            - course: PHILOS.4
+            - course: PHILOS.12A
+            - course: PHILOS.12B
+            - course: PHILOS.25A
+            - course: PHILOS.25B
+            - course: PHILOS.104 # either this or social
+            - course: PHILOS.132
+            - course: CLASSIC.36
+            - course: POL SCI.112A
+
+    ls_legal_studies_history:
+        description: "Legal Studies Prerequiste: History"
+        rule: OR
+        args:
+            - course: HISTORY.4A
+            - course: HISTORY.4B
+            - course: HISTORY.5
+            - course: HISTORY.7A
+            - course: HISTORY.7B
+            - course: HISTORY.C139AC
+            - course: HISTORY.139AC
+            - course: AMERSTD.139AC
+            - course: HISTORY.155A
+            - course: HISTORY.155B
+            - course: HISTORY.157
+            - course: HISTORY.163A
+            - course: HISTORY.163B
+            - course: HISTORY.158A
+            - course: HISTORY.158B
+            - course: HISTORY.158C
+            - course: AFRICAM.117
+            - course: ETH STD.21AC
+            - course: ETH STD.135
+            - course: LNS.R44
+            - course: UGIS.R44
+
+    ls_legal_studies_social:
+        description: "Legal Studies Prerequiste: Social/Behavioral Sciences"
+        rule: OR
+        args:
+            - course: ECON.1
+            - course: ECON.2
+            - course: ECON.100A
+            - course: ECON.101A
+            - course: ETH STD.21AC
+            - course: ETH STD.135
+            - course: GWS.102
+            - course: PHILOS.104 # either this or philos
+            - course: POL SCI.1
+            - course: POL SCI.2
+            - course: SOCIOL.1
+            - course: SOCIOL.3
+            - course: SOCIOL.3AC
+            - course: SOCIOL.5
+            - course: SOCIOL.101A
+            - course: SOCIOL.101B
+            - course: SOCIOL.131F
+
+    ls_legal_studies_core:
+        description: "Core Legal Studies Requirements"
+        rule: count_courses
+            min: 4
+            rule: AND
+            args:
+                - rule: ls_legal_studies_core_humanities
+                - rule: ls_legal_studies_core_social_sciences
+
+    ls_legal_studies_core_humanities:
+        description: "Core Legal Studies Requirement: Humanities"
+        rule: OR
+        args:
+            - course: LEGALST.107
+            - course: LEGALST.177
+            - course: LEGALST.100
+            - course: LEGALST.103
+            - course: LEGALST.160
+
+    ls_legal_studies_core_social_sciences:
+        description: "Core Legal Studies Requirement: Social Sciences"
+        rule: OR
+        args:
+            - course: LEGALST.138
+            - course: LEGALST.145
+            - course: LEGALST.182
+            - course: LEGALST.184
+            - course: LEGALST.100
+            - course: LEGALST.103
+            - course: LEGALST.160
+
+    ls_legal_studies_distribution:
+        description: "Legal Studies Distribution Requirements"
+        rule: count_courses
+            min: 4
+            rule: OR
+            args:
+                - rule: ls_legal_studies_area_I
+                - rule: ls_legal_studies_area_II
+                - rule: ls_legal_studies_area_III
+                - rule: ls_legal_studies_area_IV
+                - rule: ls_legal_studies_area_V
+
+    ls_legal_studies_area_I:
+        description: "Legal Studies Area I: Crime, Law & Social Control"
+        rule: AND
+        args:
+            - rule: legal_area_I_focus
+            - rule: legal_area_I_non
+
+    legal_area_I_focus:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: ls_legal_studies_distribution_area_I_courses
+
+    legal_area_I_non:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - rule: ls_legal_studies_distribution_area_II_courses
+                - rule: ls_legal_studies_distribution_area_III_courses
+                - rule: ls_legal_studies_distribution_area_IV_courses
+                - rule: ls_legal_studies_distribution_area_V_courses
+
+    ls_legal_studies_area_II:
+        description: "Legal Studies Area II: Law & Culture"
+        rule: AND
+        args:
+            - rule: legal_area_II_focus
+            - rule: legal_area_II_non
+
+    legal_area_II_focus:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: ls_legal_studies_distribution_area_II_courses
+
+    legal_area_II_non:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - rule: ls_legal_studies_distribution_area_I_courses
+                - rule: ls_legal_studies_distribution_area_III_courses
+                - rule: ls_legal_studies_distribution_area_IV_courses
+                - rule: ls_legal_studies_distribution_area_V_courses
+
+    ls_legal_studies_area_III:
+        description: "Legal Studies Area III: Law & Markets"
+        rule: AND
+        args:
+            - rule: legal_area_III_focus
+            - rule: legal_area_III_non
+
+    legal_area_III_focus:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: ls_legal_studies_distribution_area_III_courses
+
+    legal_area_III_non:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - rule: ls_legal_studies_distribution_area_I_courses
+                - rule: ls_legal_studies_distribution_area_II_courses
+                - rule: ls_legal_studies_distribution_area_IV_courses
+                - rule: ls_legal_studies_distribution_area_V_courses
+
+    ls_legal_studies_area_IV:
+        description: "Legal Studies Area IV: Law, Rights & Social Change"
+        rule: AND
+        args:
+            - rule: legal_area_IV_focus
+            - rule: legal_area_IV_non
+
+    legal_area_IV_focus:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: ls_legal_studies_distribution_area_IV_courses
+
+    legal_area_IV_non:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - rule: ls_legal_studies_distribution_area_I_courses
+                - rule: ls_legal_studies_distribution_area_II_courses
+                - rule: ls_legal_studies_distribution_area_III_courses
+                - rule: ls_legal_studies_distribution_area_V_courses
+
+    ls_legal_studies_area_V:
+        description: "Legal Studies Area V: Law & Sovereignty"
+        rule: AND
+        args:
+            - rule: legal_area_V_focus
+            - rule: legal_area_V_non
+
+    legal_area_V_focus:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: ls_legal_studies_distribution_area_V_courses
+
+    legal_area_V_non:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - rule: ls_legal_studies_distribution_area_I_courses
+                - rule: ls_legal_studies_distribution_area_II_courses
+                - rule: ls_legal_studies_distribution_area_III_courses
+                - rule: ls_legal_studies_distribution_area_IV_courses
+
+    units_upperdiv_legal:
+        description: "32 Upper Division Units for Legal Studies"
+        rule: units
+        args:
+            min: 32
+            rule: upperdiv
+
+    ls_legal_studies_distribution_area_I_courses:
+        description: "Area I Crime, Law & Social Control Courses"
         rule: OR
         args:
             - course: LEGALST.102
@@ -174,8 +281,8 @@ rules:
             - course: LEGALST.163
             - course: LEGALST.170
 
-    ls_legal_studies_distribution_area_II:
-        description: "Legal Studies Distribution Requirement: Area II Law & Culture"
+    ls_legal_studies_distribution_area_II_courses:
+        description: "Area II Law & Culture Courses"
         rule: OR
         args:
             - course: LEGALST.103
@@ -196,8 +303,8 @@ rules:
             - course: LEGALST.177
             - course: LEGALST.181
 
-    ls_legal_studies_distribution_area_III:
-        description: "Legal Studies Distribution Requirement: Area III Law & Markets"
+    ls_legal_studies_distribution_area_III_courses:
+        description: "Area III Law & Markets Courses"
         rule: OR
         args:
             - course: LEGALST.105
@@ -210,8 +317,8 @@ rules:
             - course: LEGALST.158
             - course: LEGALST.177
 
-    ls_legal_studies_distribution_area_IV:
-        description: "Legal Studies Distribution Requirement: Area IV Law, Rights & Social Change"
+    ls_legal_studies_distribution_area_IV_courses:
+        description: "Area IV Law, Rights & Social Change Courses"
         rule: OR
         args:
             - course: LEGALST.107
@@ -227,8 +334,8 @@ rules:
             - course: LEGALST.184
             - course: LEGALST.189
 
-    ls_legal_studies_distribution_area_V:
-        description: "Legal Studies Distribution Requirement: Area V Law & Sovereignty"
+    ls_legal_studies_distribution_area_V_courses:
+        description: "Area V Law & Sovereignty Courses"
         rule: OR
         args:
             - course: LEGALST.111
