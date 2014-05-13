@@ -1,51 +1,63 @@
 rules:
 
     ls_political_economy_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - AND: # lower division
-            - OR:
-                - course: ECON.1
-                - course: ECON.2
-                - course: ECON.C3
-                - course: ENVECON.C3
+        description: "Political Economy Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_political_economy
+            - rule: ls_ias_foreign_language_requirement
+            - rule: ls_upperdiv_political_economy
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_political_economy:
+        description: "Political Economy Lower Division Requirements"
+        rule: AND
+        args:
+            - rule: econ_lowerdiv
             - course: IAS.45
-            - OR:
-                - course: STAT.2
-                - course: STAT.20
-                - course: STAT.21
-        - ls_ias_foreign_language_requirement
-        - AND: # upper division
-            - OR: # intermediate microeconomics
-                - course: ECON.100A
-                - course: ECON.101A
-                - course: IAS.106
-                - course: UGBA.101A
-            - OR: # intermediate macroeconomics
-                - course: ECON.100B
-                - course: ECON.101B
-                - course: IAS.107
-                - course: UGBA.101B
+            - rule: stat_lowerdiv
+
+    ls_upperdiv_political_economy:
+        description: "Political Economy Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_political_economy_conceptual
+            - rule: ls_political_economy_historical
+            - rule: ls_political_economy_concentration
+
+    ls_political_economy_conceptual:
+        description: "Political Economy Conceptual Tools"
+        rule: AND
+        args:
+            - rule: macroecon
+            - rule: microecon
             - course: POLECON.100
             - course: POLECON.101
-            - OR: # historical context req
-                - course: CY PLAN.112
-                - course: ECON.113
-                - course: ECON.115
-                - course: HISTORY.124A
-                - course: HISTORY.124B
-                - course: HISTORY.125B
-                - course: HISTORY.131B
-                - course: HISTORY.158C
-                - course: HISTORY.162B
-                - course: POLECON.160
-                - course: POL SCI.122A
-                - course: UGBA.C172
-            - AND: # concentration...needs to be approved
-                - numcourses:
-                    min: 4
-                    courses:
+
+    ls_political_economy_historical:
+        description: "Political Economy Historical Context"
+        rule: OR
+        args:
+            - course: CY PLAN.112
+            - course: ECON.113
+            - course: ECON.115
+            - course: HISTORY.124A
+            - course: HISTORY.124B
+            - course: HISTORY.125B
+            - course: HISTORY.131B
+            - course: HISTORY.158C
+            - course: HISTORY.162B
+            - course: POLECON.160
+            - course: POL SCI.122A
+            - course: UGBA.C172
+
+    ls_political_economy_concentration:
+        description: "Political Economy Concentration"
+        rule: count_courses
+            min: 4
+            rule: 
 
 

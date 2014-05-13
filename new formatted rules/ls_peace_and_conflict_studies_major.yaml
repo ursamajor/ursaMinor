@@ -1,95 +1,284 @@
 rules:
 
     ls_peace_and_conflict_studies_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - AND: # lower division
-            - course: PACS.10
-            - numcourses:
-                min: 2
-                courses:
-                    - course: ANTHRO.3
-                    - course: ANTHRO.3AC
-                    - course: ASIANST.10
-                    - course: DEV STD.C10
-                    - course: GEOG.C32
-                    - course: ECON.1
-                    - course: ECON.2
-                    - course: GWS.20
-                    - course: GEOG.4
-                    - course: GEOG.10
-                    - course: GEOG.20
-                    - course: GEOG.C55
-                    - course: NE STUD.C26
-                    - course: HISTORY.6B
-                    - course: HISTORY.7B
-                    - course: HISTORY.8B
-                    - course: HISTORY.10
-                    - course: HISTORY.11
-                    - course: HISTORY.12
-                    - course: HISTORY.14
-                    - course: IAS.45
-                    - course: LATAMST.10
-                    - course: M E STU.20
-                    - course: POL SCI.2
-                    - course: PSYCH.1
-                    - course: SOCIOL.1
-                    - course: SOCIOL.3AC
-                    - course: UGBA.10
-        - ls_ias_foreign_language_requirement
-        - AND: # upper division
+        description: "Peace and Conflict Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_peace_and_conflict_studies
+            - rule: ls_ias_foreign_language_requirement
+            - rule: ls_upperdiv_peace_and_conflict_studies
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_peace_and_conflict_studies:
+        description: "Peace and Conflict Studies Lower Division Requirements"
+        rule: count_courses
+            min: 3
+            rule: AND
+            args:
+                - course: PACS.10
+                - rule: ls_peace_and_conflict_studies_appendix_a
+
+    ls_peace_and_conflict_studies_appendix_a:
+        description: "Peace and Conflict Studies Appendix A"
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - course: ANTHRO.3
+                - course: ANTHRO.3AC
+                - course: ASIANST.10
+                - course: DEV STD.C10
+                - course: GEOG.C32
+                - course: ECON.1
+                - course: ECON.2
+                - course: GWS.20
+                - course: GEOG.4
+                - course: GEOG.10
+                - course: GEOG.20
+                - course: GEOG.C55
+                - course: NE STUD.C26
+                - course: HISTORY.6B
+                - course: HISTORY.7B
+                - course: HISTORY.8B
+                - course: HISTORY.10
+                - course: HISTORY.11
+                - course: HISTORY.12
+                - course: HISTORY.14
+                - course: IAS.45
+                - course: LATAMST.10
+                - course: M E STU.20
+                - course: POL SCI.2
+                - course: PSYCH.1
+                - course: SOCIOL.1
+                - course: SOCIOL.3AC
+                - course: UGBA.10
+
+    ls_upperdiv_peace_and_conflict_studies:
+        description: "Peace and Conflict Studies Upper Division Requirements"
+        rule: AND
+        args:
             - course: PACS.100
             - course: PACS.190
-            - OR: # methodology
-                - course: DEMOG.110
-                - course: ECON.140
-                - course: ECON.141
-                - course: ECON.C142
-                - course: POL SCI.C131A
-                - course: PUB POL.C142
-                - course: ENVECON.C118
-                - course: IAS.C118
-                - course: IND ENG.162
-                - course: PSYCH.101
-                - course: PB HLTH.142
-                - course: SOCIOL.106
-                - course: STAT.131A
-                - course: AFRICAM.101
-                - course: ANTHRO.169B
-                - course: ETH STD.101A
-                - course: ETH STD.101B
-                - course: ETH STD.195
-                - course: IAS.102
-                - course: IAS.H102
-                - course: M E STU.102
-                - course: NATAMAST.110
-                - course: SOCIOL.105
-            - AND: # survey
-                - numcourses:
-                    min: 2
-                    courses:
-                        - ls_peace_and_conflict_studies_concentration_conflict_resolution
-                        - ls_peace_and_confict_studies_concentration_culture_and_identity
-                        - ls_peace_and_conflict_studies_concentration_global_governance
-                        - ls_peace_and_conflict_studies_concentration_human_rights
-                        - ls_peace_and_confict_studies_concentration_human_security
-                        - ls_peace_and_confict_studies_concentration_nonviolence
-            - AND: # concentration (can be others too)
-                - numcourses:
-                    min: 4
-                    courses:
-                        - OR:
-                            - ls_peace_and_conflict_studies_concentration_conflict_resolution
-                            - ls_peace_and_confict_studies_concentration_culture_and_identity
-                            - ls_peace_and_conflict_studies_concentration_global_governance
-                            - ls_peace_and_conflict_studies_concentration_human_rights
-                            - ls_peace_and_confict_studies_concentration_human_security
-                            - ls_peace_and_confict_studies_concentration_nonviolence
+            - rule: ls_peace_and_conflict_studies_methodology
+            - rule: ls_peace_and_conflict_studies_three_different
+            - rule: ls_peace_and_conflict_studies_concentration_survey
+
+    ls_peace_and_conflict_studies_methodology:
+        description: "Peace and conflict Studies Methodology"
+        rule: OR
+        args:
+            - course: DEMOG.110
+            - course: ECON.140
+            - course: ECON.141
+            - course: ECON.C142
+            - course: POL SCI.C131A
+            - course: PUB POL.C142
+            - course: ENVECON.C118
+            - course: IAS.C118
+            - course: IND ENG.162
+            - course: PSYCH.101
+            - course: PB HLTH.142
+            - course: SOCIOL.106
+            - course: STAT.131A
+            - course: AFRICAM.101
+            - course: ANTHRO.169B
+            - course: ETH STD.101A
+            - course: ETH STD.101B
+            - course: ETH STD.195
+            - course: IAS.102
+            - course: IAS.H102
+            - course: M E STU.102
+            - course: NATAMAST.110
+            - course: SOCIOL.105
+
+    ls_peace_and_conflict_studies_three_different:
+        description: "Six Courses from 3 Different Topics in Peace and Conflict Studies"
+        rule: count_courses
+            min: 3
+            rule: OR
+            args:
+                - rule: ls_peace_and_conflict_studies_concentration_conflict_resolution_courses
+                - rule: ls_peace_and_confict_studies_concentration_culture_and_identity_courses
+                - rule: ls_peace_and_conflict_studies_concentration_global_governance_courses
+                - rule: ls_peace_and_conflict_studies_concentration_human_rights_courses
+                - rule: ls_peace_and_confict_studies_concentration_human_security_courses
+                - rule: ls_peace_and_confict_studies_concentration_nonviolence_courses
+
+    ls_peace_and_conflict_studies_concentration:
+        description: "Peace and Conflict Studies Concentration Requirement"
+        rule: OR
+        args:
+            - rule: ls_peace_and_conflict_studies_concentration_conflict_resolution
+            - rule: ls_peace_and_confict_studies_concentration_culture_and_identity
+            - rule: ls_peace_and_conflict_studies_concentration_global_governance
+            - rule: ls_peace_and_conflict_studies_concentration_human_rights
+            - rule: ls_peace_and_confict_studies_concentration_human_security
+            - rule: ls_peace_and_confict_studies_concentration_nonviolence
 
     ls_peace_and_conflict_studies_concentration_conflict_resolution:
         description: "Peace and Conflict Studies Concentration: Conflict Resolution"
+        rule: count_courses
+            min: 6
+            rule: AND
+            args:
+                - rule: pacs_conflict_4
+                - rule: pacs_conflict_survey
+
+    pacs_conflict_4:
+        hidden: true
+        rule: count_courses
+            min: 4
+            rule: ls_peace_and_conflict_studies_concentration_conflict_resolution_courses
+
+    pacs_conflict_survey:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+                - rule: ls_peace_and_confict_studies_concentration_culture_and_identity_courses
+                - rule: ls_peace_and_conflict_studies_concentration_global_governance_courses
+                - rule: ls_peace_and_conflict_studies_concentration_human_rights_courses
+                - rule: ls_peace_and_confict_studies_concentration_human_security_courses
+                - rule: ls_peace_and_confict_studies_concentration_nonviolence_courses
+
+    ls_peace_and_conflict_studies_concentration_culture_and_identity:
+        description: "Peace and Conflict Studies Concentration: Culture and Identity"
+        rule: count_courses
+            min: 6
+            rule: AND
+            args:
+                - rule: pacs_culture_4
+                - rule: pacs_culture_survey
+
+    pacs_culture_4:
+        hidden: true
+        rule: count_courses
+            min: 4
+            rule: ls_peace_and_conflict_studies_concentration_culture_and_identity_courses
+
+    pacs_culture_survey:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - rule: ls_peace_and_conflict_studies_concentration_conflict_resolution_courses
+                - rule: ls_peace_and_conflict_studies_concentration_global_governance_courses
+                - rule: ls_peace_and_conflict_studies_concentration_human_rights_courses
+                - rule: ls_peace_and_confict_studies_concentration_human_security_courses
+                - rule: ls_peace_and_confict_studies_concentration_nonviolence_courses
+
+    ls_peace_and_conflict_studies_concentration_global_governance:
+        description: "Peace and Conflict Resolution Concentration: Global Governance"
+        rule: count_courses
+            min: 6
+            rule: AND
+            args:
+                - rule: pacs_global_4
+                - rule: pacs_global_survey
+
+    pacs_global_4:
+        hidden: true
+        rule: count_courses
+            min: 4
+            rule: ls_peace_and_conflict_studies_concentration_global_governance_courses
+
+    pacs_global_survey:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+                - rule: ls_peace_and_conflict_studies_concentration_conflict_resolution_courses
+                - rule: ls_peace_and_confict_studies_concentration_culture_and_identity_courses
+                - rule: ls_peace_and_conflict_studies_concentration_human_rights_courses
+                - rule: ls_peace_and_confict_studies_concentration_human_security_courses
+                - rule: ls_peace_and_confict_studies_concentration_nonviolence_courses
+
+    ls_peace_and_conflict_studies_concentration_human_rights:
+        description: "Peace and Conflict Studies Concentration: Human Rights"
+        rule: count_courses
+            min: 6
+            rule: AND
+            args:
+                - rule: pacs_human_rights_4
+                - rule: pacs_human_rights_survey
+
+    pacs_human_rights_4:
+        hidden: true
+        rule: count_courses
+            min: 4
+            rule: ls_peace_and_conflict_studies_concentration_human_rights_courses
+
+    pacs_human_rights_survey:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+                - rule: ls_peace_and_conflict_studies_concentration_conflict_resolution_courses
+                - rule: ls_peace_and_confict_studies_concentration_culture_and_identity_courses
+                - rule: ls_peace_and_conflict_studies_concentration_global_governance_courses
+                - rule: ls_peace_and_confict_studies_concentration_human_security_courses
+                - rule: ls_peace_and_confict_studies_concentration_nonviolence_courses
+
+    ls_peace_and_confict_studies_concentration_human_security:
+        description:" Peace and Conflict Studies Concentration: Human Security"
+        rule: count_courses
+            min: 6
+            rule: AND
+            args:
+                - rule: pacs_human_security_4
+                - rule: pacs_human_security_survey
+
+    pacs_human_security_4:
+        hidden: true
+        rule: count_courses
+            min: 4
+            rule: ls_peace_and_confict_studies_concentration_human_security_courses
+
+    pacs_human_security_survey:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+                - rule: ls_peace_and_conflict_studies_concentration_conflict_resolution_courses
+                - rule: ls_peace_and_confict_studies_concentration_culture_and_identity_courses
+                - rule: ls_peace_and_conflict_studies_concentration_global_governance_courses
+                - rule: ls_peace_and_conflict_studies_concentration_human_rights_courses
+                - rule: ls_peace_and_confict_studies_concentration_nonviolence_courses
+
+    ls_peace_and_confict_studies_concentration_nonviolence:
+        description: "Peace and Conflict Studies Concentration: Nonviolence"
+        rule: count_courses
+            min: 6
+            rule: AND
+            args:
+                - rule: pacs_nonviolence_4
+                - rule: pacs_nonviolence_survey
+
+    pacs_nonviolence_4:
+        hidden: true
+        rule: count_courses
+            min: 4
+            rule: ls_peace_and_confict_studies_concentration_nonviolence_courses
+
+    pacs_nonviolence_survey:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - rule: ls_peace_and_conflict_studies_concentration_conflict_resolution_courses
+                - rule: ls_peace_and_confict_studies_concentration_culture_and_identity_courses
+                - rule: ls_peace_and_conflict_studies_concentration_global_governance_courses
+                - rule: ls_peace_and_conflict_studies_concentration_human_rights_courses
+                - rule: ls_peace_and_confict_studies_concentration_human_security_courses
+
+
+    ls_peace_and_conflict_studies_concentration_conflict_resolution_courses:
+        description: "Peace and Conflict Studies Concentration: Conflict Resolution Courses"
         rule: OR
         args:
             - course: AFRICAM.111
@@ -128,8 +317,8 @@ rules:
             - course: SOCIOL.133
             - course: UGBA.152
 
-    ls_peace_and_conflict_studies_concentration_culture_and_identity:
-        description: "Peace and Conflict Studies Concentration: Culture and Identity"
+    ls_peace_and_confict_studies_concentration_culture_and_identity_courses:
+        description: "Peace and Conflict Studies Concentration: Culture and Identity Courses"
         rule: OR
         args:
             - course: ANTHRO.189
@@ -157,8 +346,8 @@ rules:
             - course: SOCIOL.131A
             - course: SOCIOL.131AC
 
-    ls_peace_and_conflict_studies_concentration_global_governance:
-        description: "Peace and Conflict Studies Concentration: Global Governance"
+    ls_peace_and_conflict_studies_concentration_global_governance_courses:
+        description: "Peace and Conflict Studies Concentration: Global Governance Courses"
         rule: OR
         args:
             - course: CY PLAN.115
@@ -185,8 +374,8 @@ rules:
             - course: POL SCI.148A
             - course: UGBA.178
 
-    ls_peace_and_conflict_studies_concentration_human_rights:
-        description: "Peace and Conflict Studies Concentration: Human Rights"
+    ls_peace_and_conflict_studies_concentration_human_rights_courses:
+        description: "Peace and Conflict Studies Concentration: Human Rights Courses"
         rule: OR
         args:
             - course: AFRICAM.111
@@ -230,8 +419,8 @@ rules:
             - course: SOCIOL.124
             - course: UGBA.175
 
-    ls_peace_and_conflict_studies_concentration_human_security:
-        description: "Peace and Conflict Studies Concentration: Human Security"
+    ls_peace_and_conflict_studies_concentration_human_security_courses:
+        description: "Peace and Conflict Studies Concentration: Human Security Courses"
         rule: OR
         args:
             - course: AFRICAM.112A
@@ -260,8 +449,8 @@ rules:
             - course: POL SCI.141C
             - course: SOCIOL.127
 
-    ls_peace_and_conflict_studies_concentration_nonviolence:
-        description: "Peace and Conflict Studies Concentration: Nonviolence"
+    ls_peace_and_confict_studies_concentration_nonviolence_courses:
+        description: "Peace and Conflict Studies Concentration: Nonviolence Courses"
         rule: OR
         args:
             - course: EDUC.189

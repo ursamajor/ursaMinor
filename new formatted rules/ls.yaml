@@ -104,12 +104,26 @@ upperdiv_native_american:
         - upperdiv
         - dept: NATAMST
 
+upperdiv_philosophy:
+    description: "Upper Division Philosophy"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: PHILOS
+
 upperdiv_physics:
     description: "Upper Division Physics"
     rule: same_course
     args:
         - upperdiv
         - dept: PHYSICS
+
+upperdiv_political_science:
+    description: "Upper Division Political Science"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: POL SCI
 
 upperdiv_statistics:
     description: "Upper Division Statistics"

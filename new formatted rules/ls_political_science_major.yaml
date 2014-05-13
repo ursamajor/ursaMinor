@@ -1,20 +1,39 @@
 rules:
 
-    ls_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - AND: # lower division
-            - numcourses:
-                min: 2
-                courses:
-                    - course: POL SCI.1 # can ap out of PS 1
-                    - course: POL SCI.2
-                    - course: POL SCI.4
-                    - course: POL SCI.5
-            - course: POL SCI.3
-        - OR: # history requirement
+    ls_political_science_major:
+        description: "Political Science Major"
+        rule: AND
+        args:
+            - rule: ls_political_science_introductory
+            - rule: ls_political_science_methods
+            - rule: ls_political_science_history
+            - rule: ls_political_science_distribution
+            - rule: ls_political_science_subfield
+            - rule: ls_political_science_upperdiv
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_political_science_introductory:
+        description: "Political Science Introductory Course Requirement"
+        rule: count_courses
+            min: 2
+            rule: OR
+            args:
+                - course: POL SCI.1 # can ap out of PS 1
+                - course: POL SCI.2
+                - course: POL SCI.4
+                - course: POL SCI.5
+
+    ls_political_science_methods:
+        description: "Political Science Methods Requirement"
+        course: POL SCI.3
+
+    ls_political_science_history:
+        description: "Political Science History Requirement"
+        rule: OR
+        args:
             - course: HISTORY.10
             - course: HISTORY.112A
             - course: HISTORY.112B
@@ -160,53 +179,65 @@ rules:
             - course: ETH STD.21AC
             - course: ETH STD.130AC
             - course: PACS.125AC
-        - AND: # upper div
-            - numcourses:
-                min: 8
-                courses:
-                    - AND: # distribution req, past lower divs can double count 
-                        - ls_political_science_specialization_american_politics
-                        - ls_political_science_specialization_comparative_politics
-                        - ls_political_science_specialization_empirical_theory
-                        - ls_political_science_specialization_political_theory
-                        - ls_political_science_specialization_international_relations
-                    - OR: # subfield specialization
-                        - AND:
-                            - numcourses:
-                                min: 2
-                                courses:
-                                    - ls_political_science_specialization_american_politics
-                        - AND:
-                            - numcourses:
-                                min: 2
-                                courses:
-                                    - ls_political_science_specialization_comparative_politics
-                        - AND:
-                            - numcourses:
-                                min: 2
-                                courses:
-                                    - ls_political_science_specialization_empirical_theory
-                        - AND:
-                            - numcourses:
-                                min: 2
-                                courses:
-                                    - ls_political_science_specialization_political_theory
-                        - AND:
-                            - numcourses:
-                                min: 2
-                                courses:
-                                    - ls_political_science_specialization_international_relations
 
-# this is really confusing. so the confusing parts in words:
-    # choose one of five specializations as shown. take the lower div based
-    # on your chosen specialization, and two other upper divs from the list of
-    # classes in that specialization. in addition, you have to take two out of 
-    # the four lower divs, which can also double count towards the distribution
-    # requirement. You have to take 8 upper divs in the POL SCI total. Idk
-    # how to represent all this.
+    ls_political_science_distribution:
+        description: "Political Science Distribution Requirement"
+        rule: OR
+        args:
+            - rule: ls_political_science_specialization_american_politics_courses
+            - rule: ls_political_science_specialization_comparative_politics_courses
+            - rule: ls_political_science_specialization_empirical_theory_courses
+            - rule: ls_political_science_specialization_political_theory_courses
+            - rule: ls_political_science_specialization_international_relations_courses
+
+    ls_political_science_specialization:
+        description: "Political Science Subfield Specialization"
+        rule: OR
+        args:
+            - rule: ls_political_science_specialization_american_politics
+            - rule: ls_political_science_specialization_comparative_politics
+            - rule: ls_political_science_specialization_empirical_theory
+            - rule: ls_political_science_specialization_political_theory
+            - rule: ls_political_science_specialization_international_relations
 
     ls_political_science_specialization_american_politics:
         description: "Political Science Specialization: American Politics"
+        rule: count_courses
+            min: 2
+            rule: ls_political_science_specialization_american_politics_courses
+
+    ls_political_science_specialization_comparative_politics:
+        description: "Political Science Specialization: Comparative Politics"
+        rule: count_courses
+            min: 2
+            rule: ls_political_science_specialization_comparative_politics_courses
+
+    ls_political_science_specialization_empirical_theory:
+        description: "Political Science Specialization: Empirical Theory"
+        rule: count_courses
+            min: 2
+            rule: ls_political_science_specialization_empirical_theory_courses
+
+    ls_political_science_specialization_political_theory:
+        description: "Political Science Specialization: Political Theory"
+        rule: count_courses
+            min: 2
+            rule: ls_political_science_specialization_political_theory_courses
+
+    ls_political_science_specialization_international_relations:
+        description: "Political Science Specialization: International Relations"
+        rule: count_courses
+            min: 2
+            rule: ls_political_science_specialization_international_relations_courses
+
+    ls_political_science_upperdiv:
+        description: "Political Science Upper Division"
+        rule: count_courses
+            min: 8
+            rule: upperdiv_political_science
+
+    ls_political_science_specialization_american_politics_courses:
+        description: "Political Science Specialization: American Politics Courses"
         rule: OR
         args:
             - course: POL SCI.1
@@ -240,8 +271,8 @@ rules:
             - course: POL SCI.179
             - course: POL SCI.181
 
-    ls_political_science_specialization_comparative_politics:
-        description: "Political Science Specialization: Comparative Politics"
+    ls_political_science_specialization_comparative_politics_courses:
+        description: "Political Science Specialization: Comparative Politics Courses"
         rule: OR
         args:
             - course: POL SCI.2
@@ -286,8 +317,8 @@ rules:
             - course: POL SCI.149Y
             - course: POL SCI.149Z
 
-    ls_political_science_specialization_empirical_theory:
-        description: "Political Science Specialization: Empirical Theory and Quantitative Methods"
+    ls_political_science_specialization_empirical_theory_courses:
+        description: "Political Science Specialization: Empirical Theory and Quantitative Methods Courses"
         rule: OR
         args:
             - course: POL SCI.3
@@ -298,8 +329,8 @@ rules:
             - course: ECON.C110
             - course: POL SCI.161
 
-    ls_political_science_specialization_political_theory:
-        description: "Political Science Specialization: Political Theory"
+    ls_political_science_specialization_political_theory_courses:
+        description: "Political Science Specialization: Political Theory Courses"
         rule: OR
         args:
             - course: POL SCI.4
@@ -337,10 +368,11 @@ rules:
             - course: POL SCI.116Z
             - course: POL SCI.118AC
 
-    ls_political_science_specialization_international_relations:
-        description: "Political Science Specialization: International Relations"
+    ls_political_science_specialization_international_relations_courses:
+        description: "Political Science Specialization: International Relations Courses"
         rule: OR
         args:
+            - course: POL SCI.5
             - course: POL SCI.122A
             - course: POL SCI.123A
             - course: POL SCI.123G
