@@ -1,53 +1,91 @@
 rules:
 
     ls_rhetoric_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - AND: # lower division
-            - course: RHETOR.10
-            - course: RHETOR.20
-        - AND: # upper division
+        description: "Rhetoric Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_rhetoric_prereqs
             - course: RHETOR.103A
             - course: RHETOR.103B
-        - OR: # concentration
-            - AND: # history & theory of rhetoric
-                - numcourses:
-                    min: 3
-                    courses:
-                        - ls_rhetoric_concentration_history
-                - numcourses:
-                    min: 2
-                    courses:
-                        - ls_rhetoric_concentration_public_discourse
-                        - ls_rhetoric_concentration_narrative_and_image
-                # another course in another department
-            - AND: # public discourse
-                - numcourses:
-                    min: 3
-                    courses:
-                        - ls_rhetoric_concentration_public_discourse
-                - numcourses:
-                    min: 2
-                    courses:
-                        - ls_rhetoric_concentration_history
-                        - ls_rhetoric_concentration_narrative_and_image
-                # another course in another department
-            - AND: # narrative & image
-                - numcourses:
-                    min: 3
-                    courses:
-                        - ls_rhetoric_concentration_narrative_and_image
-                - numcourses:
-                    min: 2
-                    courses:
-                        - ls_rhetoric_concentration_public_discourse
-                        - ls_rhetoric_concentration_history
-                # another course in another department
+            - rule: ls_rhetoric_concentration
+            - rule: ls_rhetoric_upperdiv_other_dept
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_rhetoric_prereqs:
+        description: "Rhetoric Prerequisites"
+        rule: AND
+        args:
+            - course: RHETOR.10
+            - course: RHETOR.20
+
+    ls_rhetoric_upperdiv_other_dept:
+        description: "One Upper Division Course Outside the Department Related to the Concentration
+        rule: units
+            min: 4
+            rule: upperdiv # relates to concentration
+
+    ls_rhetoric_concentration:
+        description: "Rhetoric Concentration: History & Theory of Rhetoric, Public Discourse, and Narrative & Image"
+        rule: OR
+        args:
+            - rule: ls_rhetoric_concentration_history
+            - rule: ls_rhetoric_concentration_public_discourse
+            - rule: ls_rhetoric_concentration_narrative_and_image
 
     ls_rhetoric_concentration_history:
         description: "Rhetoric Concentration: History & Theory of Rhetoric"
+        rule: count_courses
+            min: 5
+            rule: AND
+            args:
+                - rule: ls_rhetoric_concentration_history_courses_3
+                - rule: ls_rhetoric_concentration_public_discourse_courses
+                - rule: ls_rhetoric_concentration_narrative_and_image_courses
+
+    ls_rhetoric_concentration_history_courses_3:
+        description: "Rhetoric History Courses within the Concentration"
+        rule: count_courses
+            min: 3
+            rule: ls_rhetoric_concentration_history_courses
+
+    ls_rhetoric_concentration_public_discourse:
+        description: "Rhetoric Concentration: Public Discourse"
+        rule: count_courses
+            min: 5
+            rule: AND
+            args:
+                - rule: ls_rhetoric_concentration_public_discourse_courses_3
+                - rule: ls_rhetoric_concentration_history_courses
+                - rule: ls_rhetoric_concentration_narrative_and_image_courses
+
+    ls_rhetoric_concentration_public_discourse_courses_3:
+        description: "Rhetoric Public Discourse Courses within the Concentration"
+        rule: count_courses
+            min: 3
+            rule: ls_rhetoric_concentration_public_discourse_courses
+
+    ls_rhetoric_concentration_narrative_and_image:
+        description: "Rhetoric Concentration: Narrative and Image"
+        rule: count_courses
+            min: 5
+            rule: AND
+            args:
+                - rule: ls_rhetoric_concentration_narrative_and_image_courses_3
+                - rule: ls_rhetoric_concentration_history_courses
+                - rule: ls_rhetoric_concentration_public_discourse_courses
+
+    ls_rhetoric_concentration_narrative_and_image_courses_3:
+        description: "Rhetoric Narrative and Image Courses within the Concentraiton"
+        rule: count_courses
+            min: 3
+            rule: ls_rhetoric_concentration_narrative_and_image_courses
+
+
+    ls_rhetoric_concentration_history_courses:
+        description: "Rhetoric Concentration: History & Theory of Rhetoric Courses"
         rule: OR
         args:
             - course: RHETOR.104
@@ -64,8 +102,8 @@ rules:
             - course: RHETOR.118
 
 
-    ls_rhetoric_concentration_public_discourse:
-        description: "Rhetoric Concentration: Public Discourse"
+    ls_rhetoric_concentration_public_discourse_courses:
+        description: "Rhetoric Concentration: Public Discourse Courses"
         rule: OR
         args:
             - course: RHETOR.150
@@ -94,8 +132,8 @@ rules:
             - course: RHETOR.182
 
 
-    ls_rhetoric_concentration_narrative_and_image:
-        description: "Rhetoric Concentration: Narrative & Image"
+    ls_rhetoric_concentration_narrative_and_image_courses:
+        description: "Rhetoric Concentration: Narrative & Image Courses"
         rule: OR
         args:
             - course: RHETOR.121

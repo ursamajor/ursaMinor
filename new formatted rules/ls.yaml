@@ -9,17 +9,6 @@
             - rule: units_total
 
 # upper div
-upperdiv_:
-    description: "Upper Division "
-    rule: same_course
-    args:
-        - upperdiv
-        - dept: 
-
-
-
-
-
 upperdiv_african_american:
     description: "Upper Division African American Studies"
     rule: same_course
@@ -41,6 +30,13 @@ upperdiv_asian_american:
         - upperdiv
         - dept: ASAMST
 
+upperdiv_astro:
+    description: "Upper Division Astronomy"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: ASTRON
+
 upperdiv_biology:
     description: "Upper Division Biology"
     rule: same_course
@@ -55,12 +51,26 @@ upperdiv_chicano:
         - upperdiv
         - dept: CHICANO
 
+upperdiv_computer_science:
+    description: "Upper Division Computer Science"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: COMP SCI
+
 upperdiv_english:
     description: "Upper Division English"
     rule: same_course
     args:
         - upperdiv
         - dept: ENGLISH
+
+upperdiv_eps:
+    description: "Upper Division Earth and Planetary Science"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: EPS
 
 upperdiv_ethnic_studies:
     description: "Upper Division Ethnic Studies"
@@ -124,6 +134,22 @@ upperdiv_political_science:
     args:
         - upperdiv
         - dept: POL SCI
+
+upperdiv_sociology:
+    description: "Upper Division Sociology"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: SOCIOL
+        - NOT:
+            - course: SOCIOL.191
+
+upperdiv_social_welfare:
+    description: "Upper Division Social Welfare"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: SOC WEL
 
 upperdiv_statistics:
     description: "Upper Division Statistics"
