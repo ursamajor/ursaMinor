@@ -51,6 +51,13 @@ upperdiv_chicano:
         - upperdiv
         - dept: CHICANO
 
+upperdiv_celtic:
+    description: "Upper Division Celtic Studies"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: CELTIC
+
 upperdiv_computer_science:
     description: "Upper Division Computer Science"
     rule: same_course

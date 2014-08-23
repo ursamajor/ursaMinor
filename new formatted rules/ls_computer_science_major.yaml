@@ -31,7 +31,7 @@ rules:
             args:
                 - rule: ls_computer_science_design
                 - rule: ls_computer_science_upperdiv
-                - rule: ls_computer_science_upperdiv_otherrul
+                - rule: ls_computer_science_upperdiv_other
                 - rule: ls_computer_science_technical
 
     ls_computer_science_design:
@@ -105,7 +105,7 @@ rules:
 
     ls_computer_science_technical:
         description: "Computer Science Technical Electives"
-        rule: AND
+        rule: OR
         args:
             - course: ARCH.122
             - course: ARCH.129
@@ -138,6 +138,11 @@ rules:
             - course: COG SCI.C127
             - course: COG SCI.C131
             - rule: upperdiv_computer_science
+            - course: ECON.101A
+            - course: ECON.101B
+            - course: ECON.136
+            - course: ECON.137
+            - course: ECON.141
             - rule: upperdiv_electrical_engineering
             - rule: upperdiv_engineering
                 - NOT:
@@ -165,10 +170,6 @@ rules:
             - course: INFO.297 
             - course: INFO.298
             - course: INFO.298A
-            - course: INFO.290
-            - course: INFO.290
-            - course: INFO.290
-            - course: INFO.290
             - course: LING.C105
             - course: LING.C109
             - course: LING.120
@@ -198,6 +199,7 @@ rules:
                     - course: STAT.131B
                     - course: STAT.131F
             - course: VIS STD.265
+    # no 199, 198, 197, seminars
 
 
 

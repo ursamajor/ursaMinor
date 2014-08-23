@@ -1,0 +1,291 @@
+rules: # fall 2014
+
+    ls_history_art_major:
+        description: "History of Art Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_history_art
+            - rule: ls_lowerdiv_history_art_practice
+            - rule: ls_upperdiv_history_art_areas
+            - rule: ls_upperdiv_history_art_seminar
+            - rule: ls_upperdiv_history_art_theories
+            - rule: ls_upperdiv_history_art_outside
+            - rule: units_upperdiv
+            - rule: units_total
+            
+    ls_lowerdiv_history_art:
+        description: "History of Art Lower Division Requirements"
+        rule: count_courses
+            min: 3
+            rule: OR
+            args:
+                - rule: ls_lowerdiv_history_art_western
+                - rule: ls_lowerdiv_history_art_non_western
+
+    ls_lowerdiv_history_art_western:
+        description: "History of Art Lower Division Western Art Courses"
+        rule: OR
+        args:
+            - course: HISTART.10B
+            - course: HISTART.11
+            - course: HISTART.12
+            - course: HISTART.41
+            - course: HISTART.51
+            - course: HISTART.61
+            - course: HISTART.62
+            - course: HISTART.65
+            - course: HISTART.80 # maybe?
+
+    ls_lowerdiv_history_art_non_western:
+        description: "History of Art Lower Division Non-Wester Art Courses"
+        rule: OR
+        args:
+            - course: HISTART.30
+            - course: HISTART.N31
+            - course: HISTART.32
+            - course: HISTART.33
+            - course: HISTART.34
+            - course: HISTART.35
+            - course: HISTART.40
+            - course: HISTART.88
+
+    ls_lowerdiv_history_art_practice: # i believe these could work
+        description: "History of Art Lower Division Art Practice/Materials Course"
+        rule: OR
+        args:
+            - course: ART.8
+            - course: ART.12
+            - course: ART.N12
+            - course: ART.13
+            - course: ART.N13
+            - course: ART.14
+            - course: ART.16
+            - course: ART.21
+            - course: ART.23AC
+            - course: ART.N23
+            - course: ART.W23AC
+            - course: ART.26
+
+    ls_upperdiv_history_art_areas:
+        description: "History of Art Upper Division Areas & Periods"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_history_art_geographical
+            - rule: ls_upperdiv_history_art_chronological
+
+    ls_upperdiv_history_art_geographical:
+        description: "History of Art Upper Division Geographical Areas"
+        rule: count_courses
+            min: 4
+            args:
+                - rule: ls_upperdiv_history_art_geographical_europe
+                - rule: ls_upperdiv_history_art_geographical_asia
+                - rule: ls_upperdiv_history_art_geographical_americas
+                - rule: ls_upperdiv_history_art_geographical_middle_east
+                - rule: ls_upperdiv_history_art_geographical_transcultural
+
+    ls_upperdiv_history_art_chronological:
+        description: "History of Art Upper Division Chronological Periods"
+        rule: count_courses
+            min: 3
+            args:
+                - rule: ls_upperdiv_history_art_chronological_prehistoric_1200
+                - rule: ls_upperdiv_history_art_chronological_1200_1800
+                - rule: ls_upperdiv_history_art_chronological_1800_present
+
+    ls_upperdiv_history_art_seminar:
+        description: "History of Art Upper Division Seminar Courses"
+        rule: units
+            min: 8
+            rule: OR
+            args:
+                - course: HISTART.192A
+                - course: HISTART.192AC
+                - course: HISTART.192B
+                - course: HISTART.192C
+                - course: HISTART.192D
+                - course: HISTART.192DH
+                - course: HISTART.192E
+                - course: HISTART.192F
+                - course: HISTART.192G
+                - course: HISTART.192H
+                - course: HISTART.192L
+                - course: HISTART.192M
+
+    ls_upperdiv_history_art_geographical_europe:
+        description: "History of Art Upper Division Geographical Area: Europe and the Mediterranean"
+        rule: OR
+        args:
+            - course: HISTART.140
+            - course: HISTART.C140
+            - course: HISTART.141A
+            - course: HISTART.141B
+            - course: HISTART.141C
+            - course: HISTART.142
+            - course: HISTART.N142
+            - course: HISTART.145
+            - course: HISTART.150A
+            - course: HISTART.150B
+            - course: HISTART.151
+            - course: HISTART.154
+            - course: HISTART.155
+            - course: HISTART.156A
+            - course: HISTART.156B
+            - course: HISTART.157
+            - course: HISTART.160
+            - course: HISTART.161
+            - course: HISTART.162
+            - course: HISTART.166
+            - course: HISTART.168
+            - course: HISTART.169A
+            - course: HISTART.172
+            - course: HISTART.173
+            - course: HISTART.174
+            - course: HISTART.175
+            - course: HISTART.176
+            - course: HISTART.178
+            - course: HISTART.179
+            - course: HISTART.180A
+            - course: HISTART.180B
+            - course: HISTART.180C
+            - course: HISTART.181
+            - course: HISTART.190G
+
+    ls_upperdiv_history_art_geographical_asia:
+        description: "History of Art Upper Division Geographical Area: Asia and the Pacific"
+        rule: OR
+        args:
+            - course: HISTART.130A
+            - course: HISTART.131A
+            - course: HISTART.131B
+            - course: HISTART.131C
+            - course: HISTART.133
+            - course: HISTART.134A
+            - course: HISTART.134B
+            - course: HISTART.134C
+            - course: HISTART.136A
+            - course: HISTART.136B
+            - course: HISTART.136C
+            - course: HISTART.137
+            - course: HISTART.190A
+
+    ls_upperdiv_history_art_geographical_americas:
+        description: "History of Art Upper Division Geographical Area: The Americas"
+        rule: OR
+        args:
+            - course: HISTART.C120A
+            - course: HISTART.C120B
+            - course: HISTART.170
+            - course: HISTART.171
+            - course: HISTART.183E
+            - course: HISTART.185A
+            - course: HISTART.185B
+            - course: HISTART.185C
+            - course: HISTART.187AC
+            - course: HISTART.188
+            - course: HISTART.188A
+            - course: HISTART.189B
+            - course: HISTART.C189
+            - course: HISTART.190G
+
+    ls_upperdiv_history_art_geographical_middle_east:
+        description: "History of Art Upper Division Geographical Area: Middle East and Africa"
+        rule: OR
+        args:
+            - course: HISTART.C121A
+            - course: HISTART.C121B
+            - course: HISTART.127
+
+    ls_upperdiv_history_art_geographical_transcultural:
+        description: "History of Art Upper Division Geographical Area: Transcultural"
+        rule: OR
+        args:
+            - course: HISTART.190H
+            - course: HISTART.190M
+            # idk what qualifies...
+
+    ls_upperdiv_history_art_chronological_prehistoric_1200:
+        description: "History of Art Upper Division Chronological Period: Prehistoric-1200"
+        rule: OR
+        args:
+            - course: HISTART.120 # maybe?
+            - course: HISTART.C120A
+            - course: NE STUD.C120A # maybe?
+            - course: HISTART.C120B
+            - course: NE STUD.C120B # maybe
+            - course: HISTART.C140
+            - course: NE STUD.C129 # maybe
+            - course: HISTART.141A
+            - course: HISTART.141B
+            - course: HISTART.141C
+            - course: HISTART.N142
+            - course: HISTART.145
+            - course: HISTART.151
+            - course: HISTART.156A
+            - course: HISTART.190B
+
+    ls_upperdiv_history_art_chronological_1200_1800:
+        description: "History of Art Upper Division Chronological Period: 1200-1800"
+        rule: OR
+        args:
+            - course: HISTART.C156B
+            - course: HISTORY.C188A
+            - course: HISTART.161
+            - course: HISTART.162
+            - course: HISTART.166
+            - course: HISTART.169A
+            - course: HISTART.190C
+            - course: HISTART.190D
+            - course: HISTART.190E
+
+    ls_upperdiv_history_art_chronological_1800_present:
+        description: "History of Art Upper Division Chronological Period: 1800-Present"
+        rule: OR
+        args:
+            - course: HISTART.131C
+            - course: HISTART.134A
+            - course: HISTART.134B # idk where this goes
+            - course: HISTART.134C
+            - course: HISTART.136C # idk where this goes either
+            - course: HISTART.170
+            - course: HISTART.171
+            - course: HISTART.172
+            - course: HISTART.173
+            - course: HISTART.174
+            - course: HISTART.175
+            - course: HISTART.179
+            - course: HISTART.180A
+            - course: HISTART.180C
+            - course: HISTART.N180A
+            - course: HISTART.N180B
+            - course: HISTART.N180C
+            - course: HISTART.N181
+            - course: HISTART.182
+            - course: HISTART.183
+            - course: HISTART.183E
+            - course: HISTART.185
+            - course: HISTART.185A
+            - course: HISTART.185B
+            - course: HISTART.N185C
+            - course: HISTART.186A
+            - course: HISTART.186C
+            - course: HISTART.N186C
+            - course: HISTART.187AC
+            - course: HISTART.190F
+            - course: HISTART.190H
+            - course: HISTART.190M
+
+    ls_upperdiv_history_art_theories:
+        description: "History of Art Additional Courses: Theories/Methods"
+        rule: OR
+        args:
+            - course: HISTART.100
+            - course: HISTART.101
+
+    ls_upperdiv_history_art_outside:
+        description: "History of Art Additional Courses: Outside the Department"
+        rule: OR
+        args:
+            # basically not history of art

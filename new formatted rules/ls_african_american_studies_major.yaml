@@ -1,0 +1,92 @@
+rules:
+
+    ls_african_american_studies_major:
+        description: "African American Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_african_american
+            - rule: ls_upperdiv_african_american_core
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_african_american:
+        description: "African American Studies Lower Division Requirements"
+        rule: AND
+        args:
+            - course: AFRICAM.4A
+            - course: AFRICAM.4B
+            - course: AFRICAM.5A
+            - course: AFRICAM.5B
+
+    ls_upperdiv_african_american_core:
+        description: "African American Studies Upper Division Core Requirements"
+        rule: AND
+        args:
+            - course: AFRICAM.100
+            - course: AFRICAM.101
+            - course: AFRICAM.116
+            - course: AFRICAM.117
+
+    ls_upperdiv_african_american_concentration:
+        description: "African American Studies Concentration Cluster"
+        rule: count_courses
+            min: 10
+            rule: OR
+            args:
+                - rule: ls_upperdiv_african_american_humanities
+                - rule: ls_upperdiv_african_american_electives
+                # min of 7 upperdiv africam
+
+    ls_upperdiv_african_american_electives:
+        description: "African American Studies Upper Division Elective Requirements"
+        rule: OR
+        args:
+            - course: AFRICAM.107
+            - course: AFRICAM.109
+            - course: AFRICAM.111
+            - course: AFRICAM.112A
+            - course: AFRICAM.112B
+            - course: AFRICAM.114
+            - course: AFRICAM.115
+            - course: AFRICAM.118
+            - course: AFRICAM.119
+            - course: AFRICAM.121
+            - course: AFRICAM.122
+            - course: AFRICAM.123
+            - course: AFRICAM.124
+            - course: AFRICAM.126
+            - course: AFRICAM.131
+            - course: AFRICAM.C133
+            - course: AFRICAM.134
+            - course: AFRICAM.135
+            - course: AFRICAM.137
+            - course: AFRICAM.138
+            - course: AFRICAM.139
+
+    ls_upperdiv_african_american_humanities:
+        description: "African American Studies Humanities Courses"
+        rule: count_courses
+            min: 4
+            rule:
+            args:
+                - course: AFRICAM.140
+                - course: AFRICAM.142A
+                - course: AFRICAM.142AC
+                - course: AFRICAM.142B
+                - course: AFRICAM.142D
+                - course: AFRICAM.143A
+                - course: AFRICAM.143B
+                - course: AFRICAM.143C
+                - course: AFRICAM.144
+                - course: AFRICAM.150B
+                - course: AFRICAM.C151B
+                - course: AFRICAM.152F
+                - course: AFRICAM.153B
+                - course: AFRICAM.155
+                - course: AFRICAM.156AC
+                - course: AFRICAM.158A
+                - course: AFRICAM.159
+                - course: AFRICAM.C178
+                - course: AFRICAM.190AC

@@ -1,0 +1,112 @@
+rules:
+
+    ls_celtic_studies_major:
+        description: "Celtic Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_celtic
+            - rule: ls_upperdiv_celtic
+            - rule: ls_upperdiv_celtic_units
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_celtic:
+        description: "Celtic Studies Lower Division Requirements"
+        rule: AND
+        args:
+            - course: CELTIC.70
+            - rule: celtic_lowerdiv
+
+    celtic_lowerdiv:
+        hidden: true
+        rule: OR
+        args:
+            - rule: celtic_15_85
+            - rule: celtic_16_86
+
+    celtic_15_85:
+        hidden: true
+        rule: AND
+        args:
+            - course: CELTIC.15
+            - course: CELTIC.85
+
+    celtic_16_86:
+        hidden: true
+        rule: AND
+        args:
+            - course: CELTIC.16
+            - course: CELTIC.86
+
+    ls_upperdiv_celtic:
+        description: "Celtic Studies Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_celtic_society
+            - rule: ls_upperdiv_celtic_irish_literature
+            - rule: ls_upperdiv_celtic_myth
+            - rule: ls_upperdiv_celtic_language
+            - rule: ls_upperdiv_celtic_literature
+
+    ls_upperdiv_celtic_society:
+        description: "Celtic Studies Upper Division: Celtic Society and Culture"
+        rule: OR
+        args:
+            - course: CELTIC.128
+            - course: CELTIC.129
+
+    ls_upperdiv_celtic_irish_literature:
+        description: "Celtic Studies Upper Division: Irish Literature"
+        rule: OR
+        args:
+            - course: CELTIC.138
+            - course: CELTIC.139
+
+    ls_upperdiv_celtic_myth:
+        description: "Celtic Studies Upper Division: Celtic Myth and Tradition"
+        rule: OR
+        args:
+            - course: CELTIC.168
+            - course: CELTIC.169
+
+    ls_upperdiv_celtic_language:
+        description: "Celtic Studies Upper Division: Celtic Language"
+        rule: OR
+        args:
+            - course: CELTIC.102A
+            - course: CELTIC.102B
+            - course: CELTIC.105A
+            - course: CELTIC.105B
+            - course: CELTIC.144A
+            - course: CELTIC.145A
+            - course: CELTIC.146A
+
+    ls_upperdiv_celtic_literature:
+        description: "Celtic Studies Upper Division: Literature"
+        rule: units
+            min: 8
+            args:
+                - course: CELTIC.118
+                - course: CELTIC.119
+                - course: CELTIC.125
+                - course: CELTIC.126
+
+    ls_upperdiv_celtic_units:
+        description: "Celtic Upper Division Units"
+        rule: units
+            min: 32
+            args:
+                - rule: upperdiv_celtic
+                - course: ANTHRO.180
+                - course: HISTART.160
+                - course: COM LIT.152
+                - course: COM LIT.165
+                - course: HISTORY.150A
+                - course: HISTORY.151A
+                - course: HISTORY.151B
+                - course: HISTORY.185A
+                - course: LINGUIS.130
+                - course: LINGUIS.131
+

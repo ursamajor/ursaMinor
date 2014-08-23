@@ -1,74 +1,130 @@
 rules:
 
     ls_practice_art_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - AND: # lower division
+        description: "Practice of Art Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_practice_art
+            - rule: ls_upperdiv_practice_art
+
+    ls_lowerdiv_practice_art:
+        description: "Practice of Art Lower Division Requirements"
+        rule: AND
+        args:
             - course: ART.8
             - course: ART.12
-            - numcourses:
-                min: 2
-                    - course: ART.13
-                    - course: ART.14
-                    - course: ART.16
-                    - course: ART.21
-                    - course: ART.23AC
-                    - course: ART.26
-            - dept: HISTART # lower div
-        - AND: # upper division
-            - OR:
-                - course: ART.117
-                - course: ART.118
+            - rule: ls_lowerdiv_practice_art_studio
+            - rule: ls_lowerdiv_practice_art_history_art
+
+    ls_lowerdiv_practice_art_studio:
+        description: "Practice of Art Lower Division Studio Classes"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ART.13
+                - course: ART.14
+                - course: ART.16
+                - course: ART.21
+                - course: ART.23AC
+                - course: ART.26
+
+    ls_lowerdiv_practice_art_history_art:
+        description: "Practice of Art Lower Division History of Art Courses"
+        rule: OR
+        args:
+            - course: HISTART.10B
+            - course: HISTART.11
+            - course: HISTART.12
+            - course: HISTART.30
+            - course: HISTART.N31
+            - course: HISTART.32
+            - course: HISTART.33
+            - course: HISTART.34
+            - course: HISTART.35
+            - course: HISTART.40
+            - course: HISTART.41
+            - course: HISTART.51
+            - course: HISTART.61
+            - course: HISTART.62
+            - course: HISTART.65
+            - course: HISTART.80 # maybe?
+            - course: HISTART.88
+
+    ls_upperdiv_practice_art:
+        description: "Practice of Art Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: art117_118
             - course: ART.119
             - course: ART.185
-            - numcourses:
-                min: 5
-                courses:
-                    - course: ART.102
-                    - course: ART.120
-                    - course: ART.122
-                    - course: ART.123
-                    - course: ART.124
-                    - course: ART.132
-                    - course: ART.137
-                    - course: ART.138
-                    - course: ART.141
-                    - course: ART.142
-                    - course: ART.160
-                    - course: ART.162
-                    - course: ART.164
-                    - course: ART.171
-                    - course: ART.173
-                    - course: ART.174
-                    - course: ART.175
-                    - course: ART.178
-                    - course: ART.C179
-                    - course: ART.179
-                    - numcourses:
-                        max: 2
-                        courses:
-                            - course: FILM.180
-                            - course: FILM.181
-                            - course: FILM.185
-                            - course: FILM.186
-                            - course: THEATER.173
-                            - course: THEATER.174
-                            - course: THEATER.175
-                            - course: VIS STD.180A
-                            - course: VIS STD.180B
-                            - course: VIS STD.181
-                            - course: VIS STD.185
-                            - course: VIS STD.C185A
-                            - course: VIS STD.187A
-                            - course: VIS STD.187B
-            - AND: # art history
-                - course: ART.119
-                - OR:
-                    - course: HISTART.100
-                    - course: HISTART.186A
-                    - course: HISTART.186B
-                    - course: HISTART.186C
+            - rule: ls_upperdiv_practice_art_studio
+            - rule: ls_upperdiv_practice_art_history
 
+    art117_118:
+        hidden: true
+        rule: OR
+        args:
+            - course: ART.117
+            - course: ART.118
+
+    ls_upperdiv_practice_art_studio:
+        description: "Practice of Art Upper Division Studio Classes"
+        rule: count_courses
+            min: 5
+            args:
+                - course: ART.102
+                - course: ART.120
+                - course: ART.122
+                - course: ART.123
+                - course: ART.124
+                - course: ART.132
+                - course: ART.137
+                - course: ART.138
+                - course: ART.141
+                - course: ART.142
+                - course: ART.160
+                - course: ART.162
+                - course: ART.164
+                - course: ART.171
+                - course: ART.173
+                - course: ART.174
+                - course: ART.175
+                - course: ART.178
+                - course: ART.C179
+                - course: ART.179
+                - numcourses:
+                    max: 2
+                    courses:
+                        - course: FILM.180
+                        - course: FILM.181
+                        - course: FILM.185
+                        - course: FILM.186
+                        - course: THEATER.173
+                        - course: THEATER.174
+                        - course: THEATER.175
+                        - course: VIS STD.180A
+                        - course: VIS STD.180B
+                        - course: VIS STD.181
+                        - course: VIS STD.185
+                        - course: VIS STD.C185A
+                        - course: VIS STD.187A
+                        - course: VIS STD.187B
+
+    ls_upperdiv_practice_art_history:
+        description: "Practice of Art Major: Art History"
+        rule: AND
+        args:
+            - course: ART.119
+            - rule: histart_options
+
+    histart_options:
+        hidden: true
+        rule: OR
+        args:
+            - course: HISTART.100
+            - course: HISTART.186A
+            - course: HISTART.186B
+            - course: HISTART.186C
 

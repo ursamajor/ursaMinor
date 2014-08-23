@@ -23,6 +23,13 @@ rules:
             min: 36
             rule: upperdiv
 
+    units_upperdiv_30:
+        description: "30 Upper Division Units"
+        rule: units
+        args:
+            min: 30
+            rule: upperdiv
+
 
     university_ac:
         description: "American Cultures"

@@ -51,8 +51,8 @@ rules:
         rule: OR
         args:
             - course: ANTHRO.107
-            - course: PSYCH.117
             - course: COG SCI.127
+            - course: PSYCH.117
             - course: PSYCH.C127
             - course: PSYCH.133
 
@@ -61,13 +61,13 @@ rules:
         rule: OR
         args:
             - course: COG SCI.C100
+            - course: COG SCI.C102
+            - course: COG SCI.C124
+            - course: COG SCI.C126
             - course: PSYCH.C120
             - course: PSYCH.122
-            - course: COG SCI.C124
             - course: PSYCH.C124
-            - course: COG SCI.C126
             - course: PSYCH.C126
-            - course: COG SCI.C102
             - course: PSYCH.C129
             - course: PSYCH.143
             - course: PSYCH.164
@@ -77,18 +77,18 @@ rules:
         rule: OR
         args:
             - course: COG SCI.C131
-            - course: PSYCH.C123
             - course: COMPSCI.188
+            - course: PSYCH.C123
 
     ls_cognitive_science_linguistics:
         description: "Cognitive Science: Linguistics Distribution"
         rule: OR
         args:
             - course: LINGUIS.100
-            - course: COG SCI.C101
             - course: LINGUIS.C105
-            - course: COG SCI.C142
             - course: LINGUIS.C142
+            - course: COG SCI.C101
+            - course: COG SCI.C142
 
     ls_cognitive_science_philosophy:
         description: "Cognitive Science: Philosophy Distribution"
@@ -104,21 +104,21 @@ rules:
         description: "Cognitive Science: Society, Culture, and Cognition Distribution"
         rule: OR
         args:
-            - course: COG SCI.C103
-            - course: HISTORY.C192
-            - course: INFO.C103
-            - course: COG SCI.C104
-            - course: LINGUIS.C104
             - course: ANTHRO.166
+            - course: COG SCI.C103
+            - course: COG SCI.C104
             - course: ECON.119
             - course: EDUC.140AC
+            - course: HISTORY.C192
+            - course: INFO.C103
+            - course: LINGUIS.C104
             - course: LINGUIS.150
             - course: PSYCH.107
+            - course: PSYCH.160
             - course: PSYCH.164
             - course: PSYCH.166AC
             - course: SOCIOL.150
             - course: SOCIOL.150A
-            - course: PSYCH.160
 
     ls_cognitive_science_electives_total:
         description: "Cognitive Science Electives"

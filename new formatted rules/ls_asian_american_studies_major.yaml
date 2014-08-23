@@ -1,0 +1,106 @@
+rules: # fall 2014 rules
+
+    ls_asian_american_studies_major:
+        description: "Asian American and Asian Diaspora Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_asian_american
+            - rule: ls_upperdiv_asian_american
+            - rule: ls_electives_asian_american
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_asian_american:
+        description: "Asian American Studies Lower Division Requirements"
+        rule: AND
+        args:
+            - course: ASAMST.20A
+            - rule: aas20b_c
+            - rule: ls_asian_american_ethnic
+
+    aas20b_c:
+        hidden: true
+        rule: OR
+        args:
+            - course: ASAMST.20B
+            - course: ASAMST.20C
+
+    ls_asian_american_ethnic:
+        description: "Asian American Studies Ethnic Studies Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ETH STD.10AC
+                - course: ETH STD.11AC
+                - course: ETH STD.20AC
+                - course: ETH STD.21AC
+                - course: ETH STD.41AC
+
+    ls_upperdiv_asian_american:
+        description: "Asian American Studies Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: es101a_101b
+            - course: ASAMST.131
+            - course: ASAMST.197
+            - rule: ls_upperdiv_asian_american_outside
+
+    ls_upperdiv_asian_american_outside:
+        description: "Asian American Studies Additional Electives"
+        rule: count_courses
+            min: 2
+            rule:
+                # two additional can be satisfied from outside depts
+                # or UC campuses, EAP in Asian university, or Asian languag
+                # courses..? how to determine this...
+
+    ls_electives_asian_american:
+        description: "Asian American Studies Electives"
+        rule: AND
+        args:
+            - rule: ls_electives_asian_american_history
+            - rule: ls_electives_asian_american_community
+            - rule: ls_electives_asian_american_cultural
+
+    ls_electives_asian_american_history:
+        description: "Asian American Studies Electives: Group 1 (History)"
+        rule: OR
+        args:
+            - course: ASAMST.121
+            - course: ASAMST.122
+            - course: ASAMST.123
+            - course: ASAMST.124
+            - course: ASAMST.126
+            - course: ASAMST.127
+            - course: ASAMST.128AC
+
+    ls_electives_asian_american_community:
+        description: "Asian American Studies Electives: Group 2 (Community Studies)"
+        rule: OR
+        args:
+            - course: ASAMST.125
+            - course: ASAMST.132
+            - course: ASAMST.141
+            - course: ASAMST.143
+            - course: ASAMST.144
+            - course: ASAMST.145
+            - course: ASAMST.146
+            - course: ASAMST.150
+            - course: ASAMST.151
+            - course: ASAMST.165
+
+    ls_electives_asian_american_cultural:
+        description: "Asian American Studies Electives: Group 3 (Cultural Studies)"
+        rule: OR
+        args:
+            - course: ASAMST.138
+            - course: ASAMST.171
+            - course: ASAMST.172
+            - course: ASAMST.173
+            - course: ASAMST.175
+            - course: ASAMST.181
+            - course: ASAMST.183
+
+

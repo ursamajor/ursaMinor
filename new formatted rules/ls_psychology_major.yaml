@@ -19,6 +19,7 @@ rules:
             - rule: ls_psychology_evolution
             - rule: ls_psychology_biological
             - rule: ls_psychology_social
+            - rule: psych_quant
 
     ls_psychology_evolution:
         description: "Psychology Evolution Prerequisite"
@@ -59,7 +60,6 @@ rules:
                 - course: LINGUIS.5
                 - rule: psych_philos
                 - rule: psych_polisci
-                - rule: psych_quant
 
     soc3:
         hidden: true
