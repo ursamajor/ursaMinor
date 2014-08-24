@@ -1,0 +1,52 @@
+rules:
+
+    ls_latin_american_literatures_major: # option C, plan 2 in spanish & portuguese
+        description: "Latin American Literatures Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: spanish_prereqs
+            - rule: spanish_grammar
+            - rule: ls_latin_american_language
+            - rule: ls_latin_american_spanish_america_literature
+            - rule: ls_latin_american_brazil_literature
+            - rule: ls_latin_american_electives
+            - rule: ls_latin_american_outside
+            - rule: units_upperdiv_30
+            - rule: units_total
+
+    ls_latin_american_language:
+        description: "Latin American Literatures: Language"
+        rule: OR
+        args:
+            - course: PORTUG.101A
+            - course: PORTUG.101B
+
+    ls_latin_american_spanish_america_literature:
+        description: "Latin American Literatures: Spanish America Literature"
+        rule: OR
+        args:
+            - course: SPANISH.104A
+            - course: SPANISH.104B
+
+    ls_latin_american_brazil_literature:
+        description: "Latin American Literatures: Brazil Literature"
+        rule: OR
+        args:
+            - course: PORTUG.104
+            - course: PORTUG.128
+
+    ls_latin_american_electives:
+        description: "Latin American Literatures: Electives"
+        rule: count_courses
+            min: 5
+            args:
+            #  Spanish/Port lang&ling, or brazilian or spanish-american lit or culture
+
+    ls_latin_american_outside:
+        description: "Latin American Literaturse: Outside the Department"
+        rule: count_courses
+            min: 2
+            args:
+            #???, related?

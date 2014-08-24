@@ -1,0 +1,146 @@
+rules:
+
+    ls_south_and_southeast_asian_languages_and_literatures_major:
+        description: "South and Southeast Asian Languages and Literatures Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_south_languages
+            - rule: ls_upperdiv_south_languages
+            - rule: units_total
+
+    ls_lowerdiv_south_languages:
+        description: "South and Southeast Asian Languages and Literatures Lower Division Sequence"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_south_civilizations
+            - rule: ls_south_languages
+
+    ls_south_languages:
+        description: "South and Southeast Asian Languages"
+        rule: OR
+        args:
+            - rule: hindi_4
+            - rule: urdu_4
+            - rule: bengali_4
+            - rule: indonesian_4
+            - rule: khmer_4
+            - rule: punjabi_4
+            - rule: sanskrit_4
+            - rule: tagolog_4
+            - rule: tamil_4
+            - rule: thai_4
+            - rule: vietnamese_4
+
+    hindi_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: HIN-URD.1A
+            - course: HIN-URD.1B
+            - course: HIN-URD.100A
+            - course: HIN-URD.100B
+
+    urdu_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: HIN-URD.2A
+            - course: HIN-URD.2B
+            - course: HIN-URD.103A
+            - course: HIN-URD.103B
+
+    bengali_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: BANGLA.1A
+            - course: BANGLA.1B
+            - course: BANGLA.101A
+            - course: BANGLA.101B
+
+    indonesian_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: MALAY/I.1A
+            - course: MALAY/I.1B
+            - course: MALAY/I.100A
+            - course: MALAY/I.100B
+
+    khmer_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: KHMER.1A
+            - course: KHMER.1B
+            - course: KHMER.100A
+            - course: KHMER.100B
+
+    punjabi_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: PUNJABI.1A
+            - course: PUNJABI.1B
+            - course: PUNJABI.100A
+            - course: PUNJABI.100B
+
+    sanskrit_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: SANSKR.100A
+            - course: SANSKR.100B
+            - course: SANSKR.101A
+            - course: SANSKR.101B
+
+    tagolog_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: TAGALG.1A
+            - course: TAGALG.1B
+            - course: TAGALG.100A
+            - course: TAGALG.100B
+    tamil_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: TAMIL.1A
+            - course: TAMIL.1B
+            - course: TAMIL.101A
+            - course: TAMIL.101B
+
+    thai_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: THAI.1A
+            - course: THAI.1B
+            - course: THAI.100A
+            - course: THAI.100B
+
+    vietnamese_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: VIETNMS.1A
+            - course: VIETNMS.1B
+            - course: VIETNMS.100A
+            - course: VIETNMS.100B
+
+    ls_upperdiv_south_languages:
+        description: "South and Southeast Asian Languages and Literatures Upper Division Courses"
+        rule: count_courses
+            min: 4
+            args:
+                - rule: south_or_southeast_asian_courses
+                - rule: upperdiv_sseasn_2
+
+    upperdiv_sseasn_2:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: south_or_southeast_asian_departments

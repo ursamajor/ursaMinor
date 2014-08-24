@@ -30,6 +30,17 @@ rules:
             min: 30
             rule: upperdiv
 
+    units_upperdiv_32:
+        description: "32 Upper Division Units"
+        rule: units
+            min: 32
+            rule: upperdiv
+
+    units_upperdiv_33:
+        description: "33 Upper Division Units"
+        rule: units
+            min: 33
+            rule: upperdiv
 
     university_ac:
         description: "American Cultures"

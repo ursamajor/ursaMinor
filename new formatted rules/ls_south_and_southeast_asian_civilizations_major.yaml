@@ -1,0 +1,64 @@
+rules:
+
+    ls_south_and_southeast_asian_civilizations_major:
+        description: "South and Southeast Asian Civilizations Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_south_civilizations
+            - rule: ls_south_civilizations_additional
+            - rule: units_total
+
+    ls_lowerdiv_south_civilizations:
+        description: "South and Southeast Asian Civiliations Lower Division Sequence"
+        rule: count_courses
+            min: 2
+            args:
+                - course: S ASIAN.1A
+                - course: S ASIAN.1B
+                - course: SEASIAN.10A
+                - course: SEASIAN.10B
+
+    ls_south_civilizations_additional:
+        description: "South and Southeast Asian Civilizations Additional Courses"
+        rule: count_courses
+            min: 9
+            args:
+                - rule: ls_upperdiv_south_civilizations
+                - dept: S,SEASN
+                - dept: SEASIAN
+                - dept: S ASIAN
+                # etc? are there more?
+
+    south_or_southeast_asian_courses:
+        description: "South or Southeast Asian Courses"
+        rule: OR
+        args:
+            - course: ASAMST.125
+            - course: ASAMST.126
+            - course: GEOG.163
+            - course: HISTORY.111A
+            - course: HISTORY.C111B
+            - course: HISTORY.111B
+            - course: HISTORY.114B
+            - course: HISTART.137
+            - course: RELIGST.C162
+            - course: IND ENG.190K
+            - course: MUSIC.133C
+            - course: POL SCI.145A
+            - course: POL SCI.145B
+
+    ls_upperdiv_south_civilizations:
+        description: "South and Southeast Asian Civilizations Upper Division Courses"
+        rule: count_courses
+            min: 8
+            args:
+                - rule: south_or_southeast_asian_courses
+                - rule: upperdiv_sseasn_4
+
+    upperdiv_sseasn_4:
+        hidden: true
+        rule: count_courses
+            min: 4
+            rule: south_or_southeast_asian_departments

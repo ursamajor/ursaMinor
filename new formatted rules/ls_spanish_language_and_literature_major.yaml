@@ -11,7 +11,7 @@ rules:
             - rule: ls_spanish_literature
             - rule: ls_spanish_electives
             - rule: ls_spanish_outside
-            - rule: units_upperdiv
+            - rule: units_upperdiv_30
             - rule: units_total
 
     ls_spanish_literature:

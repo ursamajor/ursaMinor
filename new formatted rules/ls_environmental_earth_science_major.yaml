@@ -1,0 +1,82 @@
+rules:
+
+    ls_environmental_earth_science_major:
+        description: "Environmental Earth Science Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_env_earth
+            - rule: ls_upperdiv_env_earth
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_env_earth:
+        description: "Environmental Earth Science Lower Division Required Courses"
+        rule: AND
+        args:
+            - course: EPS.50
+            - rule: math1_16
+            - rule: physics_7_8
+            - rule: chem1a
+            - course: BIOLOGY.1B
+
+    ls_upperdiv_env_earth:
+        description: "Environmental Earth Science Upper Division Required Courses"
+        rule: AND
+        args:
+            - course: EPS.102
+            - course: EPS.117
+            - course: EPS.150
+            - course: ENE,RES.102
+            - rule: ls_upperdiv_env_earth_electives
+
+    ls_upperdiv_env_earth_electives:
+        description: "Environmental Earth Science Electives"
+        rule: units
+            min: 12
+            args:
+                - course: EPS.100A
+                - course: EPS.100B
+                - course: EPS.C100
+                - course: EPS.103
+                - course: EPS.203
+                - course: EPS.105
+                - course: EPS.109
+                - course: EPS.115
+                - course: EPS.122
+                - course: EPS.131
+                - course: EPS.C141
+                - course: EPS.C146
+                - course: EPS.C178
+                - course: EPS.170AC
+                - course: EPS.180
+                - course: EPS.181
+                - course: EPS.185
+                - course: ESPM.120
+                - course: ESPM.124
+                - course: ESPM.125
+                - course: ESPM.126
+                - course: ESPM.127
+                - course: ESPM.C128
+                - course: ESPM.130
+                - rule: civeng115
+                - course: CIV ENG.117
+                - course: GEOG.134
+                - course: GEOG.236
+                - course: GEOG.139
+                - course: GEOG.140A
+                - course: GEOG.140B
+                - course: GEOG.142
+                - course: GEOG.143
+                - course: GEOG.144
+                - course: INTEGBI.108
+                - course: INTEGBI.152
+                - course: INTEGBI.153
+                - course: INTEGBI.144
+                - course: INTEGBI.155
+                - course: INTEGBI.160
+                # and others
+
+
+

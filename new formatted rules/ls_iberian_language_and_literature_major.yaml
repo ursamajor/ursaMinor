@@ -1,0 +1,55 @@
+rules:
+
+    ls_iberian_language_and_literature_major: # option C, plan 1 in spanish&portuguese
+        description: "Iberian Language and Literature Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: spanish_prereqs
+            - rule: spanish_grammar
+            - rule: ls_iberian_language
+            - rule: ls_iberian_literature
+            - rule: ls_iberian_electives
+            - rule: ls_iberian_outside
+            - rule: units_upperdiv_30
+            - rule: units_total
+
+    ls_iberian_language:
+        description: "Iberian Language and Literature: Language"
+        rule: OR
+        args:
+            - course: CATALAN.101
+            - course: PORTUG.101A
+            - course: PORTUG.101B
+
+    ls_iberian_literature:
+        description: "Iberian Language and Literature: Literature"
+        rule: AND
+        args:
+            - rule: spain_literature
+            - course: PORTUG.107B # from portugal or catalonia?
+
+    spain_literature:
+        hidden: true
+        rule: OR
+        args:
+            - course: SPANISH.107A
+            - course: SPANISH.107B
+
+    ls_iberian_electives:
+        description: "Iberian Language and Literature: Electives"
+        rule: count_courses
+            min: 8 # taking into account the other three taken
+            args:
+                - rule: upperdiv_portuguese
+                - rule: upperdiv_spanish
+                - rule: upperdiv_catalan
+
+    ls_iberian_outside:
+        description: "Iberian Language and Literature: Outside the Department"
+        rule: count_courses
+            min: 2
+            args:
+            #???, related?
+

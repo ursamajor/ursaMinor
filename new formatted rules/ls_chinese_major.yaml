@@ -1,0 +1,54 @@
+rules:
+
+    ls_chinese_major:
+        description: "Chinese Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_chinese
+            - rule: ls_upperdiv_chinese
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_chinese:
+        description: "Chinese Lower Division Requirements"
+        rule: AND
+        args:
+            - course: CHINESE.1A
+            - course: CHINESE.1B
+            - course: CHINESE.10A
+            - course: CHINESE.10B
+            - course: CHINESE.7A
+            - course: CHINESE.7B
+
+    ls_upperdiv_chinese:
+        description: "Chinese Upper Division Requirements"
+        rule: AND
+        args:
+            - course: CHINESE.100A
+            - course: CHINESE.100B
+            - course: CHINESE.110A
+            - course: CHINESE.110B
+            - rule: ls_upperdiv_chinese_modern_literature
+            - rule: upperdiv_ealang
+            - rule: ls_upperdiv_chinese_electives
+
+    ls_upperdiv_chinese_modern_literature:
+        description: "Chinese Modern Chinese Literature"
+        rule: OR
+        args:
+            - course: CHINESE.153
+            - course: CHINESE.155
+            - course: CHINESE.156
+            - course: CHINESE.157
+            - course: CHINESE.158
+            - course: CHINESE.159
+
+    ls_upperdiv_chinese_electives:
+        description: "Chinese Electives"
+        rule: count_courses
+            min: 2
+            args:
+            # idk
+

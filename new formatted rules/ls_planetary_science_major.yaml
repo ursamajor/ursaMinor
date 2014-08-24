@@ -1,0 +1,49 @@
+rules:
+
+    ls_planetary_science_major:
+        description: "Planetary Science Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_planet
+            - rule: ls_upperdiv_planet
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_planet:
+        description: "Planetary Science Lower Division Required Courses"
+        rule: AND
+        args:
+            - course: EPS.50
+            - course: MATH.1A
+            - course: MATH.1B
+            - course: MATH.53
+            - course: MATH.54
+            - course: PHYSICS.7A
+            - course: PHYSICS.7B
+            - course: PHYSICS.7C
+            - rule: chem1a
+
+    ls_upperdiv_planet:
+        description: "Planetary Science Required Core Courses"
+        rule: AND
+        args:
+            - course: EPS.102
+            - course: EPS.150
+            - rule: eps_astro_c162
+            - rule: ls_upperdiv_planet_additional
+
+    ls_upperdiv_planet_additional:
+        description: "Planetary Science Additional Courses"
+        rule: units
+            min: 14
+            args:
+                - course: EPS.108
+                - course: EPS.109
+                - course: EPS.117
+                - course: EPS.122
+                - rule: eps180s
+                - rule: astro120_121
+                - rule: math121a_eps104
+                # and more! ...

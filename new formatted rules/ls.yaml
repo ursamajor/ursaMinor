@@ -44,6 +44,13 @@ upperdiv_biology:
         - upperdiv
         - dept: BIOLOGY
 
+upperdiv_catalan:
+    description: "Upper Division Catalan"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: CATALAN
+
 upperdiv_chicano:
     description: "Upper Division Chicano Studies"
     rule: same_course
@@ -58,12 +65,48 @@ upperdiv_celtic:
         - upperdiv
         - dept: CELTIC
 
+upperdiv_classics:
+    description: "Upper Division Classics"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: CLASSIC
+
 upperdiv_computer_science:
     description: "Upper Division Computer Science"
     rule: same_course
     args:
         - upperdiv
         - dept: COMP SCI
+
+upperdiv_ealang:
+    description: "Upper Division East Asian Languages"
+    rule: OR
+    args:
+        - course: EA LANG.101
+        - course: EA LANG.103
+        - course: EA LANG.105
+        - course: EA LANG.106
+        - course: EA LANG.107
+        - course: EA LANG.109
+        - course: EA LANG.110
+        - course: EA LANG.112
+        - course: EA LANG.C120
+        - course: BUDDSTD.C120
+        - course: EA LANG.C126
+        - course: BUDDSTD.C126
+        - course: EA LANG.C128
+        - course: BUDDSTD.C128
+        - course: S,SEASN.C145
+        - course: EA LANG.C130
+        - course: BUDDSTD.C130
+        - course: EA LANG.C132
+        - course: BUDDSTD.C132
+        - course: EA LANG.C135
+        - course: BUDDSTD.C135
+        - course: S,SEASN.C135
+        - course: EA LANG.180
+        - course: EA LANG.181
 
 upperdiv_english:
     description: "Upper Division English"
@@ -86,6 +129,27 @@ upperdiv_ethnic_studies:
         - upperdiv
         - dept: ETH STD
 
+upperdiv_french:
+    description: "Upper Division French"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: FRENCH
+
+upperdiv_german:
+    description: "Upper Division German"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: GERMAN
+
+upperdiv_greek:
+    description: "Upper Division Greek"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: GREEK
+
 upperdiv_integrative_biology:
     description: "Upper Division Integrative Biology"
     rule: same_course
@@ -99,6 +163,20 @@ upperdiv_history:
     args:
         - upperdiv
         - dept: HISTORY
+
+upperdiv_latin:
+    description: "Upper Division Latin"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: LATIN
+
+upperdiv_linguistics:
+    description: "Upper Division Linguistics"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: LINGUIS
 
 upperdiv_math:
     description: "Upper Division Mathematics"
@@ -142,6 +220,59 @@ upperdiv_political_science:
         - upperdiv
         - dept: POL SCI
 
+upperdiv_portuguese:
+    description: "Upper Division Portuguese"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: PORTUG
+
+upperdiv_south_or_southeast_asian:
+    description: "Upper Division South or Southeast Asian Studies"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: S,SEASN
+
+upperdiv_southeast_asian:
+    description: "Upper Division Southeast Asian Studies"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: SEASIAN
+
+upperdiv_south_asian:
+    description: "Upper Division South Asian Studies"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: S ASIAN
+
+south_or_southeast_asian_departments:
+    hidden: true
+    rule: OR
+    args:
+        - rule: upperdiv_south_or_southeast_asian
+        - rule: upperdiv_southeast_asian
+        - rule: upperdiv_south_asian
+
+spanish_prereqs:
+    hidden: true
+    rule: AND
+    args:
+        - course: SPANISH.1
+        - course: SPANISH.2
+        - course: SPANISH.3
+        - course: SPANISH.4
+        - course: SPANISH.25
+
+upperdiv_spanish:
+    description: "Upper Division Spanish"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: SPANISH
+
 upperdiv_sociology:
     description: "Upper Division Sociology"
     rule: same_course
@@ -164,6 +295,13 @@ upperdiv_statistics:
     args:
         - upperdiv
         - dept: STAT
+
+upperdiv_theater:
+    description: "Upper Division Theater"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: THEATER
 
 chem1a:
     hidden: true
@@ -261,6 +399,28 @@ physics7_8b:
     args:
         - course: PHYSICS.7B
         - course: PHYSICS.8B
+
+astro120_121:
+    hidden: true
+    rule: OR
+    args:
+        - course: ASTRON.120
+        - course: ASTRON.121
+
+eps180s:
+    hidden: true
+    rule: OR
+    args:
+        - course: EPS.C180
+        - course: EPS.C181
+        - course: EPS.C182
+
+eps_astro_c162:
+    hidden: true
+    rule: OR
+    args:
+        - course: EPS.C162
+        - course: ASTRON.C162
 
 ls_molecular_cell_biology_lower_division:
     description: "Molecular Cell Biology Lower Division Requirements"

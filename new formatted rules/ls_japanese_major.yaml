@@ -1,0 +1,61 @@
+rules:
+
+    ls_japanese_major:
+        description: "Japanese Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_japanese
+            - rule: ls_upperdiv_japanese
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_japanese:
+        description: "Japanese Lower Division Requirements"
+        rule: AND
+        args:
+            - course: JAPAN.1A
+            - course: JAPAN.1B
+            - course: JAPAN.10A
+            - course: JAPAN.10B
+            - course: JAPAN.7A
+            - course: JAPAN.7B
+
+    ls_upperdiv_japanese:
+        description: "Japanese Upper Division Requirements"
+        rule: AND
+        args:
+            - course: JAPAN.100A
+            - course: JAPAN.100B
+            - course: JAPAN.120
+            - rule: ls_upperdiv_japanese_classical_literature
+            - rule: ls_upperdiv_japanese_modern_literature
+            - rule: upperdiv_ealang
+            - rule: ls_upperdiv_japanese_electives
+
+    ls_upperdiv_japanese_classical_literature:
+        description: "Classical Japanese Literature"
+        rule: OR
+        args:
+            - course: JAPAN.130
+            - course: JAPAN.132
+            - course: JAPAN.134
+            - course: JAPAN.140
+            - course: JAPAN.142
+            - course: JAPAN.144
+            - course: JAPAN.146
+
+    ls_upperdiv_japanese_modern_literature:
+        description: "Modern Japanese Literature"
+        rule: OR
+        args:
+            - course: JAPAN.155
+            - course: JAPAN.159
+
+    ls_upperdiv_japanese_electives:
+        description: "Japanese Electives"
+        rule: count_courses
+            min: 2
+            args:
+            # selected with advisor...

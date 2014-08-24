@@ -1,0 +1,68 @@
+rules:
+
+    ls_luso_brazilian_language_and_literature_major: # option B in spanish&portuguese
+        description: "Luso-Brazilian Language and Literature Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_brazilian_prereqs
+            - course: PORTUG.103
+            - rule: ls_brazilian_literature
+            - rule: ls_brazilian_portuguese_literature
+            - rule: ls_brazilian_theoretical
+            - rule: ls_brazilian_electives
+            - rule: ls_brazilian_outside
+            - rule: units_upperdiv_30
+            - rule: units_total
+
+    ls_brazilian_prereqs:
+        description: "Luso-Brazilian Language and Literature Prerequisites"
+        rule: AND
+        args:
+            - course: PORTUG.11
+            - course: PORTUG.12
+            - course: PORTUG.101A
+            - course: PORTUG.101B
+
+    ls_brazilian_literature:
+        description: "Luso-Brazilian Language and Literature: Brazilian Literature"
+        rule: AND
+        args:
+            - course: PORTUG.104
+            - rule: brazilian_lit_other
+
+    brazilian_lit_other:
+        hidden: true
+        rule: OR
+        args:
+            - course: PORTUG.128
+            - course: PORTUG.135 # maybe?
+
+    ls_brazilian_portuguese_literature:
+        description: "Luso-Brazilian Language and Literature: Portuguese Literature"
+        rule: AND
+        args:
+            - course: PORTUG.107A
+            - course: PORTUG.107B # anything else??? not sure
+
+    ls_brazilian_theoretical:
+        description: "Luso-Brazilian Language and Literature: Theoretical Approaches to Literature"
+        rule: OR
+        args:
+        # does it exist?
+
+    ls_brazilian_electives:
+        description: "Luso-Brazilian Language and Literature: Electives"
+        rule: count_courses
+            min: 4
+            args:
+                - rule: upperdiv_portuguese
+                # two may be in Spanish or Spanish-American lit, ling, or culture
+
+    ls_brazilian_outside:
+        description: "Luso-Brazilian Language and Literature: Outside the Department"
+        rule: count_courses
+            min: 2
+            args:
+            #???, related?

@@ -1,0 +1,71 @@
+rules:
+
+    ls_dutch_studies_major:
+        description: "Dutch Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_dutch_prereqs
+            - rule: ls_upperdiv_dutch
+            - rule: units_total
+
+    ls_dutch_prereqs:
+        description: "Dutch Studies Prerequisites"
+        rule: AND
+        args:
+            - course: DUTCH.1
+            - course: DUTCH.2
+
+    ls_upperdiv_dutch:
+        description: "Dutch Studies Upper Division Requirements"
+        rule: AND
+        args:
+            - course: DUTCH.110
+            - course: DUTCH.125
+            - course: ls_upperdiv_dutch_others
+
+    ls_upperdiv_dutch_others:
+        description: "Dutch Studies Other Required Courses"
+        rule: units
+            min: 22
+            args:
+                - course: DUTCH.107
+                - course: DUTCH.100
+                - course: DUTCH.140
+                - rule: dutch_160
+                - rule: dutch_170 # not sure what this series pertains
+                - course: DUTCH.177
+                - course: DUTCH.190
+                - rule: dutch_outside
+
+    dutch_160:
+        hidden: true
+        rule: OR
+        args:
+            - course: DUTCH.C164
+            - course: DUTCH.166
+
+    dutch_170:
+        hidden: true
+        rule: OR
+        args:
+            - course: DUTCH.170
+            - course: DUTCH.C170
+            - course: DUTCH.171AC
+            - course: DUTCH.173
+            - course: DUTCH.174
+            - course: DUTCH.177
+            - course: DUTCH.C178
+            - course: DUTCH.179
+
+    dutch_outside:
+        description: "Dutch Studies: Courses Outside the Department"
+        rule: count_courses
+            max: 2
+            args:
+
+
+
+
+

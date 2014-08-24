@@ -1,0 +1,76 @@
+rules:
+
+    ls_marine_science_major:
+        description: "Marine Science Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_marine
+            - rule: ls_upperdiv_marine
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_marine:
+        description: "Marine Science Lower Division Required Courses"
+        rule: AND
+        args:
+            - course: EPS.C82
+            - course: EPS.50
+            - rule: math1_16
+            - rule: physics_7_8
+            - rule: chem1a
+            - course: BIOLOGY.1B
+
+    ls_upperdiv_marine:
+        description: "Marine Science Upper Division Required Courses"
+        rule: AND
+        args:
+            - course: EPS.102
+            - course: EPS.150
+            - rule: ls_upperdiv_marine_others_1
+            - rule: ls_upperdiv_marine_others_2
+
+    ls_upperdiv_marine_others_1:
+        description: "Marine Science Upper Division Electives Part 1"
+        rule: count_courses
+            min: 4
+            args:
+                - course: EPS.100A
+                - course: EPS.100B
+                - course: EPS.103
+                - course: EPS.203
+                - course: EPS.109
+                - course: EPS.131
+                - course: GEOG.142
+                - course: INTEGBI.106
+                - rule: ib103_lf
+                - course: STAT.131A
+
+    ls_upperdiv_marine_others_2:
+        description: "Marine Science Upper Division Electives Part 2"
+        rule: units
+            min: 8
+            args:
+                - course: CIV ENG.100
+                - rule: civeng115
+                - course: CIV ENG.210
+                - course: EPS.C100
+                - course: EPS.117
+                - course: EPS.C129
+                - course: EPS.C141
+                - course: EPS.C146
+                - course: EPS.C183
+                - course: INTEGBI.106A
+                - course: INTEGBI.108
+                - course: INTEGBI.152
+                - course: INTEGBI.158LF
+                - course: INTEGBI.160
+                - course: INTEGBI.230
+
+    ib103_lf:
+        hidden: true
+        rule: OR
+        args:
+            - course: INTEGBI.103
+            - course: INTEGBI.103LF

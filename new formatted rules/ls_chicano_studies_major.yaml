@@ -1,0 +1,63 @@
+rules:
+
+    ls_chicano_studies_major:
+        description: "Chicano/Latino Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_ethnic_studies_core
+            - rule: ls_lowerdiv_chicano
+            - rule: ls_upperdiv_chicano
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_chicano:
+        description: "Chicano Studies Lower Division Requirements"
+        rule: count_courses
+            min: 2
+            args:
+                - course: CHICANO.20
+                - course: CHICANO.40
+                - course: CHICANO.50
+                - course: CHICANO.70
+
+    ls_upperdiv_chicano:
+        description: "Chicano Studies Upper Division Requirements"
+        rule: AND
+        args:
+            - course: ETH STD.103
+            - rule: ls_upperdiv_chicano_electives
+            - course: CHICANO.197
+
+    ls_upperdiv_chicano_electives:
+        description: "Chicano Studies Electives"
+        rule: count_courses
+            min: 4
+            args:
+                - course: CHICANO.101
+                - course: CHICANO.110
+                - course: CHICANO.130
+                - course: CHICANO.133
+                - course: CHICANO.135A
+                - course: CHICANO.135B
+                - course: CHICANO.135C
+                - course: CHICANO.141
+                - course: CHICANO.142
+                - course: CHICANO.143
+                - course: CHICANO.145
+                - course: CHICANO.148
+                - course: CHICANO.149
+                - course: CHICANO.150A
+                - course: CHICANO.150B
+                - course: CHICANO.159
+                - course: CHICANO.161
+                - course: CHICANO.162
+                - course: CHICANO.163
+                - course: CHICANO.165
+                - course: CHICANO.172
+                - course: CHICANO.174
+                - course: CHICANO.176
+                - course: CHICANO.179
+                - course: CHICANO.180
+

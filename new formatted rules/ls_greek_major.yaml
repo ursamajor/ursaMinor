@@ -1,0 +1,61 @@
+rules:
+
+    ls_greek_major:
+        description: "Greek Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: elementary_greek
+            - course: GREEK.40
+            - rule: greek_basic_reading
+            - rule: ls_greek_senior_reading
+            - course: CLASSIC.10A
+            - course: CLASSIC.10B
+            - rule: ls_classical_languages_recommended
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_greek_senior_reading:
+        description: "Greek Senior Reading Courses"
+        rule: count_courses
+            min: 4
+            args:
+                - course: GREEK.115
+                - course: GREEK.116
+                - course: GREEK.117
+                - course: GREEK.120
+                - course: GREEK.121
+                - course: GREEK.122
+                - course: GREEK.123
+
+    ls_classical_languages_recommended:
+        description: "Additional Upper Division Recommended Course"
+        rule: OR
+        args:
+            # other thing in greek and latin
+            - rule: upperdiv_classics
+            # sanskrit in south and southeast asian studies? where?
+            - course: HISTART.140
+            - course: HISTART.141A
+            - course: HISTART.141B
+            - course: HISTART.145
+            # ?- course: DRAMA.122
+            - course: HISTORY.105A
+            - course: HISTORY.105B
+            - course: HISTORY.105C
+            - course: HISTORY.106A
+            - course: HISTORY.106B
+            - course: HISTORY.107A
+            - course: HISTORY.107B
+            - course: HISTORY.107C
+            - course: HISTORY.107D
+            - course: HISTORY.108
+            - course: PHILOS.160
+            - course: PHILOS.161
+            - course: POL SCI.112A
+            - course: RHETOR.100
+            - course: RHETOR.130
+            - course: RHETOR.166
+
+

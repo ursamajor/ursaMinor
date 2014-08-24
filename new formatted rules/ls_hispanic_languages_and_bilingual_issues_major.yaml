@@ -1,6 +1,6 @@
 rules:
 
-    ls_hispanic_languages_and_bilingual_issues_major: # option A in spanish & portuguese
+    ls_hispanic_languages_and_bilingual_issues_major: # option D in spanish & portuguese
         description: "Hispanic Languages and Bilingual Issues"
         rule: AND
         args:
@@ -11,6 +11,8 @@ rules:
             - rule: ls_hispanic_literatures
             - rule: ls_hispanic_outside
             - rule: ls_breadth_all
+            - rule: units_upperdiv_30
+            - rule: units_total
 
     spanish_grammar:
         description: "Spanish Grammar and Composition Courses"

@@ -1,0 +1,60 @@
+rules:
+
+    ls_dance_performance_studies_major:
+        description: "Dance Performance Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_dance
+            - rule: ls_upperdiv_dance
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_dance:
+        description: "Dance Performance Studies Lower Division Course Requirements"
+        rule: AND
+        args:
+            - course: THEATER.26
+            - course: THEATER.40A
+            - course: THEATER.40B
+            - course: THEATER.60
+            - rule: theater_ac
+
+    ls_upperdiv_dance:
+        description: "Dance Performance Studies Upper Division Course Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_dance_modern
+            - rule: ls_upperdiv_dance_choreography
+            - rule: ls_upperdiv_theater
+
+    ls_upperdiv_dance_modern:
+        description: "Dance Performance Studies Upper Divison: Modern Dance Technique"
+        rule: AND
+        args:
+            - course: THEATER.141A
+            - course: THEATER.141B
+            - course: THEATER.142A
+            - course: THEATER.142B
+
+    ls_upperdiv_dance_choreography:
+        description: "Dance Performance Studies Upper Division: Choreography Series"
+        rule: AND
+        args:
+            - rule: theater_144_114
+            - rule: theater_146
+
+    theater_144_114:
+        hidden: true
+        rule: OR
+        args:
+            - course: THEATER.144
+            - course: THEATER.114
+
+    theater_146:
+        hidden: true
+        rule: OR
+        args:
+            - course: THEATER.146A
+            - course: THEATER.146B

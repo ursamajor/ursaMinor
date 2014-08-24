@@ -1,57 +1,92 @@
 rules:
 
     ls_ancient_egyptian_near_eastern_art_archeology_major:
-    rule: AND
-    args:
-        - university_all
-        - ls_breadth_all
-        - OR: # emphasis
-            - AND: # ancient egyptian and near eastern art and archeology
-                - AND: # lower division
-                    - course: NE STUD.10
-                    - course: NE STUD.15
-                - AND: # upper div
-                    - numcourses:
-                        min: 8
-                        courses:
-                            - course: NE STUD.108
-                            - course: NE STUD.C120A
-                            - course: NE STUD.C120B
-                            - course: NE STUD.122A
-                            - course: NE STUD.122B
-                            - course: NE STUD.123A
-                            - course: NE STUD.123B
-                            - course: NE STUD.124A
-                            - course: NE STUD.124B
-                            - course: NE STUD.125
-                            - course: NE STUD.126
-                            - course: NE STUD.127
-                            - course: NE STUD.128
-                            - course: NE STUD.C129
-                            - course: NE STUD.190A
-                            - course: NE STUD.190B
-            - AND: # egyptian art and archeology
-                - AND: # lower-div
-                    - course: NE STUD.10
-                    - course: NE STUD.18
-                - AND: # upper div
-                    - course: EGYPTIAN.100A
-                    - course: EGYPTIAN.100B
-                    - course: EGYPTIAN.101A
-                    - course: EGYPTIAN.101B
-                    - course: NE STUD.102A
-                    - course: NE STUD.02B
-                    - numcourses: 
-                        min: 2
-                        courses:
-                            - course: NE STUD.C103
-                            - course: NE STUD.106A
-                            - course: NE STUD.106B
-                            - course: NE STUD.112
-                            - course: NE STUD.124A
-                            - course: NE STUD.124B
+        description: "Ancient Egyptian and Near Eastern Art and Archaeology"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_egyptian_emphasis
+            - rule: units_upperdiv
+            - rule: units_total
 
+    ls_egyptian_emphasis:
+        description: "Ancient Egyptian and Near Eastern Art and Archaeology Emphasis"
+        rule: OR
+        args:
+            - rule: ls_egyptian_emphasis_near_eastern_art
+            - rule: ls_egyptian_emphasis_egyptian
 
+    ls_egyptian_emphasis_near_eastern_art:
+        description: "Emphasis I: Ancient Near Eastern Art and Archaeology"
+        rule: AND
+        args:
+            - rule: ls_egyptian_emphasis_near_eastern_art_lowerdiv
+            - rule: ls_egyptian_emphasis_near_eastern_art_upperdiv
 
+    ls_egyptian_emphasis_egyptian:
+        description: "Emphasis II: Egyptian Art and Archaeology"
+        rule: AND
+        args:
+            - rule: ls_egyptian_emphasis_egyptian_lowerdiv
+            - rule: ls_egyptian_emphasis_egyptian_upperdiv
 
+    ls_egyptian_emphasis_near_eastern_art_lowerdiv:
+        description: "Ancient Near Eastern Art and Archaeology Lower Division Requirements"
+        rule: AND
+        args:
+            - course: NE STUD.10
+            - course: NE STUD.15
+
+    ls_egyptian_emphasis_near_eastern_art_upperdiv:
+        description: "Ancient Near Eastern Art and Archaeology Upper Division Requirements"
+        rule: count_courses
+            min: 8
+            args:
+                - course: NE STUD.108
+                - course: NE STUD.C120A
+                - course: NE STUD.C120B
+                - course: NE STUD.122A
+                - course: NE STUD.122B
+                - course: NE STUD.123A
+                - course: NE STUD.123B
+                - course: NE STUD.124A
+                - course: NE STUD.124B
+                - course: NE STUD.125
+                - course: NE STUD.126
+                - course: NE STUD.127
+                - course: NE STUD.128
+                - course: NE STUD.C129
+                - course: NE STUD.190A
+                - course: NE STUD.190B
+
+    ls_egyptian_emphasis_egyptian_lowerdiv:
+        description: "Egyptian Art and Archaeology Lower Division Requirements"
+        rule: AND
+        args:
+            - course: NE STUD.10
+            - course: NE STUD.18
+
+    ls_egyptian_emphasis_egyptian_upperdiv:
+        description: "Egyptian Art and Archaeology Upper Division Requirements"
+        rule: AND
+        args:
+            - course: EGYPTIAN.100A
+            - course: EGYPTIAN.100B
+            - course: EGYPTIAN.101A
+            - course: EGYPTIAN.101B
+            - course: NE STUD.102A
+            - course: NE STUD.02B
+            - rule: ne_stud_pick_two
+
+    ne_stud_pick_two:
+        rule: count_courses
+            min: 2
+            args:
+                - course: NE STUD.C103
+                - course: NE STUD.106A
+                - course: NE STUD.106B
+                - course: NE STUD.112
+                - course: NE STUD.124A
+                - course: NE STUD.124B
 
