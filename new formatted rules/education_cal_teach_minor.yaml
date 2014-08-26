@@ -1,0 +1,19 @@
+rules:
+
+	education_cal_teach_minor:
+		description: "Cal Teach Minor"
+		rule: AND
+		args:
+			- course: EDUC.130
+			- course: EDUC.131
+			- course: UGIS.188
+			- course: UGIS.187
+			- rule: history_science_cal_teach
+
+	history_science_cal_teach:
+		description: "History of Science with Cal Teach Perspectives"
+		rule: OR
+		args:
+			- course: HISTORY.138T
+			- course: HISTORY.180T
+			- course: HISTORY.182AT

@@ -1,0 +1,43 @@
+rules:
+
+    ls_gender_women_studies_major:
+        description: "Gender and Women's Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_gender
+            - rule: ls_upperdiv_gender
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_gender:
+        description: "Gender and Women's Studies Lower Division Requirements"
+        rule: AND
+        args:
+            - course: GWS.10
+            - course: GWS.20
+
+    ls_upperdiv_gender:
+        description: "Gender and Women's Studies Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_gender_core
+            - rule: ls_upperdiv_gender_electives
+
+    ls_upperdiv_gender_core:
+        description: "Gender and Women's studies Upper Division Core Courses"
+        rule: AND
+        args:
+            - course: GWS.101
+            - course: GWS.102
+            - course: GWS.103
+            - course: GWS.104
+            - course: GWS.195
+
+    ls_upperdiv_gender_electives:
+        description: "Gender and Women's Studies Upper Division Electives"
+        rule: units
+            min: 10
+            args:
+                # three in GWS, other two in other departments?

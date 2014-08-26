@@ -1,0 +1,264 @@
+rules:
+
+    ls_development_studies_major:
+        description: "Development Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_development
+            - rule: ls_ias_foreign_language_requirement
+            - rule: ls_upperdiv_development
+            - rule: units_upperdiv
+            - rule: units_total
+
+    # no more than three from the same dept
+
+    ls_lowerdiv_development:
+        description: "Development Studies Lower Division Requirements"
+        rule: AND
+        args:
+            - course: DEV STD.10
+            - rule: econ1_2
+            - rule: anthro3
+            - course: IAS.45
+            - rule: stat_lowerdiv
+
+    ls_upperdiv_development:
+        description: "Development Studies Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_development_core
+            - rule: ls_upperdiv_development_methodology
+            - rule: ls_upperdiv_development_concentration
+
+    ls_upperdiv_development_core:
+        description: "Development Studies Upper Division Core"
+        rule: AND
+        args:
+            - course: DEV STD.100
+            - rule: ls_upperdiv_development_core_disciplinary
+            - rule: ls_upperdiv_development_core_development
+
+    ls_upperdiv_development_core_disciplinary:
+        description: "Development Disciplinary Courses"
+        rule: OR
+        args: # 2 from same discipline from Appendix A
+            - rule: ls_development_anthro
+            - rule: ls_development_econ
+            - rule: ls_development_envecon
+            - rule: ls_development_geography
+            - rule: ls_development_history
+            - rule: ls_development_political_economy
+            - rule: ls_development_political_science
+            - rule: ls_development_sociology
+
+
+    ls_development_anthro:
+        description: "Development Disciplinary: Anthropology Choice"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ANTHRO.114
+                - course: ANTHRO.141
+                - course: ANTHRO.144
+                - course: ANTHRO.147
+                - course: ANTHRO.C147B
+                - course: LGBT.C147B
+                - course: ANTHRO.148
+                - course: ANTHRO.169B
+
+    ls_development_econ:
+        description: "Development Disciplinary: Economics Choice"
+        rule: OR
+        args:
+            - rule: macroecon
+            - rule: microecon
+
+    ls_development_envecon:
+        description: "Development Disciplinary: Environmental Economics and Policy Choice"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ENVECON.100
+                - course: ENVECON.C101
+                - course: ENVECON.C151
+                - course: ECON.C125
+                - course: ECON.C171
+
+    ls_development_geography:
+        description: "Development Disciplinary: Geography Choice"
+        rule: count_courses
+            min: 2
+            args:
+                - course: GEOG.C110
+                - course: ISF.C101
+                - course: GEOG.123
+                - course: GEOG.130
+                - course: GEOG.170 # requires approval
+
+    ls_development_history:
+        description: "Development Disciplinary: History Choice"
+        rule: AND
+        args:
+            - course: HISTORY.101
+            - course: HISTORY.103
+
+    ls_development_political_economy:
+        description: "Development Disciplinary: Political Economy Choice"
+        rule: count_courses
+            min: 2
+            args:
+                - course: GEOG.C110
+                - course: ISF.C101
+                - course: POLECON.100
+                - course: POLECON.101
+                - course: POL SCI.126A
+
+    ls_development_political_science:
+        description: "Development Disciplinary: Political Science Choice"
+        rule: count_courses
+            min: 2
+            args:
+                - course: POL SCI.124C
+                - course: POL SCI.126A
+                - course: POL SCI.C131A
+                - course: PUB POL.C142
+                - course: ECON.C142
+                - course: POL SCI.137A
+                - course: POL SCI.137C
+                - course: POL SCI.140 # requires approval
+                - course: POL SCI.149 # requires approval
+
+    ls_development_sociology:
+        description: "Development Disciplinary: Soiology Choice"
+        rule: count_courses
+            min: 2
+            args:
+                - course: SOCIOL.101
+                - course: SOCIOL.102
+                - course: SOCIOL.127
+
+    ls_upperdiv_development_core_development:
+        description: "Development Development Courses"
+        rule: count_courses
+            min: 2 # 2 from Appendix B
+            args:
+                - course: AFRICAM.112A
+                - course: AFRICAM.112B
+                - course: ANTHRO.115
+                - course: ANTHRO.145
+                - course: ANTHRO.C147B
+                - course: ANTHRO.146B
+                - course: ANTHRO.158
+                - course: ANTHRO.189 # requires approval
+                - course: CY PLAN.110
+                - course: CY PLAN.111
+                - course: CY PLAN.115
+                - course: CY PLAN.116
+                - course: DEMOG.C126
+                - course: DEMOG.C175
+                - course: DEV STD.130
+                - course: DEV STD.150
+                - course: ECON.113
+                - course: ECON.115
+                - course: ECON.131
+                - course: ECON.151
+                - course: ECON.155
+                - course: ECON.C171
+                - course: ECON.172 # requires approval
+                - course: ECON.173
+                - course: ECON.C175
+                - course: ECON.C181
+                - course: ECON.182
+                - course: ENE,RES.C100
+                - course: ENVECON.C151
+                - course: ENVECON.131
+                - course: ENVECON.152 # requires approval
+                - course: ENVECON.153
+                - course: ENVECON.C181
+                - course: ESPM.151
+                - course: ESPM.165
+                - course: ESPM.166
+                - course: ESPM.167
+                - course: ESPM.168
+                - course: ESPM.169
+                - course: ETH STD.190 # requires appoval
+                - course: GEOG.123
+                - course: GEOG.138
+                - course: GEOG.170 # requires approval
+                - course: GPP.115
+                - course: GWS.141
+                - course: GWS.143
+                - course: HISTORY.100 # requires approval
+                - course: HISTORY.103 # requires approval
+                - course: HISTORY.134A
+                - course: HISTORY.160
+                - course: IAS.120 # requires approval
+                - course: IAS.150 # requires approval
+                - course: IAS.160
+                - course: IAS.180 # requires approval
+                - course: LEGALST.158
+                - course: LGBT.C147B
+                - course: POLECON.C196W # requires approval
+                - course: POL SCI.124C
+                - course: POL SCI.139B
+                - course: POL SCI.139D
+                - course: PUB HLTH.112
+                - course: PUB HLTH.114
+                - course: PB HLTH.181
+                - course: PB HLTH.207A
+                - course: PB HLTH.207B
+                - course: PB HLTH.212A
+                - course: PB HLTH.212D
+                - course: PUB POL.C184
+                - course: RELIGST.C182
+                - course: RHETOR.150
+                - course: RHETOR.155
+                - course: SOC WEL.112
+                - course: SOCIOL.110
+                - course: SOCIOL.C112
+                - course: SOCIOL.113
+                - course: SOCIOL.114
+                - course: SOCIOL.C126
+                - course: SOCIOL.127
+                - course: SOCIOL.144
+                - course: SOCIOL.145
+                - course: UGBA.118
+                - course: UGBA.178
+
+    ls_upperdiv_development_methodology:
+        description: "Development Studies Upper Division Methodology"
+        rule: OR
+        args:
+            - course: AFRICAM.101
+            - course: ANTHRO.169B
+            - course: DEMOG.110
+            - course: ECON.140
+            - course: ECON.141
+            - course: ECON.C142
+            - course: ENV DES.100
+            - course: ENVECON.C118
+            - course: ETH STD.101A
+            - course: ETH STD.101B
+            - course: ETH STD.195
+            - course: GPP.105
+            - course: IAS.102
+            - course: IAS.H102
+            - course: IAS.105
+            - course: IAS.C118
+            - course: IND ENG.162
+            - course: LGBT.145
+            - course: M E STU.102
+            - course: NATAMAST.110
+            - course: PSYCH.101
+            - course: PB HLTH.142
+            - course: SOCIOL.106
+            - course: SOCIOL.108
+            - course: STAT.131A
+
+    ls_upperdiv_development_concentration:
+        description: "Development Upper Division Geographic Concentration"
+        rule: count_courses
+            min: 3
+            args:

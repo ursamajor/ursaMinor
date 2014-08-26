@@ -1,13 +1,4 @@
 
-
-
-            - rule: university_all
-            - rule: ls_breadth_all
-            - rule: ls_lowerdiv
-            - rule: ls_upperdiv
-            - rule: units_upperdiv
-            - rule: units_total
-
 # upper div
 upperdiv_african_american:
     description: "Upper Division African American Studies"
@@ -129,6 +120,13 @@ upperdiv_ethnic_studies:
         - upperdiv
         - dept: ETH STD
 
+upperdiv_film:
+    description: "Upper Division Film"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: FILM
+
 upperdiv_french:
     description: "Upper Division French"
     rule: same_course
@@ -156,6 +154,13 @@ upperdiv_integrative_biology:
     args:
         - upperdiv
         - dept: INTEGBI
+
+upperdiv_italian:
+    description: "Upper Division Italian"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: ITALIAN
 
 upperdiv_history:
     description: "Upper Division History"
@@ -226,6 +231,13 @@ upperdiv_portuguese:
     args:
         - upperdiv
         - dept: PORTUG
+
+upperdiv_slavic:
+    description: "Upper Division Slavic"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: SLAVIC
 
 upperdiv_south_or_southeast_asian:
     description: "Upper Division South or Southeast Asian Studies"

@@ -1,0 +1,59 @@
+rules:
+
+    ls_native_american_studies_major:
+        description: "Native American Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_ethnic_studies_core
+            - rule: ls_lowerdiv_native_american
+            - rule: ls_upperdiv_native_american
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_native_american:
+        description: "Native American Studies Lower Division Requirements"
+        rule: AND
+        args:
+            - course: NATAMST.20A
+            - course: NATAMST.20B
+
+    ls_upperdiv_native_american:
+        description: "Native American Studies Upper Division Requirements"
+        rule: AND
+        args:
+            - course: ETH STD.103
+            - course: NATAMST.110
+            - rule: native_american_other
+            - course: NATAMST.197
+
+    native_american_other:
+        description: "Other Native American Courses"
+        rule: count_courses
+            min: 3
+            args:
+                - course: NATAMST.100
+                - course: NATAMST.101
+                - course: NATAMST.102
+                - course: NATAMST.104
+                - course: NATAMST.120
+                - course: NATAMST.120AC
+                - course: NATAMST.145
+                - course: NATAMST.149
+                - course: NATAMST.151
+                - course: NATAMST.152
+                - course: NATAMST.155
+                - course: NATAMST.158
+                - course: NATAMST.175
+                - course: NATAMST.176
+                - course: NATAMST.178
+                - course: NATAMST.178AC
+                - rule: natamst_182_190
+
+    natamst_182_190:
+        hidden: true
+        rule: OR
+        args:
+            - course: NATAMST.182
+            - course: NATAMST.190

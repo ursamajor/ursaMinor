@@ -1,0 +1,129 @@
+rules:
+
+    ls_scandinavian_major:
+        description: "Scandinavian Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_scandinavian
+            - rule: ls_upperdiv_scandinavian
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_scandinavian:
+        description: "Scandinavian Lower Division Requirements"
+        rule: OR
+        args:
+            - rule: elementary_swedish
+            - rule: elementary_finnish
+            - rule: elementary_norwegian
+            - rule: elementary_danish
+
+    elementary_swedish:
+        description: "Elementary Swedish"
+        rule: AND
+        args:
+            - course: SCANDIN.1A
+            - course: SCANDIN.1B
+
+    elementary_finnish:
+        description: "Elementary Finnish"
+        rule: AND
+        args:
+            - course: SCANDIN.2A
+            - course: SCANDIN.2B
+
+    elementary_norwegian:
+        description: "Elementary Norwegian"
+        rule: AND
+        args:
+            - course: SCANDIN.3A
+            - course: SCANDIN.3B
+
+    elementary_danish:
+        description: "Elementary Danish"
+        rule: AND
+        args:
+            - course: SCANDIN.4A
+            - course: SCANDIN.4B
+
+    ls_upperdiv_scandinavian:
+        description: "Scandinavian Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_scandinavian_language
+            - rule: ls_upperdiv_scandinavian_major_studies
+            - rule: ls_upperdiv_scandinavian_history
+            - rule: ls_upperdiv_scandinavian_electives
+
+    ls_upperdiv_scandinavian_language:
+        description: "Scandinavian Upper Division Advanced Language Sequence"
+        rule: OR
+        args:
+            - rule: scandin100
+            - rule: scandin102
+
+    scandin100:
+        hidden: true
+        rule: AND
+        args:
+            - course: SCANDIN.100A
+            - course: SCANDIN.100B
+
+    scandin102:
+        hidden: true
+        rule: AND
+        args:
+            - course: SCANDIN.102A
+            - course: SCANDIN.102B
+
+    ls_upperdiv_scandinavian_major_studies:
+        description: "Scandinavian Major Studies"
+        rule: AND
+        args:
+            - course: SCANDIN.149
+            - rule: ls_upperdiv_scandinavian_major_studies_conjunction
+
+    ls_upperdiv_scandinavian_major_studies_conjunction:
+        description: "Scandinavian Major Studies Courses in Conjunction"
+        rule: count_courses
+            min: 2
+            args:
+                - course: SCANDIN.C107
+                - course: SCANDIN.C108
+                - course: SCANDIN.115
+                - course: SCANDIN.116
+                - course: SCANDIN.117
+                - course: SCANDIN.120
+                - course: SCANDIN.165
+
+    ls_upperdiv_scandinavian_history:
+        description: "Scandinavian History Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: SCANDIN.123
+                - course: SCANDIN.127
+                - course: SCANDIN.128
+
+    ls_upperdiv_scandinavian_electives: # i've included the others
+        description: "Scandinavian Electives"
+        rule: count_courses
+            min: 12
+            args:
+                - course: SCANDIN.106
+                - course: SCANDIN.C107
+                - course: SCANDIN.C108
+                - course: SCANDIN.115
+                - course: SCANDIN.116
+                - course: SCANDIN.120
+                - course: SCANDIN.123
+                - course: SCANDIN.125
+                - course: SCANDIN.132
+                - course: SCANDIN.150
+                - course: SCANDIN.C160
+                - course: RELIGST.C108
+                - course: SCANDIN.165
+                - course: SCANDIN.170
+                # others prob too

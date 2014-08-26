@@ -1,0 +1,97 @@
+rules:
+
+    ls_russian_language_and_literature_major: # new reqs as of spring 2014
+        description: "Russian Language and Literature Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_russian_language
+            - rule: ls_upperdiv_russian_language
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_russian_language:
+        description: "Russian Language and Literature Lower-Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_russian_cultures_language
+            - course: SLAVIC.45
+            - course: SLAVIC.46
+
+    ls_upperdiv_russian_language:
+        description: "Russian Language and Literature Upper-Division Requirements"
+        rule: AND
+        args:
+            - course: SLAVIC.100
+            - rule: ls_upperdiv_russian_language_language
+            - rule: ls_upperdiv_russian_language_literature_russian
+            - rule: ls_upperdiv_russian_language_literature_english
+            - rule: ls_upperdiv_russian_language_culture
+            - rule: ls_upperdiv_russian_language_electives
+
+    ls_upperdiv_russian_language_language:
+        description: "Russian Language and Literature Advanced Language & Conversation"
+        rule: AND
+        args:
+            - course: SLAVIC.103A
+            - course: SLAVIC.103B
+            - rule: slavic120
+
+    slavic120:
+        hidden: true
+        rule: OR
+        args:
+            - course: SLAVIC.120A
+            - course: SLAVIC.120B
+
+    ls_upperdiv_russian_language_literature_russian:
+        description: "Russian Language and Literature: Literature in Russian"
+        rule: OR
+        args:
+            - course: SLAVIC.180
+            - course: SLAVIC.181
+            - course: SLAVIC.182
+            - course: SLAVIC.188
+
+    ls_upperdiv_russian_language_literature_english:
+        description: "Russian Language and Literature: Literature in English"
+        rule: OR
+        args:
+            - course: SLAVIC.131
+            - course: SLAVIC.132
+            - course: SLAVIC.133
+            - course: SLAVIC.134A
+            - course: SLAVIC.134B
+            - course: SLAVIC.134C
+            - course: SLAVIC.134D
+            - course: SLAVIC.134E
+            - course: SLAVIC.134F
+            - course: SLAVIC.134G
+            - course: SLAVIC.134N
+
+    ls_upperdiv_russian_language_culture:
+        description: "Russian Language and Literature: Russian Culture"
+        rule: OR
+        args:
+            - course: SLAVIC.130
+            - course: SLAVIC.131
+            - course: SLAVIC.140
+            - course: SLAVIC.148
+            - course: SLAVIC.190
+            - course: SLAVIC.150
+            - course: SLAVIC.160
+            - course: SLAVIC.170
+            - course: SLAVIC.147A
+            - course: SLAVIC.147B
+            - course: SLAVIC.C137
+            - course: LINGUIS.C137
+            - course: SLAVIC.138
+
+    ls_upperdiv_russian_language_electives:
+        description: "Russian Language and Literature Electives"
+        rule: count_courses
+            min: 8
+            args:
+                - rule: upperdiv_slavic
+                # other relevant courses okay as well

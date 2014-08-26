@@ -1,0 +1,81 @@
+rules:
+
+    coc_chemistry_minor:
+        description: "Chemistry Minor"
+        rule: AND
+        args:
+            - rule: coc_chemistry_organic
+            - rule: coc_chemistry_physical
+            - rule: coc_chemistry_minor_upperdiv
+
+    coc_chemistry_organic:
+        description: "Chemistry Minor: Organic Chemistry"
+        rule: OR
+        args:
+            - rule: coc_chemistry_organic_lowerdiv
+            - rule: coc_chemistry_organic_upperdiv
+
+    coc_chemistry_organic_lowerdiv:
+        hidden: true
+        rule: AND
+        args:
+            - course: CHEM.3A
+            - course: CHEM.3AL
+            - course: CHEM.3B
+            - course: CHEM.3BL
+
+    coc_chemistry_organic_upperdiv:
+        hidden: true
+        rule: AND
+        args:
+            - course: CHEM.112A
+            - course: CHEM.112B
+
+    coc_chemistry_physical:
+        description: "Chemistry Minor: Physical or Biophysical Chemistry"
+        rule: OR
+        args:
+            - rule: coc_chemistry_physical_120
+            - rule: coc_chemistry_physical_130
+
+    coc_chemistry_physical_120:
+        hidden: true
+        rule: AND
+        args:
+            - course: CHEM.120A
+            - course: CHEM.120B
+
+    coc_chemistry_physical_130:
+        hidden: true
+        rule: AND
+        args:
+            - course: CHEM.C130
+            - course: CHEM.130B
+
+    coc_chemistry_minor_upperdiv:
+        description: "Chemistry Minor: Additional Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: CHEM.100
+                - course: CHEM.103
+                - course: CHEM.104A
+                - course: CHEM.104B
+                - course: CHEM.105
+                - course: CHEM.108
+                - course: CHEM.C110L
+                - course: CHEM.113
+                - course: CHEM.114
+                - course: CHEM.115
+                - course: CHEM.122
+                - course: CHEM.125
+                - course: CHEM.135
+                - course: CHEM.C138
+                - course: CHEM.143
+                - course: CHEM.146
+                - course: CHEM.149
+                - course: CHEM.150
+                - course: CHEM.C150
+                - course: CHEM.C170L
+                - course: CHEM.C178
+                - course: CHEM.C182

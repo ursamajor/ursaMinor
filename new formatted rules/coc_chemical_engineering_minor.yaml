@@ -1,0 +1,28 @@
+rules:
+
+    coc_chemical_engineering_minor:
+        description: "Chemical Engineering Minor"
+        rule: AND
+        args:
+            - course: CHM ENG.140
+            - course: CHM ENG.141
+            - course: CHM ENG.150A
+            - rule: chem_eng_others
+
+    chem_eng_others:
+        description: "Chemical Engineering Other Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: CHM ENG.142
+                - course: CHM ENG.150B
+                - course: CHM ENG.162
+                - course: CHM ENG.170A
+                - course: CHM ENG.170B
+                - course: CHM ENG.171
+                - course: CHM ENG.176
+                - course: CHM ENG.C178
+                - course: CHM ENG.179
+                - course: CHM ENG.180
+                - course: CHM ENG.185
+                - course: CHM ENG.C195

@@ -1,0 +1,120 @@
+rules:
+
+    ls_operations_research_and_management_science_major:
+        description: "Operations Research and Management Science Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_operations
+            - rule: ls_upperdiv_operations
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_operations:
+        description: "Operations Research and Management Science Lower-Division Required Courses"
+        rule: AND
+        args:
+            - course: MATH.1A
+            - course: MATH.1B
+            - course: MATH.53
+            - course: MATH.54
+            - course: ENGIN.7
+            - course: UGBA.10
+            - rule: econ_lowerdiv
+
+    ls_upperdiv_operations:
+        description: "Operations Research and Management Science Upper-Division Required Courses"
+        rule: AND
+        args:
+            - rule: ieor172_stat134
+            - course: ECON.101A
+            - course: IND ENG.131
+            - rule: ieor160_162
+            - course: IND ENG.161
+            - rule: ls_upperdiv_operations_electives
+
+    econ_lowerdiv:
+        hidden: true
+        rule: OR
+        args:
+            - rule: econ1_2
+            - rule: enviro_econ
+
+    ieor160_162:
+        hidden: true
+        rule: OR
+        args:
+            - course: IND ENG.160
+            - course: IND ENG.162
+
+    ls_upperdiv_operations_electives: # examples
+        description: "Operations Research and Management Science Clustered Electives"
+        rule: OR
+        args:
+            - rule: ls_upperdiv_operations_electives_economic_systems
+            - rule: ls_upperdiv_operations_electives_industrial_systems
+            - rule: ls_upperdiv_operations_electives_societal_systems
+            - rule: ls_upperdiv_operations_electives_algorithmic
+
+    ls_upperdiv_operations_electives_economic_systems:
+        description: "Concentration: Decision Making in Economic Systems"
+        rule: count_courses
+            min: 4
+            args:
+                - course: ECON.101B
+                - course: ECON.104
+                - course: ECON.141
+                - course: ECON.C142
+                - course: ECON.C110
+                - course: UGBA.143
+                - course: IND ENG.165
+                - course: MATH.104
+
+    ls_upperdiv_operations_electives_industrial_systems:
+        description: "Concentration: Decision Making in Industrial and Service Systems"
+        rule: count_courses
+            min: 5
+            args:
+                - course: IND ENG.150
+                - course: IND ENG.151
+                - course: IND ENG.153
+                - course: IND ENG.160
+                - course: IND ENG.162
+                - course: IND ENG.165
+                - course: IND ENG.130
+                - course: IND ENG.166
+                - course: IND ENG.170
+                - course: UGBA.102B
+                - course: UGBA.141
+                - course: UGBA.143
+                - course: IND ENG.115
+
+    ls_upperdiv_operations_electives_societal_systems:
+        description: "Concentration: Decision Making in Societal Systems"
+        rule: count_courses
+            min: 4
+            args:
+                - course: SOCIOL.101A
+                - course: SOCIOL.105
+                - course: SOCIOL.106
+                - course: SOCIOL.119
+                - course: IND ENG.165
+                - course: ECON.C110
+                - course: ECON.101A
+                - course: UGBA.143
+
+    ls_upperdiv_operations_electives_algorithmic:
+        description: "Concentration: Algorithmic Decision Making"
+        rule: count_courses
+            min: 5
+            args:
+                - course: COMPSCI.61B
+                - course: COMPSCI.170
+                - course: COMPSCI.172
+                - course: COMPSCI.174
+                - course: IND ENG.115
+                - course: IND ENG.160
+                - course: IND ENG.162
+                - course: IND ENG.166
+                - course: MATH.110

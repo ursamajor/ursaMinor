@@ -1,0 +1,106 @@
+rules:
+
+    ls_film_media_major:
+        description: "Film Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_film
+            - rule: ls_upperdiv_film
+            - rule: ls_upperdiv_film_electives
+            - rule: ls_film_language
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_film:
+        description: "Film Lower Division Requirements"
+        rule: AND
+        args:
+            - course: FILM.25A
+            - course: FILM.25B
+
+    ls_upperdiv_film:
+        description: "Film Upper Division Requirements"
+        rule: AND
+        args:
+            - course: FILM.100
+            - course: FILM.128
+            - course: FILM.129
+            - rule: film_108_151_160
+
+    film_108_151_160:
+        hidden: true
+        rule: OR
+        args:
+            - course: FILM.108
+            - course: FILM.151
+            - course: FILM.160
+
+    ls_upperdiv_film_electives:
+        description: "Film Electives"
+        rule: units
+            min: 32
+            args:
+                - rule: upperdiv_film
+
+    ls_film_language:
+        description: "Film Language Requirement"
+        rule: OR
+        args:
+            - rule: ls_film_language_third_semester
+            - rule: university_for_lang_pick2
+
+    university_for_lang_pick2:
+        hidden: true
+        rule: count_courses
+            min: 2
+            rule: university_for_lang
+
+    ls_film_language_third_semester:
+        description: "Third Semester Language"
+        rule: OR
+        args:
+            - course: AFRICAM.8A
+            - course: AFRICAM.10A
+            - course: AFRICAM.14A
+            - course: AFRICAM.31A
+            - course: AFRIK.150 # doesn't exist
+            - course: ARABIC.20A
+            - course: CATALAN.101
+            - course: CELTIC.85
+            - course: CHINESE.10
+            - course: CHINESE.10A
+            - course: DUTCH.110
+            - course: EAEURST.100
+            - course: EURA ST.101A
+            - course: FILIPN.100A
+            - course: FRENCH.3
+            - course: GERMAN.3
+            - course: HEBREW.100A
+            - course: HIN-URD.100A
+            - course: HIN-URD.103A
+            - course: ITALIAN.3
+            - course: JAPAN.10A
+            - course: KHMER.101A
+            - course: KOREAN.10
+            - course: KOREAN.10A
+            - course: MALAY.100A
+            - course: PERSIAN.100A
+            - course: PUNJABI.100A
+            - course: SCANDIN.100A
+            - course: SCANDIN.102A
+            - course: SCANDIN.170
+            - course: SLAVIC.3
+            - course: SLAVIC.115A
+            - course: SLAVIC.116A
+            - course: SLAVIC.117A
+            - course: SLAVIC.118A
+            - course: S ASIAN.10A
+            - course: SPANISH.3
+            - course: TAMIL.100A
+            - course: THAI.100A
+            - course: TIBETAN.10A
+            - course: TURKISH.100A
+            - course: VIETNMS.100A
+            - course: YIDDISH.102

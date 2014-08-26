@@ -1,0 +1,48 @@
+rules:
+    
+    public_policy_minor:
+        description: "Public Policy Minor"
+        rule: AND
+        args:
+            - course: PUB POL.101
+            - rule: public_policy_minor_courses
+
+    public_policy_minor_courses:
+        description: "Public Policy Courses"
+        rule: count_courses
+            min: 4
+            args:
+                - course: PUB POL.101
+                - course: PUB POL.103
+                - course: PUB POL.C103
+                - course: PUB POL.117AC
+                - course: PUB POL.C142
+                - course: PUB POL.156
+                - course: PUB POL.157
+                - course: PUB POL.C164
+                - course: PUB POL.179
+                - course: PUB POL.182
+                - course: PUB POL.184
+                - course: PUB POL.C184
+                - course: PUB POL.190
+                - course: PUB POL.199
+                - course: ECON.C142
+                - course: POL SCI.C134A
+                - course: LNS.C180X
+                - course: DEMOG.C164
+                - course: ENE,RES.C100
+                - rule: public_policy_minor_courses_outside
+
+    public_policy_minor_courses_outside:
+        description: "Public Policy Courses Outside the Department"
+        rule: count_courses
+            max: 2
+            args:
+                - course: MEDIAST.104A
+                - course: ENVECON.153
+                - course: POL SCI.109
+                - course: PB HLTH.126
+                - course: POL SCI.181
+                - course: ESPM.150
+                - course: PB HLTH.150D
+                - course: PB HLTH.181

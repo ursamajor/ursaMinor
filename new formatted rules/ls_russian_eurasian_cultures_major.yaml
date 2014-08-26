@@ -1,0 +1,102 @@
+rules:
+
+    ls_russian_eurasian_cultures_major: # new reqs as of spring 2014
+        description: "Russian / East European / Eurasian Cultures Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_russian_cultures
+            - rule: ls_upperdiv_russian_cultures
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_russian_cultures:
+        description: "Russian / East European / Eurasian Cultures Lower-Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_russian_cultures_language
+            - course: SLAVIC.50
+
+    ls_upperdiv_russian_cultures:
+        description: "Russian / East European / Eurasian Cultures Upper-Division Requirements"
+        rule: AND
+        args:
+            - course: SLAVIC.100
+            - rule: ls_upperdiv_russian_cultures_cultural_topics
+            - rule: ls_upperdiv_russian_cultures_history
+            - rule: ls_upperdiv_russian_cultures_electives
+            # upper division language may be counted? maybe?
+
+    ls_lowerdiv_russian_cultures_language:
+        description: "Russian / East European / Eurasian Cultures Lower-Division Language Requirement"
+        rule: AND
+        args:
+            - rule: russian_elementary
+            - rule: russian_intermediate
+
+    slavic_elementary:
+        description: "Elementary Russian"
+        rule: OR
+        args:
+            - rule: slavic_1_2
+            - course: SLAVIC.6A
+            - course: SLAVIC.10
+
+    slavic_1_2:
+        hidden: true
+        rule: AND
+        args:
+            - course: SLAVIC.1
+            - course: SLAVIC.2
+
+    russian_intermediate:
+        description: "Intermediate Russian"
+        rule: OR
+        args:
+            - rule: slavic_3_4
+            - course: SLAVIC.6B
+            - course: SLAVIC.20
+
+    slavic_3_4:
+        hidden: true
+        rule: AND
+        args:
+            - course: SLAVIC.3
+            - course: SLAVIC.4
+
+    ls_upperdiv_russian_cultures_cultural_topics:
+        description: "Russian / East European / Eurasian Cultures Upper Division Cultural Topics"
+        rule: OR
+        args:
+            - course: SLAVIC.148
+            - course: SLAVIC.158
+
+    ls_upperdiv_russian_cultures_history:
+        description: "Russian / East European / Eurasian Cultures Upper Division History Courses"
+        rule: OR
+        args: # relevant course in history, such as those below
+            - course: HISTORY.171A
+            - course: HISTORY.171B
+            - course: HISTORY.171C
+            - course: HISTORY.172
+            - course: HISTORY.173
+            - course: HISTORY.174A
+            - course: HISTORY.177A
+            - course: HISTORY.177B
+
+    ls_upperdiv_russian_cultures_electives:
+        description: "Russian / East European / Eurasian Cultures Electives"
+        rule: count_courses
+            min: 6
+            args:
+            # can also utilize other relevant courses
+            # from History, Anthro, ComLit, Theater, Dance, 
+            # Econ, Journalism, Legal, PACS, PolEcon
+                - rule: upperdiv_slavic
+                - course: GEOG.55C
+                - course: POL SCI.129B
+                - course: POL SCI.129C
+                - course: POL SCI.141A
+                - course: POL SCI.141C
+                - course: SOCIOL.181

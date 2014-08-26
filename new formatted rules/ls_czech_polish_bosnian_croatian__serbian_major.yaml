@@ -1,0 +1,145 @@
+rules:
+
+    ls_czech_polish_bosnian_croatian_serbian_language_and_literature_major: # as of spring 2014
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Language and Literature Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_czech
+            - rule: ls_upperdiv_czech
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_czech:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Language and Literature Lower-Division Requirements"
+        rule: AND
+        args:
+            - course: SLAVIC.1
+            - course: SLAVIC.2
+            - rule: ls_lowerdiv_czech_literature
+            - rule: ls_lowerdiv_czech_language
+
+    ls_lowerdiv_czech_literature:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Lower-Division Literature and Culture"
+        rule: count_courses
+            min: 2
+            args:
+                - course: SLAVIC.36
+                - course: SLAVIC.39
+                - course: SLAVIC.45
+                - course: SLAVIC.46
+                - course: SLAVIC.50
+
+    ls_lowerdiv_czech_language:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Lower-Division Courses in the Target Language"
+        rule: OR
+        args:
+            - rule: ls_lowerdiv_czech_language_polish
+            - rule: ls_lowerdiv_czech_language_czech
+            - rule: ls_lowerdiv_czech_language_bosnian
+
+    ls_lowerdiv_czech_language_polish:
+        description: "Target Language Lower Division: Polish"
+        rule: AND
+        args:
+            - course: SLAVIC.25A
+            - course: SLAVIC.25B
+
+    ls_lowerdiv_czech_language_czech:
+        description: "Target Language Lower Division: Czech"
+        rule: AND
+        args:
+            - course: SLAVIC.26A
+            - course: SLAVIC.26B
+
+    ls_lowerdiv_czech_language_bosnian:
+        description: "Target Language Lower Division: Bosnian, Croatian, Serbian"
+        rule: AND
+        args:
+            - course: SLAVIC.27A
+            - course: SLAVIC.27B
+
+    ls_upperdiv_czech:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Language and Literature Upper-Division Requirements"
+        rule: AND
+        args:
+            - course: SLAVIC.100
+            - rule: ls_upperdiv_czech_language
+            - rule: ls_upperdiv_czech_literature_survey
+            - rule: ls_upperdiv_czech_literature
+            - rule: ls_upperdiv_czech_electives
+
+    ls_upperdiv_czech_language:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Upper-Division Courses in the Target Language"
+        rule: OR
+        args:
+            - rule: ls_upperdiv_czech_language_polish
+            - rule: ls_upperdiv_czech_language_czech
+            - rule: ls_upperdiv_czech_language_bosnian
+
+    ls_upperdiv_czech_language_polish:
+        description: "Intermediate Target Language: Polish"
+        rule: AND
+        args:
+            - course: SLAVIC.115A
+            - course: SLAVIC.115B
+
+    ls_upperdiv_czech_language_czech:
+        description: "Intermediate Target Language: Czech"
+        rule: AND
+        args:
+            - course: SLAVIC.116A
+            - course: SLAVIC.116B
+
+    ls_upperdiv_czech_language_bosnian:
+        description: "Intermediate Target Language: Bosnian, Croatian, Serbian"
+        rule: AND
+        args:
+            - course: SLAVIC.117A
+            - course: SLAVIC.117B
+
+    ls_upperdiv_czech_literature_survey:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Literature Survey Courses"
+        rule: units
+            min: 3
+            args:
+                - course: SLAVIC.150
+                - course: SLAVIC.160
+                - course: SLAVIC.170
+
+    ls_upperdiv_czech_literature:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Additional Literature"
+        rule: units
+            min: 7
+            args:
+                - rule: slavic151_152
+                - rule: slavic161_162
+                - rule: slavic171_172
+
+    slavic151_152:
+        hidden: true
+        rule: AND
+        args:
+            - course: SLAVIC.151
+            - course: SLAVIC.152
+
+    slavic161_162:
+        hidden: true
+        rule: AND
+        args:
+            - course: SLAVIC.161
+            - course: SLAVIC.162
+    
+    slavic171_172:
+        hidden: true
+        rule: AND
+            - course: SLAVIC.171
+            - course: SLAVIC.172
+
+    ls_upperdiv_czech_electives:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Electives"
+        rule: count_courses
+            min: 2
+            args:
+            # russian or european literature and history

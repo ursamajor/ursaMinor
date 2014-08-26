@@ -1,0 +1,146 @@
+rules:
+
+    ls_religious_studies_major:
+        description: "Religious Studies Major"
+        rule: AND
+        args:
+            - rule: university_all
+            - rule: ls_breadth_all
+            - rule: ls_lowerdiv_religion
+            - rule: ls_upperdiv_religion
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_lowerdiv_religion:
+        description: "Religious Studies Lower Division Requirements"
+        rule: AND
+        args:
+            - course: RELIGST.90A
+            - course: RELIGST.90B
+
+    ls_upperdiv_religion:
+        description: "Religious Studies Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_religion_methodology
+            - rule: ls_upperdiv_religion_thematic
+            - rule: ls_upperdiv_religion_emphasis
+
+    ls_upperdiv_religion_methodology:
+        description: "Religious Studies Upper Division Methodological Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ANTHRO.158
+                - course: GEOG.107
+                - course: SOCIOL.112
+                - course: RELIGST.190 # methodological topic
+
+    ls_upperdiv_religion_thematic:
+        description: "Religious Studies Upper Division Thematic Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: CLASSIC.178
+                - course: COM LIT.165
+                - course: RELIST.115
+                - course: COM LIT.125
+                - course: RELIGST.190 # thematic topic
+
+    ls_upperdiv_religion_emphasis:
+        description: "Religious Studies Upper Division Field of Emphasis"
+        rule: OR
+        args:
+            - rule: ls_upperdiv_religion_emphasis_buddhism
+            - rule: ls_upperdiv_religion_emphasis_hinduism
+            - rule: ls_upperdiv_religion_emphasis_judaism
+            - rule: ls_upperdiv_religion_emphasis_islam
+            - rule: ls_upperdiv_religion_emphasis_christanity
+
+    ls_upperdiv_religion_emphasis_buddhism:
+        description: "Religious Studies Emphasis: Buddhism"
+        rule: count_courses
+            min: 3
+            args:
+                - course: EA LANG.120
+                - course: EA LANG.122
+                - course: EA LANG.130
+                - course: EA LANG.140
+                - course: S ASIAN.127
+                - course: S ASIAN.140
+
+    ls_upperdiv_religion_emphasis_hinduism:
+        description: "Religious Studies Emphasis: Hinduism"
+        rule: count_courses
+            min: 3
+            args:
+                - course: S ASIAN.121
+                - course: S ASIAN.127
+                - course: S ASIAN.140
+                - course: S ASIAN.147
+                - course: S ASIAN.155
+                - course: HISTART.136A
+                - course: HISTART.136B
+                - course: HISTART.136C
+
+    ls_upperdiv_religion_emphasis_judaism:
+        description: "Religious Studies Emphasis: Judaism"
+        rule: count_courses
+            min: 3
+            args:
+                - course: NE STUD.130A
+                - course: NE STUD.130B
+                - course: NE STUD.131
+                - course: NE STUD.132
+                - course: NE STUD.133
+                - course: NE STUD.134
+                - course: NE STUD.137
+                - course: RELIGST.120A
+                - course: HEBREW.101A
+                - course: HEBREW.101B
+                - course: HEBREW.102A
+                - course: HEBREW.102B
+                - course: HEBREW.103A
+                - course: HEBREW.103B
+
+    ls_upperdiv_religion_emphasis_islam:
+        description: "Religious Studies Emphasis: Islam"
+        rule: count_courses
+            min: 3
+            args:
+                - course: NE STUD.121A
+                - course: NE STUD.121B
+                - course: NE STUD.140
+                - course: NE STUD.141
+                - course: NE STUD.142
+                - course: NE STUD.143A
+                - course: NE STUD.143B
+                - course: NE STUD.144
+                - course: HISTORY.109A
+                - course: ARABIC.209A
+                - course: ARABIC.209B
+
+    ls_upperdiv_religion_emphasis_christanity:
+        description: "Religious Studies Emphasis: Christianity"
+        rule: count_courses
+            min: 3
+            args:
+                - course: RELIGST.120A
+                - course: HISTORY.185A
+                - course: RELIGST.120B
+                - course: HISTORY.156A
+                - course: HISTORY.185B
+                - course: RELIGST.115
+                - course: CLASSIC.105
+                - course: ENGLISH.107
+                - course: ENGLISH.110A
+                - course: ENGLISH.110B
+                - course: HISTORY.108
+                - course: ITALIAN.109
+                - course: ITALIAN.130
+                - course: NE STUD.131
+                - course: NE STUD.132
+                - course: NE STUD.134
+                - course: PHILOS.182
+                - course: PHILOS.184
+                - course: RELIGST.190 # when christianity topic
