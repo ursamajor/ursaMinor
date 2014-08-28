@@ -1,0 +1,94 @@
+rules:
+
+    ced_sustainable_design_minor:
+        description: "Sustainable Design Minor"
+        rule: AND
+        args:
+            - rule: ced_sustainable_design_minor_prereqs
+            - rule: ced_sustainable_design_minor_required
+
+
+    ced_sustainable_design_minor_prereqs:
+        description: "Sustainable Design Prerequisites"
+        rule: OR
+        args:
+            - course: CIV ENG.11
+            - course: ENV DES.1
+            - course: ENV DES.4A
+            - course: ENV DES.4B
+            - course: ENV DES.4C
+            - course: ENV DES.10
+            - course: ESPM.C10
+            - course: GEOG.1
+            - course: LD ARCH.12
+
+    ced_sustainable_design_minor_required:
+        description: "Sustainable Design Minor Required Courses"
+        rule: AND
+        args:
+            - rule: ced_sustainable_design_minor_required_ced
+            - rule: ced_sustainable_design_minor_required_non_ced
+
+    ced_sustainable_design_minor_required_ced:
+        description: "Sustainable Design Minor CED Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ARCH.140
+                - course: ARCH.149
+                - course: ARCH.169
+                - course: ARCH.240
+                - course: ARCH.241
+                - course: ARCH.242 # as a third course
+                - course: ARCH.243
+                - course: ARCH.244
+                - course: ARCH.249
+                - course: CY PLAN.114
+                - course: CY PLAN.119
+                - course: CY PLAN.254
+                - course: CY PLAN.256
+                - course: ENV DES.105
+                - course: ENV DES.198 # as a third course
+                - course: LD ARCH.103
+                - course: LD ARCH.110
+                - course: LD ARCH.122
+                - course: LD ARCH.130
+                - course: LD ARCH.138AC
+
+    ced_sustainable_design_minor_required_non_ced:
+        description: "Sustainable Design Minor Non-CED Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ANTHRO.137
+                - course: CIV ENG.103
+                - course: CIV ENG.107
+                - course: CIV ENG.113N
+                - course: CIV ENG.292A # only as a third course
+                - course: ENE,RES.100
+                - course: ENE,RES.102
+                - course: ENE,RES.151
+                - course: ENE,RES.175
+                - course: ESPM.102D
+                - course: ESPM.117
+                - course: ESPM.151
+                - course: ESPM.155
+                - course: ESPM.161
+                - course: ESPM.163
+                - course: ESPM.166
+                - course: ESPM.C167
+                - course: ESPM.168
+                - course: ENV SCI.125
+                - course: ENVECON.C101
+                - course: ENVECON.C102
+                - course: ENVECON.162
+                - course: ENVECON.C175
+                - course: ECON.C102
+                - course: ECON.C125
+                - course: IAS.C175
+                - course: GEOG.130
+                - course: GEOG.138
+                - course: PUB POL.182
+                - course: SOCIOL.123
+                - course: SOCIOL.128
+

@@ -1,0 +1,27 @@
+rules:
+    
+    ced_history_theory_landscape_architecture_minor:
+        description: "History and Theory of Landscape Architecture and Environmental Planning Minor"
+        rule: AND
+        args:
+            - rule: ced_history_theory_landscape_architecture_minor_prereqs
+            - rule: ced_history_theory_landscape_architecture_minor_required
+
+    # not open to landscape arch majors
+
+    ced_history_theory_landscape_architecture_minor_prereqs:
+        description: "Landscape Architecture + Environmental Planning Minor Prerequisites"
+        rule: OR
+        args:
+            - course: ENV DES.1
+            - course: LD ARCH.12
+
+    ced_history_theory_landscape_architecture_minor_required:
+        description: "landscape Architecture + Environmental Planning Minor Required Courses"
+        rule: AND
+        args:
+            - course: LD ARCH.110
+            - course: LD ARCH.130
+            - course: LD ARCH.140
+            - course: LD ARCH.170
+            - course: LD ARCH.C171

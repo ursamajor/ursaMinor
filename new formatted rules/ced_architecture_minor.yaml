@@ -1,0 +1,36 @@
+rules:
+
+    ced_architecture_minor:
+        description: "Architecture Minor"
+        rules: AND
+        args:
+            - rule: ced_architecture_minor_prereqs
+            - rule: ced_architecture_minor_required
+
+    ced_architecture_minor_prereqs:
+        description: "Architecture Minor Prerequisites"
+        rule: AND
+        args:
+            - course: ENV DES.11A
+            - course: ENV DES.11B
+
+    ced_architecture_minor_required:
+        description: "Architecture Minor Required Courses"
+        rule: AND
+        args:
+            - course: ARCH.100A
+            - course: ARCH.100B
+            - course: ARCH.170A
+            - course: ARCH.170B
+            - rule: ced_architecture_minor_required_choices
+
+    ced_architecture_minor_required_choices:
+        description: "Architecture Minor Choices"
+        rule: OR
+        args:
+            - course: ARCH.110AC
+            - course: ARCH.120
+            - course: ARCH.130
+            - course: ARCH.140
+            - course: ARCH.150
+            - course: ARCH.160

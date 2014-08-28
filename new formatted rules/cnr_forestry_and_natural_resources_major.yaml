@@ -181,10 +181,9 @@ rules: # not sure if I should combine lower/upper div into one concentration
 
     cnr_forestry_human_bio:
         description: "Forestry Human Dimensions: Biology"
-        rule: OR
+        rule: AND
         args:
-            - course: BIOLOGY.1B
-            - course: BIOLOGY.11
+            - rule: bio_1b_11
 
     cnr_forestry_human_math:
         description: "Forestry Human Dimentions: Mathematics"

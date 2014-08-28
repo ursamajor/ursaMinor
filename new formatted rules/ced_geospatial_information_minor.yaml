@@ -1,0 +1,51 @@
+rules:
+    
+    ced_geospatial_information_minor:
+        description: "Geospatial Information Science and Technology Minor"
+        rule: AND
+        args:
+            - rule: ced_geospatial_information_minor_required
+            - rule: ced_geospatial_information_minor_electives
+
+    # also known as geographic information science and technology in CNR
+
+    ced_geospatial_information_minor_required:
+        description: "Geospatial Information Minor Required Courses"
+        rule: OR
+        args:
+            - course: ESPM.72
+            - course: LD ARCH.C188
+            - course: GEOG.C188
+
+    ced_geospatial_information_minor_electives:
+        description: "Geospatial Information Elective Coureses"
+        rule: count_courses
+            min: 4
+            args:
+                - course: ANTHRO.196
+                - course: ARCH.127
+                - course: COMPSCI.3L
+                - course: COMPSCI.10
+                - course: COMPSCI.160
+                - course: CY PLAN.110
+                - course: CY PLAN.202B
+                - course: CY PLAN.204
+                - course: CY PLAN.255
+                - course: EPS.101
+                - course: EPS.117
+                - course: ESPM.172
+                - course: ESPM.173
+                - course: ESPM.210
+                - course: ESPM.233
+                - course: ESPM.271
+                - course: ESPM.290
+                - course: GEOG.140A
+                - course: GEOG.183
+                - course: GEOG.187
+                - course: GEOG.282
+                - course: ISF.100D
+                - course: LD ARCH.130
+                - course: LD ARCH.132
+                - course: LD ARCH.221
+                - course: LD ARCH.254
+                - course: PB HLTH.272

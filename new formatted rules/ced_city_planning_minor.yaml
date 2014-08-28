@@ -1,0 +1,124 @@
+rules:
+
+    ced_city_planning_minor:
+        description: "City and Regional Planning Minor"
+        rules: AND
+        args:
+            - rule: ced_city_planning_minor_prereqs
+            - rule: ced_architecture_minor_required
+
+    ced_city_planning_minor_prereqs:
+        description: "City and Regional Planning Minor Prerequisites"
+        rule: count_courses
+            min: 2
+            args:
+                - rule: ced_city_planning_minor_prereqs_econ
+                - rule: ced_city_planning_minor_prereqs_stats
+                - rule: ced_city_planning_minor_prereqs_env_design
+
+    ced_city_planning_minor_prereqs_econ:
+        description: "City Planning Economics Area"
+        rule: OR
+        args:
+            - rule: enviro_econ
+            - rule: econ1_2
+            - course: CY PLAN.113A
+
+    ced_city_planning_minor_prereqs_stats:
+        description: "City Planning Statistics Area"
+        rule: stat2_20_21_25_131a
+
+    ced_city_planning_minor_prereqs_env_design:
+        description: "City Planning Environemtnal Design"
+        rule: OR
+        args:
+            - course: ENV DES.1
+            - course: ENV DES.100
+            - course: ENV DES.C169B
+            - course: ENV DES.170
+            - course: GEOG.C160B
+            - course: AMERSTD.C112B
+
+    ced_city_planning_minor_required:
+        description: "City and Regional Planning Minor Required Courses"
+        rule: AND
+        args:
+            - course: CY PLAN.110
+            - rule: ced_architecture_minor_required_choices
+
+    ced_architecture_minor_required_choices:
+        description: "City and Reigional Planning Minor Choices"
+        rule: count_courses
+            min: 5
+            args:
+                - rule: ced_architecture_minor_required_choices_cy_plan
+                - rule: ced_architecture_minor_required_choices_outside
+
+    ced_architecture_minor_required_choices_cy_plan:
+        description: "City and Regional Planning Minor Choices: City Planning"
+        rule: count_courses
+            min: 4
+            args:
+                - course: CY PLAN.111
+                - course: CY PLAN.112A
+                - course: CY PLAN.113A
+                - course: CY PLAN.113B
+                - course: CY PLAN.114
+                - course: CY PLAN.115
+                - course: CY PLAN.118AC
+                - course: CY PLAN.119
+                - course: CY PLAN.120
+                - course: CY PLAN.C139
+                - course: CY PLAN.140
+                - course: CY PLAN.190
+
+    ced_architecture_minor_required_choices_outside:
+        description: "City and Regional Planning Minor Choices: Outside City Planning"
+        rule: OR
+        args:
+            - course: AFRICAM.107
+            - course: ANTHRO.189
+            - course: ARCH.170A
+            - course: ARCH.170B
+            - course: ARCH.136
+            - course: DEV STD.C100
+            - course: GEOG.C112
+            - course: DEMOG.C126
+            - course: SOCIOL.C126
+            - course: ECON.C102
+            - course: ENVECON.C102
+            - course: ECON.C125
+            - course: ENVECON.C101
+            - course: ECON.131
+            - course: ECON.C171
+            - course: ENVECON.C151
+            - course: ENE,RES.100
+            - course: PUB POL.C184
+            - course: ENE,RES.151
+            - course: ENV DES.170
+            - course: ESPM.102D
+            - course: ESPM.165
+            - course: ESPM.168
+            - course: GEOG.110
+            - course: GEOG.111
+            - course: GEOG.159AC
+            - course: GEOG.181
+            - course: GEOG.C188
+            - course: LD ARCH.C188
+            - course: LEGALST.182
+            - course: POL SCI.139D
+            - course: POL SCI.181
+            - course: PB HLTH.150B
+            - course: PUB POL.103
+            - course: PUB POL.184
+            - course: SOCIOL.110
+            - course: SOCIOL.124
+            - course: SOCIOL.124AC
+            - course: SOCIOL.C126
+            - course: DEMOG.C126
+            - course: SOCIOL.127
+            - course: SOCIOL.136
+            - course: UGBA.105
+            - course: UGBA.180
+            - course: UGBA.183
+            - course: UGBA.192P

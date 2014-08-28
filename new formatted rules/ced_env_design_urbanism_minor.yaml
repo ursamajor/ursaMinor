@@ -1,0 +1,101 @@
+rules:
+    
+    ced_env_design_urbanism_minor:
+        description: "Environmental Design and Urbanism in Developing Countries Minor"
+        rule: AND
+        args:
+            - rule: ced_env_design_urbanism_minor_prereqs
+            - rule: ced_env_design_urbanism_minor_required
+
+    ced_env_design_urbanism_minor_prereqs:
+        description: "Environmental Design and Urbanism Minor Prerequisites"
+        rule: OR
+        args:
+            - course: ENV DES.1
+            - course: ARCH.170A
+            - course: ARCH.170B
+            - course: ANTHRO.3
+            - course: ECON.1
+            - course: SOCIOL.1
+
+    ced_env_design_urbanism_minor_required:
+        description: "Environmental Design and Urbanism Minor Required Courses"
+        rule: AND
+        args:
+            - rule: ced_env_design_urbanism_minor_required_ced
+            - rule: ced_env_design_urbanism_minor_required_area
+
+    ced_env_design_urbanism_minor_required_ced:
+        description: "Environmental Design Minor Required Courses: List 1 (CED Offerings)"
+        rule: count_courses
+            min: 3
+            args:
+                - course: CY PLAN.111
+                - course: ARCH.111
+                - course: CY PLAN.115
+                - course: GPP.115
+                - course: ENV DES.100
+                - course: ARCH.179
+                - course: ARCH.218
+                - rule: upperdiv_city_planning
+                - rule: upperdiv_architecture
+
+    # urban studies cannot take three classes for the minor...?
+
+    ced_env_design_urbanism_minor_required_area:
+        description: "Environmental Design Minor Required Courses: List 2 (University Offerings - Specialized Area Studies)"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ANTHRO.141
+                - course: ANTHRO.170
+                - course: ANTHRO.171
+                - course: ANTHRO.172
+                - course: ANTHRO.172AC
+                - course: ANTHRO.173
+                - course: ANTHRO.174
+                - course: ANTHRO.174AC
+                - course: ANTHRO.175
+                - course: ANTHRO.176
+                - course: ANTHRO.177
+                - course: ANTHRO.178
+                - course: ANTHRO.179
+                - course: ANTHRO.180
+                - course: ANTHRO.181
+                - course: ANTHRO.182
+                - course: ANTHRO.183
+                - course: ANTHRO.184
+                - course: ANTHRO.C184
+                - course: ANTHRO.186
+                - course: ANTHRO.C186
+                - course: ANTHRO.187
+                - course: ANTHRO.188
+                - course: DEV STD.C100
+                - course: GEOG.C112
+                - course: ESPM.115
+                - course: GEOG.165
+                - course: HISTORY.109C
+                - course: HISTORY.111B
+                - course: HISTORY.111C
+                - course: HISTORY.112B
+                - course: HISTORY.113A
+                - course: HISTORY.113B
+                - course: HISTORY.114A
+                - course: HISTORY.114B
+                - course: HISTORY.116B
+                - course: HISTORY.116C
+                - course: HISTORY.140B
+                - course: HISTORY.141B
+                - course: HISTORY.143
+                - course: POL SCI.139B
+                - course: POL SCI.141C
+                - course: POL SCI.142B
+                - course: POL SCI.143A
+                - course: POL SCI.143B
+                - course: POL SCI.144B
+                - course: POL SCI.145B
+                - course: POL SCI.146B
+                - course: POL SCI.148A
+
+                # middle eastern, latin american, pacs, dev, poli econ, 
+                # and others can be used as substitutes with permission

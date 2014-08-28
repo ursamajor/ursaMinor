@@ -481,6 +481,13 @@ es_bio1:
         - course: BIOLOGY.1AL
         - course: BIOLOGY.1B
 
+bio_1b_11:
+    hidden: true
+    rule: OR
+    args:
+        - course: BIOLOGY.1B
+        - course: BIOLOGY.11
+
 
 # other pop Lab courses
 bioengc22:

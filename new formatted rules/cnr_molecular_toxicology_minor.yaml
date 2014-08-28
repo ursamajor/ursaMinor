@@ -1,0 +1,53 @@
+rules:
+
+    cnr_molecular_toxicology_minor:
+        description: "Molecular Toxicology Minor"
+        rule: AND
+        args:
+            - rule: cnr_toxicology_minor_prereqs
+            - rule: cnr_toxicology_minor_core
+            - rule: cnr_toxicology_minor_upperdiv
+
+    cnr_toxicology_minor_prereqs:
+        description: "Molecular Toxicology Minor Prerequisite Courses"
+        rule: AND
+        args:
+            - course: CHEM.1A
+            - course: CHEM.3A
+            - course: CHEM.3B
+            - course: BIOLOGY.1A
+
+    cnr_toxicology_minor_core:
+        description: "Molecular Toxicology Minor Core Courses"
+        rule: AND
+        args:
+            - course: NUSCTX.11
+            - course: NUSCTX.110
+            - course: NUSCTX.115
+            - rule: nutriscic114_espmc148
+
+    cnr_toxicology_minor_upperdiv:
+        description: "Molecular Toxicology Minor Upper Division Elective Courses"
+        rule: count_courses
+            min: 1
+            args:
+                - course: NUSCTX.103
+                - course: NUSCTX.104
+                - course: NUSCTX.108A
+                - course: NUSCTX.121
+                - course: NUSCTX.C159
+                - course: ESPM.C159
+                - course: NUSCTX.160
+                - course: NUSCTX.161A
+                - course: NUSCTX.166
+                - course: NUSCTX.190
+                - course: NUSCTX.193
+                - course: NUSCTX.H196
+                - course: NUSCTX.199
+
+    nutriscic114_espmc148:
+        hidden: true
+        rule: OR
+        args:
+            - course: NUSCTX.C114
+            - course: ESPM.C148

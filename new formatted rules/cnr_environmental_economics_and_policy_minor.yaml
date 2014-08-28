@@ -1,0 +1,99 @@
+rules:
+
+    cnr_environmental_economics_and_policy_minor:
+        description: "Environmental Economics and Policy Minor"
+        rule: AND
+        args:
+            - rule: cnr_environmental_economics_minor_prereqs
+            - rule: cnr_environmental_economics_minor_micro_principles
+            - rule: cnr_environmental_economics_minor_micro_intermediate
+            - rule: cnr_environmental_economics_minor_environmental_econ
+            - rule: cnr_environmental_economics_minor_quantitative
+            - rule: cnr_environmental_economics_minor_natural_resources
+
+    cnr_environmental_economics_minor_prereqs:
+        description: "Environmental Economics and Policy Minor Prerequisites"
+        rule: AND
+        args:
+            - rule: math_a
+            - rule: math_b
+
+    cnr_environmental_economics_minor_micro_principles:
+        description: "Environmental Economics and Policy Minor Principles of Micro Economics"
+        rule: AND
+        args:
+            - rule: econ_lowerdiv
+
+    cnr_environmental_economics_minor_micro_intermediate:
+        description: "Environmental Economics and Policy Minor Intermediate Microeconomics"
+        rule: AND
+        args:
+            - rule: cnr_eep_micro
+
+    cnr_environmental_economics_minor_environmental_econ:
+        description: "Environmental Economics and Policy Minor Environmental and Natural Resource Economics"
+        rule: AND
+        args:
+            - rule: eepc101_econc125
+            - rule: eepc102_econc102
+
+    cnr_environmental_economics_minor_quantitative:
+        description: "Environmental Economics and Policy Minor Quantitative Methods"
+        rule: OR
+        args:
+            - course: ENVECON.C115
+            - course: ESPM.C104
+            - course: ENVECON.C118
+            - course: IAS.C118
+            - course: ENVECON.C183
+            - course: ESPM.C183
+            - course: ECON.C110
+            - course: POLECON.C135
+            - course: POL SCI.C135
+            - course: ECON.140
+            - course: ECON.141
+            - course: ECON.C142
+            - course: POL SCI.C135
+            - course: PUB POL.C142
+            - course: ENE,RES.C130
+            - course: EPS.C120
+            - course: ESPM.102B
+            - course: ESPM.102C
+            - course: PB HLTH.140
+            - course: PB HLTH.142
+            - course: STAT.131A
+
+    cnr_environmental_economics_minor_natural_resources:
+        description: "Environmental Economics and Policy Minor Natural Resource Analysis and Policy"
+        rule: OR
+        args:
+            - course: ENVECON.131
+            - course: ENVECON.140AC
+            - course: ENVECON.141
+            - course: ENVECON.142
+            - course: ENVECON.143
+            - course: ENVECON.145
+            - course: ENVECON.147
+            - course: ENVECON.C151
+            - course: ENVECON.152
+            - course: ENVECON.153
+            - course: ENVECON.154
+            - course: ENVECON.161
+            - course: ENVECON.162
+            - course: ENVECON.C175
+            - course: ENVECON.C180
+            - course: ENVECON.C181
+
+    eepc101_econc125:
+        hidden: true
+        rule: OR
+        args:
+            - course: ENVECON.C101
+            - course: ECON.C125
+
+    eepc102_econc102:
+        hidden: true
+        rule: OR
+        args:
+            - course: ENVECON.C102
+            - course: ECON.C102

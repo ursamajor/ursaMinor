@@ -1,0 +1,46 @@
+rules:
+
+    cnr_forestry_and_natural_resources_minor:
+        description: "Forestry and Natural Resources Minor"
+        rule: count_courses
+            min: 5
+            args:
+                - rule: cnr_forestry_minor_lowerdiv
+                - rule: cnr_forestry_minor_upperdiv
+
+    cnr_forestry_minor_lowerdiv:
+        description: "Forestry and Natural Resources Minor Lower Division"
+        rule: OR
+        args:
+            - course: ESPM.11
+            - course: ESPM.50AC
+            - course: ESPM.60
+            - course: ESPM.72
+
+    cnr_forestry_minor_upperdiv:
+        description: "Forestry and Natural Resources Minor Upper Division"
+        rule: count_courses
+            min: 3
+            args:
+                - course: ESPM.102A
+                - course: ESPM.102B
+                - course: ESPM.102C
+                - course: ESPM.102D
+                - course: ESPM.105A
+                - course: ESPM.105B
+                - course: ESPM.105C
+                - course: ESPM.105D
+                - course: ESPM.108A
+                - course: ESPM.108B
+                - course: ESPM.116A
+                - course: ESPM.116C
+                - course: ESPM.C129
+                - course: EPS.C129
+                - course: ESPM.134
+                - course: ESPM.155
+                - course: ESPM.172
+                - course: ESPM.181A
+                - course: ESPM.182
+                - course: ESPM.183
+                - course: ESPM.184
+                - course: ESPM.185

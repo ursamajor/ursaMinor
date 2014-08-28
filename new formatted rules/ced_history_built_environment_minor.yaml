@@ -1,0 +1,24 @@
+rules:
+
+    ced_history_built_environment_minor:
+        description: "History of the Built Environment Minor"
+        rule: AND
+        args:
+            - course: ARCH.170A
+            - course: ARCH.170B
+            - course: ced_history_built_environment_minor_non_ced # idk
+            - course: ced_history_built_environment_minor_ced
+
+    ced_history_built_environment_minor_ced:
+        description: "History of the Build Environment Minor: CED Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ENV DES.169A
+                - course: ENV DES.169B
+                - course: ARCH.173A
+                - course: ARCH.C174
+                - course: ARCH.179
+                - course: LD ARCH.170 # not applicable for landscape architecture
+                - course: LD ARCH.C171
+                - course: CY PLAN.200 # approval required

@@ -1,0 +1,100 @@
+rules:
+
+    cnr_energy_resources_minor:
+        description: "Energy and Resources Minor"
+        rule: AND
+        args:
+            - rule: ced_energy_resources_minor_lowerdiv
+            - rule: ced_energy_resources_minor_upperdiv
+
+    cnr_energy_resources_minor_lowerdiv:
+        description: "Energy and Resources Minor Lower-Division Courses"
+        rule: AND
+        args:
+            - rule: math1_16
+            - rule: physics_7_8
+            - rule: chem_a
+            - rule: bio_1b_11
+
+    ced_energy_resources_minor_upperdiv:
+        description: "Energy and Resources Minor Upper Division Courses"
+        rule: AND
+        args:
+            - course: ENE,RES.100
+            - course: ENE,RES.102
+            - rule: ced_energy_resources_minor_upperdiv_electives
+
+    ced_energy_resources_minor_upperdiv_electives:
+        description: "Energy and Resources Minor Upper Division Electives"
+        rule: count_courses
+            min: 4
+            args:
+            # at least 3 in ENE,RES
+            # at least 1 in social sciences
+            # at least 1 in natural sciences or engineering
+            # here are some examples
+                - rule: ced_energy_resources_minor_upperdiv_electives_social_science
+                - rule: ced_energy_resources_minor_upperdiv_electives_natural_science
+                - rule: ced_energy_resources_minor_upperdiv_electives_other
+
+    ced_energy_resources_minor_upperdiv_electives_social_science:
+        description: "Energy and Resources Minor Electives: Social Science Courses"
+        rule: OR
+        args:
+            - course: ENE,RES.C180
+            - course: ENE,RES.273
+            - course: ENE,RES.175
+            - course: ECON.C102
+            - course: ENVECON.C102
+            - course: ECON.C171
+            - course: ENVECON.C151
+            - course: ESPM.102D
+            - course: ESPM.155
+            - course: ESPM.160AC
+            - course: ESPM.161
+            - course: ESPM.168
+            - course: ESPM.169
+            - course: IDS.100AC # what is this course?
+
+    ced_energy_resources_minor_upperdiv_electives_natural_science:
+        description: "Energy and Resources Minor Electives: Natural Science and Engineering Courses"
+        rule: OR
+        args:
+            - course: ENE,RES.101
+            - course: CIV ENG.103
+            - course: CIV ENG.107
+            - course: CIV ENG.111
+            - course: CIV ENG.114
+            - course: CIV ENG.115
+            - course: EPS.105
+            - course: EPS.117
+            - course: EPS.C129
+            - course: ESPM.C129
+            - course: EPS.C180
+            - course: ESPM.C180
+            - course: ESPM.111
+            - course: ESPM.112
+            - course: ESPM.120
+            - course: ESPM.131
+            - course: ESPM.140
+            - course: ESPM.143
+            - course: INTEGBI.106A
+            - course: INTEGBI.152
+            - course: INTEGBI.153
+            - course: INTEGBI.157L
+
+    ced_energy_resources_minor_upperdiv_electives_other:
+        description: "Energy and Resources Minor Electives: Other Courses"
+        rule: OR
+        args:
+            - course: ENE,RES.170
+            - course: ENE,RES.190
+            - course: ENE,RES.198
+            - course: ENE,RES.199
+            - course: CRP.119 # where is this from?
+            - course: EPS.170AC
+            - course: LNS.170AC
+            - course: ENV SCI.125
+            - course: ESPM.118
+            - course: ESPM.C130
+            - course: GEOG.C136
