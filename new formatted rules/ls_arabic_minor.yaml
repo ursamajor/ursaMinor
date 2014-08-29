@@ -1,0 +1,56 @@
+rules:
+
+    ls_arabic_minor:
+        description: "Arabic Minor"
+        rule: OR
+        args:
+            - rule: ls_arabic_minor_option_a # no background in lang
+            - rule: ls_arabic_minor_option_b # previous proficiency
+
+    ls_arabic_minor_option_a:
+        description: "Arabic Minor: Option A"
+        rule: AND
+        args:
+            - rule: ls_arabic_minor_option_a_lowerdiv
+            - rule: ls_arabic_minor_option_a_upperdiv
+
+    ls_arabic_minor_option_a_lowerdiv:
+        description: "Arabic Minor: Option A Lower Division Requirements"
+        rule: AND
+        args:
+            - course: ARABIC.1A
+            - course: ARABIC.1B
+            - course: ARABIC.20A
+            - course: ARABIC.20B
+
+    ls_arabic_minor_option_a_upperdiv:
+        description: "Arabic Minor: Option A Upper Division Requirements"
+        rule: AND
+        args:
+            - course: ARABIC.100A
+            - rule: ls_arabic_minor_option_a_upperdiv_literature
+
+    ls_arabic_minor_option_a_upperdiv_literature:
+        description: "Arabic Minor: Option A Upper Division Literature"
+        rule: count_courses
+            min: 3
+            rule: ls_arabic_minor_literature
+
+    ls_arabic_minor_option_b:
+        description: "Arabic Minor: Option B"
+        rule: count_courses
+            min: 5
+            rule: ls_arabic_minor_literature # something like this?
+
+    ls_arabic_minor_literature:
+        description: "Arabic Minor Literature Courses"
+        rule: OR
+        args:
+            - course: ARABIC.100A
+            - course: ARABIC.100B
+            - course: ARABIC.104B
+            - course: ARABIC.105B
+            - course: ARABIC.111A
+            - course: ARABIC.111B
+            - course: ARABIC.107
+            - course: ARABIC.108

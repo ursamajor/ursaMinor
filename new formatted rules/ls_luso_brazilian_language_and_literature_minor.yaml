@@ -1,0 +1,36 @@
+rules:
+
+    ls_luso_brazilian_language_and_literature_minor:
+        description: "Luso-Brazilian Language and Literature Major"
+        rule: AND
+        args:
+            - rule: ls_brazilian_minor_prereqs
+            - rule: ls_brazilian_minor_upperdiv
+
+    ls_brazilian_minor_prereqs:
+        description: "Luso-Brazilian Language and Literature Minor Prerequisites"
+        rule: OR
+        args:
+            - rule: portug_11_12
+            - rule: portug101
+
+    portug_11_12:
+        hidden: true
+        rule: AND
+        args:
+            - course: PORTUG.11
+            - course: PORTUG.12
+
+    portug101:
+        hidden: true
+        rule: AND
+        args:
+            - course: PORTUG.101A
+            - course: PORTUG.101B
+
+    ls_brazilian_minor_upperdiv:
+        description: "Luso-Brazilian Language and Literature Upper Division Courses"
+        rule: count_courses
+            min: 5 # outside of 101a and 101b if chosen
+            rule: upperdiv_portuguese
+

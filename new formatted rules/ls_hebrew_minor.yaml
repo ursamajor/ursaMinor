@@ -1,0 +1,71 @@
+rules:
+
+    ls_hebrew_minor:
+        description: "Arabic Minor"
+        rule: OR
+        args:
+            - rule: ls_hebrew_minor_option_a # no background in lang
+            - rule: ls_hebrew_minor_option_b # previous proficiency
+
+    ls_hebrew_minor_option_a:
+        description: "Hebrew Minor: Option A"
+        rule: AND
+        args:
+            - rule: ls_hebrew_minor_option_a_lowerdiv
+            - rule: ls_hebrew_minor_option_a_upperdiv
+
+    ls_hebrew_minor_option_a_lowerdiv:
+        description: "Hebrew Minor: Option A Lower Division Requirements"
+        rule: AND
+        args:
+            - course: HEBREW.1A
+            - course: HEBREW.1B
+            - course: HEBREW.20A
+            - course: HEBREW.20B
+
+    ls_hebrew_minor_option_a_upperdiv:
+        description: "Hebrew Minor: Option A Upper Division Requirements"
+        rule: AND
+        args:
+            - course: HEWBREW.100A
+            - course: HEWBREW.100B
+            - course: HEWBREW.104A
+            - course: HEWBREW.104B
+            - rule: ls_hebrew_minor_option_a_upperdiv_literature
+
+    ls_hebrew_minor_option_a_upperdiv_literature:
+        description: "Arabic Minor: Option A Upper Division Literature"
+        rule: count_courses
+            min: 3
+            rule: ls_hebrew_minor_culture # more?
+
+    ls_arabic_minor_option_b:
+        description: "Arabic Minor: Option B"
+        rule: count_courses
+            min: 5
+            rule: ls_hebrew_minor_language # something like this?
+
+    ls_hebrew_minor_culture:
+        description: "Hebrew Minor Culture/History Courses"
+        rule: OR
+        args:
+            - course: HEWBREW.104A
+            - course: HEWBREW.104B
+            - course: HEWBREW.148A # not sure
+
+    ls_hebrew_minor_language:
+        description: "Hebrew Minor Language or Literature Courses"
+        rule: OR
+        args:
+            - course: HEWBREW.100A
+            - course: HEWBREW.100B
+            - course: HEWBREW.102A
+            - course: HEWBREW.102B
+            - course: HEWBREW.104A
+            - course: HEWBREW.104B
+            - course: HEWBREW.105B
+            - course: HEWBREW.106A
+            - course: HEWBREW.106B
+            - course: HEWBREW.N106
+            - course: HEWBREW.107A
+            - course: HEBREW.107B

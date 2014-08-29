@@ -1,99 +1,42 @@
 rules:
 
-    ls_theater_and_performance_studies_major:
-        description: "Theater and Performance Studies Major"
+    ls_theater_and_performance_studies_minor:
+        description: "Theater and Performance Studies Minor"
         rule: AND
         args:
-            - rule: university_all
-            - rule: ls_breadth_all
-            - rule: ls_lowerdiv_theater
-            - rule: ls_upperdiv_theater
-            - rule: units_total
+            - rule: ls_lowerdiv_theater_minor
+            - rule: ls_upperdiv_theater_minor
 
-    ls_lowerdiv_theater:
-        description: "Theater and Performance Studies Lower Division Pre-requisites"
-        rule: AND
+    ls_lowerdiv_theater_minor:
+        description: "Theater and Performance Studies Minor Lower Division Requirements"
+        rule: OR
         args:
             - course: THEATER.10
             - course: THEATER.60
             - course: THEATER.26
             - rule: theater_ac
 
-    theater_ac:
-        hidden: true
-        rule: OR
-        args:
-            - course: THEATER.25AC
-            - course: THEATER.52AC
-
-    ls_upperdiv_theater:
-        description: "Theater and Performance Studies Upper Division Requirements"
+    ls_upperdiv_theater_minor:
+        description: "Theater and Performance Studies Minor Upper Division Requirements"
         rule: AND
         args:
-            - rule: ls_upperdiv_theater_technical
-            - rule: ls_upperdiv_theater_design
-            - rule: ls_upperdiv_theater_performance
-            - rule: ls_upperdiv_theater_electives
+            - rule: ls_upperdiv_theater_minor_performance
+            - rule: ls_upperdiv_theater_minor_electives
 
-    ls_upperdiv_theater_technical:
-        description: "Theater and Performance Studies Upper Division: Technical Theater"
+    ls_upperdiv_theater_minor_performance:
+        description: "Theater and Performance Studies Minor Performance Course"
         rule: OR
-        args:
-            - course: THEATER.167 # if 60 had craft shop
-            - course: THEATER.168 # if 60 had run crew
-
-    ls_upperdiv_theater_design:
-        description: "Theater and Performance Studies Upper Division: Design"
-        rule: OR
-        args:
-            - course: THEATER.172
-            - course: THEATER.173A
-            - course: THEATER.173B
-            - course: THEATER.174A
-            - course: THEATER.174B
-            - course: THEATER.175A
-            - course: THEATER.175B
-            - course: THEATER.177
-
-    ls_upperdiv_theater_performance:
-        description: "Theater and Performance Studies Upper Division: Performance Studies"
-        rule: count_courses
-            min: 3
-            args:
-                - rule: ls_upperdiv_theater_performance_theory
-                - rule: ls_upperdiv_theater_performance_culture
-                - rule: ls_upperdiv_theater_performance_history
-                - rule: ls_upperdiv_theater_performance_literatures
-
-    ls_upperdiv_theater_performance_theory:
-        description: "Performance Theory Courses"
-        rule: AND
         args:
             - course: THEATER.119
-
-    ls_upperdiv_theater_performance_culture:
-        description: "Performance Culture Courses"
-        rule: OR
-        args:
             - course: THEATER.121
             - course: THEATER.122
-
-    ls_upperdiv_theater_performance_history:
-        description: "Performance History Courses"
-        rule: OR
-        args:
             - course: THEATER.125
-            - course: THEATER.151B
-
-    ls_upperdiv_theater_performance_literatures:
-        description: "Performance Literatures Courses"
-        rule: OR
-        args:
-            - course: THEATER.113A
             - course: THEATER.126
+            - course: THEATER.113A
 
-    ls_upperdiv_theater_electives:
-        description: "Theater and Performance Studies Upper Division Electives"
-        rule: units
-            min: 24
-            rule: upperdiv_theater # my guess, maybe others too
+    ls_upperdiv_theater_minor_electives:
+        description: "Theater and Performance Studies Minor Electives"
+        rule: count_courses
+            min: 4
+            args:
+            # something, examples on website but not to be followed

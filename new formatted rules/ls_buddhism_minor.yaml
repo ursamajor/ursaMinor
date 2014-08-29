@@ -1,0 +1,41 @@
+rules:
+
+    ls_buddhism_minor:
+        description: "Buddhism Minor"
+        rule: AND
+        args:
+            - rule: ls_buddhism_minor_language
+            - rule: ls_buddhism_minor_upperdiv
+
+    ls_buddhism_minor_language:
+        description: "Buddhism Minor Language Training"
+        rule: OR
+        args:
+            - course: CHINESE.10B
+            - course: JAPAN.10B
+
+    ls_buddhism_minor_upperdiv:
+        description: "Buddhism Minor Upper Division Courses"
+        rule: count_courses
+            min: 5
+            args:
+                - rule: ls_buddhism_minor_upperdiv_buddhism
+                - rule: ls_buddhism_minor_upperdiv_ealc
+
+    ls_buddhism_minor_upperdiv_buddhism:
+        description: "Buddhism Minor Upper Division Buddhism Courses"
+        rule: count_courses
+            min: 3
+            dept: BUDDSTD
+    
+    ls_buddhism_minor_upperdiv_ealc:
+        description: "Buddhism Minor Upper Division Electives"
+        rule: count_courses
+            min: 2
+            args:
+                - rule: upperdiv_chinese
+                - rule: upperdiv_japanese
+                - rule: upperdiv_korean
+                - rule: upperdiv_tibetan
+                - rule: upperdiv_ealang
+                       

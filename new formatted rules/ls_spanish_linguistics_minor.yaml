@@ -1,0 +1,17 @@
+rules:
+
+    ls_spanish_linguistics_minor:
+        description: "Spanish Linguistics Minor"
+        rule: AND
+        args:
+            - rule: spanish_prereqs
+            - course: SPANISH.100
+            - rule: ls_spanish_linguistics_minor
+
+    ls_spanish_linguistics_minor:
+        description: "Spanish Linguistics Courses"
+        rule: count_courses
+            min: 5
+            rule: ls_spanish_linguistics
+
+

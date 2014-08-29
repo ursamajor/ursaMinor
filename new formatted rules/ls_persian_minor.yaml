@@ -1,0 +1,76 @@
+rules:
+
+    ls_persian_minor:
+        description: "Persian Minor"
+        rule: OR
+        args:
+            - rule: ls_persian_minor_option_a # little/no bkgd
+            - rule: ls_persian_minor_option_b # preivous proficiency
+
+    ls_persian_minor_option_a:
+        description: "Persian Minor: Option A"
+        rule: AND
+        args:
+            - rule: ls_persian_minor_option_a_lowerdiv
+            - rule: ls_persian_minor_option_a_upperdiv
+
+    ls_persian_minor_option_a_lowerdiv:
+        description: "Persian Minor Option A Lower Division Requirements"
+        rule: AND
+        args:
+            - course: PERSIAN.1A
+            - course: PERSIAN.1B
+
+    ls_persian_minor_option_a_upperdiv:
+        description: "Persian Minor Option A Upper Division Requirements"
+        rule: AND
+        args:
+            - course: PERSIAN.100A
+            - course: PERSIAN.100B
+            - course: PERSIAN.101A
+            - course: PERSIAN.101B
+            - rule: ls_persian_minor_culture
+
+    ls_persian_minor_option_b:
+        description: "Persian Minor: Option B"
+        rule: AND
+        args:
+            - rule: ls_persian_minor_option_b_literature
+            - rule: ls_persian_minor_option_b_culture
+
+    ls_persian_minor_option_b_literature:
+        description: "Persian Minor: Persian Literature"
+        rule: count_courses
+            min: 5
+            rule: ls_persian_minor_literature
+
+    ls_persian_minor_option_b_culture:
+        description: "Persian Minor: Persian Culture/History"
+        rule: count_courses
+            min: 2
+            rule: ls_persian_minor_culture
+
+    ls_persian_minor_culture:
+        description: "Persian Culture/History Courses"
+        rule: OR
+        args:
+            - course: NE STUD.143A
+            - course: NE STUD.143B
+            - course: NE STUD.160
+            - course: NE STUD.162A
+            - course: NE STUD.162A
+            - course: NE STUD.162B
+            - course: NE STUD.175
+
+    ls_persian_minor_literature:
+        demonstrate: "Persian Literature Courses"
+        rule: OR
+        args:
+            - course: PERSIAN.101A
+            - course: PERSIAN.101B
+            - course: PERSIAN.102A
+            - course: PERSIAN.102B
+            - course: PERSIAN.103A
+            - course: PERSIAN.103B
+            - course: PERSIAN.104
+    

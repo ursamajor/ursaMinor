@@ -47,10 +47,10 @@ rules:
             min: 2
             rule: AND
             args:
-                - rule: ls_philosophy_history_160-178
-                - rule: ls_philosophy_history_160-187
+                - rule: ls_philosophy_history_160_178
+                - rule: ls_philosophy_history_160_187
 
-    ls_philosophy_history_160-178:
+    ls_philosophy_history_160_178:
         description: "Philosophy History from Group 160-178"
         rule: OR
         args:
@@ -63,7 +63,7 @@ rules:
             - course: PHILOS.176
             - course: PHILOS.178
 
-    ls_philosophy_history_160-187:
+    ls_philosophy_history_160_187:
         description: "Philosophy History from Group 160-187"
         rule: OR
         args:

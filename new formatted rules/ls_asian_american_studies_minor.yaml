@@ -1,0 +1,36 @@
+rules:
+
+    ls_asian_american_studies_minor:
+        description: "Asian American and Asian Diaspora Studies Major"
+        rule: count_courses
+            min: 5
+            args:
+                - course: ASAMST.120
+                - course: ASAMST.121
+                - course: ASAMST.122
+                - course: ASAMST.123
+                - course: ASAMST.124
+                - course: ASAMST.125
+                - course: ASAMST.126
+                - course: ASAMST.127
+                - course: ASAMST.128AC
+                - course: ASAMST.130
+                - course: ASAMST.141
+                - course: ASAMST.145
+                - course: ASAMST.146
+                - course: ASAMST.150
+                - course: ASAMST.151
+                - course: ASAMST.165
+                - course: ASAMST.171
+                - course: ASAMST.172
+                - course: ASAMST.173
+                - course: ASAMST.175
+                - course: ASAMST.176
+                - course: ASAMST.177
+                - course: ASAMST.178
+                - course: ASAMST.179
+                - course: ASAMST.180
+                - course: ASAMST.181
+                - course: ASAMST.183
+                - course: ASAMST.190
+                - course: ASAMST.190AC

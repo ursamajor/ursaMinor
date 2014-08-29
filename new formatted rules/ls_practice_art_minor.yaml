@@ -1,0 +1,47 @@
+rules:
+
+    ls_practice_art_minor:
+        description: "Practice of Art Minor"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_practice_art_minor
+            - rule: ls_upperdiv_practice_art_minor
+
+    ls_lowerdiv_practice_art_minor:
+        description: "Practice of Art Minor Lower Division Requirements"
+        rule: count_courses
+            min: 4
+            rule: ls_lowerdiv_practice_art_studio
+
+    ls_upperdiv_practice_art_minor:
+        description: "Practice of Art Minor Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_practice_minor_options
+            - rule: upperdiv_history_art
+
+    ls_upperdiv_practice_minor_options:
+        description: "Practice of Art Upper Division Studio Classes"
+        rule: count_courses
+            min: 4
+            args:
+                - course: ART.117
+                - course: ART.118
+                - course: ART.102
+                - course: ART.120
+                - course: ART.124
+                - course: ART.132
+                - course: ART.137
+                - course: ART.138
+                - course: ART.141
+                - course: ART.142
+                - course: ART.160
+                - course: ART.165
+                - course: ART.171
+                - course: ART.175
+
+    ls_upperdiv_practice_minor_history:
+        description: "Practice of Art Upper Division History of Art Courses"
+        rule: OR
+        args:
+            - rule: upperdiv_history_art

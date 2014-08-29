@@ -1,0 +1,10 @@
+rules:
+
+    ls_chicano_studies_minor:
+        description: "Chicano/Latino Studies Minor"
+        rule: count_courses
+            min: 5
+            args:
+                - rule: ls_upperdiv_chicano_electives
+                # can also use one approved course from another dept?
+

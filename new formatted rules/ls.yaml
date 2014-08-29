@@ -49,6 +49,13 @@ upperdiv_chicano:
         - upperdiv
         - dept: CHICANO
 
+upperdiv_chinese:
+    description: "Upper Division Chinese"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: CHINESE
+
 upperdiv_celtic:
     description: "Upper Division Celtic Studies"
     rule: same_course
@@ -169,6 +176,27 @@ upperdiv_history:
         - upperdiv
         - dept: HISTORY
 
+upperdiv_history_art:
+    description: "Upper Division History of Art"
+    rule: same_course
+        args:
+        - upperdiv
+        - dept: HISTART
+
+upperdiv_japanese:
+    description: "Upper Division Japanese"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: JAPAN
+
+upperdiv_korean:
+    description: "Upper Division Korean"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: KOREAN
+
 upperdiv_latin:
     description: "Upper Division Latin"
     rule: same_course
@@ -267,6 +295,13 @@ south_or_southeast_asian_departments:
         - rule: upperdiv_south_or_southeast_asian
         - rule: upperdiv_southeast_asian
         - rule: upperdiv_south_asian
+
+upperdiv_tibetan:
+    description: "Upper Division Tibetan"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: TIBETAN
 
 spanish_prereqs:
     hidden: true

@@ -1,0 +1,57 @@
+rules:
+
+    ls_dance_performance_studies_minor:
+        description: "Dance and Performance Studies Minor"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_dance_minor
+            - rule: ls_upperdiv_dance_minor
+
+    ls_lowerdiv_dance_minor:
+        description: "Dance and Performance Studies Minor Lower Division Course Requirements"
+        rule: OR
+        args:
+            - course: THEATER.26
+            - course: THEATER.40
+            - course: THEATER.52AC
+            - course: THEATER.25AC
+            - course: THEATER.60
+
+    ls_upperdiv_dance_minor:
+        description: "Dance and Performance Studies Minor Upper Division Course Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_performance_minor
+            - rule: ls_upperdiv_dance_modern_minor
+            - rule: ls_upperdiv_dance_choreography_minor
+
+    ls_upperdiv_performance_minor:
+        description: "Dance and Performance Studies Minor Performance Studies Course"
+        rule: OR
+        args:
+            - course: THEATER.119
+            - course: THEATER.121
+            - course: THEATER.122
+            - course: THEATER.125
+            - course: THEATER.126
+            - course: THEATER.113A
+
+    ls_upperdiv_dance_modern_minor:
+        description: "Dance and Performance Studies Minor Modern Dance Technique"
+        rule: OR
+        args:
+            - course: THEATER.141
+            - course: THEATER.142
+
+    ls_upperdiv_dance_choreography_minor:
+        description: "Dance and Performance Studies Minor Choreography Series"
+        rule: OR
+        args:
+            - rule: theater_144_114
+            - rule: theater_146
+
+    ls_upperdiv_dance_minor_electives:
+        description: "Dance and Performance Studies Minor Electives"
+        rule: count_courses
+            min: 2
+            # idk, examples provided on website but not meant to be followed

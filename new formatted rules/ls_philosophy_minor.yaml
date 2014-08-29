@@ -1,0 +1,40 @@
+rules:
+
+    ls_philosophy_minor:
+        description: "Philosophy Minor"
+        rule: AND
+        args:
+            - rule: ls_philosophy_minor_lowerdiv
+            - rule: ls_philosophy_minor_upperdiv
+
+    ls_philosophy_minor_lowerdiv:
+        description: "Philosophy Minor Lower Division"
+        rule: OR
+        args:
+            - course: PHILOS.25A
+            - course: PHILOS.25B
+
+    ls_philosophy_minor_upperdiv:
+        description: "Philosophy Minor Upper Division"
+        rule: AND
+        args:
+            - rule: ls_philosophy_ethics
+            - rule: ls_philosophy_minor_upperdiv_epistemology
+            - rule: ls_philosophy_minor_upperdiv_electives
+
+    ls_philosophy_minor_upperdiv_epistemology:
+        description: "Philosophy Minor Upper Division Epistemology/Metaphysics"
+        rule: OR
+        args:
+            - course: PHILOS.122
+            - course: PHILOS.125
+            - course: PHILOS.131
+            - course: PHILOS.132
+            - course: PHILOS.133
+            - course: PHILOS.135
+
+    ls_philosophy_minor_upperdiv_electives:
+        description: "Philosophy Minor Upper Division Electives"
+        rule: count_courses
+            min: 5 # includes the ones above
+            rule: upperdiv_philosophy

@@ -37,9 +37,7 @@ rules:
             - course: SPANISH.162
             - course: SPANISH.163
             - course: SPANISH.166
-            - course: SPANISH.167
-            - course: SPANISH.168
-            - course: SPANISH.169
+            - course: SPANISH.179
 
     ls_spanish_electives:
         description: "Spanish Language and Literature: Spanish Electives"

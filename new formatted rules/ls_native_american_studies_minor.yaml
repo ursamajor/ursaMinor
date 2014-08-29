@@ -1,0 +1,15 @@
+rules:
+
+    ls_native_american_studies_minor:
+        description: "Native American Studies Minor"
+        rule: AND
+        args:
+            - course: NATAMST.110
+            - rule: ls_native_american_studies_minor_electives
+
+    ls_native_american_studies_minor_electives:
+        description: "Native American Studies Electives for the Minor"
+        rule: count_courses
+            min: 4
+            rule: native_american_electives
+

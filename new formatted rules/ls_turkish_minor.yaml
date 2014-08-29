@@ -1,0 +1,77 @@
+rules:
+
+    ls_turkish_minor:
+        description: "Turkish Minor"
+        rule: OR
+        args:
+            - rule: ls_turkish_minor_option_a # little/no background
+            - rule: ls_turkish_minor_option_b # prev proficiency
+
+    ls_turkish_minor_option_a:
+        description: "Turkish Minor: Option A"
+        rule: AND
+        args:
+            - rule: ls_turkish_minor_option_a_lowerdiv
+            - rule: ls_turkish_minor_option_a_upperdiv
+
+    ls_turkish_minor_option_a_lowerdiv:
+        description: "Turkish Minor Option A Lower Division Requirements"
+        rule: AND
+        args:
+            - course: TURKISH.1A
+            - course: TURKISH.1B
+
+    ls_turkish_minor_option_a_upperdiv:
+        description: "Turkish Minor Option A Upper Division Requirements"
+        rule: AND
+        args:
+            - course: TURKISH.100A
+            - course: TURKISH.100B
+            - rule: turkish_101_102
+            - rule: ls_turkish_minor_culture
+
+
+    ls_turkish_minor_option_b:
+        description: "Turkish Minor: Option B"
+        rule: AND
+        args:
+            - rule: turkish_101_102
+            - rule: ls_turkish_minor_option_b_culture
+
+
+    turkish_101_102:
+        hidden: true
+        rule: OR
+        args:
+            - rule: turkish101
+            - rule: turkish102
+
+    turkish101:
+        hidden: true
+        rule: AND
+        args:
+            - course: TURKISH.101A
+            - course: TURKISH.101B
+
+    turkish102:
+        hidden: true
+        rule: AND
+        args:
+            - course: TURKISH.102A
+            - course: TURKISH.102B
+
+    ls_turkish_minor_culture:
+        description: "Turkish Culture/History Courses"
+        rule: OR
+        args:
+            - course: NE STUD.170A
+            - course: NE STUD.170B
+            - course: NE STUD.172
+            - course: NE STUD.173A
+            - course: NE STUD.173B
+
+    ls_turkish_minor_option_b_culture:
+        description: "Turkish Minor: Option B Culture/History"
+        rule: count_courses
+            min: 2
+            rule: ls_turkish_minor_culture

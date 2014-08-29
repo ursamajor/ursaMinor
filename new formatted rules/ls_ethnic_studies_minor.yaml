@@ -1,0 +1,17 @@
+rules:
+
+    ls_ethnic_studies_minor:
+        description: "Ethnic Studies Minor"
+        rule: AND
+        args:
+            - rule: ls_ethnic_studies_upperdiv_minor
+            - rule: ls_ethnic_studies_upperdiv_other
+
+    ls_ethnic_studies_upperdiv_minor:
+        description: "Ethnic Studies Minor Upper Division Courses"
+        rule: count_courses
+            min: 3
+            args:
+                - rule: ls_ethnic_studies_upperdiv
+                - course: ETH STD.101A
+                - course: ETH STD.101B

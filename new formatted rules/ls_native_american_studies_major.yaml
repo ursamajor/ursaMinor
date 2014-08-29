@@ -32,24 +32,29 @@ rules:
         description: "Other Native American Courses"
         rule: count_courses
             min: 3
-            args:
-                - course: NATAMST.100
-                - course: NATAMST.101
-                - course: NATAMST.102
-                - course: NATAMST.104
-                - course: NATAMST.120
-                - course: NATAMST.120AC
-                - course: NATAMST.145
-                - course: NATAMST.149
-                - course: NATAMST.151
-                - course: NATAMST.152
-                - course: NATAMST.155
-                - course: NATAMST.158
-                - course: NATAMST.175
-                - course: NATAMST.176
-                - course: NATAMST.178
-                - course: NATAMST.178AC
-                - rule: natamst_182_190
+            rule: native_american_electives
+
+    native_american_electives:
+        description: "Native American Electives"
+        rule: OR
+        args:
+            - course: NATAMST.100
+            - course: NATAMST.101
+            - course: NATAMST.102
+            - course: NATAMST.104
+            - course: NATAMST.120
+            - course: NATAMST.120AC
+            - course: NATAMST.145
+            - course: NATAMST.149
+            - course: NATAMST.151
+            - course: NATAMST.152
+            - course: NATAMST.155
+            - course: NATAMST.158
+            - course: NATAMST.175
+            - course: NATAMST.176
+            - course: NATAMST.178
+            - course: NATAMST.178AC
+            - rule: natamst_182_190
 
     natamst_182_190:
         hidden: true

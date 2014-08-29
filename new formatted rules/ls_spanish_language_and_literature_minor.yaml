@@ -1,0 +1,36 @@
+rules:
+
+    ls_spanish_language_and_literature_minor:
+        description: "Spanish Language and Literatures Minor"
+        rule: AND
+        args:
+            - rule: spanish_prereqs
+            - rule: ls_spanish_literature_minor_upperdiv
+
+    ls_spanish_literature_minor_upperdiv:
+        description: "Spanish Language and Literatures Minor Upper Division Courses"
+        rule: count_courses
+            min: 5
+            args:
+                - course: SPANISH.100
+                - course: SPANISH.104A
+                - course: SPANISH.104B
+                - course: SPANISH.107A
+                - course: SPANISH.107B
+                - course: SPANISH.109
+                - course: SPANISH.110
+                - course: SPANISH.111A
+                - course: SPANISH.111B
+                - course: SPANISH.113
+                - course: SPANISH.114
+                - course: SPANISH.115
+                - course: SPANISH.117
+                - course: SPANISH.121
+                - course: SPANISH.122
+                - course: SPANISH.135W
+                - course: SPANISH.161
+                - course: SPANISH.162
+                - course: SPANISH.163
+                - course: SPANISH.165AC
+                - course: SPANISH.166
+                - course: SPANISH.179

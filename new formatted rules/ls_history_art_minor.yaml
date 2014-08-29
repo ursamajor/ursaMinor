@@ -1,0 +1,109 @@
+rules:
+
+    ls_history_art_minor:
+        description: "History of Art Minor"
+        rule: count_courses
+            min: 5 # in at least three different subfields, but 5 courses
+            args:
+                - rule: ls_upperdiv_history_art_geographical_europe_ancient
+                - rule: ls_upperdiv_history_art_geographical_europe_medieval
+                - rule: ls_upperdiv_history_art_geographical_europe_modern
+                - rule: ls_upperdiv_history_art_geographical_asia_southeast
+                - rule: ls_upperdiv_history_art_geographical_asia_china
+                - rule: ls_upperdiv_history_art_geographical_asia_japan
+                - rule: ls_history_art_minor_seminar
+
+    ls_history_art_minor_seminar:
+        description: "History of Art Seminar Courses"
+        rule: count_courses
+            max: 1
+            rule: ls_upperdiv_history_art_seminar
+
+# all guesses
+    ls_upperdiv_history_art_geographical_europe_ancient:
+        description: "History of Art Area: Ancient Western Art"
+        rule: OR
+        args:
+            - course: HISTART.140
+            - course: HISTART.C140
+            - course: HISTART.141A
+            - course: HISTART.141B
+            - course: HISTART.141C
+            - course: HISTART.142
+            - course: HISTART.N142
+            - course: HISTART.145
+
+    ls_upperdiv_history_art_geographical_europe_medieval:
+        description: "History of Art Area: Medieval Western Art"
+        rule: OR
+        args:
+            - course: HISTART.150A
+            - course: HISTART.150B
+            - course: HISTART.151
+            - course: HISTART.154
+            - course: HISTART.155
+            - course: HISTART.156A
+            - course: HISTART.156B
+            - course: HISTART.157
+            - course: HISTART.160
+            - course: HISTART.161
+            - course: HISTART.162
+            - course: HISTART.166
+            - course: HISTART.168
+            - course: HISTART.169A
+            - course: HISTART.172
+            - course: HISTART.173
+            - course: HISTART.174
+            - course: HISTART.175
+            - course: HISTART.176
+            - course: HISTART.178
+            - course: HISTART.179
+            
+    ls_upperdiv_history_art_geographical_europe_modern:
+        description: "History of Art Area: Modern Western Art"
+        rule: OR
+        args:
+            - course: HISTART.180A
+            - course: HISTART.180B
+            - course: HISTART.180C
+            - course: HISTART.181
+            - course: HISTART.183
+            - course: HISTART.183E
+            - course: HISTART.185
+            - course: HISTART.185A
+            - course: HISTART.185B
+            - course: HISTART.186A
+            - course: HISTART.186B
+            - course: HISTART.186C
+            - course: HISTART.187AC
+            - course: HISTART.190G
+
+    ls_upperdiv_history_art_geographical_asia_southeast:
+        description: "History of Art Area: South/Southeast Asia"
+        rule: OR
+        args:
+            - course: HISTART.136A
+            - course: HISTART.136B
+            - course: HISTART.136C
+            - course: HISTART.137
+
+    ls_upperdiv_history_art_geographical_asia_china:
+        description: "History of Art Area: China"
+        rule: OR
+        args:
+            - course: HISTART.130A
+            - course: HISTART.131A
+            - course: HISTART.131B
+            - course: HISTART.131C
+            - course: HISTART.190A # somewhere, it's about asia in general
+
+    ls_upperdiv_history_art_geographical_asia_japan:
+        description: "History of Art Area: Japan"
+        rule: OR
+        args:
+            - course: HISTART.133
+            - course: HISTART.134A
+            - course: HISTART.134B
+            - course: HISTART.134C
+
+

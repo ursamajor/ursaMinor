@@ -1,0 +1,23 @@
+rules:
+
+    ls_physics_minor:
+        description: "Physics Minor"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_physics
+            - course: PHYSICS.137A
+            - rule: physics_110_105
+            - rule: ls_physics_minor_electives
+
+    physics_110_105:
+        hidden: true
+        rule: OR
+        args:
+            - course: PHYSICS.110A
+            - course: PHYSICS.105
+
+    ls_physics_minor_electives:
+        description: "Physics Minor Electives"
+        rule: count_courses
+            min: 5 # incudes the other ago
+            rule: upperdiv_physics
