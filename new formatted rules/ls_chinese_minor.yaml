@@ -1,0 +1,30 @@
+rules:
+
+    ls_chinese_minor:
+        description: "Chinese Minor"
+        rule: AND
+        args:
+            - course: CHIN.10B # or equivalent
+            - rule: ls_upperdiv_chinese_minor
+
+    ls_upperdiv_chinese_minor:
+        description: "Chinese Minor Upper Division Courses"
+        rule: count_courses
+            min: 5
+            args:
+                - rule: ls_upperdiv_chinese_minor_chinese
+                - rule: ls_upperdiv_chinese_minor_electives
+
+    ls_upperdiv_chinese_minor_chinese:
+        description: "Chinese Minor Upper Division: Chinese Courses"
+        rule: count_courses
+            min: 3
+            rule: upperdiv_chinese
+
+    ls_upperdiv_chinese_electives:
+        description: "Chinese Minor Upper Division: EALC Courses"
+        rule: count_courses # took above into account
+            min: 5
+            args:
+            - rule: upperdiv_ealc
+            - rule: ealc_7

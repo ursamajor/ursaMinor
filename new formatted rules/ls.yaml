@@ -106,6 +106,27 @@ upperdiv_ealang:
         - course: EA LANG.180
         - course: EA LANG.181
 
+upperdiv_ealc:
+    description: "Upper Division East Asian Languages and Cultures Courses"
+    rule: OR
+    args:
+        - rule: upperdiv_chinese
+        - rule: upperdiv_japanese
+        - rule: upperdiv_korean
+        - rule: upperdiv_tibetan
+        - rule: upperdiv_ealang
+
+ealc_7:
+    description: "East Asian Languages and Cultures 7A and 7B"
+    rule: OR
+    args:
+        - course: CHINESE.7A
+        - course: CHINESE.7B
+        - course: JAPAN.7A
+        - course: JAPAN.7B
+        - course: KOREAN.7A
+        - course: KOREAN.7B
+
 upperdiv_english:
     description: "Upper Division English"
     rule: same_course

@@ -1,0 +1,50 @@
+rules:
+
+    ls_russian_literature_minor:
+        description: "Russian Literature Minor
+        rule: AND
+        args:
+            - rule: ls_russian_literature_minor_prereqs
+            - rule: ls_russian_literature_minor_culture
+            - rule: ls_russian_literature_minor_literature
+
+    ls_russian_literature_minor_prereqs:
+        description: "Russian Literature Minor Prerequisites: Surveys of Russian Literature"
+        rule: AND
+        args:
+            - course: SLAVIC.45
+            - course: SLAVIC.46
+
+    ls_russian_literature_minor_culture:
+        description: "Russian Literature Minor: Slavic Culture"
+        rule: OR
+        args:
+            - course: SLAVIC.130
+            - course: SLAVIC.138
+            - course: SLAVIC.140
+            - course: SLAVIC.147A
+            - course: SLAVIC.147B
+            - course: SLAVIC.148
+            - course: SLAVIC.150
+            - course: SLAVIC.160
+            - course: SLAVIC.170
+
+    ls_russian_literature_minor_literature:
+        description: "Russian Literature Minor: Russian Literature"
+        rule: count_courses
+            min: 4
+            args:
+                - course: SLAVIC.132
+                - course: SLAVIC.133
+                - course: SLAVIC.134A
+                - course: SLAVIC.134B
+                - course: SLAVIC.134C
+                - course: SLAVIC.134D
+                - course: SLAVIC.134E
+                - course: SLAVIC.134F
+                - course: SLAVIC.134G
+                - course: SLAVIC.134N
+                - course: SLAVIC.180
+                - course: SLAVIC.181
+                - course: SLAVIC.182
+                - course: SLAVIC.188

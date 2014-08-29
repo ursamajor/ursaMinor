@@ -1,0 +1,21 @@
+rules:
+
+    ls_russian_language_minor:
+        description: "Russian Language Minor"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_russian_cultures_language
+            - course: SLAVIC.103A
+            - course: SLAVIC.103B
+            - rule: ls_upperdiv_russian_language_minor
+
+    ls_upperdiv_russian_language_minor:
+        description: "Russian Language Minor: Advanced Courses"
+        rule: count_courses
+            min: 2
+            args:
+                - course: SLAVIC.180
+                - course: SLAVIC.181
+                - course: SLAVIC.182
+                - course: SLAVIC.188
+                - rule: slavic120

@@ -1,0 +1,20 @@
+rules:
+
+    ls_russian_language_literature_culture_minor:
+        description: "Russian Language, Literature, and Culture Minor"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_russian_cultures_language
+            - rule: ls_upperdiv_russian_language_literature_culture_minor
+
+    ls_upperdiv_russian_language_literature_culture_minor:
+        description: "Russian Language and Literature Upper-Division Requirements"
+        rule: count_courses
+            min: 5
+            args:
+                - course: SLAVIC.100
+                - rule: ls_upperdiv_russian_language_language
+                - rule: ls_upperdiv_russian_language_literature_russian
+                - rule: ls_upperdiv_russian_language_literature_english
+                - rule: ls_upperdiv_russian_language_culture
+                # one other may be substituted; above are guesses

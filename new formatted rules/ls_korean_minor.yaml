@@ -1,0 +1,29 @@
+rules:
+
+    ls_korean_minor:
+        description: "Korean Minor"
+        rule: AND
+        args:
+            - course: KOREAN.10B # or equivalent
+            - rule: ls_korean_minor_upperdiv
+
+    ls_korean_minor_upperdiv:
+        description: "Korean Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_korean_minor_upperdiv_korean
+            - rule: ls_korean_minor_upperdiv_electives
+
+    ls_korean_minor_upperdiv_korean:
+        description: "Korean Upper Division Japanese Courses"
+        rule: count_courses
+            min: 3
+            rule: upperdiv_korean
+
+    ls_korean_minor_upperdiv_electives:
+        description: "Korean Upper Division Electives"
+        rule: count_courses # takes korean courses into account
+            min: 5
+            args:
+                - rule: upperdiv_ealc
+                - rule: ealc_7

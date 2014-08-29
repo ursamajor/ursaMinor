@@ -1,0 +1,10 @@
+rules:
+
+    ls_czech_polish_bosnian_croatian_serbian_language_and_literature_minor:
+        description: "Czech, Polish, Bosnian, Croatian, and Serbian Language and Literature Minor"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_czech_language
+            - rule: ls_upperdiv_czech_language
+            - rule: ls_upperdiv_czech_literature_survey
+            - rule: ls_upperdiv_czech_literature

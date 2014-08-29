@@ -32,10 +32,5 @@ rules:
         description: "Buddhism Minor Upper Division Electives"
         rule: count_courses
             min: 2
-            args:
-                - rule: upperdiv_chinese
-                - rule: upperdiv_japanese
-                - rule: upperdiv_korean
-                - rule: upperdiv_tibetan
-                - rule: upperdiv_ealang
+            rule: upperdiv_ealc
                        

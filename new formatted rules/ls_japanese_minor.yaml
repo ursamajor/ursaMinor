@@ -1,0 +1,29 @@
+rules:
+
+    ls_japanese_minor:
+        description: "Japanese Minor"
+        rule: AND
+        args:
+            - course: JAPAN.10B # or equivalent
+            - rule: ls_japanese_minor_upperdiv
+
+    ls_japanese_minor_upperdiv:
+        description: "Japanese Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_japanese_minor_upperdiv_japanese
+            - rule: ls_japanese_minor_upperdiv_electives
+
+    ls_japanese_minor_upperdiv_japanese:
+        description: "Japanese Upper Division Japanese Courses"
+        rule: count_courses
+            min: 3
+            rule: upperdiv_japanese
+
+    ls_japanese_minor_upperdiv_electives:
+        description: "Japanese Upper Division Electives"
+        rule: count_courses # takes japanese courses into account
+            min: 5
+            args:
+                - rule: upperdiv_ealc
+                - rule: ealc_7
