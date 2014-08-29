@@ -1,0 +1,56 @@
+rules:
+
+    ls_demography_minor:
+        description: "Demography Minor"
+        rule: AND
+        args:
+            - course: DEMOG.110
+            - rule: demog_soc126
+            - rule: demog_econ175
+            - rule: ls_demography_methods
+            - rule: ls_demography_electives
+
+    ls_demography_methods:
+        ls_demography_methods: "Demography Minor Methods"
+        rule: OR # may substitute for something else
+        args:
+            - course: PB HLTH.140
+            - course: PB HLTH.142A
+            - course: ECON.140
+            - course: ECON.141
+            - course: PSYCH.101
+            - course: SOCIOL.105
+            - course: STAT.102
+            - course: STAT.131A
+            - course: STAT.135
+
+    ls_demography_electives:
+        ls_demography_methods: "Demography Minor Electives"
+        rule: OR
+        args:
+            - course: DEMOG.140
+            - course: DEMOG.145
+            - course: DEMOG.164
+            - course: DEMOG.165
+            - course: DEMOG.189
+            - course: ECON.155
+            - course: ECON.157
+            - course: ECON.171
+            - course: HISTORY.137
+            - course: SOCIOL.111
+            - course: SOCIOL.125
+
+    demog_soc126:
+        hidden: true
+        rule: OR
+        args:
+            - course: DEMOG.126
+            - course: SOCIOL.126
+
+    demog_econ175:
+        hidden: true
+        rule: OR
+        args:
+            - course: DEMOG.175
+            - course: ECON.175
+            

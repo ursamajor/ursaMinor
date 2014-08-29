@@ -1,0 +1,17 @@
+rules:
+	
+	ls_religious_studies_minor:
+		description: "Religious Studies Minor"
+		rule: AND
+		args:
+			- course: RELIGST.90A
+			- course: RELIGST.90B
+			- rule: ls_religious_studies_minor_upperdiv
+
+	ls_religious_studies_minor_upperdiv:
+		description: "Religious Studies Minor Electives"
+		rule: count_courses
+			min: 5
+			args:
+			# these courses aren't online...
+			# they are on file in some office.

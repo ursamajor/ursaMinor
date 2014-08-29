@@ -116,6 +116,13 @@ upperdiv_ealc:
         - rule: upperdiv_tibetan
         - rule: upperdiv_ealang
 
+upperdiv_earth:
+    description: "Upper Division Earth and Plantary Science"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: EPS
+
 ealc_7:
     description: "East Asian Languages and Cultures 7A and 7B"
     rule: OR
@@ -147,6 +154,12 @@ upperdiv_ethnic_studies:
     args:
         - upperdiv
         - dept: ETH STD
+
+upperdiv_gender:
+    description: "Upper Division Gender and Women's Studies"
+    rule: same_course
+        - upperdiv
+        - dept: GWS
 
 upperdiv_film:
     description: "Upper Division Film"
@@ -252,6 +265,13 @@ upperdiv_native_american:
     args:
         - upperdiv
         - dept: NATAMST
+
+upperdiv_peace:
+    description: "Upper Division Peace and Conflict Studies"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: PACS
 
 upperdiv_philosophy:
     description: "Upper Division Philosophy"

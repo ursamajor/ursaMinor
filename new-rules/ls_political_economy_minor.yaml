@@ -1,0 +1,21 @@
+rules:
+
+    ls_political_economy_minor:
+        description: "Political Economy Minor"
+        rule: AND
+        args:
+            - course: POLECON.100
+            - course: POLECON.101
+            - rule: ls_political_economy_minor_electives
+
+    ls_political_economy_minor_electives:
+        description: "Political Economy Minor Fields"
+        rule: count_courses
+            min: 4
+            args:
+            # in two of these fields
+            # politics
+            # business and economics
+            # culture and society
+            # how do we classify these
+            

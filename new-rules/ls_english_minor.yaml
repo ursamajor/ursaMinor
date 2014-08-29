@@ -1,0 +1,15 @@
+rules:
+
+    ls_english_minor: # this can probably be better represented
+        description: "English Minor"
+        rule: count_courses
+            min: 5
+            rule: upperdiv_english
+                NOT:
+                    - course: ENGLISH.141
+                    - course: ENGLISH.143A
+                    - course: ENGLISH.143B
+                    - course: ENGLISH.143C
+                    - course: ENGLISH.143N
+                    - course: ENGLISH.143T
+                    - course: ENGLISH.C143V

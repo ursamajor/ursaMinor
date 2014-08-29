@@ -1,0 +1,19 @@
+rules:
+
+    ls_peace_and_conflict_studies_minor:
+        description: "Peace and Conflict Studies Minor"
+        rule: count_courses
+            min: 6
+            args:
+                - rule: ls_peace_and_conflict_studies_minor_pacs
+                - rule: ls_peace_and_conflict_studies_three_different
+
+    ls_peace_and_conflict_studies_minor_pacs:
+        description: "Peace and Conflict Studies Minor: Peace Courses"
+        rule: count_courses
+            min: 3
+            rule: upperdiv_peace # make sure there are at least three
+
+
+
+

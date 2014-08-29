@@ -1,0 +1,63 @@
+rules:
+
+    ls_lgbt_minor:
+        description: "LGBT Minor"
+        rule: AND
+        args:
+            - course: LGBT.20AC
+            - rule: ls_lgbt_minor_history
+            - rule: ls_lgbt_minor_questions
+            - rule: ls_lgbt_minor_trans_culture
+            - rule: ls_lgbt_minor_electives
+
+    ls_lgbt_minor_history:
+        description: "LGBT Minor Upper Division: History of Sexuality"
+        rule: OR
+        args:
+            - course: LGBT.C145
+            - course: COM LIT.185
+            - course: ENGLISH.171
+
+    ls_lgbt_minor_questions:
+        description: "LGBT Minor Upper Division: Questions of Representation"
+        rule: OR
+        args:
+            - course: LGBT.C146
+            - course: GWS.C146
+            - course: LGBT.C146A
+            - course: GWS.C146A
+
+    ls_lgbt_minor_trans_culture:
+        description: "LGBT Minor Upper Division: Trans-Cultural Studies of Sexuality"
+        rule: OR
+        args:
+            - course: LGBT.C147B
+            - course: ANTHRO.C147B
+            - course: LGBT.C148
+            - course: ETH STD.C126
+
+    ls_lgbt_minor_electives:
+        description: "LGBT Minor Upper Division Electives"
+        rule: count_courses
+            min: 2
+            args:
+                - course: ASAMST.178
+                - course: CLASSIC.161
+                - course: COM LIT.120
+                - course: COM LIT.185
+                - course: ENGLISH.100
+                - course: ENGLISH.171
+                - course: GWS.102
+                - course: GWS.103
+                - course: GWS.129
+                - course: GWS.144
+                - course: HISTORY.117D
+                - course: LEGALST.155
+                - course: LEGALST.168
+                - course: LNS.180A
+                - course: LINGUIS.151
+                - course: PSYCH.192
+                - course: REHTOR.179
+                - course: SOCIOL.134
+                - course: SOCIOL.135
+                - course: SOCIOL.150B

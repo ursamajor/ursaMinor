@@ -1,0 +1,33 @@
+rules:
+
+    ls_gender_women_studies_minor:
+        description: "Gender and Women's Studies Minor"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_gender
+            - rule: ls_upperdiv_gender_minor
+            - rule: units_upperdiv
+            - rule: units_total
+
+    ls_upperdiv_gender_minor:
+        description: "Gender and Women's Studies Minor Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_gender_minor_core
+            - rule: ls_upperdiv_gender_minor_electives
+
+    ls_upperdiv_gender_minor_core:
+        description: "Gender and Women's studies Upper Division Core Courses"
+        rule: count_courses
+            min: 3
+            args:
+                - course: GWS.101
+                - course: GWS.102
+                - course: GWS.103
+                - course: GWS.104
+
+    ls_upperdiv_gender_minor_electives:
+        description: "Gender and Women's Studies Upper Division Electives"
+        rule: count_courses
+            min: 5 # took core into account
+            rule: upperdiv_gender

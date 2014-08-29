@@ -1,0 +1,35 @@
+rules:
+
+    ls_rhetoric_minor:
+        description: "Rhetoric Minor"
+        rule: AND
+        args:
+            - rule: ls_rhetoric_prereqs
+            - course: RHETOR.103A
+            - course: RHETOR.103B
+            - rule: ls_rhetoric_minor_electives
+
+    ls_rhetoric_prereqs:
+        description: "Rhetoric Prerequisites"
+        rule: AND
+        args:
+            - course: RHETOR.10
+            - course: RHETOR.20
+
+    ls_rhetoric_minor_electives:
+        description: "Rhetoric Minor Electives"
+        rule: count_courses
+            min: 3
+            args:
+                - rule: ls_rhetoric_concentration_public_discourse_courses
+                - rule: ls_rhetoric_concentration_history_courses
+                - rule: ls_rhetoric_concentration_narrative_and_image_courses
+                - course: RHETOR.136
+                - course: RHETOR.137
+                - course: RHETOR.138
+                - course: RHETOR.139
+                - course: RHETOR.139AC
+                - course: RHETOR.141AC
+                - course: RHETOR.189
+
+

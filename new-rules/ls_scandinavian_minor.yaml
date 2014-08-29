@@ -1,0 +1,23 @@
+rules:
+
+    ls_scandinavian_minor:
+        description: "Scandinavian Minor"
+        rule: AND
+        args:
+            - rule: ls_scandinavian_minor_history
+            - rule: ls_scandinavian_minor_electives
+
+    ls_scandinavian_minor_history:
+        description: "Scandinavian Minor History Sequence"
+        rule: count_courses
+            min: 1
+            rule: ls_upperdiv_scandinavian_history
+
+    ls_scandinavian_minor_electives:
+        description: "Scandinavian Minor Electives"
+        rule: count_courses
+            min: 5 # taking the history course into account
+            # no idea what these might be
+            # rule: upperdiv_scand?
+
+

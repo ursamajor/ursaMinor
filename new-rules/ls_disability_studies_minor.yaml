@@ -1,0 +1,51 @@
+rules:
+
+    ls_disability_studies_minor:
+        description: "Disability Studies Minor"
+        rule: AND
+        args:
+            - course: UGIS.110
+            - rule: eng175_crp120
+            - rule: ls_disability_studies_electives
+
+    ls_disability_studies_electives:
+        description: "Disability Studies Electives"
+        rule: count_courses
+            min: 3
+            args:
+                - course: ANTHRO.115
+                - course: ANTHRO.119
+                - course: ARCH.129X
+                - course: ART.165
+                - course: CHICANO.176
+                - course: COMPSCI.160
+                - course: ECON.157
+                - course: ENGLISH.180A # only when taught by georgina klege
+                - course: ESPM.162
+                - course: GWS.111
+                - course: LD ARCH.140
+                - course: PB HLTH.116
+                - course: PB HLTH.130AC
+                - course: PB HLTH.150C
+                - course: PB HLTH.150D
+                - course: PB HLTH.150E
+                - course: PB HLTH.209
+                - course: PUB POL.172
+                - course: PSYCH.131
+                - course: SOCIOL.155
+                - course: SOC WEL.210C
+                - course: SOC WEL.245
+                - course: SOC WEL.246
+                - course: SOC WEL.275
+                - course: UGIS.112
+                - course: UGIS.113
+                - course: UGIS.116
+
+    eng175_crp120:
+        hidden: true
+        rule: OR
+        args:
+            - course: ENGLISH.175
+            - course: CY PLAN.120
+
+

@@ -1,0 +1,64 @@
+rules:
+
+    ls_earth_planetary_minor:
+        description: "Earth and Planetary Science Minor"
+        rule: AND
+        args:
+            - course: EPS.50
+            - rule: ls_earth_planetary_minor_upperdiv
+
+    ls_earth_planetary_minor_upperdiv:
+        description: "Earth and Plantary Science Minor Upper Division Courses"
+        rule: count_courses
+            min: 4
+            args:
+                - rule: upperdiv_earth
+                - rule: astro120_121
+                - course: CHEM.105
+                - course: CHEM.120A
+                - course: CHEM.120B
+                - course: CHEM.125
+                - course: CIV ENG.100
+                - course: CIV ENG.107
+                - course: CIV ENG.108
+                - course: CIV ENG.200A
+                - course: CIV ENG.200B
+                - course: CIV ENG.218B
+                - course: CIV ENG.218C
+                - course: ESPM.120
+                - course: ESPM.124
+                - course: ESPM.125
+                - course: ESPM.126
+                - course: ESPM.127
+                - course: ESPM.C128
+                - course: ESPM.130
+                - course: CIV ENG.100
+                - rule: civeng115
+                - course: CIV ENG.116
+                - course: CIV ENG.117
+                - course: CIV ENG.210
+                - course: ENE,RES.102
+                - course: GEOG.134
+                - course: GEOG.236
+                - course: GEOG.139
+                - course: GEOG.140A
+                - course: GEOG.140B
+                - course: GEOG.142
+                - course: GEOG.143
+                - course: GEOG.144
+                - rule: ib103_lf
+                - course: INTEGBI.106A
+                - course: INTEGBI.106
+                - course: INTEGBI.108
+                - course: INTEGBI.152
+                - course: INTEGBI.153
+                - course: INTEGBI.144
+                - course: INTEGBI.155
+                - course: INTEGBI.158LF
+                - course: INTEGBI.160
+                - course: INTEGBI.230
+                - rule: math121a_eps104
+                - course: PHYSICS.105
+                - course: PHYSICS.110A
+                - course: STAT.131A
+
