@@ -252,6 +252,13 @@ upperdiv_math:
         - upperdiv
         - dept: MATH
 
+upperdiv_medieval:
+    description: "Upper Division Medieval Studies"
+    rule: same_course
+    args:
+        - upperdiv
+        - dept: MED ST
+
 upperdiv_molecular_cell_biology:
     description: "Upper Division Molecular & Cell Biology"
     rule: same_course

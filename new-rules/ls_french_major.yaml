@@ -6,6 +6,7 @@ rules:
         args:
             - rule: university_all
             - rule: ls_breadth_all
+            - rule: ls_french_prereqs
             - rule: ls_french_historical
             - course: FRENCH.35
             - course: FRENCH.102
@@ -14,6 +15,15 @@ rules:
             - rule: ls_french_electives
             - rule: units_upperdiv_32
             - rule: units_total
+
+    ls_french_prereqs:
+        description: "French Prerequisites"
+        rule: AND
+        args:
+            - course: FRENCH.1
+            - course: FRENCH.2
+            - course: FRENCH.3
+            - course: FRENCH.4
 
     ls_french_historical:
         description: "French Historical Period Requirement"
@@ -26,47 +36,110 @@ rules:
         description: "French Cultural Studies and French Linguistics"
         rule: count_courses
             min: 2
-            args:
-                - course: FRENCH.145
-                - course: FRENCH.146A
-                - course: FRENCH.147
-                - course: FRENCH.150A
-                - course: FRENCH.150B
-                - course: FRENCH.151A
-                - course: FRENCH.151B
-                - course: FRENCH.161A
-                - course: FRENCH.161B
-                - course: FRENCH.162A
-                - course: FRENCH.162B
-                - course: FRENCH.170
-                - course: FRENCH.171A
-                - course: FRENCH.171B
-                - course: FRENCH.175A
-                - course: FRENCH.177A
-                - course: FRENCH.177B
-                - course: FRENCH.180A
-                - course: FRENCH.180B
-                - course: FRENCH.180C
-                - course: FRENCH.180D
-                - course: FRENCH.183A
-                - course: FRENCH.183B
-                - course: FRENCH.185
+            rule: ls_french_culture_courses
 
     ls_french_literature:
         description: "French Literature"
         rule: count_courses
             min: 2
+            rule: ls_french_literature_courses
+        
+    # a way to break up the courses to attribute to the minor
+
+    french103:
+        hidden: true
+        rule: count_courses
+            max: 1
             args:
-                - course: FRENCH.112A
-                - course: FRENCH.112B
-                - course: FRENCH.114A
-                - course: FRENCH.116A
-                - course: FRENCH.117A
-                - course: FRENCH.118A
-                - course: FRENCH.119A
-                - course: FRENCH.119B
-                - course: FRENCH.120A
-                - course: FRENCH.120B
+                - course: FRENCH.103A
+                - course: FRENCH.103B
+
+    ls_french_literature_courses:
+        description: "French Literature Courses"
+        rule: OR
+        args:
+            - course: FRENCH.112A
+            - course: FRENCH.112B
+            - course: FRENCH.114A
+            - course: FRENCH.116A
+            - course: FRENCH.117A
+            - course: FRENCH.118A
+            - course: FRENCH.119A
+            - course: FRENCH.119B
+            - course: FRENCH.120A
+            - course: FRENCH.120B
+
+    ls_french_literary_courses:
+        description: "French Literary Courses"
+        rule: OR
+        args:
+            - course: FRENCH.121A
+            - course: FRENCH.121B
+            - course: FRENCH.122A
+            - course: FRENCH.122B
+            - course: FRENCH.123
+            - course: FRENCH.124A
+            - course: FRENCH.124B
+            - course: FRENCH.125A
+            - course: FRENCH.125B
+            - course: FRENCH.126
+
+    ls_french_applied_courses:
+        description: "Applied French Courses"
+        rule: OR
+        args:
+            - course: FRENCH.130
+            - course: FRENCH.131B
+            - course: FRENCH.136
+            - course: FRENCH.137
+            - course: FRENCH.138
+            - course: FRENCH.139
+
+    ls_french_literature_english_courses:
+        description: "French Literature in English Translation Courses"
+        rule: count_courses
+            max: 1
+            args:
+                - course: FRENCH.140A
+                - course: FRENCH.140B
+                - course: FRENCH.140C
+                - course: FRENCH.140D
+
+    ls_french_linguistics_courses:
+        description: "French Linguistics Courses"
+        rule: OR
+        args:
+            - course: FRENCH.145
+            - course: FRENCH.146A
+            - course: FRENCH.147
+
+
+    ls_french_culture_courses:
+        description: "French Cultural Studies Courses"
+        rule: OR
+        args:
+            - course: FRENCH.150A
+            - course: FRENCH.150B
+            - course: FRENCH.151A
+            - course: FRENCH.151B
+            - course: FRENCH.161A
+            - course: FRENCH.161B
+            - course: FRENCH.162A
+            - course: FRENCH.162B
+            - course: FRENCH.170
+            - course: FRENCH.171A
+            - course: FRENCH.171B
+            - course: FRENCH.175A
+            - course: FRENCH.177A
+            - course: FRENCH.177B
+            - course: FRENCH.180A
+            - course: FRENCH.180B
+            - course: FRENCH.180C
+            - course: FRENCH.180D
+            - course: FRENCH.183A
+            - course: FRENCH.183B
+            - course: FRENCH.185
+
 
     ls_french_electives:
         description: "French Electives" # others accounted for

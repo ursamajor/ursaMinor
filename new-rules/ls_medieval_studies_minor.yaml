@@ -1,0 +1,7 @@
+rules:
+
+	ls_medieval_studies_minor:
+		description: "Medieval Studies Minor"
+		rule: count_courses
+			min: 5
+			rule: upperdiv_medieval

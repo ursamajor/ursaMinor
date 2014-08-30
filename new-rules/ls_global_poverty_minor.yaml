@@ -1,0 +1,335 @@
+rules:
+
+    ls_global_poverty_minor:
+        description: "Global Poverty and Practice Minor"
+        rule: AND
+        args:
+            - rule: gpp_cp_115
+            - course: GPP.105
+            # practice experience
+            - rule: ls_global_poverty_minor_reflection
+            - rule: ls_global_poverty_minor_electives
+
+    ls_global_poverty_minor_reflection:
+        description: "Global Poverty and Practice: Reflection Courses"
+        rule: OR
+        args:
+            - course: GPP.196
+            # thesis too?
+
+    ls_global_poverty_minor_electives:
+        description: "Global Poverty and Practice: Directed Electives"
+        rule: count_courses
+            min: 3 # it's 2, but some are repeated in these lists
+            args:
+                - rule: ls_global_poverty_minor_electives_global
+                - rule: ls_global_poverty_minor_electives_methods
+
+    ls_global_poverty_minor_electives_global:
+        description: "Global Poverty and Practice Directed Elective: Global and Area Studies"
+        rule: OR
+        args: # these courses are shown via semesters; courses may have different topics
+            - course: AFRICAM.111
+            - course: AFRICAM.112A
+            - course: AFRICAM.112B
+            - course: AFRICAM.115
+            - course: AFRICAM.117
+            - course: AFRICAM.121
+            - course: AFRICAM.122
+            - course: AFRICAM.131
+            - course: AFRICAM.138
+            - course: AFRICAM.155
+            - course: AMERSTD.101
+            - course: AMERSTD.139AC
+            - course: AMERSTD.C112B
+            - course: ANTHRO.137
+            - course: ANTHRO.181
+            - course: ANTHRO.184
+            - course: ARCH.111
+            - course: ART.119
+            - course: ASAMST.121
+            - course: ASAMST.122
+            - course: ASAMST.124
+            - course: ASAMST.125
+            - course: ASAMST.127
+            - course: ASAMST.128AC
+            - course: ASAMST.131
+            - course: ASAMST.143
+            - course: ASAMST.150
+            - course: ASAMST.151
+            - course: ASAMST.175
+            - course: CHICANO.110
+            - course: CHICANO.150B
+            - course: CHICANO.159
+            - course: CHICANO.C161
+            - course: CHICANO.163
+            - course: CHICANO.165
+            - course: CHICANO.172
+            - course: CHICANO.176
+            - course: CHICANO.180 # only some of them
+            - course: CHINESE.158
+            - course: CY PLAN.110
+            - course: CY PLAN.C139
+            - course: CY PLAN.190
+            - course: DEV STD.C100
+            - course: DEV STD.150
+            - course: EDUC.C181
+            - course: EDUC.182AC
+            - course: EDUC.186AC
+            - course: ENV DES.C169B
+            - course: ESPM.163AC
+            - course: ETH STD.130
+            - course: ETH STD.159AC
+            - course: GEOG.C110
+            - course: GEOG.C112
+            - course: GEOG.C123
+            - course: GEOG.125
+            - course: GEOG.C157
+            - course: GEOG.159AC
+            - course: GEOG.C160B
+            - course: GWS.100AC
+            - course: GWS.140
+            - course: GWS.142
+            - course: EA LANG.107
+            - course: ECON.162
+            - course: ECON.C171
+            - course: ECON.C181
+            - course: ENVECON.C151
+            - course: ENVECON.C181
+            - course: ETH STUD.101B
+            - course: ETH STUD.103C
+            - course: ETH STUD.144AC
+            - course: ETH STUD.190AC # a seminar example
+            - course: GEOG.C110
+            - course: GERMAN.160D
+            - course: GWS.102
+            - course: HISTORY.10H # special in east africa
+            - course: HISTORY.103D
+            - course: HISTORY.109C
+            - course: HISTORY.C111B
+            - course: HISTORY.111C
+            - course: HISTORY.112B
+            - course: HISTORY.114B
+            - course: HISTORY.116G
+            - course: HISTORY.120AC
+            - course: HISTORY.118C
+            - course: HISTORY.124A
+            - course: HISTORY.125B
+            - course: HISTORY.127AC
+            - course: HISTORY.131B
+            - course: HISTORY.140B
+            - course: HISTORY.141B
+            - course: HISTORY.146
+            - course: HISTORY.186
+            - course: IAS.150 # globalization of india, example
+            - course: IAS.158AC
+            - course: IAS.194 # narcocultura, since there's other sections
+            - course: ISF.100A
+            - course: ISF.100E
+            - course: ISF.C101
+            - course: ITALIAN.160
+            - course: JAPAN.159
+            - course: JAPAN.181
+            - course: LATAMST.150
+            - course: LD ARCH.141AC
+            - course: LEGALST.132AC
+            - course: LEGALST.139
+            - course: LEGALST.161
+            - course: LEGALST.174
+            - course: LEGALST.183
+            - course: LEGALST.189
+            - course: M E STUD.109
+            - course: M E STUD.150 # american for in mid east, an example
+            - course: NATAMST.102
+            - course: PACS.100
+            - course: PACS.127
+            - course: PACS.128AC
+            - course: PACS.148AC
+            - course: PORTUG.128
+            - course: POLECON.100
+            - course: POLECON.101
+            - course: POLECON.150
+            - course: POL SCI.122A
+            - course: POL SCI.124C
+            - course: POL SCI.126A
+            - course: POL SCI.138G
+            - course: POL SCI.138E
+            - course: POL SCI.C139B
+            - course: POL SCI.143A
+            - course: POL SCI.144
+            - course: POL SCI.144B
+            - course: POL SCI.145A
+            - course: POL SCI.146B
+            - course: POL SCI.147G
+            - course: POL SCI.149E
+            - course: POL SCI.167AC
+            - course: POL SCI.171
+            - course: PUB POL.C103
+            - course: PUB POL.190
+            - course: S ASIAN.144
+            - course: SEASIAN.137
+            - course: SEASIAN.C141B
+            - course: SOC WEL.112
+            - course: SOCIOL.120
+            - course: SOCIOL.124
+            - course: SOCIOL.127
+            - course: SOCIOL.130AC
+            - course: SOCIOL.131AC
+            - course: SOCIOL.137AC
+            - course: SOCIOL.145L
+
+    ls_global_poverty_minor_electives_methods:
+        description: "Global Poverty and Practice Directed Elective: Sectors and Methods"
+        rule: OR
+        args: # see above
+            - COURSE: AFRICAM.C133A
+            - COURSE: AMERSTD.139AC
+            - COURSE: ANTHRO.115
+            - COURSE: ANTHRO.137
+            - COURSE: ANTHRO.138B
+            - COURSE: ANTHRO.157
+            - COURSE: ANTHRO.169B
+            - COURSE: ARCH.110AC
+            - COURSE: ARCH.111
+            - COURSE: ASAMST.143
+            - COURSE: ASAMST.146
+            - COURSE: ASAMST.150
+            - COURSE: ASMAST.151
+            - COURSE: UGBA.107
+            - COURSE: UGBA.196 # global change
+            - COURSE: CHICANO.172
+            - COURSE: CHICANO.174
+            - COURSE: CHICANO.176
+            - COURSE: CY PLAN.110
+            - COURSE: CY PLAN.113
+            - COURSE: CY PLAN.119
+            - COURSE: CY PLAN.120
+            - COURSE: CY PLAN.C139
+            - COURSE: CY PLAN.140
+            - COURSE: CIV ENG.111
+            - COURSE: CIV ENG.113N
+            - COURSE: CIV ENG.209
+            - COURSE: DEMOG.110
+            - COURSE: DEMOG.C126
+            - COURSE: ECON.C102
+            - COURSE: ECON.C125
+            - COURSE: ECON.131
+            - COURSE: ECON.C142
+            - COURSE: ECON.154
+            - COURSE: ECON.155
+            - COURSE: ECON.157
+            - COURSE: ECON.C171
+            - COURSE: ECON.172
+            - COURSE: ECON.C181
+            - COURSE: EDUC.140AC
+            - COURSE: EDUC.C181
+            - COURSE: EDUC.190
+            - COURSE: ENVECON.C102
+            - COURSE: ENVECON.C181
+            - COURSE: ENE,RES.C100
+            - COURSE: ENE,RES.101
+            - COURSE: ENE,RES.102
+            - COURSE: ENE,RES.175
+            - COURSE: ENE,RES.190 # a seminar
+            - COURSE: ENGIN.125
+            - COURSE: ENV DES.100
+            - COURSE: ENV DES.C169B
+            - COURSE: ENVECON.100
+            - COURSE: ENVECON.131
+            - COURSE: ENVECON.145
+            - COURSE: ENVECON.C151
+            - COURSE: ENVECON.152
+            - COURSE: ENVECON.153
+            - COURSE: ENVECON.154
+            - COURSE: ENVECON.161
+            - COURSE: ENVECON.162
+            - COURSE: ENVECON.175
+            - COURSE: ESPM.100
+            - COURSE: ESPM.118
+            - COURSE: ESPM.155
+            - COURSE: ESPM.160AC
+            - COURSE: ESPM.163AC
+            - COURSE: ESPM.165
+            - COURSE: ESPM.C167
+            - COURSE: ESPM.168
+            - COURSE: ESPM.169
+            - COURSE: ETH STD.135
+            - COURSE: GEOG.130
+            - COURSE: GEOG.138
+            - COURSE: GEOG.143
+            - COURSE: GWS.100
+            - COURSE: GWS.102
+            - COURSE: GWS.130AC
+            - COURSE: GWS.140
+            - COURSE: GWS.142
+            - COURSE: HISTORY.120AC
+            - COURSE: HISTORY.C187
+            - COURSE: IAS.158AC
+            - COURSE: IAS.C175
+            - COURSE: INTEGBI.117
+            - COURSE: INTEGBI.C130
+            - COURSE: INTEGBI.140
+            - COURSE: ISF.100D
+            - COURSE: LATAMST.150
+            - COURSE: LEGALST.102
+            - COURSE: LEGALST.104AC
+            - COURSE: LEGALST.132AC
+            - COURSE: LEGALST.140
+            - COURSE: LEGALST.158
+            - COURSE: LEGALST.168
+            - COURSE: LEGALST.182
+            - COURSE: LEGALST.185AC
+            - COURSE: LD ARCH.130
+            - COURSE: LD ARCH.140
+            - COURSE: LNS.C140V
+            - COURSE: LNS.180AC
+            - COURSE: NUSCTX.104
+            - COURSE: NUSCTX.161A
+            - COURSE: NUSCTX.166
+            - COURSE: PACS.119
+            - COURSE: PACS.126
+            - COURSE: PACS.127
+            - COURSE: PACS.128AC
+            - COURSE: PACS.130
+            - COURSE: PACS.148AC
+            - COURSE: PACS.150
+            - COURSE: PACS.151
+            - COURSE: PACS.164A
+            - COURSE: PACS.170
+            - COURSE: POL SCI.124C
+            - COURSE: POL SCI.C131A
+            - COURSE: POL SCI.C139B
+            - COURSE: PB HLTH.112
+            - COURSE: PB HLTH.116
+            - COURSE: PB HLTH.126
+            - COURSE: PB HLTH.150A
+            - COURSE: PB HLTH.150B
+            - COURSE: PB HLTH.150D
+            - COURSE: PB HLTH.150E
+            - COURSE: PB HLTH.C155
+            - COURSE: PB HLTH.C160
+            - COURSE: PB HLTH.181
+            - COURSE: PUB POL.C117AC
+            - COURSE: PUB POL.C142
+            - COURSE: PUB POL.C184
+            - COURSE: SOC WEL.112
+            - COURSE: SOCIOL.C115
+            - COURSE: SOCIOL.C118
+            - COURSE: SOCIOL.121
+            - COURSE: SOCIOL.124
+            - COURSE: SOCIOL.C126
+            - COURSE: SOCIOL.137AC
+            - COURSE: SOCIOL.140
+            - COURSE: SOCIOL.145L
+            - COURSE: SOCIOL.166
+            - COURSE: SOCIOL.169F
+            - COURSE: SPANISH.135
+            - COURSE: UGIS.110
+            - COURSE: UGBA.118
+
+    gpp_cp_115:
+        hidden: true
+        rule: OR
+        args:
+            - course: GPP.115
+            - course: CY PLAN.115

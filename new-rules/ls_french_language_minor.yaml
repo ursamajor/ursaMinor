@@ -1,0 +1,19 @@
+rules:
+
+    ls_french_language_minor:
+        description: "French Language Studies Minor"
+        rule: AND
+        args:
+            - rule: ls_french_prereqs
+            - course: FRENCH.102
+            - course: FRENCH.35
+            - rule: ls_french_minor_upperdiv_applied_linguistcs
+
+    ls_french_minor_upperdiv_applied_linguistcs
+        description: "French Language Studies Minor: Upper Division Courses"
+        rule: count_courses
+            min: 4
+            args:
+                - rule: ls_french_applied_courses
+                - rule: ls_french_linguistics_courses
+

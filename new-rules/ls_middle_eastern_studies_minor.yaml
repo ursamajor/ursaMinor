@@ -1,0 +1,46 @@
+rules:
+
+    ls_middle_eastern_studies_minor:
+        description: "Middle Eastern Studies Minor"
+        rule: AND
+        args:
+            - rule: ls_middle_east_minor_lowerdiv
+            - rule: ls_middle_east_minor_upperdiv
+
+    ls_middle_east_minor_lowerdiv:
+        description: "Middle Eastern Studies Minor Lower Division Requirements"
+        rule: OR
+        args:
+            - rule: ls_lowerdiv_middle_east
+            - course: M E STU.20
+
+    ls_middle_east_minor_upperdiv:
+        description: "Middle Eastern Studies Minor Upper Division Requirements"
+        rule: count_courses
+            min: 5
+            args:
+            # at least 2 different departments
+            # from list of eligible courses, 50% or more middle-east related
+            # here are some guesses, taken from major reqs
+            - course: ASAMST.190AC
+            - course: ANTHRO.181
+            - course: ARCH.175B
+            - course: GWS.111
+            - course: HISTORY.109A
+            - course: HISTORY.109B
+            - course: HISTORY.109C
+            - course: M E STU.102
+            - course: MUSIC.132
+            - course: M E STU.109
+            - course: M E STU.130
+            - course: M E STU.150
+            - course: NE STUD.107
+            - course: NE STUD.140
+            - course: NE STUD.142
+            - course: NE STUD.143A
+            - course: NE STUD.143B
+            - course: NE STUD.144
+            - course: PACS.135 # if middle east
+            - course: POL SCI.142A
+            - course: POL SCI.149 # if middle east
+            - course: SOCIOL.189

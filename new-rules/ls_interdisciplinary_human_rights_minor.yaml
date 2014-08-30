@@ -1,0 +1,51 @@
+rules:
+
+    ls_interdisciplinary_human_rights_minor:
+        description: "Interdisciplinary Human Rights Minor"
+        rule: count_courses
+            min: 5
+            args:
+                - course: HISTORY.187C
+                - rule: ls_interdisciplinary_human_rights_minor_social
+                - rule: ls_interdisciplinary_human_rights_minor_humanities
+                - rule: ls_interdisciplinary_human_rights_minor_free
+                - course: UGIS.156
+
+    # some repeat...
+    ls_interdisciplinary_human_rights_minor_social:
+        description: "Human Rights Minor: Social Sciences Electives"
+        rule: OR
+        args:
+            - course: AFRICAM.125
+            - course: AFRICAM.173AC
+            - course: AMERSTD.139AC
+            - course: ANTHRO.189A
+            - course: HISTORY.C139C
+            - course: ISF.100E
+            - course: LEGALST.154
+            - course: PACS.126
+            - course: PACS.127
+            - course: PACS.128AC
+            - course: POL SCI.123S
+            - course: POL SCI.124C
+            - course: POL SCI.191
+            - course: RELIGST.173AC
+
+    ls_interdisciplinary_human_rights_minor_humanities:
+        description: "Human Rights Minor: Humanities Electives"
+        rule: OR
+        args:
+            - course: ANTHRO.189
+            - course: COM LIT.155
+            - course: COM LIT.156
+            - course: EA LANG.101
+            - course: LEGALST.190
+            - course: RELIGST.190
+            - course: SPANISH.135
+
+    ls_interdisciplinary_human_rights_minor_free:
+        description: "Human Rights Minor: Free Electives"
+        rule: OR
+        args:
+            - rule: ls_interdisciplinary_human_rights_minor_social
+            - rule: ls_interdisciplinary_human_rights_minor_humanities

@@ -1,0 +1,18 @@
+rules:
+
+    ls_dutch_studies_minor:
+        description: "Dutch Studies Minor"
+        rule: AND
+        args:
+            - rule: ls_dutch_prereqs
+            - rule: ls_upperdiv_dutch_minor
+
+    ls_upperdiv_dutch_minor:
+        description: "Dutch Studies Minor Upper Division Courses"
+        rule: count_courses
+            min: 5
+            rule: ls_upperdiv_dutch
+
+
+
+

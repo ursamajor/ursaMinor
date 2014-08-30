@@ -1,0 +1,44 @@
+rules:
+
+    ls_italian_studies_minor:
+        description: "Italian Studies Minor"
+        rule: AND
+        args:
+            - rule: ls_lowerdiv_italian
+            - rule: ls_upperdiv_italian_minor
+
+    ls_upperdiv_italian_minor:
+        description: "Italian Studies Minor Upper Division Requirements"
+        rule: AND
+        args:
+            - rule: italian101
+            - rule: italian103_104
+            - rule: ls_upperdiv_italian_minor_electives
+
+    ls_upperdiv_italian_minor_electives:
+        description: "Italian Studies Minor Upper Division Electives"
+        rule: units
+            min: 12
+            args:
+                - rule: upperdiv_italian
+                - rule: ls_upperdiv_italian_minor_electives_outside
+
+    ls_upperdiv_italian_minor_electives_outside:
+        description: "Italian Studies Minor Upper Division Outside"
+        rule: units
+            max: 4
+            args: # what counts?
+
+    italian101:
+        hidden: true
+        rule: OR
+        args:
+            - course: ITALIAN.101A
+            - course: ITALIAN.101B
+
+    italian103_104:
+        hidden: true
+        rule: OR
+        args:
+            - course: ITALIAN.103
+            - course: ITALIAN.104

@@ -1,0 +1,18 @@
+rules:
+
+    ls_french_civilization_minor:
+        description: "French Civilization Minor"
+        rule: AND
+        args:
+            - rule: ls_french_prereqs
+            - course: FRENCH.102
+            - rule: ls_french_minor_upperdiv_literature_culture
+
+    ls_french_minor_upperdiv_literature_culture:
+        description: "French Civilization Minor: Upper Division Courses"
+        rule: count_courses
+            min: 4
+            args:
+                - rule: ls_french_literature_english_courses
+                - rule: ls_french_culture_courses
+

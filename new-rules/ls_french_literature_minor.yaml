@@ -1,0 +1,20 @@
+rules:
+
+    ls_french_literature_minor:
+        description: "French Literature Minor"
+        rule: AND
+        args:
+            - rule: ls_french_prereqs
+            - course: FRENCH.102
+            - rule: ls_french_minor_upperdiv_literature
+
+    ls_french_minor_upperdiv_literature:
+        description: "French Literature Minor: Upper Division Courses"
+        rule: count_courses
+            min: 4
+            args:
+                - rule: french103
+                - rule: ls_french_literature_courses
+                - rule: ls_french_literary_courses
+                - rule: ls_french_literature_english_courses
+

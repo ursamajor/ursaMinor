@@ -1,0 +1,17 @@
+rules:
+	
+	ls_jewish_minor:
+		description: "Jewish Studies Minor"
+		rule: AND
+		args:
+			- course: JEWISH.101
+			- rule: ls_jewish_minor_upperdiv
+
+	ls_jewish_minor_upperdiv:
+		description: "Jewish Studies Minor Upper Division Coureses"
+		rule: count_courses
+			min: 4
+			args:
+			# there's an approved list in the center...
+
+

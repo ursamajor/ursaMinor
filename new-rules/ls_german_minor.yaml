@@ -1,0 +1,38 @@
+rules:
+
+    ls_german_minor:
+        description: "German Minor"
+        rule: AND
+        args:
+            - rule: ls_german_prereqs
+            - rule: ls_upperdiv_german_minor
+
+
+    ls_upperdiv_german_minor:
+        description: "German Minor Upper Division Courses"
+        rule: AND
+        args:
+            - course: GERMAN.100
+            - course: GERMAN.101
+            - course: GERMAN.103
+            - rule: ls_upperdiv_german_minor_choice
+
+    ls_upperdiv_german_minor_choice:
+        description: "German Minor Upper Division Text Choices"
+        rule: OR
+        args:
+            - rule: ls_upperdiv_german_minor_literature
+            - rule: ls_upperdiv_german_minor_text_outside
+
+    ls_upperdiv_german_minor_literature:
+        description: "German Minor Upper Division Texts"
+        rule: count_courses
+            min: 2
+            rule: ls_upperdiv_german_literature_courses
+
+    ls_upperdiv_german_minor_text_outside:
+        description: "German Minor German Texts or Outside the Department"
+        rule: AND
+        args:
+            - rule: ls_upperdiv_german_literature_courses
+            - rule: ls_upperdiv_german_courses_outside_courses

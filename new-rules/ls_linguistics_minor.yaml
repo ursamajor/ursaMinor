@@ -1,0 +1,21 @@
+rules:
+
+    ls_linguistics_minor:
+        description: "Linguistics Major"
+        rule: AND
+        args:
+            - course: LINGUIS.100
+            - rule: ls_linguistics_minor_core
+            - rule: ls_linguistics_minor_electives
+
+    ls_linguistics_minor_core:
+        description: "Linguistics Minor Core Courses"
+        rule: count_courses
+            min: 3 # includes 100 ish
+            rule: ls_upperdiv_linguistics_core
+
+    ls_linguistics_minor_electives:
+        description: "Linguistics Minor Electives"
+        rule: count_courses
+            min: 5 # includes the others earlier
+            rule: ls_upperdiv_linguistics_electives

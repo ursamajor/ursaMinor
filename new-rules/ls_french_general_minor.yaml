@@ -1,0 +1,25 @@
+rules:
+
+    ls_french_general_minor:
+        description: "General French Minor"
+        rule: AND
+        args:
+            - rule: ls_french_prereqs
+            - course: FRENCH.102
+            - rule: ls_french_minor_upperdiv_all
+
+    ls_french_minor_upperdiv_all:
+        description: "French General Minor: Upper Division Courses"
+        rule: count_courses
+            min: 4
+            args:
+                - rule: french103
+                - rule: ls_french_literature_courses
+                - rule: ls_french_literary_courses
+                - rule: ls_french_applied_courses
+                - rule: ls_french_literature_english_courses
+                - course: FRENCH.141
+                - course: FRENCH.142AC
+                - rule: ls_french_linguistics_courses
+                - rule: ls_french_culture_courses
+
