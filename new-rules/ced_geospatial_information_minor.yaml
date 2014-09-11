@@ -1,5 +1,5 @@
 rules:
-    
+
     ced_geospatial_information_minor:
         description: "Geospatial Information Science and Technology Minor"
         rule: AND
@@ -20,7 +20,9 @@ rules:
     ced_geospatial_information_minor_electives:
         description: "Geospatial Information Elective Coureses"
         rule: count_courses
+        args:
             min: 4
+            rule: OR
             args:
                 - course: ANTHRO.196
                 - course: ARCH.127

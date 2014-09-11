@@ -117,33 +117,6 @@ rules:
                 - course: PLANTBI.H196
                 - course: PLANTBI.199
 
-    bioeng100_espm162:
-        hidden: true
-        rule: OR
-        args:
-            - course: BIO ENG.100
-            - course: ESPM.162
-
-    pmb135_mcb150:
-        hidden: true
-        rule: OR
-        args:
-            - rule: pmb135
-            - course: MCELLBI.150
-
-    pmb150_mcb104:
-        hidden: true
-        rule: OR
-        args:
-            - rule: pmb150
-            - course: MCELLBI.104
-
-    pmb160_mcb140:
-        hidden: true
-        rule: OR
-        args:
-            - rule: pmb160
-            - course: MCELLBI.140
 
     cnr_track_microbial_ecology:
         description: "Microbial Biology Track: Ecology & Environmental Microbiology"
@@ -254,5 +227,3 @@ rules:
                 - course: PLANTBI.185
                 - course: PLANTBI.H196
                 - course: PLANTBI.199
-
-

@@ -5,35 +5,35 @@ upperdiv_architecture:
     description: "Upper Division Architecture"
     rule: same_course
     args:
-        - upperdiv
+        - rule: upperdiv
         - dept: ARCH
 
 upperdiv_landscape_architecture:
     description: "Upper Division Landscape Architecture"
     rule: same_course
     args:
-        - upperdiv
+        - rule: upperdiv
         - dept: LD ARCH
 
 upperdiv_environmental_design:
     description: "Upper Division Environmental Design"
     rule: same_course
     args:
-        - upperdiv
+        - rule: upperdiv
         - dept: ENV DES
 
 upperdiv_vision_studies:
     description: "Upper Division Vision Studies"
     rule: same_course
     args:
-        - upperdiv
+        - rule: upperdiv
         - dept: VIS STD
 
 upperdiv_city_planning:
     description: "Upper Division City Planning"
     rule: same_course
     args:
-        - upperdiv
+        - rule: upperdiv
         - dept: CY PLAN
 
 
@@ -75,17 +75,21 @@ ced_breadth_all: # max of 2 CED can count towards this
             - rule: ls_breadth_philosophy
             - rule: ls_breadth_physical
             - rule: ls_breadth_social
-            rule: same_dept
-            args:
-                max: 2
-            rule: count_courses
-            args:
-                max: 2
-                    - dept: ENV DES
-                    - dept: ARCH
-                    - dept: LD ARCH
-                    - dept: CY PLAN
-                    - dept: VIS STD
+
+        # how to represent this stuff???
+        # max of 2 from the same department
+        # max of 2 from ced
+            # rule: same_dept
+            # args:
+            #     max: 2
+            # rule: count_courses
+            # args:
+            #     max: 2
+            #         - dept: ENV DES
+            #         - dept: ARCH
+            #         - dept: LD ARCH
+            #         - dept: CY PLAN
+            #         - dept: VIS STD
 
 ced_breadth_international:
     description: "CED International Breadth"
@@ -158,70 +162,3 @@ ced_breadth_international_courses:
         - course: TURKISH.1B
         - course: VIETNMS.1B
         - course: YIDDISH.102
-
-
-# miscellaneous:
-
-math_a:
-    hidden: true
-    rule: OR
-    args:
-        - course: MATH.1A
-        - course: MATH.16A
-
-math_b:
-    hidden: true
-    rule: OR
-    args:
-        - course: MATH.1B
-        - course: MATH.16B
-
-physics_a:
-    hidden: true
-    rule: OR
-    args:
-        - course: PHYSICS.7A
-        - course: PHYSICS.8A
-
-bio11:
-    hidden: true
-    rule: AND
-    args:
-        - course: BIOLOGY.11
-        - course: BIOLOGY.11L
-
-stat_lowerdiv:
-    hidden: true
-    rule: OR
-    args:
-        - course: STAT.2
-        - course: STAT.20
-        - course: STAT.21
-
-econ_lowerdiv:
-    hidden: true
-    rule: OR
-    args:
-        - course: ECON.1
-        - course: ECON.2
-        - course: ECON.C3
-        - course: ENVECON.C3
-
-stat2_20_21_25_131a:
-    hidden: true
-    rule: OR
-    args:
-        - course: STAT.2
-        - course: STAT.20
-        - course: STAT.21
-        - course: STAT.25
-        - course: STAT.131A
-
-stat_2_20:
-    hidden: true
-    rule: OR
-    args:
-        - course: STAT.2
-        - course: STAT.20
-
-

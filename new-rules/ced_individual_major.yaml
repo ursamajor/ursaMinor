@@ -55,12 +55,12 @@ rules:
                 - rule: upperdiv_vision_studies
                 - rule: upperdiv_environmental_design
                 - rule: upperdiv_city_planning
+
     ced_upperdiv_individual_other:
         hidden: true
         rule: units
+        args:
             max: 6
-            rule: OR
-            args:
-                - upperdiv # max of 6 non-CED
+            rule: upperdiv # max of 6 non-CED
 
 

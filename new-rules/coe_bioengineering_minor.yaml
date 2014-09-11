@@ -3,6 +3,7 @@ rules:
     coe_bioengineering_minor:
         description: "Bioengineering Minor"
         rule: count_courses
+        args:
             min: 5
             args:
                 - rule: coe_bioengineering_fundamentals_courses

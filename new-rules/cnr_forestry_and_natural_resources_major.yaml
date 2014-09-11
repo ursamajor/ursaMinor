@@ -50,6 +50,7 @@ rules: # not sure if I should combine lower/upper div into one concentration
         rule: count_courses
         args:
             min: 4
+            rule: AND
             args:
                 - course: ESPM.105A
                 - course: ESPM.105B
@@ -215,70 +216,66 @@ rules: # not sure if I should combine lower/upper div into one concentration
 
     cnr_subject_forestry_ecology:
         description: "Forestry and Natural Resources Ecology Subject"
-        rule: same_course
+        rule: OR
         args:
-            - OR:
-                - course: ESPM.108A
-                - course: ESPM.108B
-                - course: ESPM.111
-                - course: ESPM.112
-                - course: ESPM.113
-                - course: ESPM.114
-                - course: ESPM.115B
-                - course: ESPM.115C
-                - course: ESPM.116A
-                - course: ESPM.116B
-                - course: ESPM.116C
-                - course: ESPM.134
-                - course: ESPM.135
-                - course: ESPM.187
-                - course: INTEGBI.102
-                - course: INTEGBI.102LF
-                - course: INTEGBI.153
-                - course: INTEGBI.154
-                - course: INTEGBI.157LF
+            - course: ESPM.108A
+            - course: ESPM.108B
+            - course: ESPM.111
+            - course: ESPM.112
+            - course: ESPM.113
+            - course: ESPM.114
+            - course: ESPM.115B
+            - course: ESPM.115C
+            - course: ESPM.116A
+            - course: ESPM.116B
+            - course: ESPM.116C
+            - course: ESPM.134
+            - course: ESPM.135
+            - course: ESPM.187
+            - course: INTEGBI.102
+            - course: INTEGBI.102LF
+            - course: INTEGBI.153
+            - course: INTEGBI.154
+            - course: INTEGBI.157LF
 
     cnr_subject_forestry_monitoring_and_measurement:
         description: "Forestry and Natural Resources Monitoring and Measurement Subject"
-        rule: same_course
+        rule: OR
         args:
-            - OR:
-                - course: ESPM.172
-                - course: ESPM.174
-                - course: ANTHRO.169A
-                - course: ANTHRO.169B
-                - course: ARCH.110
-                - course: EPS.C120
-                - course: GEOG.187
-                - course: LD ARCH.110
-                - course: LD ARCH.C188
+            - course: ESPM.172
+            - course: ESPM.174
+            - course: ANTHRO.169A
+            - course: ANTHRO.169B
+            - course: ARCH.110
+            - course: EPS.C120
+            - course: GEOG.187
+            - course: LD ARCH.110
+            - course: LD ARCH.C188
 
     cnr_subject_forestry_management_and_policy:
         description: "Forestry and Natural Resources Management and Policy Subject"
-        rule: same_course
+        rule: OR
         args:
-            - OR:
-                - course: ESPM.120
-                - course: ESPM.121
-                - course: ESPM.C128
-                - course: ESPM.C129
-                - course: EPS.117
-                - course: GEOG.140A
+            - course: ESPM.120
+            - course: ESPM.121
+            - course: ESPM.C128
+            - course: ESPM.C129
+            - course: EPS.117
+            - course: GEOG.140A
 
     cnr_subject_forestry_physical_environment:
         description: "Forestry and Natural Resources Physical Environment Subject"
-        rule: same_course
+        rule: OR
         args:
-            - OR:
-                - course: ESPM.155
-                - course: ESPM.165
-                - course: ESPM.168
-                - course: ESPM.169
-                - course: ESPM.181A
-                - course: ESPM.182
-                - course: ESPM.183
-                - course: ESPM.184
-                - course: ESPM.185
-                - course: ESPM.186
-                - course: ESPM.188
-                - course: CY PLAN.112A
+            - course: ESPM.155
+            - course: ESPM.165
+            - course: ESPM.168
+            - course: ESPM.169
+            - course: ESPM.181A
+            - course: ESPM.182
+            - course: ESPM.183
+            - course: ESPM.184
+            - course: ESPM.185
+            - course: ESPM.186
+            - course: ESPM.188
+            - course: CY PLAN.112A

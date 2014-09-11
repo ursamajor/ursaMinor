@@ -31,10 +31,10 @@ rules:
 
 # not sure if we should do it like this or split into lowerdiv/upperdiv
 
-    coc_lowerdiv_chemical_biology_requirements:
-        description: "Lower Division Chemical Biology Requirements"
-        rule: AND
-        args:
+    # coc_lowerdiv_chemical_biology_requirements:
+    #     description: "Lower Division Chemical Biology Requirements"
+    #     rule: AND
+    #     args:
 
     coc_forlang:
         hidden: true
@@ -51,10 +51,10 @@ rules:
             rule: coc_breadth_humanities_and_social_sciences # 2 diff depts
 
 
-    coc_upperdiv_chemical_biology_requirements:
-        description: "Upper Division Chemical Biology Requirements"
-        rule: AND
-        args:
+    # coc_upperdiv_chemical_biology_requirements:
+    #     description: "Upper Division Chemical Biology Requirements"
+    #     rule: AND
+    #     args:
 
     coc_chembio_more:
         hidden: true
@@ -70,12 +70,10 @@ rules:
     chembio_other_units:
         hidden: true
         rule: units
+        args:
             min: 7
             rule: OR
             args:
                 - rule: coc_allied_subjects
                 - rule: upperdiv_chemistry # don't include above
-
-
-
 

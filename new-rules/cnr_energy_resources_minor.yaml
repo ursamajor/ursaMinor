@@ -27,6 +27,7 @@ rules:
     ced_energy_resources_minor_upperdiv_electives:
         description: "Energy and Resources Minor Upper Division Electives"
         rule: count_courses
+        args:
             min: 4
             args:
             # at least 3 in ENE,RES

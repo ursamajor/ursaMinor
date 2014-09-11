@@ -3,7 +3,9 @@ rules:
     cnr_forestry_and_natural_resources_minor:
         description: "Forestry and Natural Resources Minor"
         rule: count_courses
+        args:
             min: 5
+            rule: AND
             args:
                 - rule: cnr_forestry_minor_lowerdiv
                 - rule: cnr_forestry_minor_upperdiv
@@ -20,7 +22,9 @@ rules:
     cnr_forestry_minor_upperdiv:
         description: "Forestry and Natural Resources Minor Upper Division"
         rule: count_courses
+        args:
             min: 3
+            rule: OR
             args:
                 - course: ESPM.102A
                 - course: ESPM.102B

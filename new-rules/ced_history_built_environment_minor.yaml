@@ -12,7 +12,9 @@ rules:
     ced_history_built_environment_minor_ced:
         description: "History of the Build Environment Minor: CED Courses"
         rule: count_courses
+        args:
             min: 2
+            rule: OR
             args:
                 - course: ENV DES.169A
                 - course: ENV DES.169B

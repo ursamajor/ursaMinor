@@ -28,26 +28,19 @@ rules:
 
     cnr_toxicology_minor_upperdiv:
         description: "Molecular Toxicology Minor Upper Division Elective Courses"
-        rule: count_courses
-            min: 1
-            args:
-                - course: NUSCTX.103
-                - course: NUSCTX.104
-                - course: NUSCTX.108A
-                - course: NUSCTX.121
-                - course: NUSCTX.C159
-                - course: ESPM.C159
-                - course: NUSCTX.160
-                - course: NUSCTX.161A
-                - course: NUSCTX.166
-                - course: NUSCTX.190
-                - course: NUSCTX.193
-                - course: NUSCTX.H196
-                - course: NUSCTX.199
-
-    nutriscic114_espmc148:
-        hidden: true
         rule: OR
         args:
-            - course: NUSCTX.C114
-            - course: ESPM.C148
+            - course: NUSCTX.103
+            - course: NUSCTX.104
+            - course: NUSCTX.108A
+            - course: NUSCTX.121
+            - course: NUSCTX.C159
+            - course: ESPM.C159
+            - course: NUSCTX.160
+            - course: NUSCTX.161A
+            - course: NUSCTX.166
+            - course: NUSCTX.190
+            - course: NUSCTX.193
+            - course: NUSCTX.H196
+            - course: NUSCTX.199
+

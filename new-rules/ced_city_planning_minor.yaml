@@ -10,7 +10,9 @@ rules:
     ced_city_planning_minor_prereqs:
         description: "City and Regional Planning Minor Prerequisites"
         rule: count_courses
+        args:
             min: 2
+            rule: OR
             args:
                 - rule: ced_city_planning_minor_prereqs_econ
                 - rule: ced_city_planning_minor_prereqs_stats
@@ -49,7 +51,9 @@ rules:
     ced_architecture_minor_required_choices:
         description: "City and Reigional Planning Minor Choices"
         rule: count_courses
+        args:
             min: 5
+            rule: AND
             args:
                 - rule: ced_architecture_minor_required_choices_cy_plan
                 - rule: ced_architecture_minor_required_choices_outside
@@ -57,7 +61,9 @@ rules:
     ced_architecture_minor_required_choices_cy_plan:
         description: "City and Regional Planning Minor Choices: City Planning"
         rule: count_courses
+        args:
             min: 4
+            rule: OR
             args:
                 - course: CY PLAN.111
                 - course: CY PLAN.112A

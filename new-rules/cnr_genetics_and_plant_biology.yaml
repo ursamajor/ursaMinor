@@ -30,15 +30,6 @@ rules:
             - rule: es_bio1
             - course: PHYSICS.8A
 
-    gpb_stat:
-        hidden: true
-        rule: OR
-        args:
-            - course: STAT.2 
-            - course: STAT.20
-            - course: STAT.131A
-
-
     cnr_hss_genetics_requirements:
         description: "Humanities & Social Sciences Genetics and Plant Biology Requirements"
         rule: units

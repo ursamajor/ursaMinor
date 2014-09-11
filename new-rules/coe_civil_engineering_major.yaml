@@ -24,10 +24,10 @@ rules:
 
 # not sure if we should do it like this or split into lowerdiv/upperdiv
 
-    coe_lowerdiv_civil_engineering_requirements:
-        description: "Lower Division Civil Engineering Requirements"
-        rule: AND
-        args:
+    # coe_lowerdiv_civil_engineering_requirements:
+    #     description: "Lower Division Civil Engineering Requirements"
+    #     rule: AND
+    #     args:
 
     coe_electives_civil_engineering:
         description: "Civil Engineering Electives"
@@ -60,6 +60,7 @@ rules:
     cive_elective_core:
         description: "Civil Engineering Elective Core"
         rule: count_courses
+        args:
             min: 4
             rule: OR
             args:
@@ -74,8 +75,11 @@ rules:
     cive_units:
         hidden: true
         rule: units
+        args:
             min: 15
-            rule: coe_engineering_electives
+            rule: AND
+            args:
+                - rule: coe_engineering_electives
                 - NOT:
                     - course: CHM ENG.185
                     - course: COMPSCI.194
@@ -91,6 +95,3 @@ rules:
                     - course: ENGIN.195
                     - course: ENGIN.196
                     - course: MEC ENG.106
-
-
-

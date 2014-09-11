@@ -155,41 +155,35 @@ rules:
 
     ced_electives_electives_international: # cannot use breadth
         description: "Urban Studies International Content Courses"
-        rules: same_course
+        rules: OR
         args:
-            - OR:
-                - course: ANTHRO.139
-                - course: DEMOG.145AC
-                - course: ECON.115
-                - course: EDUC.186AC
-                - course: ESPM.165
-                - course: ESPM.169
-                - course: ETH STD.159AC
-                - course: GEOG.110
-                - course: GEOG.111
-                - course: GEOG.123
-                - course: GEOG.130
-                - course: GEOG.C152
-                - course: GEOG.159AC
-                - course: GEOG.164
-                - course: HISTORY.134
-                - course: HISTORY.134A
-                - course: HISTORY.160
-                - course: HISTORY.C176
-                - course: IAS.115
-                - course: CY PLAN.115
-                - course: IAS.C145
-                - course: GEOG.C152
-                - course: HISTORY.C176
-                - course: PACS.127
-                - course: PACS.149
-                - course: POLECON.100
-                - course: POLECON.101
-                - course: SOCIOL.127
-                - course: SOCIOL.180I
-                - course: UGBA.165S
-
-
-
-
-
+            - course: ANTHRO.139
+            - course: DEMOG.145AC
+            - course: ECON.115
+            - course: EDUC.186AC
+            - course: ESPM.165
+            - course: ESPM.169
+            - course: ETH STD.159AC
+            - course: GEOG.110
+            - course: GEOG.111
+            - course: GEOG.123
+            - course: GEOG.130
+            - course: GEOG.C152
+            - course: GEOG.159AC
+            - course: GEOG.164
+            - course: HISTORY.134
+            - course: HISTORY.134A
+            - course: HISTORY.160
+            - course: HISTORY.C176
+            - course: IAS.115
+            - course: CY PLAN.115
+            - course: IAS.C145
+            - course: GEOG.C152
+            - course: HISTORY.C176
+            - course: PACS.127
+            - course: PACS.149
+            - course: POLECON.100
+            - course: POLECON.101
+            - course: SOCIOL.127
+            - course: SOCIOL.180I
+            - course: UGBA.165S

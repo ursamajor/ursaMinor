@@ -59,29 +59,6 @@ rules:
                 - course: BIOLOGY.1A
                 - course: BIOLOGY.1AL
 
-    mtx_math:
-        hidden: true
-        rule: OR
-        args:
-            - rule: mtx_math1
-            - rule: mtx_math2
-            - rule: math10
-
-    mtx_math1:
-        hidden: true
-        rule: AND
-        args:
-            - course: MATH.16A
-            - course: MATH.16B
-            - course: STAT.2
-
-    mtx_math2:
-        hidden: true
-        rule: AND
-        args:
-            - course: MATH.1A
-            - course: STAT.2
-
     cnr_upperdiv_molecular_toxicology_requirements:
         description: "Upper Division Molecular Toxicology Requirements"
         rule: AND

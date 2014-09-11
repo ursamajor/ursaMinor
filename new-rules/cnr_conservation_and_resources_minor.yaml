@@ -36,7 +36,9 @@ rules:
     cnr_conservation_minor_upperdiv:
         description: "Conservation and Natural Resource Upper Division Courses"
         rule: count_courses
+        args:
             min: 3
+            rule: OR
             args:
                 - course: ESPM.C103
                 - course: ESPM.117
@@ -65,6 +67,7 @@ rules:
     cnr_conservation_minor_option2_upperdiv:
         description: "Conservation and Natural Resources Individualized Minor: Courses"
         rule: count_courses
+        args:
             min: 4
             # interdisciplinary, 2 natural science, 2 social science
             # at least 2 in espm

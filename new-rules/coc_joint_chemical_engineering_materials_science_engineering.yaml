@@ -37,23 +37,17 @@ rules:
 
 # not sure if we should do it like this or split into lowerdiv/upperdiv
 
-    coc_breadth_joint_chemical_engineering_materials_science_requirement:
-        description: "Joint Chemical Engineering & Materials Science and Engineering Breadth Requirements"
-        rule: AND
-        args:
+    # coc_breadth_joint_chemical_engineering_materials_science_requirement:
+    #     description: "Joint Chemical Engineering & Materials Science and Engineering Breadth Requirements"
+    #     rule: AND
+    #     args:
 
 
-    coc_joint_chemical_engineering_materials_science_engineering_requirements:
-        description: "Joint Chemical Engineering & Materials Science and Engineering Requirements"
-        rule: AND
-        args:
+    # coc_joint_chemical_engineering_materials_science_engineering_requirements:
+    #     description: "Joint Chemical Engineering & Materials Science and Engineering Requirements"
+    #     rule: AND
+    #     args:
 
-    chem120a_phys137A:
-        hidden: true
-        rule: OR
-        args:
-            - course: CHEM.120A
-            - course: PHYSICS.137A
 
     coc_electives_joint_chemical_engineering_materials_science_engineering_materials_science:
         description: "Joint Chemical Engineering & Materials Science and Engineering Materials Science Electives"
@@ -82,7 +76,4 @@ rules:
             - course: MAT SCI.122
             - course: MAT SCI.123
             - course: MAT SCI.125
-
-
-
 

@@ -35,13 +35,6 @@ rules:
             - rule: arch_110ac_or_130
             - rule: arch_tracks
 
-    arch_110ac_or_130:
-        hidden: true
-        rule: OR
-        args:
-                - course: ARCH.110AC
-                - course: ARCH.130
-
     arch_tracks:
         description: "Architecture Tracks"
         rule: OR
@@ -62,14 +55,6 @@ rules:
         # also included here are three capstone electives, dk where the list is
 
 
-    arch_140_or_160:
-        hidden: true
-        rule: OR
-        args:
-            - course: ARCH.140
-            - course: ARCH.160
-
-
     arch_senior_track:
         description: "Architecture Senior Track"
         rule: count_courses
@@ -83,8 +68,6 @@ rules:
                 - course: ARCH.160
                 - course: ARCH.150
 
-
-
     ced_upperdiv_non_architecture_requirements: # cannot be used to fulfill breadth
         description: "Upper Division Non-Architecture Requirements"
         rule: units
@@ -96,5 +79,3 @@ rules:
                 - rule: upperdiv_environmental_design
                 - rule: upperdiv_city_planning
                 - rule: upperdiv_vision_studies
-
-

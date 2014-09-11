@@ -32,7 +32,9 @@ rules:
     ced_sustainable_design_minor_required_ced:
         description: "Sustainable Design Minor CED Courses"
         rule: count_courses
+        args:
             min: 2
+            rule: OR
             args:
                 - course: ARCH.140
                 - course: ARCH.149
@@ -58,7 +60,9 @@ rules:
     ced_sustainable_design_minor_required_non_ced:
         description: "Sustainable Design Minor Non-CED Courses"
         rule: count_courses
+        args:
             min: 2
+            rule: OR
             args:
                 - course: ANTHRO.137
                 - course: CIV ENG.103

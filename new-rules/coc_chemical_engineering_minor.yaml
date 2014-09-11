@@ -12,7 +12,9 @@ rules:
     chem_eng_others:
         description: "Chemical Engineering Other Courses"
         rule: count_courses
+        args:
             min: 2
+            rule: OR
             args:
                 - course: CHM ENG.142
                 - course: CHM ENG.150B

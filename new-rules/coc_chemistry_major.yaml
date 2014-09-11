@@ -32,23 +32,16 @@ rules:
 # not sure if we should do it like this or split into lowerdiv/upperdiv
 
 
-    coc_lowerdiv_chemistry_requirements:
-        description: "Lower Division Chemistry Requirements"
-        rule: AND
-        args:
+    # coc_lowerdiv_chemistry_requirements:
+    #     description: "Lower Division Chemistry Requirements"
+    #     rule: AND
+    #     args:
 
 
-    coc_upperdiv_chemistry_requirements:
-        description: "Upper Division Chemistry Requirements"
-        rule: AND
-        args:
-
-    chem_125_c182:
-        hidden: true
-        rule: OR
-        args:
-            - course: CHEM.125
-            - course: CHEM.C182
+    # coc_upperdiv_chemistry_requirements:
+    #     description: "Upper Division Chemistry Requirements"
+    #     rule: AND
+    #     args:
 
     chem_more:
         hidden: true
@@ -62,14 +55,9 @@ rules:
     chem_other_units:
         hidden: true
         rule: units
+        args:
             min: 16
             rule: OR
             args:
                 - rule: coc_allied_subjects
                 - rule: upperdiv_chemistry # don't include above
-
-
-
-
-
-

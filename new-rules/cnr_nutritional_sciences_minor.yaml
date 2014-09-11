@@ -28,7 +28,9 @@ rules:
     cnr_nutritional_science_minor_upperdiv:
         description: "Nutritional Science Minor Upper Division Elective Courses"
         rule: count_courses
+        args:
             min: 2
+            rule: OR
             args:
                 - course: NUSCTX.104
                 - course: NUSCTX.108A

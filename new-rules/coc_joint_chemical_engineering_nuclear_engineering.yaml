@@ -35,17 +35,10 @@ rules:
 
 # not sure if we should do it like this or split into lowerdiv/upperdiv
 
-    coc_joint_chemical_engineering_nuclear_engineering_requirements:
-        description: "Joint Chemical Engineering & Nuclear Engineering Requirements"
-        rule: AND
-        args:
-
-    cheme160_nuc170a:
-        hidden: true
-        rule: OR
-        args:
-            - course: CHM ENG.160
-            - course: NUC ENG.170A
+    # coc_joint_chemical_engineering_nuclear_engineering_requirements:
+    #     description: "Joint Chemical Engineering & Nuclear Engineering Requirements"
+    #     rule: AND
+    #     args:
 
     cheme_ethics:
         hidden: true
@@ -77,12 +70,14 @@ rules:
     cheme_nuc_upperdivs:
         hidden: true
         rule: count_courses
+        args:
             min: 7
             rule: upperdiv_nuclear_engineering
 
     nuc_required:
         hidden: true
         rule: count_courses
+        args:
             min: 2
             rule: OR
             args:

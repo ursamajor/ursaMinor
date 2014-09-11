@@ -55,7 +55,9 @@ rules:
     coc_chemistry_minor_upperdiv:
         description: "Chemistry Minor: Additional Courses"
         rule: count_courses
+        args:
             min: 2
+            rule: OR
             args:
                 - course: CHEM.100
                 - course: CHEM.103

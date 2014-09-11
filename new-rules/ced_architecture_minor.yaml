@@ -2,7 +2,7 @@ rules:
 
     ced_architecture_minor:
         description: "Architecture Minor"
-        rules: AND
+        rule: AND
         args:
             - rule: ced_architecture_minor_prereqs
             - rule: ced_architecture_minor_required

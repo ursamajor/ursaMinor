@@ -34,7 +34,9 @@ rules: # i don't understand this major at all
     ced_social_cultural_factors_environmental_design_minor_required_ced_courses:
         description: "So and Cultural Factors in Environmental Design Minor: CED Courses"
         rule: count_courses
+        args:
             min: 3
+            rule: OR
             args:
                 - course: ARCH.130
                 - course: ARCH.179 # non-western arch section
@@ -50,8 +52,6 @@ rules: # i don't understand this major at all
 
 # ARCH 110 (3) Social and Cultural Factors in Design. Architecture majors: To complete the major and this minor, complete four area studies courses or three area studies for the major and two classes in the ARCH 110 series to cover minor requirements 1 and 4.
 # CY PLAN 115 (3) Urbanization in Developing Countries. Urban studies majors: Complete an additional class in the ARCH 110 series.
-
-
 
 
 

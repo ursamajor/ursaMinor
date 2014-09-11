@@ -35,6 +35,7 @@ rules: # same major, tracks COMPLETELY different
     cnr_lowerdiv_nutritional_science_requirements:
         description: "Lower Division Nutritional Science Requirements"
         rule: AND
+        args:
             - course: CHEM.1A
             - course: CHEM.1AL
             - course: CHEM.3A
@@ -46,14 +47,6 @@ rules: # same major, tracks COMPLETELY different
             - rule: nutri_sci_32
             - course: BIOLOGY.1A
             - course: BIOLOGY.1AL
-
-    nutri_sci_32:
-        hidden: true
-        rule: OR
-        args:
-            - course: MCELLBI.32L
-            - course: INTEGBI.132
-            - course: INTEGBI.132L
 
     cnr_lowerdiv_nutritional_science_dietics_requirements:
         description: "Lower Division Nutritional Science Dietics Requirements"
@@ -168,12 +161,7 @@ rules: # same major, tracks COMPLETELY different
                 - course: UGIS.192C
                 - rule: pmbc112_pbhlthc162a
 
-    pmbc112_pbhlthc162a:
-        hidden: true
-        rule: OR
-        args:
-            - course: PLANTBI.C112
-            - course: PB HLTH.C162A
+
 
 # of these courses, max of 10 units
 #                    - course: NUSCTX.104

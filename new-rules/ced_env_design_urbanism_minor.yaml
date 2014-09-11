@@ -1,5 +1,5 @@
 rules:
-    
+
     ced_env_design_urbanism_minor:
         description: "Environmental Design and Urbanism in Developing Countries Minor"
         rule: AND
@@ -28,7 +28,9 @@ rules:
     ced_env_design_urbanism_minor_required_ced:
         description: "Environmental Design Minor Required Courses: List 1 (CED Offerings)"
         rule: count_courses
+        args:
             min: 3
+            rule: OR
             args:
                 - course: CY PLAN.111
                 - course: ARCH.111
@@ -45,7 +47,9 @@ rules:
     ced_env_design_urbanism_minor_required_area:
         description: "Environmental Design Minor Required Courses: List 2 (University Offerings - Specialized Area Studies)"
         rule: count_courses
+        args:
             min: 2
+            rule: OR
             args:
                 - course: ANTHRO.141
                 - course: ANTHRO.170
