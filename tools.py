@@ -28,11 +28,9 @@ def number_switch(num, up_to):
     114A
     114B
     """
-    count = 0
     while up_to >= num:
         print('{0}A'.format(num))
         print('{0}B'.format(num))
-        count += 1
         num += 1
 
 
@@ -48,5 +46,19 @@ def letter_add(num, end):
         if end == letter:
                 return
         print('{0}{1}'.format(num, letter))
+
+
+def consec_num(first, last):
+    """Creates a column of every whole number between the first
+    and the last number.
+
+    >>> consec_num(5, 7)
+    5
+    6
+    7
+    """
+    while first <= last:
+        print(first)
+        first += 1
 
 

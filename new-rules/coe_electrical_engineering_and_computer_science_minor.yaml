@@ -3,6 +3,7 @@ rules:
     coe_electrical_engineering_and_computer_science_minor:
         description: "Electrical Engineering and Computer Science Minor"
         rule: count_courses
+        args:
             min: 7
             rule: AND
             args:
@@ -13,8 +14,8 @@ rules:
         description: "Electrical Engineering and Computer Science Lower Division Core"
         rule: AND
         args:
-            - course: EL ENG.20N
-            - course: EL ENG.40
+            - rule: ee20_16a
+            - rule: ee40_16b_100_more
             - rule: e7_cs61a
             - rule: cs61b_c
 
@@ -25,40 +26,36 @@ rules:
             - course: COMPSCI.61B
             - course: COMPSCI.61C
 
+    ee20_16a:
+        hidden: true
+        rule: OR
+        args:
+            - course: EL ENG.20
+            - course: EL ENG.16A
+
+    ee40_16b_100_more:
+        hidden: true
+        rule: OR
+        args:
+            - course: EL ENG.40
+            - course: EL ENG.16B
+            - course: EL ENG.100
+            - rule: phys7b_ee42
+
+    phys7b_ee42:
+        hidden: true
+        rule: OR
+        args:
+            - course: PHYSICS.7B
+            - course: EL ENG.42
+
     coe_electrical_engineering_upperdiv:
         description: "Electrical Engineering and Computer Science Upper Division"
         rule: units
+        args:
             min: 9
-            rule: OR
             args:
-                - course: EL ENG.105
-                - course: EL ENG.113
-                - course: EL ENG.117
-                - course: EL ENG.118
-                - course: EL ENG.120
-                - course: EL ENG.121
-                - course: EL ENG.122
-                - course: EL ENG.123
-                - course: EL ENG.C125
-                - course: EL ENG.126
-                - course: EL ENG.127
-                - course: EL ENG.C128
-                - course: EL ENG.129
-                - course: EL ENG.130
-                - course: EL ENG.134
-                - course: EL ENG.137A
-                - course: EL ENG.137B
-                - course: EL ENG.140
-                - course: EL ENG.141
-                - course: EL ENG.142
-                - course: EL ENG.143
-                - course: EL ENG.144
-                - course: EL ENG.C145B
-                - course: EL ENG.C145L
-                - course: EL ENG.C145M
-                - course: EL ENG.C145O
-                - course: EL ENG.147
-                - course: EL ENG.C149
-                - course: EL ENG.192
+                - rule: upperdiv_electrical_engineering
+                - rule: upperdiv_computer_science
 
 

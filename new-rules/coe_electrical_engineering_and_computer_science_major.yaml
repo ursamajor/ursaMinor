@@ -100,11 +100,31 @@ rules:
         description: "Electrical Engineering Lower Division Core"
         rule: AND
         args:
-            - course: EL ENG.20N
-            - course: EL ENG.40
+            - rule: ee_lower
             - course: COMPSCI.61A
             - rule: cs61b
             - rule: cs61c
+
+    ee_lower:
+        description: "Electrical Engineering Lower Division Course Choices"
+        rule: OR
+        args:
+            - rule: ee20_40
+            - rule: ee16
+
+    ee20_40:
+        hidden: true
+        rule: AND
+        args:
+            - course: EL ENG.20
+            - course: EL ENG.40
+
+    ee16:
+        hidden: true
+        rule: AND
+        args:
+            - course: EL ENG.16A
+            - course: EL ENG.16B
 
     eecs_eng_ethics:
         description: "Electrical Engineering: Engineering Ethics"
